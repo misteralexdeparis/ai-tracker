@@ -1,0 +1,663 @@
+[
+  {
+    "id": "llm-1",
+    "name": "GPT-5",
+    "category": "LLM",
+    "developer": "OpenAI",
+    "version": "5.0",
+    "releaseDate": "2025-08-07",
+    "status": "Live",
+    "quadrant": "Leader",
+    "contextWindow": "272K tokens",
+    "strengths": [
+      "Complex reasoning",
+      "26% lower hallucinations",
+      "Multimodal (text/image/audio)"
+    ],
+    "limitations": [
+      "Context < Claude/Gemini",
+      "Higher cost"
+    ],
+    "pricing": "$20/mo ChatGPT Plus",
+    "keyFeatures": [
+      "Advanced reasoning",
+      "Code generation"
+    ],
+    "integrations": "API, OAuth",
+    "score": 9.5,
+    "benchmark": "Leading reasoning",
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "llm-2",
+    "name": "Claude 4.5 Sonnet",
+    "category": "LLM",
+    "developer": "Anthropic",
+    "version": "4.5",
+    "releaseDate": "2025-09-29",
+    "status": "Live",
+    "quadrant": "Leader",
+    "contextWindow": "1M tokens",
+    "strengths": [
+      "Best coding (62-70% SWE-Bench)",
+      "Massive 1M context",
+      "Extended thinking"
+    ],
+    "limitations": [
+      "Slower than GPT-5",
+      "Conservative on creativity"
+    ],
+    "pricing": "API variable",
+    "keyFeatures": [
+      "Code generation",
+      "Extended reasoning"
+    ],
+    "integrations": "OAuth, Clerk, Firebase",
+    "score": 9.5,
+    "benchmark": "Best SWE-Bench",
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "llm-3",
+    "name": "Gemini 2.5 Pro",
+    "category": "LLM",
+    "developer": "Google",
+    "version": "2.5 Pro",
+    "releaseDate": "2025-06-17",
+    "status": "Live",
+    "quadrant": "Leader",
+    "contextWindow": "1M tokens",
+    "strengths": [
+      "Native multimodal",
+      "1M context",
+      "Excellent analysis"
+    ],
+    "limitations": [
+      "Video understanding developing",
+      "Reasoning behind Claude"
+    ],
+    "pricing": "$20/mo Google AI Pro",
+    "keyFeatures": [
+      "Multimodal processing",
+      "Web search"
+    ],
+    "integrations": "Firebase, OAuth",
+    "score": 9.0,
+    "benchmark": "Best multimodal",
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "llm-4",
+    "name": "Grok 4",
+    "category": "LLM",
+    "developer": "xAI",
+    "version": "4.0",
+    "releaseDate": "2025-07-09",
+    "status": "Live",
+    "quadrant": "Challenger",
+    "contextWindow": "256K tokens",
+    "strengths": [
+      "Real-time X integration",
+      "Strong reasoning (94% AIME)",
+      "Good coding"
+    ],
+    "limitations": [
+      "X-only access",
+      "Smaller community"
+    ],
+    "pricing": "$22/mo X Premium+",
+    "keyFeatures": [
+      "Real-time data",
+      "Math reasoning"
+    ],
+    "integrations": "Via API",
+    "score": 8.5,
+    "benchmark": "Top math",
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "llm-5",
+    "name": "DeepSeek-R1",
+    "category": "LLM",
+    "developer": "DeepSeek",
+    "version": "R1-0528",
+    "releaseDate": "2025-05-28",
+    "status": "Live",
+    "quadrant": "Challenger",
+    "contextWindow": "128K tokens",
+    "strengths": [
+      "Open-source",
+      "Cost-effective",
+      "Excellent reasoning"
+    ],
+    "limitations": [
+      "128K context",
+      "Self-hosting needed"
+    ],
+    "pricing": "FREE (open-source)",
+    "keyFeatures": [
+      "Chain-of-thought",
+      "Customizable"
+    ],
+    "integrations": "Full API control",
+    "score": 8.5,
+    "benchmark": "Rivals o1",
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "llm-6",
+    "name": "LeChat (Mistral)",
+    "category": "LLM",
+    "developer": "Mistral AI",
+    "version": "Latest",
+    "releaseDate": "2025-01-16",
+    "status": "Live",
+    "quadrant": "Challenger",
+    "contextWindow": "Varies",
+    "strengths": [
+      "Fastest (1000 words/sec)",
+      "Free tier",
+      "Real-time data"
+    ],
+    "limitations": [
+      "Smaller community"
+    ],
+    "pricing": "Free + $14.99/mo",
+    "keyFeatures": [
+      "Flash Answers",
+      "Document processing"
+    ],
+    "integrations": "API, Firebase",
+    "score": 8.0,
+    "benchmark": "Fastest response",
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "llm-7",
+    "name": "Qwen-Max",
+    "category": "LLM",
+    "developer": "Alibaba",
+    "version": "3.0",
+    "releaseDate": "2025-09-15",
+    "status": "Live",
+    "quadrant": "Leader",
+    "contextWindow": "256K tokens",
+    "strengths": [
+      "256K context",
+      "Multimodal strong",
+      "Multilingual (119 languages)"
+    ],
+    "limitations": [
+      "Less known in West",
+      "Alibaba ecosystem"
+    ],
+    "pricing": "API variable",
+    "keyFeatures": [
+      "Extended context",
+      "Vision + text"
+    ],
+    "integrations": "API, Open ecosystem",
+    "score": 8.5,
+    "benchmark": "Strong coding",
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "llm-8",
+    "name": "Mixtral 8x22B",
+    "category": "LLM",
+    "developer": "Mistral AI",
+    "version": "8x22B",
+    "releaseDate": "2024-04-09",
+    "status": "Live",
+    "quadrant": "Challenger",
+    "contextWindow": "64K tokens",
+    "strengths": [
+      "MoE efficient",
+      "39B active params",
+      "Excellent code & math"
+    ],
+    "limitations": [
+      "Not as capable as leaders",
+      "Community support"
+    ],
+    "pricing": "FREE (open-source)",
+    "keyFeatures": [
+      "Sparse MoE",
+      "Cost-efficient"
+    ],
+    "integrations": "Full open-source",
+    "score": 8.0,
+    "benchmark": "Best OSS MoE",
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "llm-9",
+    "name": "Llama 3.2 (90B Vision)",
+    "category": "LLM",
+    "developer": "Meta",
+    "version": "3.2",
+    "releaseDate": "2025-09-19",
+    "status": "Live",
+    "quadrant": "Challenger",
+    "contextWindow": "128K tokens",
+    "strengths": [
+      "Powerful multimodal",
+      "128K context",
+      "Open-source"
+    ],
+    "limitations": [
+      "Smaller than Claude",
+      "Reasoning < GPT-5"
+    ],
+    "pricing": "FREE (open-source)",
+    "keyFeatures": [
+      "Vision understanding",
+      "128K context"
+    ],
+    "integrations": "Full open-source",
+    "score": 8.0,
+    "benchmark": "Best OSS multimodal",
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "vc-1",
+    "name": "Cursor",
+    "category": "Vibe Coding",
+    "developer": "Anysphere",
+    "version": "Latest",
+    "releaseDate": "2024",
+    "status": "Live",
+    "quadrant": "Leader",
+    "backendSupport": "85%",
+    "frontendFrameworks": [
+      "React",
+      "Vue",
+      "Svelte",
+      "All"
+    ],
+    "strengths": [
+      "Deep codebase understanding",
+      "Excellent backend",
+      "All integrations"
+    ],
+    "limitations": [
+      "$20/mo cost",
+      "Technical setup"
+    ],
+    "pricing": "$20/mo Pro",
+    "keyFeatures": [
+      "Project context",
+      "Full auth support"
+    ],
+    "integrations": "OAuth, Clerk, Firebase, Stripe",
+    "score": 9.5,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "vc-2",
+    "name": "Claude Code",
+    "category": "Vibe Coding",
+    "developer": "Anthropic",
+    "version": "Latest",
+    "releaseDate": "2025",
+    "status": "Live",
+    "quadrant": "Leader",
+    "backendSupport": "90%",
+    "frontendFrameworks": [
+      "React",
+      "Vue",
+      "Svelte",
+      "All"
+    ],
+    "strengths": [
+      "Best code quality",
+      "Extended thinking",
+      "All frameworks"
+    ],
+    "limitations": [
+      "Manual deployment",
+      "Browser-based"
+    ],
+    "pricing": "Included w/ Claude",
+    "keyFeatures": [
+      "Extended reasoning",
+      "All frameworks"
+    ],
+    "integrations": "OAuth, Clerk, Firebase, Stripe",
+    "score": 9.5,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "vc-3",
+    "name": "Bolt.new",
+    "category": "Vibe Coding",
+    "developer": "Bolt.new Team",
+    "version": "Latest",
+    "releaseDate": "2023-2024",
+    "status": "Live",
+    "quadrant": "Leader",
+    "backendSupport": "40%",
+    "frontendFrameworks": [
+      "React"
+    ],
+    "strengths": [
+      "Fast prototyping",
+      "Stripe integration",
+      "Figma import"
+    ],
+    "limitations": [
+      "Backend weak",
+      "Limited customization"
+    ],
+    "pricing": "Freemium",
+    "keyFeatures": [
+      "Stripe built-in",
+      "Figma import"
+    ],
+    "integrations": "Stripe, limited auth",
+    "score": 7.5,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "vc-4",
+    "name": "Lovable",
+    "category": "Vibe Coding",
+    "developer": "Lovable Team",
+    "version": "Latest",
+    "releaseDate": "2024",
+    "status": "Live",
+    "quadrant": "Leader",
+    "backendSupport": "35%",
+    "frontendFrameworks": [
+      "React"
+    ],
+    "strengths": [
+      "Easiest UI",
+      "No-code friendly",
+      "Instant deploy"
+    ],
+    "limitations": [
+      "Very limited backend",
+      "Code not optimized"
+    ],
+    "pricing": "Freemium",
+    "keyFeatures": [
+      "No-code UI",
+      "Auto-deploy"
+    ],
+    "integrations": "Firebase partial",
+    "score": 7.0,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "vc-5",
+    "name": "Windsurf",
+    "category": "Vibe Coding",
+    "developer": "Codeium",
+    "version": "Latest",
+    "releaseDate": "2025",
+    "status": "Live",
+    "quadrant": "Visionary",
+    "backendSupport": "65%",
+    "frontendFrameworks": [
+      "React",
+      "Vue",
+      "All"
+    ],
+    "strengths": [
+      "Advanced reasoning",
+      "Multi-file aware",
+      "Cursor alternative"
+    ],
+    "limitations": [
+      "Newer (less mature)",
+      "Integrations developing"
+    ],
+    "pricing": "Freemium, Pro",
+    "keyFeatures": [
+      "Reasoning agents",
+      "Multi-file"
+    ],
+    "integrations": "OAuth basic, Stripe basic",
+    "score": 8.5,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "vc-6",
+    "name": "Gemini Code Assist",
+    "category": "Vibe Coding",
+    "developer": "Google",
+    "version": "Latest",
+    "releaseDate": "2024-2025",
+    "status": "Live",
+    "quadrant": "Challenger",
+    "backendSupport": "75%",
+    "frontendFrameworks": [
+      "React",
+      "Vue",
+      "All"
+    ],
+    "strengths": [
+      "Free tier",
+      "1M context",
+      "Agent capabilities"
+    ],
+    "limitations": [
+      "Firebase focus",
+      "Smaller community"
+    ],
+    "pricing": "Free + paid",
+    "keyFeatures": [
+      "Free agents",
+      "1M context"
+    ],
+    "integrations": "Firebase strong, OAuth, Stripe",
+    "score": 8.0,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "vc-7",
+    "name": "v0 (Vercel)",
+    "category": "Vibe Coding",
+    "developer": "Vercel",
+    "version": "Latest",
+    "releaseDate": "2024-2025",
+    "status": "Live",
+    "quadrant": "Leader",
+    "backendSupport": "30%",
+    "frontendFrameworks": [
+      "React",
+      "Vue",
+      "Svelte"
+    ],
+    "strengths": [
+      "UI-first",
+      "Shadcn/Tailwind",
+      "Direct Vercel deploy"
+    ],
+    "limitations": [
+      "Frontend only",
+      "Backend minimal"
+    ],
+    "pricing": "Freemium",
+    "keyFeatures": [
+      "Shadcn UI",
+      "Next.js native"
+    ],
+    "integrations": "Vercel native",
+    "score": 7.5,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "vc-8",
+    "name": "Replit AI",
+    "category": "Vibe Coding",
+    "developer": "Replit",
+    "version": "Latest",
+    "releaseDate": "2024-2025",
+    "status": "Live",
+    "quadrant": "Challenger",
+    "backendSupport": "60%",
+    "frontendFrameworks": [
+      "React",
+      "Python",
+      "Multi-lang"
+    ],
+    "strengths": [
+      "Multi-language",
+      "Built-in hosting",
+      "Collaborative"
+    ],
+    "limitations": [
+      "Less code control",
+      "Replit-locked"
+    ],
+    "pricing": "Freemium + $7/mo",
+    "keyFeatures": [
+      "Multi-lang",
+      "Instant host"
+    ],
+    "integrations": "Limited, Replit-focused",
+    "score": 7.0,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "agent-1",
+    "name": "Devin",
+    "category": "AI Agents",
+    "developer": "Cognition AI",
+    "version": "Latest",
+    "releaseDate": "2024-03-11",
+    "status": "Public Beta",
+    "quadrant": "Visionary",
+    "autonomyLevel": "Full",
+    "strengths": [
+      "Autonomous engineer",
+      "End-to-end builds",
+      "GitHub integration"
+    ],
+    "limitations": [
+      "Expensive",
+      "Still beta",
+      "Limited integrations"
+    ],
+    "pricing": "$20/mo Core, $500/mo Team",
+    "keyFeatures": [
+      "Autonomous tasks",
+      "PR automation"
+    ],
+    "integrations": "GitHub, limited others",
+    "score": 8.5,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "agent-2",
+    "name": "Crew AI",
+    "category": "AI Agents",
+    "developer": "Crew AI",
+    "version": "Latest",
+    "releaseDate": "2024",
+    "status": "Live",
+    "quadrant": "Leader",
+    "autonomyLevel": "Multi-agent orchestration",
+    "strengths": [
+      "Multi-agent framework",
+      "Role-based",
+      "Enterprise-ready"
+    ],
+    "limitations": [
+      "Requires setup",
+      "Learning curve"
+    ],
+    "pricing": "Open-source (free) + managed",
+    "keyFeatures": [
+      "Role-based agents",
+      "Orchestration"
+    ],
+    "integrations": "Extensive API ecosystem",
+    "score": 8.5,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "agent-3",
+    "name": "Devika",
+    "category": "AI Agents",
+    "developer": "Community",
+    "version": "Latest",
+    "releaseDate": "2024",
+    "status": "Live",
+    "quadrant": "Niche Player",
+    "autonomyLevel": "Partial",
+    "strengths": [
+      "Open-source",
+      "Self-hosted",
+      "Free"
+    ],
+    "limitations": [
+      "Less mature",
+      "Smaller community"
+    ],
+    "pricing": "FREE (open-source)",
+    "keyFeatures": [
+      "Open-source",
+      "Self-hostable"
+    ],
+    "integrations": "Community-driven",
+    "score": 6.5,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "video-1",
+    "name": "Sora 2",
+    "category": "Video Generation",
+    "developer": "OpenAI",
+    "version": "2.0",
+    "releaseDate": "2025-Q3",
+    "status": "Waitlist",
+    "quadrant": "Visionary",
+    "maxDuration": "60 seconds",
+    "strengths": [
+      "Best physics",
+      "Photorealistic",
+      "60s capability"
+    ],
+    "limitations": [
+      "Waitlist only",
+      "No audio",
+      "Expensive"
+    ],
+    "pricing": "Usage-based",
+    "keyFeatures": [
+      "Physics accuracy",
+      "Long duration"
+    ],
+    "score": 9.5,
+    "lastUpdated": "2025-10-30"
+  },
+  {
+    "id": "image-1",
+    "name": "DALL-E 3",
+    "category": "Image Generation",
+    "developer": "OpenAI",
+    "version": "3.0",
+    "releaseDate": "2024",
+    "status": "Live",
+    "quadrant": "Leader",
+    "strengths": [
+      "Best prompt adherence",
+      "Great text",
+      "ChatGPT integrated"
+    ],
+    "limitations": [
+      "Less photorealistic",
+      "Safety filters"
+    ],
+    "pricing": "$20/mo ChatGPT+",
+    "keyFeatures": [
+      "Prompt adherence",
+      "Text rendering"
+    ],
+    "score": 9.0,
+    "lastUpdated": "2025-10-30"
+  }
+]
