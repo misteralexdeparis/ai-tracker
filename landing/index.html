@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Tracker - Gartner Magic Quadrant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🤖 AI Tools Tracker</div>
+            <ul class="nav-links">
+                <li><a href="#matrix">Matrix</a></li>
+                <li><a href="#finder">Tool Finder</a></li>
+                <li><a href="#tools">All Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>The Definitive AI Tools Tracker</h1>
+            <p>39+ AI tools tracked. Updated weekly. Powered by community.</p>
+            <button class="cta-btn" onclick="document.getElementById('matrix').scrollIntoView()">Explore the Matrix</button>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stat-card">
+                <h3>39</h3>
+                <p>Tools Tracked</p>
+            </div>
+            <div class="stat-card">
+                <h3>Weekly</h3>
+                <p>Updates</p>
+            </div>
+            <div class="stat-card">
+                <h3>4</h3>
+                <p>Quadrants</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Impartial</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="matrix" class="matrix-section">
+        <div class="container">
+            <h2>Interactive Gartner Matrix</h2>
+            <p>Visualize AI tools across Innovation (Vision) vs Execution (Ability)</p>
+            <div class="matrix-container">
+                <div class="quadrant leader">🔵 Leaders (10)</div>
+                <div class="quadrant visionary">🟢 Visionaries (11)</div>
+                <div class="quadrant challenger">🟣 Challengers (8)</div>
+                <div class="quadrant niche">🟠 Niche (10)</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="finder" class="finder-section">
+        <div class="container">
+            <h2>Find Your AI Tool</h2>
+            <p>What's your use case?</p>
+            <select id="usecase" onchange="filterTools()">
+                <option value="">Select a use case...</option>
+                <option value="code">Generate Code</option>
+                <option value="video">Create Videos</option>
+                <option value="image">Generate Images</option>
+                <option value="search">Search & Research</option>
+                <option value="audio">Audio/Voice</option>
+            </select>
+            <div id="recommendations" class="recommendations"></div>
+        </div>
+    </section>
+
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <h2>Browse All Tools</h2>
+            <div class="category-pills">
+                <button class="pill active" onclick="filterByCategory('all')">All (39)</button>
+                <button class="pill" onclick="filterByCategory('LLM')">LLM (9)</button>
+                <button class="pill" onclick="filterByCategory('Image')">Image (6)</button>
+                <button class="pill" onclick="filterByCategory('Video')">Video (4)</button>
+                <button class="pill" onclick="filterByCategory('Code')">Code (5)</button>
+            </div>
+            <div id="tools-grid" class="tools-grid"></div>
+        </div>
+    </section>
+
+    <section class="distribution">
+        <div class="container">
+            <h2>Gartner Distribution</h2>
+            <div class="dist-boxes">
+                <div class="dist-box leader">
+                    <h3>10 Leaders</h3>
+                    <p>High Vision + High Ability</p>
+                </div>
+                <div class="dist-box visionary">
+                    <h3>11 Visionaries</h3>
+                    <p>High Vision + Low Ability</p>
+                </div>
+                <div class="dist-box challenger">
+                    <h3>8 Challengers</h3>
+                    <p>Low Vision + High Ability</p>
+                </div>
+                <div class="dist-box niche">
+                    <h3>10 Niche</h3>
+                    <p>Low Vision + Low Ability</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Get notified when new AI tools are added</p>
+            <form onsubmit="return false;">
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Tools Tracker. Built with ❤️</p>
+            <ul>
+                <li><a href="https://github.com/misteralexdeparis/ai-tracker">GitHub</a></li>
+                <li><a href="https://twitter.com">Twitter</a></li>
+                <li><a href="mailto:contact@aitracker.dev">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
