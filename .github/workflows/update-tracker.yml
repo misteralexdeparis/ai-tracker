@@ -1,0 +1,30 @@
+name: Update AI Tracker Weekly
+
+on:
+  schedule:
+    # Dimanche 21h CET (20h UTC en hiver, 19h UTC en été)
+    - cron: '0 20 * * 0'
+  workflow_dispatch:  # Pour tester manuellement
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Run validation pipeline
+        run: python scripts/update_tracker.py
+      
+      - name: Commit changes (if any)
+        run: |
+          git config user.name "AI Tracker Bot"
+          git config user.email "bot@aitracker.dev"
+          git add public/ai_tracker_enhanced.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-update AI tracker $(date +%Y-%m-%d)" && git push origin main)
+        continue-on-error: true
