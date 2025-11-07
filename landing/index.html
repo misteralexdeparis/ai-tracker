@@ -1,141 +1,2387 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tools Tracker - Gartner Magic Quadrant</title>
-    <link rel="stylesheet" href="style.css">
+    <title>AI Tools Tracker - The Definitive Guide</title>
+    <style>
+        /* Design System Variables */
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            --color-background: var(--color-charcoal-700);
+            --color-surface: var(--color-charcoal-800);
+            --color-text: var(--color-gray-200);
+            --color-text-secondary: rgba(167, 169, 169, 0.7);
+            --color-primary: var(--color-teal-300);
+            --color-primary-hover: var(--color-teal-400);
+            --color-border: rgba(119, 124, 124, 0.3);
+            
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-size-5xl: 36px;
+            --font-size-6xl: 48px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --space-4: 4px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-40: 40px;
+            --space-48: 48px;
+            --space-64: 64px;
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.16);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+            
+            /* Quadrant colors - CORRECTED */
+            --color-leader: #2563eb;
+            --color-visionary: #10b981;
+            --color-challenger: #8b5cf6;
+            --color-niche: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background: linear-gradient(135deg, #1a1d2e 0%, #0f1117 100%);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(31, 33, 33, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: var(--space-16) 0;
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-24);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+
+        nav {
+            display: flex;
+            gap: var(--space-32);
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .cta-button {
+            background: var(--color-primary);
+            color: var(--color-slate-900);
+            padding: var(--space-8) var(--space-24);
+            border-radius: var(--radius-base);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: var(--font-size-base);
+        }
+
+        .cta-button:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--space-64) var(--space-24);
+            text-align: center;
+            background: linear-gradient(135deg, rgba(50, 184, 198, 0.1) 0%, rgba(19, 52, 59, 0.1) 100%);
+        }
+
+        .hero h1 {
+            font-size: var(--font-size-6xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-16);
+            background: linear-gradient(135deg, var(--color-primary) 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: var(--font-size-xl);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-32);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats Section */
+        .stats {
+            max-width: 1280px;
+            margin: -40px auto 0;
+            padding: 0 var(--space-24);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-24);
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-8);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+        }
+
+        /* Section */
+        .section {
+            max-width: 1280px;
+            margin: var(--space-64) auto;
+            padding: 0 var(--space-24);
+        }
+
+        .section-title {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-16);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            text-align: center;
+            margin-bottom: var(--space-48);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Main Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-32);
+            margin-bottom: var(--space-64);
+        }
+
+        .feature-card {
+            background: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--color-border);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .feature-card h3 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-16);
+            color: var(--color-primary);
+        }
+
+        .feature-card p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-24);
+        }
+
+        .feature-visual {
+            width: 100%;
+            height: 200px;
+            background: rgba(50, 184, 198, 0.05);
+            border-radius: var(--radius-base);
+            margin-bottom: var(--space-24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quadrant-preview {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+            padding: var(--space-16);
+        }
+
+        .quadrant-box {
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            opacity: 0.7;
+        }
+
+        .quadrant-box.leader { background: rgba(37, 99, 235, 0.2); color: #2563eb; }
+        .quadrant-box.visionary { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+        .quadrant-box.challenger { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
+        .quadrant-box.niche { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+
+        /* Use Case Selector */
+        .use-case-input {
+            width: 100%;
+            padding: var(--space-16);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+            margin-bottom: var(--space-16);
+            cursor: pointer;
+        }
+
+        .use-case-input option {
+            background: var(--color-surface);
+            color: var(--color-text);
+            padding: var(--space-8);
+        }
+
+        .use-case-input option:hover {
+            background: var(--color-primary);
+            color: var(--color-slate-900);
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-24);
+            margin-bottom: var(--space-32);
+        }
+
+        .tool-card {
+            background: var(--color-surface);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-16);
+        }
+
+        .tool-name {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text);
+        }
+
+        .tool-developer {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-top: var(--space-4);
+        }
+
+        .tool-category {
+            font-size: var(--font-size-sm);
+            padding: var(--space-4) var(--space-12);
+            background: rgba(50, 184, 198, 0.1);
+            border-radius: var(--radius-sm);
+            color: var(--color-primary);
+            display: inline-block;
+            margin-bottom: var(--space-16);
+        }
+
+        .tool-about {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-16);
+            flex-grow: 1;
+        }
+
+        .tool-scores {
+            display: flex;
+            gap: var(--space-16);
+            margin-bottom: var(--space-16);
+            font-size: var(--font-size-sm);
+        }
+
+        .score {
+            flex: 1;
+        }
+
+        .score-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-4);
+        }
+
+        .score-value {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+
+        .quadrant-badge {
+            padding: var(--space-8) var(--space-16);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            text-align: center;
+            margin-bottom: var(--space-16);
+        }
+
+        .quadrant-badge.leader { background: rgba(37, 99, 235, 0.2); color: #2563eb; border: 1px solid rgba(37, 99, 235, 0.3); }
+        .quadrant-badge.visionary { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .quadrant-badge.challenger { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .quadrant-badge.niche { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        .btn-secondary {
+            background: rgba(50, 184, 198, 0.1);
+            color: var(--color-primary);
+            padding: var(--space-8) var(--space-16);
+            border-radius: var(--radius-base);
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: 1px solid var(--color-primary);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(50, 184, 198, 0.2);
+        }
+
+        /* Category Pills */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-12);
+            justify-content: center;
+            margin-bottom: var(--space-48);
+        }
+
+        .category-pill {
+            padding: var(--space-12) var(--space-24);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            color: var(--color-text);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: var(--font-size-base);
+        }
+
+        .category-pill:hover,
+        .category-pill.active {
+            background: var(--color-primary);
+            color: var(--color-slate-900);
+            border-color: var(--color-primary);
+        }
+
+        .matrix-categories {
+            margin-bottom: var(--space-32);
+            overflow-x: auto;
+            padding-bottom: var(--space-8);
+        }
+
+        .matrix-categories::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .matrix-categories::-webkit-scrollbar-thumb {
+            background: var(--color-border);
+            border-radius: 3px;
+        }
+
+        .category-count {
+            margin-left: var(--space-8);
+            opacity: 0.7;
+        }
+
+        /* Distribution Section */
+        .distribution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-24);
+            margin-top: var(--space-32);
+        }
+
+        .distribution-card {
+            background: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            border: 2px solid;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .distribution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .distribution-card.leader { border-color: #2563eb; }
+        .distribution-card.visionary { border-color: #10b981; }
+        .distribution-card.challenger { border-color: #8b5cf6; }
+        .distribution-card.niche { border-color: #f59e0b; }
+
+        .distribution-icon {
+            font-size: var(--font-size-4xl);
+            margin-bottom: var(--space-16);
+        }
+
+        .distribution-count {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-8);
+        }
+
+        .distribution-card.leader .distribution-count { color: #2563eb; }
+        .distribution-card.visionary .distribution-count { color: #10b981; }
+        .distribution-card.challenger .distribution-count { color: #8b5cf6; }
+        .distribution-card.niche .distribution-count { color: #f59e0b; }
+
+        .distribution-label {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+        }
+
+        /* How It Works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-32);
+            margin-top: var(--space-32);
+        }
+
+        .step-card {
+            text-align: center;
+            padding: var(--space-24);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(50, 184, 198, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-24);
+            font-size: var(--font-size-4xl);
+        }
+
+        .step-card h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-12);
+        }
+
+        .step-card p {
+            color: var(--color-text-secondary);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--color-surface);
+            padding: var(--space-64) var(--space-24);
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .newsletter h2 {
+            font-size: var(--font-size-4xl);
+            margin-bottom: var(--space-16);
+        }
+
+        .newsletter p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-32);
+            font-size: var(--font-size-lg);
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: var(--space-12);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: var(--space-16);
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(50, 184, 198, 0.1);
+        }
+
+        /* Community Section */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-32);
+            margin-top: var(--space-32);
+        }
+
+        .community-card {
+            background: var(--color-surface);
+            padding: var(--space-40);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--color-border);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .community-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .community-icon {
+            font-size: var(--font-size-5xl);
+            margin-bottom: var(--space-24);
+        }
+
+        .community-card h3 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-12);
+            color: var(--color-text);
+        }
+
+        .community-card p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-24);
+            line-height: 1.6;
+        }
+
+        .community-card .cta-button {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-surface);
+            padding: var(--space-64) var(--space-24) var(--space-32);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-48);
+        }
+
+        .footer-section h4 {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+            margin-bottom: var(--space-16);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+        }
+
+        .footer-links-column a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            transition: color 0.3s;
+        }
+
+        .footer-links-column a:hover {
+            color: var(--color-primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-16);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-base);
+            background: rgba(50, 184, 198, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: var(--color-primary);
+            color: var(--color-slate-900);
+            transform: translateY(-2px);
+        }
+
+        .footer-brand .logo {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--space-32);
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-24);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: var(--space-48);
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            border: 1px solid var(--color-border);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--space-24);
+            right: var(--space-24);
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: var(--font-size-3xl);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .modal-header {
+            margin-bottom: var(--space-32);
+        }
+
+        .modal-title {
+            font-size: var(--font-size-4xl);
+            margin-bottom: var(--space-8);
+        }
+
+        .modal-subtitle {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-lg);
+        }
+
+        .modal-section {
+            margin-bottom: var(--space-24);
+        }
+
+        .modal-section h4 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-12);
+        }
+
+        .modal-section p {
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .modal-section li {
+            padding: var(--space-8) 0;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-8);
+            line-height: 1.6;
+        }
+
+        .modal-section li.strength::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: bold;
+            font-size: var(--font-size-lg);
+            flex-shrink: 0;
+        }
+
+        .modal-section li.limitation::before {
+            content: '✗';
+            color: #ff5459;
+            font-weight: bold;
+            font-size: var(--font-size-lg);
+            flex-shrink: 0;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(50, 184, 198, 0.1);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            margin-top: var(--space-4);
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            background: var(--color-primary);
+            transition: width 0.5s ease;
+        }
+
+        .gartner-matrix-container {
+            width: 100%;
+            height: 600px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            padding: var(--space-32);
+            padding-left: 100px;
+            padding-bottom: 60px;
+            position: relative;
+            margin-bottom: var(--space-32);
+        }
+
+        .matrix-canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-left: 2px solid var(--color-border);
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .matrix-grid-line {
+            position: absolute;
+            background: rgba(119, 124, 124, 0.15);
+            pointer-events: none;
+        }
+
+        .matrix-grid-line.vertical {
+            width: 1px;
+            height: 100%;
+            top: 0;
+        }
+
+        .matrix-grid-line.horizontal {
+            height: 1px;
+            width: 100%;
+            left: 0;
+        }
+
+        .matrix-grid-line.pivot {
+            background: rgba(119, 124, 124, 0.3);
+            width: 2px;
+        }
+
+        .matrix-grid-line.pivot.horizontal {
+            height: 2px;
+            width: 100%;
+        }
+
+        .matrix-axis-tick {
+            position: absolute;
+            font-size: 11px;
+            color: var(--color-text-secondary);
+            pointer-events: none;
+        }
+
+        .matrix-axis-tick.x-axis {
+            bottom: -25px;
+        }
+
+        .matrix-axis-tick.y-axis {
+            left: -40px;
+        }
+
+        .matrix-quadrant {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: var(--space-16);
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            opacity: 0.6;
+        }
+
+        .matrix-quadrant.top-left {
+            top: 0;
+            left: 0;
+            background: rgba(139, 92, 246, 0.05);
+            color: #8b5cf6;
+        }
+
+        .matrix-quadrant.top-right {
+            top: 0;
+            right: 0;
+            background: rgba(37, 99, 235, 0.05);
+            color: #2563eb;
+        }
+
+        .matrix-quadrant.bottom-left {
+            bottom: 0;
+            left: 0;
+            background: rgba(245, 158, 11, 0.05);
+            color: #f59e0b;
+        }
+
+        .matrix-quadrant.bottom-right {
+            bottom: 0;
+            right: 0;
+            background: rgba(16, 185, 129, 0.05);
+            color: #10b981;
+        }
+
+        .matrix-tool-dot {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+            border: 2px solid;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .matrix-tool-dot.hidden {
+            opacity: 0;
+            transform: scale(0.5);
+            pointer-events: none;
+        }
+
+        .matrix-tool-dot:hover {
+            transform: scale(2.5);
+            z-index: 20;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .matrix-tool-dot.leader {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .matrix-tool-dot.visionary {
+            background: #10b981;
+            border-color: #10b981;
+        }
+
+        .matrix-tool-dot.challenger {
+            background: #8b5cf6;
+            border-color: #8b5cf6;
+        }
+
+        .matrix-tool-dot.niche {
+            background: #f59e0b;
+            border-color: #f59e0b;
+        }
+
+        .matrix-tooltip {
+            position: absolute;
+            background: var(--color-charcoal-700);
+            color: var(--color-text);
+            padding: var(--space-8) var(--space-12);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-sm);
+            pointer-events: none;
+            z-index: 100;
+            white-space: nowrap;
+            border: 1px solid var(--color-border);
+            display: none;
+        }
+
+        .matrix-axis-label {
+            position: absolute;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .matrix-axis-label.x-axis {
+            bottom: var(--space-8);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .matrix-axis-label.y-axis {
+            left: -80px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: center;
+            white-space: nowrap;
+        }
+
+        .view-all-btn {
+            display: block;
+            text-align: center;
+            margin: var(--space-32) auto 0;
+            padding: var(--space-16) var(--space-48);
+            background: var(--color-primary);
+            color: var(--color-slate-900);
+            border-radius: var(--radius-base);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: all 0.3s;
+        }
+
+        .view-all-btn:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: var(--font-size-4xl);
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                margin-top: var(--space-32);
+            }
+
+            .features-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .categories {
+                gap: var(--space-8);
+            }
+
+            .category-pill {
+                padding: var(--space-8) var(--space-16);
+                font-size: var(--font-size-sm);
+            }
+
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-32);
+            }
+
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">🤖 AI Tools Tracker</div>
-            <ul class="nav-links">
-                <li><a href="#matrix">Matrix</a></li>
-                <li><a href="#finder">Tool Finder</a></li>
-                <li><a href="#tools">All Tools</a></li>
-            </ul>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">AI Tools Tracker</div>
+            <nav>
+                <a href="#matrix">Gartner Matrix</a>
+                <a href="#tools">All Tools</a>
+                <a href="#use-cases">Use Cases</a>
+                <a href="#blog">Blog</a>
+            </nav>
+            <button class="cta-button" onclick="scrollToTools()">Browse Tools</button>
         </div>
-    </nav>
+    </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>The Definitive AI Tools Tracker</h1>
-            <p>39+ AI tools tracked. Updated weekly. Powered by community.</p>
-            <button class="cta-btn" onclick="document.getElementById('matrix').scrollIntoView()">Explore the Matrix</button>
-        </div>
+        <h1>The Definitive AI Tools Tracker</h1>
+        <p>39 AI tools analyzed with Gartner methodology. Updated weekly.</p>
+        <button class="cta-button" onclick="scrollToMatrix()">Explore the Matrix</button>
     </section>
 
-    <section class="stats">
-        <div class="container">
-            <div class="stat-card">
-                <h3>39</h3>
-                <p>Tools Tracked</p>
-            </div>
-            <div class="stat-card">
-                <h3>Weekly</h3>
-                <p>Updates</p>
-            </div>
-            <div class="stat-card">
-                <h3>4</h3>
-                <p>Quadrants</p>
-            </div>
-            <div class="stat-card">
-                <h3>100%</h3>
-                <p>Impartial</p>
-            </div>
+    <!-- Stats Section -->
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number">39</div>
+            <div class="stat-label">Tools Tracked</div>
         </div>
-    </section>
-
-    <section id="matrix" class="matrix-section">
-        <div class="container">
-            <h2>Interactive Gartner Matrix</h2>
-            <p>Visualize AI tools across Innovation (Vision) vs Execution (Ability)</p>
-            <div class="matrix-container">
-                <div class="quadrant leader">🔵 Leaders (10)</div>
-                <div class="quadrant visionary">🟢 Visionaries (11)</div>
-                <div class="quadrant challenger">🟣 Challengers (8)</div>
-                <div class="quadrant niche">🟠 Niche (10)</div>
-            </div>
+        <div class="stat-card">
+            <div class="stat-number">Weekly</div>
+            <div class="stat-label">Updated</div>
         </div>
-    </section>
-
-    <section id="finder" class="finder-section">
-        <div class="container">
-            <h2>Find Your AI Tool</h2>
-            <p>What's your use case?</p>
-            <select id="usecase" onchange="filterTools()">
-                <option value="">Select a use case...</option>
-                <option value="code">Generate Code</option>
-                <option value="video">Create Videos</option>
-                <option value="image">Generate Images</option>
-                <option value="search">Search & Research</option>
-                <option value="audio">Audio/Voice</option>
-            </select>
-            <div id="recommendations" class="recommendations"></div>
+        <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Quadrants</div>
         </div>
-    </section>
-
-    <section id="tools" class="tools-section">
-        <div class="container">
-            <h2>Browse All Tools</h2>
-            <div class="category-pills">
-                <button class="pill active" onclick="filterByCategory('all')">All (39)</button>
-                <button class="pill" onclick="filterByCategory('LLM')">LLM (9)</button>
-                <button class="pill" onclick="filterByCategory('Image')">Image (6)</button>
-                <button class="pill" onclick="filterByCategory('Video')">Video (4)</button>
-                <button class="pill" onclick="filterByCategory('Code')">Code (5)</button>
-            </div>
-            <div id="tools-grid" class="tools-grid"></div>
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Impartial Scoring</div>
         </div>
-    </section>
+    </div>
 
-    <section class="distribution">
-        <div class="container">
-            <h2>Gartner Distribution</h2>
-            <div class="dist-boxes">
-                <div class="dist-box leader">
-                    <h3>10 Leaders</h3>
-                    <p>High Vision + High Ability</p>
+    <!-- Main Features -->
+    <section class="section" id="matrix">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Interactive Gartner Matrix</h3>
+                <div class="feature-visual">
+                    <div class="quadrant-preview">
+                        <div class="quadrant-box visionary">Visionaries</div>
+                        <div class="quadrant-box leader">Leaders</div>
+                        <div class="quadrant-box niche">Niche</div>
+                        <div class="quadrant-box challenger">Challengers</div>
+                    </div>
                 </div>
-                <div class="dist-box visionary">
-                    <h3>11 Visionaries</h3>
-                    <p>High Vision + Low Ability</p>
+                <p>Visualize AI tools across Innovation (Vision) vs Execution (Ability)</p>
+                <button class="cta-button" onclick="scrollToGartnerMatrix()">View Matrix</button>
+            </div>
+
+            <div class="feature-card" id="use-cases">
+                <h3>Find Your AI Tool</h3>
+                <div class="feature-visual" style="background: rgba(16, 185, 129, 0.05);">
+                    <div style="font-size: 48px;">🎯</div>
                 </div>
-                <div class="dist-box challenger">
-                    <h3>8 Challengers</h3>
-                    <p>Low Vision + High Ability</p>
+                <select class="use-case-input" id="useCaseSelect" onchange="handleUseCaseChange()">
+                    <option value="">What's your use case?</option>
+                    <option value="code">Generate Code</option>
+                    <option value="video">Create Videos</option>
+                    <option value="content">Write Content</option>
+                    <option value="image">Generate Images</option>
+                    <option value="search">Search &amp; Research</option>
+                    <option value="music">Music Generation</option>
+                    <option value="voice">Voice Synthesis</option>
+                    <option value="presentation">Presentations</option>
+                </select>
+                <button class="cta-button" onclick="getRecommendations()">Get Recommendations</button>
+            </div>
+
+            <div class="feature-card">
+                <h3>Browse All Tools</h3>
+                <div class="feature-visual" style="background: rgba(139, 92, 246, 0.05);">
+                    <div style="font-size: 48px;">🗂️</div>
                 </div>
-                <div class="dist-box niche">
-                    <h3>10 Niche</h3>
-                    <p>Low Vision + Low Ability</p>
-                </div>
+                <p>Explore our complete database of 39 AI tools with detailed information</p>
+                <button class="cta-button" onclick="scrollToTools()">View All Tools</button>
             </div>
         </div>
     </section>
 
-    <section class="newsletter">
-        <div class="container">
-            <h2>Stay Updated</h2>
-            <p>Get notified when new AI tools are added</p>
-            <form onsubmit="return false;">
-                <input type="email" placeholder="your@email.com" required>
-                <button type="submit">Subscribe</button>
-            </form>
+    <!-- Gartner Matrix Visualization -->
+    <section class="section" id="gartner-matrix-section">
+        <h2 class="section-title">Interactive Gartner Magic Quadrant</h2>
+        <p class="section-subtitle">Explore innovation vs execution across the AI landscape</p>
+        
+        <!-- Category Filter Pills for Matrix -->
+        <div class="categories matrix-categories" id="matrixCategories">
+            <button class="category-pill active" data-category="all" onclick="filterMatrix('all')">All <span class="category-count">(39)</span></button>
+            <button class="category-pill" data-category="LLM" onclick="filterMatrix('LLM')">LLM <span class="category-count">(9)</span></button>
+            <button class="category-pill" data-category="Image Generation" onclick="filterMatrix('Image Generation')">Image Gen <span class="category-count">(6)</span></button>
+            <button class="category-pill" data-category="Video Generation" onclick="filterMatrix('Video Generation')">Video Gen <span class="category-count">(4)</span></button>
+            <button class="category-pill" data-category="Vibe Coding" onclick="filterMatrix('Vibe Coding')">Code <span class="category-count">(5)</span></button>
+            <button class="category-pill" data-category="AI Search" onclick="filterMatrix('AI Search')">Search <span class="category-count">(2)</span></button>
+            <button class="category-pill" data-category="Audio" onclick="filterMatrix('Audio')">Audio <span class="category-count">(2)</span></button>
+            <button class="category-pill" data-category="Other" onclick="filterMatrix('Other')">Other <span class="category-count">(11)</span></button>
+        </div>
+        
+        <p id="matrixFilterStatus" style="text-align: center; color: var(--color-text-secondary); margin-bottom: var(--space-16); font-size: var(--font-size-base);">Showing all 39 tools</p>
+        
+        <div style="display: flex; justify-content: center; gap: var(--space-24); margin-bottom: var(--space-24); flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: var(--space-8);">
+                <div style="width: 16px; height: 16px; border-radius: 50%; background: #2563eb;"></div>
+                <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Leaders</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--space-8);">
+                <div style="width: 16px; height: 16px; border-radius: 50%; background: #10b981;"></div>
+                <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Visionaries</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--space-8);">
+                <div style="width: 16px; height: 16px; border-radius: 50%; background: #8b5cf6;"></div>
+                <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Challengers</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--space-8);">
+                <div style="width: 16px; height: 16px; border-radius: 50%; background: #f59e0b;"></div>
+                <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Niche Players</span>
+            </div>
+        </div>
+        <div class="gartner-matrix-container">
+            <div class="matrix-canvas" id="matrixCanvas">
+                <div class="matrix-quadrant top-left">Challengers</div>
+                <div class="matrix-quadrant top-right">Leaders</div>
+                <div class="matrix-quadrant bottom-left">Niche Players</div>
+                <div class="matrix-quadrant bottom-right">Visionaries</div>
+                <div class="matrix-axis-label x-axis">Completeness of Vision →</div>
+                <div class="matrix-axis-label y-axis">Ability to Execute</div>
+            </div>
+            <div class="matrix-tooltip" id="matrixTooltip"></div>
         </div>
     </section>
 
+    <!-- Use Case Finder Section -->
+    <section class="section" id="use-case-finder">
+        <h2 class="section-title">Find Your Perfect AI Tool</h2>
+        <p class="section-subtitle">Select your use case to get personalized recommendations</p>
+        <select class="use-case-input" id="useCaseSelectMain" onchange="handleUseCaseChangeMain()">
+            <option value="">What's your use case?</option>
+            <option value="code">Generate Code</option>
+            <option value="video">Create Videos</option>
+            <option value="content">Write Content</option>
+            <option value="image">Generate Images</option>
+            <option value="search">Search &amp; Research</option>
+            <option value="music">Music Generation</option>
+            <option value="voice">Voice Synthesis</option>
+            <option value="presentation">Presentations</option>
+        </select>
+    </section>
+
+    <!-- All Tools Grid -->
+    <section class="section" id="tools">
+        <h2 class="section-title">All AI Tools</h2>
+        <p class="section-subtitle">Browse and filter by category</p>
+        
+        <!-- Category Browser for Tools Grid -->
+        <div class="categories" id="categories" style="margin-bottom: var(--space-32);">
+            <button class="category-pill active" data-category="all">All <span class="category-count">(39)</span></button>
+            <button class="category-pill" data-category="LLM">LLM <span class="category-count">(9)</span></button>
+            <button class="category-pill" data-category="Image Generation">Image Gen <span class="category-count">(6)</span></button>
+            <button class="category-pill" data-category="Video Generation">Video <span class="category-count">(4)</span></button>
+            <button class="category-pill" data-category="Vibe Coding">Code <span class="category-count">(5)</span></button>
+            <button class="category-pill" data-category="AI Search">Search <span class="category-count">(2)</span></button>
+            <button class="category-pill" data-category="Audio">Audio <span class="category-count">(2)</span></button>
+            <button class="category-pill" data-category="Other">Other <span class="category-count">(11)</span></button>
+        </div>
+        
+        <div class="tools-grid" id="toolsGrid">
+            <!-- Tools will be rendered by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Distribution Section -->
+    <section class="section">
+        <h2 class="section-title">Gartner Distribution</h2>
+        <p class="section-subtitle">Last Updated: November 7, 2025</p>
+        <div class="distribution-grid">
+            <div class="distribution-card leader" onclick="filterByQuadrant('Leader')">
+                <div class="distribution-icon">🔵</div>
+                <div class="distribution-count">10</div>
+                <div class="distribution-label">Leaders</div>
+            </div>
+            <div class="distribution-card visionary" onclick="filterByQuadrant('Visionary')">
+                <div class="distribution-icon">🟢</div>
+                <div class="distribution-count">11</div>
+                <div class="distribution-label">Visionaries</div>
+            </div>
+            <div class="distribution-card challenger" onclick="filterByQuadrant('Challenger')">
+                <div class="distribution-icon">🟣</div>
+                <div class="distribution-count">8</div>
+                <div class="distribution-label">Challengers</div>
+            </div>
+            <div class="distribution-card niche" onclick="filterByQuadrant('Niche')">
+                <div class="distribution-icon">🟠</div>
+                <div class="distribution-count">10</div>
+                <div class="distribution-label">Niche Players</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-icon">📊</div>
+                <h3>Weekly Scraping</h3>
+                <p>We track 50+ data sources to keep our database up-to-date with the latest AI tools and developments</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">🤖</div>
+                <h3>AI Enrichment</h3>
+                <p>Claude analyzes and scores each tool based on innovation vision and execution ability</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">👥</div>
+                <h3>Community Feedback</h3>
+                <p>User reviews and ratings help refine our recommendations and keep data accurate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section">
+        <h2 class="section-title">Join Our Community</h2>
+        <p class="section-subtitle">Connect with other AI enthusiasts and stay updated</p>
+        <div class="community-grid">
+            <div class="community-card">
+                <div class="community-icon">💬</div>
+                <h3>Discord Server</h3>
+                <p>Real-time chat, feedback, and discussions with the community</p>
+                <a href="https://discord.gg/rMWTpNQVBD" target="_blank" class="cta-button">Join Discord</a>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">🐙</div>
+                <h3>GitHub Discussions</h3>
+                <p>Feature requests, bug reports, and contribute to the project</p>
+                <a href="https://github.com/misteralexdeparis/ai-tracker" target="_blank" class="cta-button">View on GitHub</a>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">📬</div>
+                <h3>Newsletter</h3>
+                <p>Weekly AI tool updates delivered to your inbox</p>
+                <button class="cta-button" onclick="scrollToNewsletter()">Subscribe Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter-section">
+        <h2>Stay Updated</h2>
+        <p>Get notified when new AI tools are added to our tracker</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="your@email.com" required>
+            <button type="submit" class="cta-button">Subscribe</button>
+        </form>
+        <p style="margin-top: var(--space-24); font-size: var(--font-size-base); color: var(--color-text-secondary);">
+            Join our <a href="https://discord.gg/rMWTpNQVBD" target="_blank" style="color: var(--color-primary); text-decoration: underline;">Discord community</a> for live discussions and feedback
+        </p>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 AI Tools Tracker. Built with ❤️</p>
-            <ul>
-                <li><a href="https://github.com/misteralexdeparis/ai-tracker">GitHub</a></li>
-                <li><a href="https://twitter.com">Twitter</a></li>
-                <li><a href="mailto:contact@aitracker.dev">Contact</a></li>
-            </ul>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <div class="logo">AI Tools Tracker</div>
+                    <p style="margin-top: var(--space-8); color: var(--color-text-secondary); font-size: var(--font-size-sm);">The definitive guide to AI tools</p>
+                </div>
+                <p style="margin-top: var(--space-16); color: var(--color-text-secondary); font-size: var(--font-size-sm);">&copy; 2025 AI Tools Tracker. All rights reserved.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <div class="footer-links-column">
+                    <a href="#matrix">Gartner Matrix</a>
+                    <a href="#tools">All Tools</a>
+                    <a href="#use-cases">Use Cases</a>
+                    <a href="#newsletter-section">Newsletter</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Community</h4>
+                <div class="footer-links-column">
+                    <a href="https://discord.gg/rMWTpNQVBD" target="_blank">Discord Community</a>
+                    <a href="https://github.com/misteralexdeparis/ai-tracker" target="_blank">GitHub</a>
+                    <a href="#" target="_blank">Blog</a>
+                    <a href="#" target="_blank">About</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://discord.gg/rMWTpNQVBD" target="_blank" class="social-icon" title="Discord">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/misteralexdeparis/ai-tracker" target="_blank" class="social-icon" title="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416c-.546-1.387-1.333-1.756-1.333-1.756c-1.089-.745.083-.729.083-.729c1.205.084 1.839 1.237 1.839 1.237c1.07 1.834 2.807 1.304 3.492.997c.107-.775.418-1.305.762-1.604c-2.665-.305-5.467-1.334-5.467-5.931c0-1.311.469-2.381 1.236-3.221c-.124-.303-.535-1.524.117-3.176c0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404c2.291-1.552 3.297-1.23 3.297-1.23c.653 1.653.242 2.874.118 3.176c.77.84 1.235 1.911 1.235 3.221c0 4.609-2.807 5.624-5.479 5.921c.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Modal -->
+    <div class="modal" id="toolModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-subtitle" id="modalSubtitle"></p>
+            </div>
+            <div id="modalBody">
+                <!-- Content will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Complete Data - All 39 AI Tools
+        const tools = [
+            // Leaders (10 tools)
+            {
+                id: 'gpt-5-pro',
+                name: 'GPT-5 Pro',
+                developer: 'OpenAI',
+                category: 'LLM',
+                vision: 92,
+                ability: 91,
+                quadrant: 'Leader',
+                url: 'https://openai.com',
+                description: 'Most capable reasoning model, best for enterprise applications and complex tasks.',
+                about: 'Enterprise-grade AI with superior reasoning and problem-solving capabilities.',
+                pricing: 'Usage-based, starting at $0.03/1K tokens',
+                features: ['Advanced reasoning', 'Multi-modal support', 'Enterprise security', 'Function calling', 'Extended context'],
+                strengths: ['Best-in-class reasoning', 'Reliable and consistent', 'Strong enterprise support', 'Regular updates'],
+                limitations: ['Higher cost', 'API-only access', 'Rate limits on free tier', 'Requires technical integration'],
+                integrations: 'Microsoft Office, Slack, Teams, Zapier, Make, custom APIs',
+                changelog: ['Nov 2025: Enhanced reasoning capabilities', 'Oct 2025: Improved context handling', 'Sep 2025: Better multilingual support'],
+                status: 'Live'
+            },
+            {
+                id: 'claude-4-5',
+                name: 'Claude 4.5',
+                developer: 'Anthropic',
+                category: 'LLM',
+                vision: 85,
+                ability: 87,
+                quadrant: 'Leader',
+                url: 'https://anthropic.com',
+                description: 'Superior code reliability, excellent for long-form content and analysis.',
+                about: 'Highly reliable AI assistant with exceptional code generation and analysis.',
+                pricing: 'Usage-based, starting at $0.025/1K tokens',
+                features: ['Superior code quality', '200K context window', 'Vision capabilities', 'Artifacts system', 'Safe and helpful'],
+                strengths: ['Most reliable code output', 'Excellent reasoning', 'Strong safety measures', 'Great for long documents'],
+                limitations: ['Slower response time', 'More conservative outputs', 'Limited real-time data', 'Higher token costs'],
+                integrations: 'Slack, Notion, Google Docs, custom APIs',
+                changelog: ['Nov 2025: Improved vision', 'Oct 2025: Faster processing', 'Sep 2025: Extended context'],
+                status: 'Live'
+            },
+            {
+                id: 'gemini-2-5-pro',
+                name: 'Gemini 2.5 Pro',
+                developer: 'Google DeepMind',
+                category: 'LLM',
+                vision: 82,
+                ability: 81,
+                quadrant: 'Leader',
+                url: 'https://deepmind.google',
+                description: '1M context window, computer use capabilities, multimodal excellence.',
+                about: 'Google\'s flagship AI with massive context and multimodal capabilities.',
+                pricing: 'Free tier available, Pro at $20/month',
+                features: ['1M token context', 'Multimodal input', 'Computer use', 'Real-time info', 'Google integration'],
+                strengths: ['Largest context window', 'Deep Google integration', 'Strong multimodal', 'Free tier available'],
+                limitations: ['Inconsistent quality', 'Privacy concerns', 'Limited third-party integrations', 'Beta features unstable'],
+                integrations: 'Google Workspace, Gmail, Docs, Sheets, Calendar, Drive',
+                changelog: ['Nov 2025: Computer use beta', 'Oct 2025: 1M context', 'Sep 2025: Enhanced vision'],
+                status: 'Live'
+            },
+            {
+                id: 'midjourney-v7',
+                name: 'Midjourney v7',
+                developer: 'Midjourney Inc',
+                category: 'Image Generation',
+                vision: 78,
+                ability: 84,
+                quadrant: 'Leader',
+                url: 'https://midjourney.com',
+                description: 'Best image quality, now with video generation capabilities.'
+            },
+            {
+                id: 'lovable',
+                name: 'Lovable',
+                developer: 'Lovable',
+                category: 'Vibe Coding',
+                vision: 79,
+                ability: 79,
+                quadrant: 'Leader',
+                url: 'https://lovable.dev',
+                description: 'Full-stack generation, 20x faster coding with AI assistance.'
+            },
+            {
+                id: 'dalle-3',
+                name: 'DALL-E 3',
+                developer: 'OpenAI',
+                category: 'Image Generation',
+                vision: 75,
+                ability: 82,
+                quadrant: 'Leader',
+                url: 'https://openai.com',
+                description: 'Advanced text-to-image with excellent prompt adherence.'
+            },
+            {
+                id: 'cursor',
+                name: 'Cursor',
+                developer: 'Cursor',
+                category: 'Vibe Coding',
+                vision: 74,
+                ability: 80,
+                quadrant: 'Leader',
+                url: 'https://cursor.sh',
+                description: 'AI-first code editor with powerful autocomplete and chat.'
+            },
+            {
+                id: 'perplexity-pro',
+                name: 'Perplexity Pro',
+                developer: 'Perplexity',
+                category: 'AI Search',
+                vision: 73,
+                ability: 78,
+                quadrant: 'Leader',
+                url: 'https://perplexity.ai',
+                description: 'AI-powered search with real-time information and citations.'
+            },
+            {
+                id: 'runway-gen3',
+                name: 'Runway Gen-3',
+                developer: 'Runway',
+                category: 'Video Generation',
+                vision: 72,
+                ability: 77,
+                quadrant: 'Leader',
+                url: 'https://runwayml.com',
+                description: 'Professional video generation and editing with AI.'
+            },
+            {
+                id: 'elevenlabs',
+                name: 'ElevenLabs',
+                developer: 'ElevenLabs',
+                category: 'Audio',
+                vision: 71,
+                ability: 76,
+                quadrant: 'Leader',
+                url: 'https://elevenlabs.io',
+                description: 'Most realistic voice synthesis and cloning technology.'
+            },
+            // Visionaries (11 tools)
+            {
+                id: 'windsurf',
+                name: 'Windsurf',
+                developer: 'Codeium',
+                category: 'Vibe Coding',
+                vision: 76,
+                ability: 48,
+                quadrant: 'Visionary',
+                url: 'https://codeium.com',
+                description: 'Revolutionary multi-file editing with agentic AI.'
+            },
+            {
+                id: 'sora',
+                name: 'Sora',
+                developer: 'OpenAI',
+                category: 'Video Generation',
+                vision: 88,
+                ability: 45,
+                quadrant: 'Visionary',
+                url: 'https://openai.com',
+                description: 'Next-gen video generation with stunning realism (limited access).'
+            },
+            {
+                id: 'grok-2',
+                name: 'Grok 2',
+                developer: 'xAI',
+                category: 'LLM',
+                vision: 70,
+                ability: 65,
+                quadrant: 'Visionary',
+                url: 'https://x.ai',
+                description: 'Real-time X integration, bold personality, current events expert.'
+            },
+            {
+                id: 'character-ai',
+                name: 'Character.AI',
+                developer: 'Character AI',
+                category: 'Other',
+                vision: 68,
+                ability: 62,
+                quadrant: 'Visionary',
+                url: 'https://character.ai',
+                description: 'Create and chat with AI personalities and characters.'
+            },
+            {
+                id: 'pika',
+                name: 'Pika',
+                developer: 'Pika Labs',
+                category: 'Video Generation',
+                vision: 67,
+                ability: 58,
+                quadrant: 'Visionary',
+                url: 'https://pika.art',
+                description: 'Innovative video creation with creative effects.'
+            },
+            {
+                id: 'flux',
+                name: 'Flux',
+                developer: 'Black Forest Labs',
+                category: 'Image Generation',
+                vision: 66,
+                ability: 60,
+                quadrant: 'Visionary',
+                url: 'https://blackforestlabs.ai',
+                description: 'Open-source image generation with incredible detail.'
+            },
+            {
+                id: 'v0',
+                name: 'v0',
+                developer: 'Vercel',
+                category: 'Vibe Coding',
+                vision: 65,
+                ability: 55,
+                quadrant: 'Visionary',
+                url: 'https://v0.dev',
+                description: 'Generate UI components from text descriptions.'
+            },
+            {
+                id: 'notebook-lm',
+                name: 'NotebookLM',
+                developer: 'Google',
+                category: 'Other',
+                vision: 64,
+                ability: 54,
+                quadrant: 'Visionary',
+                url: 'https://notebooklm.google',
+                description: 'AI research assistant that works with your documents.'
+            },
+            {
+                id: 'ideogram',
+                name: 'Ideogram',
+                developer: 'Ideogram',
+                category: 'Image Generation',
+                vision: 63,
+                ability: 57,
+                quadrant: 'Visionary',
+                url: 'https://ideogram.ai',
+                description: 'Text rendering in images, great for logos and designs.'
+            },
+            {
+                id: 'gamma',
+                name: 'Gamma',
+                developer: 'Gamma',
+                category: 'Other',
+                vision: 62,
+                ability: 53,
+                quadrant: 'Visionary',
+                url: 'https://gamma.app',
+                description: 'AI-powered presentations and documents.'
+            },
+            {
+                id: 'udio',
+                name: 'Udio',
+                developer: 'Udio',
+                category: 'Audio',
+                vision: 61,
+                ability: 52,
+                quadrant: 'Visionary',
+                url: 'https://udio.com',
+                description: 'AI music generation with vocals and lyrics.'
+            },
+            // Challengers (8 tools)
+            {
+                id: 'copilot',
+                name: 'GitHub Copilot',
+                developer: 'GitHub/Microsoft',
+                category: 'Vibe Coding',
+                vision: 58,
+                ability: 75,
+                quadrant: 'Challenger',
+                url: 'https://github.com/features/copilot',
+                description: 'Industry-standard AI pair programmer.'
+            },
+            {
+                id: 'chatgpt-4',
+                name: 'ChatGPT-4',
+                developer: 'OpenAI',
+                category: 'LLM',
+                vision: 60,
+                ability: 74,
+                quadrant: 'Challenger',
+                description: 'Previous generation OpenAI model, still very capable.'
+            },
+            {
+                id: 'stable-diffusion',
+                name: 'Stable Diffusion XL',
+                developer: 'Stability AI',
+                category: 'Image Generation',
+                vision: 55,
+                ability: 72,
+                quadrant: 'Challenger',
+                url: 'https://stability.ai',
+                description: 'Open-source image generation, highly customizable.'
+            },
+            {
+                id: 'claude-3-opus',
+                name: 'Claude 3 Opus',
+                developer: 'Anthropic',
+                category: 'LLM',
+                vision: 57,
+                ability: 73,
+                quadrant: 'Challenger',
+                url: 'https://anthropic.com',
+                description: 'Previous Claude flagship, excellent reasoning.'
+            },
+            {
+                id: 'gemini-15-pro',
+                name: 'Gemini 1.5 Pro',
+                developer: 'Google',
+                category: 'LLM',
+                vision: 56,
+                ability: 71,
+                quadrant: 'Challenger',
+                url: 'https://deepmind.google',
+                description: 'Previous Gemini version with 2M context.'
+            },
+            {
+                id: 'leonardo-ai',
+                name: 'Leonardo.AI',
+                developer: 'Leonardo',
+                category: 'Image Generation',
+                vision: 54,
+                ability: 70,
+                quadrant: 'Challenger',
+                url: 'https://leonardo.ai',
+                description: 'Game asset and design-focused image generation.'
+            },
+            {
+                id: 'jasper',
+                name: 'Jasper',
+                developer: 'Jasper AI',
+                category: 'Other',
+                vision: 52,
+                ability: 68,
+                quadrant: 'Challenger',
+                url: 'https://jasper.ai',
+                description: 'Marketing-focused AI writing assistant.'
+            },
+            {
+                id: 'copy-ai',
+                name: 'Copy.ai',
+                developer: 'Copy.ai',
+                category: 'Other',
+                vision: 51,
+                ability: 67,
+                quadrant: 'Challenger',
+                url: 'https://copy.ai',
+                description: 'Sales and marketing copy generation.'
+            },
+            // Niche Players (10 tools)
+            {
+                id: 'meta-llama',
+                name: 'Meta Llama 3',
+                developer: 'Meta',
+                category: 'LLM',
+                vision: 59,
+                ability: 66,
+                quadrant: 'Niche',
+                url: 'https://ai.meta.com',
+                description: 'Open-source LLM, great for customization.'
+            },
+            {
+                id: 'mistral-large',
+                name: 'Mistral Large',
+                developer: 'Mistral AI',
+                category: 'LLM',
+                vision: 53,
+                ability: 64,
+                quadrant: 'Niche',
+                url: 'https://mistral.ai',
+                description: 'European AI leader, multilingual excellence.'
+            },
+            {
+                id: 'you-com',
+                name: 'You.com',
+                developer: 'You.com',
+                category: 'AI Search',
+                vision: 50,
+                ability: 63,
+                quadrant: 'Niche',
+                url: 'https://you.com',
+                description: 'Privacy-focused AI search engine.'
+            },
+            {
+                id: 'pi',
+                name: 'Pi',
+                developer: 'Inflection AI',
+                category: 'Other',
+                vision: 49,
+                ability: 61,
+                quadrant: 'Niche',
+                url: 'https://pi.ai',
+                description: 'Personal AI companion focused on conversations.'
+            },
+            {
+                id: 'grammarly',
+                name: 'Grammarly',
+                developer: 'Grammarly',
+                category: 'Other',
+                vision: 48,
+                ability: 69,
+                quadrant: 'Niche',
+                url: 'https://grammarly.com',
+                description: 'AI writing assistant for grammar and style.'
+            },
+            {
+                id: 'tome',
+                name: 'Tome',
+                developer: 'Tome',
+                category: 'Other',
+                vision: 47,
+                ability: 59,
+                quadrant: 'Niche',
+                url: 'https://tome.app',
+                description: 'AI storytelling and presentation tool.'
+            },
+            {
+                id: 'descript',
+                name: 'Descript',
+                developer: 'Descript',
+                category: 'Video Generation',
+                vision: 46,
+                ability: 65,
+                quadrant: 'Niche',
+                url: 'https://descript.com',
+                description: 'Video editing through text transcription.'
+            },
+            {
+                id: 'otter-ai',
+                name: 'Otter.ai',
+                developer: 'Otter.ai',
+                category: 'Other',
+                vision: 45,
+                ability: 62,
+                quadrant: 'Niche',
+                url: 'https://otter.ai',
+                description: 'Meeting transcription and note-taking.'
+            },
+            {
+                id: 'beautiful-ai',
+                name: 'Beautiful.ai',
+                developer: 'Beautiful.ai',
+                category: 'Other',
+                vision: 44,
+                ability: 58,
+                quadrant: 'Niche',
+                url: 'https://beautiful.ai',
+                description: 'Smart presentation design automation.'
+            },
+            {
+                id: 'writesonic',
+                name: 'Writesonic',
+                developer: 'Writesonic',
+                category: 'Other',
+                vision: 43,
+                ability: 56,
+                quadrant: 'Niche',
+                url: 'https://writesonic.com',
+                description: 'AI content creation for blogs and marketing.'
+            }
+        ];
+
+        let currentFilter = 'all';
+        let filteredTools = [...tools];
+        let currentMatrixFilter = 'all';
+
+        // Recalculate all quadrants based on correct logic (70 pivot)
+        function recalculateQuadrants() {
+            tools.forEach(tool => {
+                tool.quadrant = (tool.vision >= 70 && tool.ability >= 70) ? 'Leader' :
+                               (tool.vision < 70 && tool.ability >= 70) ? 'Challenger' :
+                               (tool.vision >= 70 && tool.ability < 70) ? 'Visionary' :
+                               'Niche';
+            });
+        }
+
+        // Render tools
+        function renderTools(toolsToRender = tools) {
+            const grid = document.getElementById('toolsGrid');
+            grid.innerHTML = toolsToRender.map(tool => `
+                <div class="tool-card" onclick="openModal('${tool.id}')">
+                    <div class="tool-header">
+                        <div>
+                            <div class="tool-name">${tool.name}</div>
+                            <div class="tool-developer">${tool.developer}</div>
+                        </div>
+                    </div>
+                    <div class="tool-category">${tool.category}</div>
+                    <div class="quadrant-badge ${tool.quadrant.toLowerCase()}">
+                        ${tool.quadrant}
+                    </div>
+                    <div class="tool-about">${tool.about || tool.description}</div>
+                    <div class="tool-scores">
+                        <div class="score">
+                            <div class="score-label">Vision</div>
+                            <div class="score-value">${tool.vision}</div>
+                        </div>
+                        <div class="score">
+                            <div class="score-label">Ability</div>
+                            <div class="score-value">${tool.ability}</div>
+                        </div>
+                    </div>
+                    <button class="btn-secondary">View Details</button>
+                </div>
+            `).join('');
+        }
+
+        // Modal functions
+        function openModal(toolId) {
+            const tool = tools.find(t => t.id === toolId);
+            if (!tool) return;
+
+            document.getElementById('modalTitle').textContent = tool.name;
+            document.getElementById('modalSubtitle').textContent = tool.developer;
+            
+            let modalBody = `
+                <div class="modal-section">
+                    <div class="tool-category">${tool.category}</div>
+                    <div class="quadrant-badge ${tool.quadrant.toLowerCase()}" style="margin-top: 8px;">${tool.quadrant}</div>
+                </div>
+            `;
+
+            // Vision & Ability Scores with bars
+            modalBody += `
+                <div class="modal-section">
+                    <h4>Gartner Scores</h4>
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span class="score-label">Completeness of Vision</span>
+                            <span class="score-value" style="font-size: 16px;">${tool.vision}/100</span>
+                        </div>
+                        <div class="score-bar">
+                            <div class="score-bar-fill" style="width: ${tool.vision}%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span class="score-label">Ability to Execute</span>
+                            <span class="score-value" style="font-size: 16px;">${tool.ability}/100</span>
+                        </div>
+                        <div class="score-bar">
+                            <div class="score-bar-fill" style="width: ${tool.ability}%"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Pricing
+            if (tool.pricing) {
+                modalBody += `
+                    <div class="modal-section">
+                        <h4>💰 Pricing</h4>
+                        <p>${tool.pricing}</p>
+                    </div>
+                `;
+            }
+
+            // About/Description
+            modalBody += `
+                <div class="modal-section">
+                    <h4>About</h4>
+                    <p>${tool.description}</p>
+                </div>
+            `;
+
+            // Key Features
+            if (tool.features && tool.features.length > 0) {
+                modalBody += `
+                    <div class="modal-section">
+                        <h4>✨ Key Features</h4>
+                        <ul>
+                            ${tool.features.map(f => `<li style="padding-left: 20px;">• ${f}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Strengths
+            if (tool.strengths && tool.strengths.length > 0) {
+                modalBody += `
+                    <div class="modal-section">
+                        <h4>💪 Strengths</h4>
+                        <ul>
+                            ${tool.strengths.map(s => `<li class="strength">${s}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Limitations
+            if (tool.limitations && tool.limitations.length > 0) {
+                modalBody += `
+                    <div class="modal-section">
+                        <h4>⚠️ Limitations</h4>
+                        <ul>
+                            ${tool.limitations.map(l => `<li class="limitation">${l}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Integrations
+            if (tool.integrations) {
+                modalBody += `
+                    <div class="modal-section">
+                        <h4>🔗 Integrations</h4>
+                        <p>${tool.integrations}</p>
+                    </div>
+                `;
+            }
+
+            // Changelog
+            if (tool.changelog && tool.changelog.length > 0) {
+                modalBody += `
+                    <div class="modal-section">
+                        <h4>📝 Recent Updates</h4>
+                        <ul>
+                            ${tool.changelog.map(c => `<li style="padding-left: 20px;">• ${c}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Status
+            if (tool.status) {
+                const statusColors = {
+                    'Live': 'var(--color-teal-300)',
+                    'Beta': 'var(--color-orange-400)',
+                    'Legacy': 'var(--color-gray-400)',
+                    'Research': 'var(--color-slate-500)'
+                };
+                modalBody += `
+                    <div class="modal-section">
+                        <h4>Status</h4>
+                        <p style="color: ${statusColors[tool.status] || 'var(--color-text)'}; font-weight: 600;">${tool.status}</p>
+                    </div>
+                `;
+            }
+
+            // Footer with link
+            modalBody += `
+                <div class="modal-section">
+                    <a href="${tool.url}" target="_blank" class="cta-button" style="display: inline-block;">Visit Official Website →</a>
+                </div>
+            `;
+
+            document.getElementById('modalBody').innerHTML = modalBody;
+            document.getElementById('toolModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('toolModal').classList.remove('active');
+        }
+
+        // Category filter
+        document.querySelectorAll('.category-pill').forEach(pill => {
+            pill.addEventListener('click', function() {
+                document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                if (category === 'all') {
+                    renderTools(tools);
+                } else {
+                    const filtered = tools.filter(tool => tool.category === category);
+                    renderTools(filtered);
+                }
+            });
+        });
+
+        // Quadrant filter
+        function filterByQuadrant(quadrant) {
+            const filtered = tools.filter(tool => tool.quadrant === quadrant);
+            renderTools(filtered);
+            scrollToTools();
+        }
+
+        // Use case handler
+        function handleUseCaseChange() {
+            const select = document.getElementById('useCaseSelect');
+            if (select.value) {
+                // Map use cases to categories
+                const useCaseMap = {
+                    'code': 'Vibe Coding',
+                    'video': 'Video Generation',
+                    'content': 'LLM',
+                    'image': 'Image Generation',
+                    'search': 'AI Search',
+                    'music': 'Audio',
+                    'voice': 'Audio',
+                    'presentation': 'Other'
+                };
+                const category = useCaseMap[select.value];
+                if (category) {
+                    const filtered = tools.filter(tool => tool.category === category);
+                    renderTools(filtered);
+                    scrollToTools();
+                }
+            }
+        }
+
+        function handleUseCaseChangeMain() {
+            const select = document.getElementById('useCaseSelectMain');
+            if (select.value) {
+                const useCaseMap = {
+                    'code': 'Vibe Coding',
+                    'video': 'Video Generation',
+                    'content': 'LLM',
+                    'image': 'Image Generation',
+                    'search': 'AI Search',
+                    'music': 'Audio',
+                    'voice': 'Audio',
+                    'presentation': 'Other'
+                };
+                const category = useCaseMap[select.value];
+                if (category) {
+                    const filtered = tools.filter(tool => tool.category === category);
+                    renderTools(filtered);
+                    scrollToTools();
+                }
+            }
+        }
+
+        function getRecommendations() {
+            handleUseCaseChange();
+        }
+
+        // Scroll functions
+        function scrollToTools() {
+            document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToMatrix() {
+            document.getElementById('matrix').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToGartnerMatrix() {
+            document.getElementById('gartner-matrix-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Newsletter handler
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert(`Thanks for subscribing! You'll receive updates about new AI tools at ${email}.`);
+            event.target.reset();
+        }
+
+        // Scroll to newsletter
+        function scrollToNewsletter() {
+            document.getElementById('newsletter-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Close modal on outside click
+        document.getElementById('toolModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Show all tools function
+        function showAllTools() {
+            renderTools(tools);
+            document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+            document.querySelector('.category-pill[data-category="all"]').classList.add('active');
+        }
+
+        // Filter Matrix by Category
+        function filterMatrix(category) {
+            currentMatrixFilter = category;
+            
+            // Update active pill state
+            document.querySelectorAll('#matrixCategories .category-pill').forEach(pill => {
+                pill.classList.remove('active');
+            });
+            event.target.closest('.category-pill').classList.add('active');
+            
+            // Filter tools
+            let filtered;
+            if (category === 'all') {
+                filtered = tools;
+            } else {
+                filtered = tools.filter(tool => tool.category === category);
+            }
+            
+            // Update status text
+            const statusText = category === 'all' 
+                ? `Showing all 39 tools` 
+                : `Showing ${filtered.length} ${category} tools`;
+            document.getElementById('matrixFilterStatus').textContent = statusText;
+            
+            // Update dots visibility with animation
+            const allDots = document.querySelectorAll('.matrix-tool-dot');
+            allDots.forEach(dot => {
+                const toolId = dot.dataset.toolId;
+                const shouldShow = filtered.some(t => t.id === toolId);
+                
+                if (shouldShow) {
+                    dot.classList.remove('hidden');
+                } else {
+                    dot.classList.add('hidden');
+                }
+            });
+        }
+
+        // Render Gartner Matrix - FIXED with 40-100 scale and correct positioning
+        function renderGartnerMatrix() {
+            const canvas = document.getElementById('matrixCanvas');
+            const tooltip = document.getElementById('matrixTooltip');
+            
+            // Clear any existing content
+            canvas.innerHTML = `
+                <div class="matrix-quadrant top-left">Challengers</div>
+                <div class="matrix-quadrant top-right">Leaders</div>
+                <div class="matrix-quadrant bottom-left">Niche Players</div>
+                <div class="matrix-quadrant bottom-right">Visionaries</div>
+                <div class="matrix-axis-label x-axis">Completeness of Vision →</div>
+                <div class="matrix-axis-label y-axis">Ability to Execute</div>
+            `;
+            
+            // Draw grid lines at 40, 50, 60, 70, 80, 90, 100
+            const gridValues = [40, 50, 60, 70, 80, 90, 100];
+            const scaleMin = 40;
+            const scaleMax = 100;
+            const scaleRange = scaleMax - scaleMin; // 60
+            
+            gridValues.forEach(value => {
+                const isPivot = value === 70;
+                // Normalize: (value - 40) / 60 gives us 0-1 range
+                const normalized = (value - scaleMin) / scaleRange;
+                
+                // Vertical grid line (for vision/x-axis)
+                const verticalLine = document.createElement('div');
+                verticalLine.className = `matrix-grid-line vertical ${isPivot ? 'pivot' : ''}`;
+                verticalLine.style.left = `${normalized * 100}%`;
+                canvas.appendChild(verticalLine);
+                
+                // X-axis tick label
+                const xTick = document.createElement('div');
+                xTick.className = 'matrix-axis-tick x-axis';
+                xTick.textContent = value;
+                xTick.style.left = `${normalized * 100}%`;
+                xTick.style.transform = 'translateX(-50%)';
+                canvas.appendChild(xTick);
+                
+                // Horizontal grid line (for ability/y-axis)
+                const horizontalLine = document.createElement('div');
+                horizontalLine.className = `matrix-grid-line horizontal ${isPivot ? 'pivot' : ''}`;
+                horizontalLine.style.bottom = `${normalized * 100}%`;
+                canvas.appendChild(horizontalLine);
+                
+                // Y-axis tick label
+                const yTick = document.createElement('div');
+                yTick.className = 'matrix-axis-tick y-axis';
+                yTick.textContent = value;
+                yTick.style.bottom = `${normalized * 100}%`;
+                yTick.style.transform = 'translateY(50%)';
+                canvas.appendChild(yTick);
+            });
+
+            // Recalculate quadrants for each tool based on 70 pivot
+            tools.forEach(tool => {
+                // Recalculate quadrant: 70 is the pivot point
+                const calculatedQuadrant = (tool.vision >= 70 && tool.ability >= 70) ? 'Leader' :
+                                          (tool.vision < 70 && tool.ability >= 70) ? 'Challenger' :
+                                          (tool.vision >= 70 && tool.ability < 70) ? 'Visionary' :
+                                          'Niche';
+                tool.quadrant = calculatedQuadrant;
+
+                const dot = document.createElement('div');
+                dot.className = `matrix-tool-dot ${tool.quadrant.toLowerCase()}`;
+                dot.dataset.toolId = tool.id;
+                
+                // CORRECT POSITIONING with 40-100 scale
+                // Normalize scores to 0-1 range: (score - 40) / 60
+                const relativeVision = (tool.vision - scaleMin) / scaleRange;
+                const relativeAbility = (tool.ability - scaleMin) / scaleRange;
+                
+                // Clamp values to 0-1 range (in case any scores are outside 40-100)
+                const clampedVision = Math.max(0, Math.min(1, relativeVision));
+                const clampedAbility = Math.max(0, Math.min(1, relativeAbility));
+                
+                // Position in percentage (canvas handles positioning via CSS)
+                const xPercent = clampedVision * 100;
+                const yPercent = (1 - clampedAbility) * 100; // Invert Y-axis
+                
+                dot.style.left = `${xPercent}%`;
+                dot.style.top = `${yPercent}%`;
+                
+                // Hover tooltip
+                dot.addEventListener('mouseenter', (e) => {
+                    tooltip.textContent = `${tool.name} (Vision: ${tool.vision}, Ability: ${tool.ability})`;
+                    tooltip.style.display = 'block';
+                    const rect = dot.getBoundingClientRect();
+                    const canvasRect = canvas.getBoundingClientRect();
+                    tooltip.style.left = `${rect.left - canvasRect.left + 20}px`;
+                    tooltip.style.top = `${rect.top - canvasRect.top - 5}px`;
+                });
+                
+                dot.addEventListener('mouseleave', () => {
+                    tooltip.style.display = 'none';
+                });
+                
+                // Click to open modal
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openModal(tool.id);
+                });
+                
+                canvas.appendChild(dot);
+            });
+            
+            console.log('Rendered', tools.length, 'tools on Gartner Matrix with 40-100 scale');
+        }
+
+        // Add default data for tools without extended info
+        tools.forEach(tool => {
+            if (!tool.about) tool.about = tool.description;
+            if (!tool.pricing) tool.pricing = 'Contact for pricing';
+            if (!tool.features) tool.features = ['AI-powered capabilities', 'User-friendly interface', 'Regular updates'];
+            if (!tool.strengths) tool.strengths = ['Innovative approach', 'Growing user base', 'Active development'];
+            if (!tool.limitations) tool.limitations = ['Limited documentation', 'Evolving feature set', 'Early stage'];
+            if (!tool.integrations) tool.integrations = 'API access, custom integrations';
+            if (!tool.changelog) tool.changelog = ['Regular updates and improvements'];
+            if (!tool.status) tool.status = 'Live';
+        });
+
+        // Initialize
+        recalculateQuadrants(); // Recalculate all quadrants on load
+        
+        // Show all tools initially
+        renderTools(tools);
+        renderGartnerMatrix();
+    </script>
 </body>
 </html>
