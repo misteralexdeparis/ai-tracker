@@ -57,7 +57,7 @@ jobs:
           git add public/ai_tracker_enhanced.json
           git add scraper/scrape_report.json || true
           git commit -m "chore: update AI tools tracker data (bi-weekly scrape)"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git main
+          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git main
       
       - name: Upload scrape report
         uses: actions/upload-artifact@v4
