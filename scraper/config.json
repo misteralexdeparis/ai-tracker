@@ -1,0 +1,90 @@
+{
+  "scraping_config": {
+    "tools_to_track": [
+      {
+        "name": "GPT-5 Pro",
+        "official_url": "https://openai.com/gpt-5-pro",
+        "twitter_handle": "@OpenAI",
+        "discord_server": "https://discord.gg/openai",
+        "reddit": "r/OpenAI",
+        "category": "LLM",
+        "vision": 92,
+        "ability": 91,
+        "quadrant": "Leader"
+      },
+      {
+        "name": "Claude 4.5",
+        "official_url": "https://claude.ai",
+        "twitter_handle": "@anthropic",
+        "discord_server": "",
+        "reddit": "r/ClaudeAI",
+        "category": "LLM",
+        "vision": 85,
+        "ability": 87,
+        "quadrant": "Leader"
+      },
+      {
+        "name": "Gemini 2.5 Pro",
+        "official_url": "https://gemini.google.com",
+        "twitter_handle": "@GoogleAI",
+        "discord_server": "",
+        "reddit": "r/MachineLearning",
+        "category": "LLM",
+        "vision": 82,
+        "ability": 81,
+        "quadrant": "Leader"
+      },
+      {
+        "name": "SUNO",
+        "official_url": "https://suno.ai",
+        "twitter_handle": "@suno_ai_",
+        "discord_server": "https://discord.gg/suno",
+        "reddit": "r/SUNO",
+        "category": "Audio/Music",
+        "vision": 75,
+        "ability": 72,
+        "quadrant": "Leader"
+      }
+    ],
+    "sources": {
+      "forums": [
+        "https://news.ycombinator.com/",
+        "https://reddit.com/r/MachineLearning",
+        "https://reddit.com/r/OpenAI",
+        "https://reddit.com/r/artificial",
+        "https://reddit.com/r/ChatGPT",
+        "https://reddit.com/r/Futurology"
+      ],
+      "product_hunt": "https://www.producthunt.com/topics/artificial-intelligence",
+      "twitter_trends": [
+        "#AI",
+        "#ArtificialIntelligence",
+        "#MachineLearning",
+        "#LLM",
+        "#AItools"
+      ],
+      "custom_sources": []
+    },
+    "thresholds": {
+      "min_buzz_score": 50,
+      "min_vision": 50,
+      "min_ability": 40,
+      "max_tools": 100
+    },
+    "manual_overrides": {
+      "force_add": [
+        {
+          "name": "SUNO",
+          "category": "Audio/Music",
+          "url": "https://suno.ai",
+          "reason": "Leading AI music generation tool"
+        }
+      ],
+      "force_remove": [],
+      "custom_sources": []
+    },
+    "scrape_schedule": "0 9 * * 1,4",
+    "last_scrape": "2025-11-10T14:00:00Z",
+    "next_scrape": "2025-11-13T09:00:00Z"
+  }
+}
