@@ -1,0 +1,325 @@
+{
+  "timestamp": "2025-11-10T17:44:44.337248",
+  "summary": {
+    "official_updates": 3,
+    "social_updates": 0,
+    "forum_updates": 15,
+    "new_candidates": 0,
+    "total_tools": 39
+  },
+  "top_candidates": [],
+  "tools_snapshot": [
+    {
+      "name": "GPT-5 Pro",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "GPT-5",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Claude 4.5 Sonnet",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Gemini 2.5 Pro",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Midjourney v7",
+      "category": [
+        "Image Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Lovable",
+      "category": [
+        "Vibe Coding"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "GitHub Copilot",
+      "category": [
+        "Vibe Coding"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Bolt.new",
+      "category": [
+        "Vibe Coding"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Sora 2",
+      "category": [
+        "Video Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "DALL-E 3",
+      "category": [
+        "Image Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Veo 3",
+      "category": [
+        "Video Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Windsurf",
+      "category": [
+        "Vibe Coding"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Runway Gen-3",
+      "category": [
+        "Video Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Luma AI",
+      "category": [
+        "Video Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Grok 4",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Perplexity AI",
+      "category": [
+        "AI Search & Research"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Flux.1",
+      "category": [
+        "Image Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "DeepSeek R1",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Gemini Canvas",
+      "category": [
+        "Image Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Synthesia",
+      "category": [
+        "Video Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Groq (LPU Inference)",
+      "category": [
+        "LLM Infrastructure"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Claude Web (claude.ai)",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "AWS Q Developer",
+      "category": [
+        "Vibe Coding"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "NotebookLM",
+      "category": [
+        "AI Research"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Gamma",
+      "category": [
+        "Presentation AI"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Claude 3.5 Opus (Legacy)",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Legacy"
+    },
+    {
+      "name": "Kimi Chat",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Llama 3.1 (Open Source)",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Mistral Large (EU Open)",
+      "category": [
+        "LLM"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Banana (Image Gen API)",
+      "category": [
+        "Image Generation"
+      ],
+      "buzz_score": null,
+      "status": "Beta"
+    },
+    {
+      "name": "Ideogram",
+      "category": [
+        "Image Generation"
+      ],
+      "buzz_score": null,
+      "status": "Beta"
+    },
+    {
+      "name": "Hairstyler AI (Niche)",
+      "category": [
+        "Image Generation - Specialized"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Upscayl (Image Upscaling)",
+      "category": [
+        "Image Upscaling - Open Source"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Riffusion (Music Gen)",
+      "category": [
+        "Audio Generation"
+      ],
+      "buzz_score": null,
+      "status": "Beta"
+    },
+    {
+      "name": "Amazon CodeWhisperer (Legacy)",
+      "category": [
+        "Vibe Coding"
+      ],
+      "buzz_score": null,
+      "status": "Sunset"
+    },
+    {
+      "name": "Natural Language AI (Research)",
+      "category": [
+        "LLM Research"
+      ],
+      "buzz_score": null,
+      "status": "Research"
+    },
+    {
+      "name": "ElevenLabs Voice (Specialized)",
+      "category": [
+        "Audio Generation"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Caption AI Tools (Auto-Captions)",
+      "category": [
+        "Video Tools - Specialized"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    },
+    {
+      "name": "Motion (Productivity AI)",
+      "category": [
+        "Productivity"
+      ],
+      "buzz_score": null,
+      "status": "Live"
+    }
+  ]
+}
