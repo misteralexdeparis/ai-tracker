@@ -40,20 +40,24 @@ def main():
         config = load_config()
         tools_data = load_tools_json()
         
-        if not tools_data:
-            tools_data = {"tools": [], "last_scrape": None, "next_scrape": None}
+        # Ensure tools_data is properly formatted
+        if isinstance(tools_data, list):
+            tools_data = {"tools": tools_data}
+        
+        if not tools_data or "tools" not in tools_data:
+            tools_data = {"tools": []}
         
         # 2. Scrape official websites
         print("\n🔗 Scraping official websites...")
         official_updates = scrape_official_sites(config)
         print(f"   ✅ Found {len(official_updates)} updates from official sites")
         
-        # 3. Scrape social media (Twitter, Discord)
+        # 3. Scrape social media
         print("\n📱 Scraping social media...")
         social_updates = scrape_social_media(config)
         print(f"   ✅ Found {len(social_updates)} updates from social media")
         
-        # 4. Scrape forums (Reddit, HN, ProductHunt)
+        # 4. Scrape forums
         print("\n💬 Scraping forums...")
         forum_updates = scrape_forums(config)
         print(f"   ✅ Found {len(forum_updates)} updates from forums")
@@ -65,7 +69,7 @@ def main():
         
         # 6. Score candidates and existing tools
         print("\n⭐ Scoring tools...")
-        scored_tools = score_candidates(tools_data["tools"], candidates, config)
+        scored_tools = score_candidates(tools_data.get("tools", []), candidates, config)
         
         # 7. Apply manual overrides
         print("\n✏️  Applying manual overrides...")
@@ -78,9 +82,9 @@ def main():
         # 9. Filter to max tools
         print("\n📊 Filtering to max tools...")
         final_tools = filter_by_max_tools(scored_tools, config)
-        print(f"   ✅ Final count: {len(final_tools)} tools (max: {config['thresholds']['max_tools']})")
+        print(f"   ✅ Final count: {len(final_tools)} tools (max: {config.get('thresholds', {}).get('max_tools', 100)})")
         
-        # 10. Enrich with Perplexity analysis (optional)
+        # 10. Enrich with Perplexity (optional)
         print("\n🤖 Enriching with Perplexity analysis...")
         try:
             final_tools = enrich_with_perplexity(final_tools, official_updates)
@@ -118,9 +122,8 @@ def discover_candidates(forum_updates, config):
     """Discover new candidate tools from forum updates"""
     candidates = []
     
-    # Extract tool mentions from forum updates
     for update in forum_updates:
-        if update.get("type") == "new_tool" and update.get("buzz_score", 0) > config["thresholds"]["min_buzz_score"]:
+        if update.get("type") == "new_tool" and update.get("buzz_score", 0) > config.get("thresholds", {}).get("min_buzz_score", 50):
             candidates.append({
                 "name": update.get("tool_name"),
                 "category": update.get("category", "Uncategorized"),
