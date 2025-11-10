@@ -1,16 +1,31 @@
+
+config_complete.json
 {
   "scraping_config": {
     "tools_to_track": [
       {
         "name": "GPT-5 Pro",
-        "official_url": "https://openai.com/gpt-5-pro",
+        "official_url": "https://openai.com/gpt-5",
         "twitter_handle": "@OpenAI",
-        "discord_server": "https://discord.gg/openai",
+        "discord_server": "",
         "reddit": "r/OpenAI",
         "category": "LLM",
         "vision": 92,
         "ability": 91,
-        "quadrant": "Leader"
+        "quadrant": "Leader",
+        "status": "active"
+      },
+      {
+        "name": "GPT-5",
+        "official_url": "https://openai.com/gpt-5",
+        "twitter_handle": "@OpenAI",
+        "discord_server": "",
+        "reddit": "r/OpenAI",
+        "category": "LLM",
+        "vision": 88,
+        "ability": 86,
+        "quadrant": "Leader",
+        "status": "active"
       },
       {
         "name": "Claude 4.5",
@@ -21,7 +36,8 @@
         "category": "LLM",
         "vision": 85,
         "ability": 87,
-        "quadrant": "Leader"
+        "quadrant": "Leader",
+        "status": "active"
       },
       {
         "name": "Gemini 2.5 Pro",
@@ -32,7 +48,356 @@
         "category": "LLM",
         "vision": 82,
         "ability": 81,
-        "quadrant": "Leader"
+        "quadrant": "Leader",
+        "status": "active"
+      },
+      {
+        "name": "Grok 4",
+        "official_url": "https://grok.com",
+        "twitter_handle": "@xAI",
+        "discord_server": "",
+        "reddit": "r/xAI",
+        "category": "LLM",
+        "vision": 72,
+        "ability": 42,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "DeepSeek R1",
+        "official_url": "https://deepseek.com",
+        "twitter_handle": "@deepseek_ai",
+        "discord_server": "",
+        "reddit": "r/DeepSeek",
+        "category": "LLM",
+        "vision": 64,
+        "ability": 42,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "Kimi Chat",
+        "official_url": "https://kimi.moonshot.cn",
+        "twitter_handle": "@kimichat_cn",
+        "discord_server": "",
+        "reddit": "r/ArtificialIntelligence",
+        "category": "LLM",
+        "vision": 45,
+        "ability": 68,
+        "quadrant": "Challenger",
+        "status": "active"
+      },
+      {
+        "name": "Llama 3.1",
+        "official_url": "https://www.meta.com/llama",
+        "twitter_handle": "@MetaAI",
+        "discord_server": "",
+        "reddit": "r/MachineLearning",
+        "category": "LLM",
+        "vision": 42,
+        "ability": 68,
+        "quadrant": "Challenger",
+        "status": "active"
+      },
+      {
+        "name": "Mistral Large",
+        "official_url": "https://mistral.ai",
+        "twitter_handle": "@MistralAI",
+        "discord_server": "https://discord.gg/mistral",
+        "reddit": "r/MachineLearning",
+        "category": "LLM",
+        "vision": 44,
+        "ability": 69,
+        "quadrant": "Challenger",
+        "status": "active"
+      },
+      {
+        "name": "Midjourney v7",
+        "official_url": "https://www.midjourney.com",
+        "twitter_handle": "@midjourney",
+        "discord_server": "https://discord.gg/midjourney",
+        "reddit": "r/midjourney",
+        "category": "Image Generation",
+        "vision": 78,
+        "ability": 84,
+        "quadrant": "Leader",
+        "status": "active"
+      },
+      {
+        "name": "DALL-E 3",
+        "official_url": "https://openai.com/dall-e-3",
+        "twitter_handle": "@OpenAI",
+        "discord_server": "",
+        "reddit": "r/OpenAI",
+        "category": "Image Generation",
+        "vision": 70,
+        "ability": 79,
+        "quadrant": "Leader",
+        "status": "active"
+      },
+      {
+        "name": "Flux.1",
+        "official_url": "https://flux-ai.com",
+        "twitter_handle": "@BlackForestLabs",
+        "discord_server": "",
+        "reddit": "r/StableDiffusion",
+        "category": "Image Generation",
+        "vision": 72,
+        "ability": 45,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "Ideogram",
+        "official_url": "https://ideogram.ai",
+        "twitter_handle": "@ideogram_ai",
+        "discord_server": "",
+        "reddit": "r/ArtificialIntelligence",
+        "category": "Image Generation",
+        "vision": 45,
+        "ability": 38,
+        "quadrant": "Niche",
+        "status": "active"
+      },
+      {
+        "name": "Upscayl",
+        "official_url": "https://www.upscayl.org",
+        "twitter_handle": "@upscaylai",
+        "discord_server": "https://discord.gg/upscayl",
+        "reddit": "r/Upscayl",
+        "category": "Image Generation",
+        "vision": 35,
+        "ability": 38,
+        "quadrant": "Niche",
+        "status": "active"
+      },
+      {
+        "name": "Hairstyler AI",
+        "official_url": "https://www.hairstylerai.com",
+        "twitter_handle": "@hairstylerAI",
+        "discord_server": "",
+        "reddit": "r/ArtificialIntelligence",
+        "category": "Image Generation",
+        "vision": 32,
+        "ability": 35,
+        "quadrant": "Niche",
+        "status": "active"
+      },
+      {
+        "name": "Sora 2",
+        "official_url": "https://openai.com/sora",
+        "twitter_handle": "@OpenAI",
+        "discord_server": "",
+        "reddit": "r/OpenAI",
+        "category": "Video Generation",
+        "vision": 85,
+        "ability": 62,
+        "quadrant": "Leader",
+        "status": "active"
+      },
+      {
+        "name": "Veo 3",
+        "official_url": "https://deepmind.google/veo/",
+        "twitter_handle": "@GoogleAI",
+        "discord_server": "",
+        "reddit": "r/MachineLearning",
+        "category": "Video Generation",
+        "vision": 82,
+        "ability": 48,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "Runway Gen-3",
+        "official_url": "https://runwayml.com",
+        "twitter_handle": "@runwayml",
+        "discord_server": "https://discord.gg/runway",
+        "reddit": "r/VideoGeneration",
+        "category": "Video Generation",
+        "vision": 80,
+        "ability": 46,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "Luma AI",
+        "official_url": "https://lumalabs.ai",
+        "twitter_handle": "@LumaLabsAI",
+        "discord_server": "https://discord.gg/lumalabs",
+        "reddit": "r/MachineLearning",
+        "category": "Video Generation",
+        "vision": 74,
+        "ability": 44,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "Synthesia",
+        "official_url": "https://www.synthesia.io",
+        "twitter_handle": "@synthesia_io",
+        "discord_server": "",
+        "reddit": "r/VideoGeneration",
+        "category": "Video Generation",
+        "vision": 68,
+        "ability": 44,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "Lovable",
+        "official_url": "https://lovable.dev",
+        "twitter_handle": "@lovable_dev",
+        "discord_server": "https://discord.gg/lovable",
+        "reddit": "r/webdev",
+        "category": "AI Coding",
+        "vision": 79,
+        "ability": 79,
+        "quadrant": "Leader",
+        "status": "active"
+      },
+      {
+        "name": "GitHub Copilot",
+        "official_url": "https://github.com/features/copilot",
+        "twitter_handle": "@github",
+        "discord_server": "",
+        "reddit": "r/webdev",
+        "category": "AI Coding",
+        "vision": 68,
+        "ability": 83,
+        "quadrant": "Leader",
+        "status": "active"
+      },
+      {
+        "name": "Bolt.new",
+        "official_url": "https://bolt.new",
+        "twitter_handle": "@bolt_new",
+        "discord_server": "https://discord.gg/bolt",
+        "reddit": "r/webdev",
+        "category": "AI Coding",
+        "vision": 73,
+        "ability": 77,
+        "quadrant": "Leader",
+        "status": "active"
+      },
+      {
+        "name": "Windsurf",
+        "official_url": "https://codeium.com/windsurf",
+        "twitter_handle": "@codeium",
+        "discord_server": "",
+        "reddit": "r/webdev",
+        "category": "AI Coding",
+        "vision": 76,
+        "ability": 48,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "Claude Web",
+        "official_url": "https://claude.ai",
+        "twitter_handle": "@anthropic",
+        "discord_server": "",
+        "reddit": "r/ClaudeAI",
+        "category": "AI Coding",
+        "vision": 48,
+        "ability": 78,
+        "quadrant": "Challenger",
+        "status": "active"
+      },
+      {
+        "name": "Perplexity AI",
+        "official_url": "https://www.perplexity.ai",
+        "twitter_handle": "@perplexity_ai",
+        "discord_server": "",
+        "reddit": "r/perplexity",
+        "category": "Search & Research",
+        "vision": 68,
+        "ability": 45,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "NotebookLM",
+        "official_url": "https://notebooklm.google.com",
+        "twitter_handle": "@GoogleNotebook",
+        "discord_server": "",
+        "reddit": "r/MachineLearning",
+        "category": "Search & Research",
+        "vision": 46,
+        "ability": 72,
+        "quadrant": "Challenger",
+        "status": "active"
+      },
+      {
+        "name": "AWS Q Developer",
+        "official_url": "https://aws.amazon.com/q/developer",
+        "twitter_handle": "@AWScloud",
+        "discord_server": "",
+        "reddit": "r/aws",
+        "category": "AI Coding",
+        "vision": 48,
+        "ability": 79,
+        "quadrant": "Challenger",
+        "status": "active"
+      },
+      {
+        "name": "Gamma",
+        "official_url": "https://gamma.app",
+        "twitter_handle": "@gamma_app",
+        "discord_server": "https://discord.gg/gamma",
+        "reddit": "r/webdev",
+        "category": "Presentation",
+        "vision": 44,
+        "ability": 71,
+        "quadrant": "Challenger",
+        "status": "active"
+      },
+      {
+        "name": "Gemini Canvas",
+        "official_url": "https://gemini.google.com",
+        "twitter_handle": "@GoogleAI",
+        "discord_server": "",
+        "reddit": "r/MachineLearning",
+        "category": "Presentation",
+        "vision": 66,
+        "ability": 40,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "Groq LPU",
+        "official_url": "https://groq.com",
+        "twitter_handle": "@GroqInc",
+        "discord_server": "https://discord.gg/groq",
+        "reddit": "r/MachineLearning",
+        "category": "Infrastructure",
+        "vision": 70,
+        "ability": 45,
+        "quadrant": "Visionary",
+        "status": "active"
+      },
+      {
+        "name": "ElevenLabs Voice",
+        "official_url": "https://elevenlabs.io",
+        "twitter_handle": "@elevenlabsio",
+        "discord_server": "https://discord.gg/elevenlabs",
+        "reddit": "r/MachineLearning",
+        "category": "Audio",
+        "vision": 42,
+        "ability": 38,
+        "quadrant": "Niche",
+        "status": "active"
+      },
+      {
+        "name": "Riffusion",
+        "official_url": "https://www.riffusion.com",
+        "twitter_handle": "@riffusionai",
+        "discord_server": "",
+        "reddit": "r/MachineLearning",
+        "category": "Audio",
+        "vision": 40,
+        "ability": 35,
+        "quadrant": "Niche",
+        "status": "active"
       },
       {
         "name": "SUNO",
@@ -43,7 +408,80 @@
         "category": "Audio/Music",
         "vision": 75,
         "ability": 72,
-        "quadrant": "Leader"
+        "quadrant": "Leader",
+        "status": "active"
+      },
+      {
+        "name": "Claude 3.5 Opus Legacy",
+        "official_url": "https://claude.ai",
+        "twitter_handle": "@anthropic",
+        "discord_server": "",
+        "reddit": "r/ClaudeAI",
+        "category": "LLM",
+        "vision": 41,
+        "ability": 68,
+        "quadrant": "Challenger",
+        "status": "active"
+      },
+      {
+        "name": "CodeWhisperer Legacy",
+        "official_url": "https://aws.amazon.com/codewhisperer",
+        "twitter_handle": "@AWScloud",
+        "discord_server": "",
+        "reddit": "r/aws",
+        "category": "AI Coding",
+        "vision": 30,
+        "ability": 45,
+        "quadrant": "Niche",
+        "status": "active"
+      },
+      {
+        "name": "Natural Language AI",
+        "official_url": "https://www.nlm.ai",
+        "twitter_handle": "@nlm_ai",
+        "discord_server": "",
+        "reddit": "r/MachineLearning",
+        "category": "Other",
+        "vision": 35,
+        "ability": 32,
+        "quadrant": "Niche",
+        "status": "active"
+      },
+      {
+        "name": "Caption AI Tools",
+        "official_url": "https://captionai.io",
+        "twitter_handle": "@captionai_",
+        "discord_server": "",
+        "reddit": "r/VideoGeneration",
+        "category": "Other",
+        "vision": 38,
+        "ability": 40,
+        "quadrant": "Niche",
+        "status": "active"
+      },
+      {
+        "name": "Motion",
+        "official_url": "https://motionai.dev",
+        "twitter_handle": "@motionai_dev",
+        "discord_server": "",
+        "reddit": "r/webdev",
+        "category": "Animation",
+        "vision": 36,
+        "ability": 42,
+        "quadrant": "Niche",
+        "status": "active"
+      },
+      {
+        "name": "Banana",
+        "official_url": "https://banana.dev",
+        "twitter_handle": "@bananadev",
+        "discord_server": "https://discord.gg/banana",
+        "reddit": "r/MachineLearning",
+        "category": "Infrastructure",
+        "vision": 38,
+        "ability": 42,
+        "quadrant": "Niche",
+        "status": "active"
       }
     ],
     "sources": {
@@ -53,7 +491,8 @@
         "https://reddit.com/r/OpenAI",
         "https://reddit.com/r/artificial",
         "https://reddit.com/r/ChatGPT",
-        "https://reddit.com/r/Futurology"
+        "https://reddit.com/r/Futurology",
+        "https://reddit.com/r/ArtificialIntelligence"
       ],
       "product_hunt": "https://www.producthunt.com/topics/artificial-intelligence",
       "twitter_trends": [
@@ -61,7 +500,8 @@
         "#ArtificialIntelligence",
         "#MachineLearning",
         "#LLM",
-        "#AItools"
+        "#AItools",
+        "#GenerativeAI"
       ],
       "custom_sources": []
     },
@@ -72,19 +512,12 @@
       "max_tools": 100
     },
     "manual_overrides": {
-      "force_add": [
-        {
-          "name": "SUNO",
-          "category": "Audio/Music",
-          "url": "https://suno.ai",
-          "reason": "Leading AI music generation tool"
-        }
-      ],
+      "force_add": [],
       "force_remove": [],
       "custom_sources": []
     },
     "scrape_schedule": "0 9 * * 1,4",
-    "last_scrape": "2025-11-10T14:00:00Z",
-    "next_scrape": "2025-11-13T09:00:00Z"
+    "last_scrape": null,
+    "next_scrape": null
   }
 }
