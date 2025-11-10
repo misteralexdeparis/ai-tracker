@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from sources.official_sites import scrape_official_sites
 from sources.social_media import scrape_social_media
 from sources.forums import scrape_forums
-from enrichment.claude_analyzer import enrich_with_claude
+from enrichment.perplexity_analyzer import enrich_with_perplexity
 from utils.helpers import (
     load_config,
     load_tools_json,
@@ -80,13 +80,13 @@ def main():
         final_tools = filter_by_max_tools(scored_tools, config)
         print(f"   ✅ Final count: {len(final_tools)} tools (max: {config['thresholds']['max_tools']})")
         
-        # 10. Enrich with Claude analysis (optional)
-        print("\n🤖 Enriching with Claude analysis...")
+        # 10. Enrich with Perplexity analysis (optional)
+        print("\n🤖 Enriching with Perplexity analysis...")
         try:
-            final_tools = enrich_with_claude(final_tools, official_updates)
-            print("   ✅ Claude enrichment complete")
+            final_tools = enrich_with_perplexity(final_tools, official_updates)
+            print("   ✅ Perplexity enrichment complete")
         except Exception as e:
-            print(f"   ⚠️  Claude enrichment failed (non-blocking): {e}")
+            print(f"   ⚠️  Perplexity enrichment failed (non-blocking): {e}")
         
         # 11. Update tools JSON
         tools_data["tools"] = final_tools
