@@ -59,18 +59,18 @@ jobs:
           git commit -m "chore: update AI tools tracker data (bi-weekly scrape)"
           git push origin main
       
-      - name: Create issue if scrape failed
-        if: failure()
-        uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: '⚠️ Scraper failed - ' + new Date().toISOString(),
-              body: 'The bi-weekly scraper failed. Check logs: ' + context.runId,
-              labels: ['bug', 'scraper']
-            })
+     # - name: Create issue if scrape failed
+#   if: failure()
+#   uses: actions/github-script@v6
+#   with:
+#     script: |
+#       github.rest.issues.create({
+#         owner: context.repo.owner,
+#         repo: context.repo.repo,
+#         title: '⚠️ Scraper failed - ' + new Date().toISOString(),
+#         body: 'The bi-weekly scraper failed. Check logs: ' + context.runId,
+#         labels: ['bug', 'scraper']
+#       })
       
       - name: Upload scrape report
         uses: actions/upload-artifact@v4
