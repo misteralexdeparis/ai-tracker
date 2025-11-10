@@ -1,11 +1,12 @@
 let tools = [];
 
-// Load tools from GitHub with cache busting
+// Load tools from local public folder with cache busting
 async function loadTools() {
     try {
         const timestamp = Date.now();
         const cacheBreaker = Math.random().toString(36).substring(7);
-        const url = `https://raw.githubusercontent.com/misteralexdeparis/ai-tracker/main/public/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
+        // Load from local public folder instead of GitHub (avoids CORS)
+        const url = `/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
         
         const response = await fetch(url, {
             cache: 'no-store',
@@ -23,10 +24,10 @@ async function loadTools() {
         const data = await response.json();
         tools = data.tools || data || [];
         
-        console.log(`✅ Loaded ${tools.length} tools from GitHub`);
+        console.log(`✅ Loaded ${tools.length} tools from local public folder`);
         renderTools(tools);
     } catch (error) {
-        console.error('Error loading tools from GitHub:', error);
+        console.error('Error loading tools:', error);
         // Fallback to sample data if fetch fails
         loadSampleTools();
     }
