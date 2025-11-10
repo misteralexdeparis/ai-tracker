@@ -84,13 +84,14 @@ def main():
         final_tools = filter_by_max_tools(scored_tools, config)
         print(f"   ✅ Final count: {len(final_tools)} tools (max: {config.get('thresholds', {}).get('max_tools', 100)})")
         
-        # 10. Enrich with Perplexity (optional)
-        print("\n🤖 Enriching with Perplexity analysis...")
-        try:
-            final_tools = enrich_with_perplexity(final_tools, official_updates)
-            print("   ✅ Perplexity enrichment complete")
-        except Exception as e:
-            print(f"   ⚠️  Perplexity enrichment failed (non-blocking): {e}")
+        # 10. Perplexity enrichment DISABLED for now (cost optimization)
+        print("\n🤖 Perplexity enrichment...")
+        print("   ⏭️  Skipped (disabled for cost optimization)")
+        # try:
+        #     final_tools = enrich_with_perplexity(final_tools, official_updates)
+        #     print("   ✅ Perplexity enrichment complete")
+        # except Exception as e:
+        #     print(f"   ⚠️  Perplexity enrichment failed (non-blocking): {e}")
         
         # 11. Update tools JSON
         tools_data["tools"] = final_tools
