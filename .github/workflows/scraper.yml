@@ -1,0 +1,82 @@
+name: AI Tools Tracker - Bi-weekly Scrape
+
+on:
+  schedule:
+    # Run every Monday and Thursday at 9 AM UTC
+    - cron: '0 9 * * 1,4'
+  workflow_dispatch
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scraper/requirements.txt
+      
+      - name: Create required directories
+        run: |
+          mkdir -p public
+          mkdir -p scraper/logs
+      
+      - name: Run scraper
+        env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd scraper
+          python main.py
+          cd ..
+      
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet public/ai_tracker_enhanced.json; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push changes
+        if: steps.changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "AI Tracker Bot"
+          git add public/ai_tracker_enhanced.json
+          git add scraper/scrape_report.json || true
+          git commit -m "chore: update AI tools tracker data (bi-weekly scrape)"
+          git push origin main
+      
+      - name: Create issue if scrape failed
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '⚠️ Scraper failed - ' + new Date().toISOString(),
+              body: 'The bi-weekly scraper failed. Check logs: ' + context.runId,
+              labels: ['bug', 'scraper']
+            })
+      
+      - name: Upload scrape report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: scrape-report
+          path: scraper/scrape_report.json
+          retention-days: 30
