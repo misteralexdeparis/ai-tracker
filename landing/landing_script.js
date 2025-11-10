@@ -1,12 +1,13 @@
 let tools = [];
 
-// Load tools from local public folder with cache busting
+// Load tools from GitHub using CORS proxy
 async function loadTools() {
     try {
         const timestamp = Date.now();
         const cacheBreaker = Math.random().toString(36).substring(7);
-        // Load from local public folder instead of GitHub (avoids CORS)
-        const url = `/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
+        
+        // Use jsDelivr CDN as CORS proxy for GitHub raw content
+        const url = `https://cdn.jsdelivr.net/gh/misteralexdeparis/ai-tracker@main/public/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
         
         const response = await fetch(url, {
             cache: 'no-store',
@@ -24,7 +25,7 @@ async function loadTools() {
         const data = await response.json();
         tools = data.tools || data || [];
         
-        console.log(`✅ Loaded ${tools.length} tools from local public folder`);
+        console.log(`✅ Loaded ${tools.length} tools from jsDelivr CDN`);
         renderTools(tools);
     } catch (error) {
         console.error('Error loading tools:', error);
