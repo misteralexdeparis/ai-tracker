@@ -2383,5 +2383,73 @@
         renderTools(tools);
         renderGartnerMatrix();
     </script>
+<!-- Add this script BEFORE </body> tag in landing/index.html -->
+<script>
+// Fetch and load tools data from JSON
+async function loadToolsData() {
+  try {
+    // Cache busting: force fresh data
+    const timestamp = Date.now();
+    const cacheBreaker = Math.random().toString(36).substring(7);
+    const url = `https://raw.githubusercontent.com/misteralexdeparis/ai-tracker/main/public/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
+    
+    const response = await fetch(url, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
+    
+    if (!response.ok) {
+      console.error('Failed to fetch tools data:', response.status);
+      return null;
+    }
+    
+    const data = await response.json();
+    return data.tools || [];
+  } catch (error) {
+    console.error('Error loading tools data:', error);
+    return null;
+  }
+}
+
+// Initialize tools on page load
+document.addEventListener('DOMContentLoaded', async function() {
+  const toolsData = await loadToolsData();
+  
+  if (toolsData && toolsData.length > 0) {
+    // Replace the hardcoded tools with the fetched data
+    window.tools = toolsData;
+    
+    // Update tool count display
+    const countElements = document.querySelectorAll('[data-tool-count]');
+    countElements.forEach(el => {
+      el.textContent = toolsData.length;
+    });
+    
+    // Re-render the tools display (if you have a render function)
+    if (typeof renderTools === 'function') {
+      renderTools(toolsData);
+    }
+    
+    // Update last updated date
+    const lastUpdatedElements = document.querySelectorAll('[data-last-updated]');
+    const now = new Date().toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    lastUpdatedElements.forEach(el => {
+      el.textContent = `Last Updated: ${now}`;
+    });
+    
+    console.log(`✅ Loaded ${toolsData.length} tools from GitHub`);
+  } else {
+    console.warn('⚠️ Could not load tools data, using fallback');
+  }
+});
+</script>
 </body>
 </html>
