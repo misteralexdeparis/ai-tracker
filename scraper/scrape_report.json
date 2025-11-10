@@ -1,325 +1,259 @@
 {
-  "timestamp": "2025-11-10T17:44:44.337248",
+  "timestamp": "2025-11-10T21:21:35.742670",
   "summary": {
     "official_updates": 3,
     "social_updates": 0,
     "forum_updates": 15,
     "new_candidates": 0,
-    "total_tools": 39
+    "total_tools": 41
   },
   "top_candidates": [],
   "tools_snapshot": [
     {
       "name": "GPT-5 Pro",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "category": "LLM",
+      "buzz_score": 92,
+      "status": "active"
     },
     {
       "name": "GPT-5",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "category": "LLM",
+      "buzz_score": 87,
+      "status": "active"
+    },
+    {
+      "name": "Claude 4.5",
+      "category": "LLM",
+      "buzz_score": 86,
+      "status": "active"
     },
     {
       "name": "Claude 4.5 Sonnet",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "category": "LLM",
+      "buzz_score": 85,
+      "status": "active"
     },
     {
       "name": "Gemini 2.5 Pro",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Midjourney v7",
-      "category": [
-        "Image Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Lovable",
-      "category": [
-        "Vibe Coding"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "GitHub Copilot",
-      "category": [
-        "Vibe Coding"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Bolt.new",
-      "category": [
-        "Vibe Coding"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Sora 2",
-      "category": [
-        "Video Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "DALL-E 3",
-      "category": [
-        "Image Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Veo 3",
-      "category": [
-        "Video Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Windsurf",
-      "category": [
-        "Vibe Coding"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Runway Gen-3",
-      "category": [
-        "Video Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Luma AI",
-      "category": [
-        "Video Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "category": "LLM",
+      "buzz_score": 82,
+      "status": "active"
     },
     {
       "name": "Grok 4",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Perplexity AI",
-      "category": [
-        "AI Search & Research"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Flux.1",
-      "category": [
-        "Image Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "category": "LLM",
+      "buzz_score": 57,
+      "status": "active"
     },
     {
       "name": "DeepSeek R1",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Gemini Canvas",
-      "category": [
-        "Image Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Synthesia",
-      "category": [
-        "Video Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Groq (LPU Inference)",
-      "category": [
-        "LLM Infrastructure"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Claude Web (claude.ai)",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "AWS Q Developer",
-      "category": [
-        "Vibe Coding"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "NotebookLM",
-      "category": [
-        "AI Research"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Gamma",
-      "category": [
-        "Presentation AI"
-      ],
-      "buzz_score": null,
-      "status": "Live"
-    },
-    {
-      "name": "Claude 3.5 Opus (Legacy)",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Legacy"
+      "category": "LLM",
+      "buzz_score": 53,
+      "status": "active"
     },
     {
       "name": "Kimi Chat",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "category": "LLM",
+      "buzz_score": 57,
+      "status": "active"
     },
     {
-      "name": "Llama 3.1 (Open Source)",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "name": "Llama 3.1",
+      "category": "LLM",
+      "buzz_score": 55,
+      "status": "active"
     },
     {
-      "name": "Mistral Large (EU Open)",
-      "category": [
-        "LLM"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "name": "Mistral Large",
+      "category": "LLM",
+      "buzz_score": 57,
+      "status": "active"
     },
     {
-      "name": "Banana (Image Gen API)",
-      "category": [
-        "Image Generation"
-      ],
-      "buzz_score": null,
-      "status": "Beta"
+      "name": "Midjourney v7",
+      "category": "Image Generation",
+      "buzz_score": 81,
+      "status": "active"
+    },
+    {
+      "name": "DALL-E 3",
+      "category": "Image Generation",
+      "buzz_score": 75,
+      "status": "active"
+    },
+    {
+      "name": "Flux.1",
+      "category": "Image Generation",
+      "buzz_score": 59,
+      "status": "active"
     },
     {
       "name": "Ideogram",
-      "category": [
-        "Image Generation"
-      ],
-      "buzz_score": null,
-      "status": "Beta"
+      "category": "Image Generation",
+      "buzz_score": 42,
+      "status": "active"
     },
     {
-      "name": "Hairstyler AI (Niche)",
-      "category": [
-        "Image Generation - Specialized"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "name": "Upscayl",
+      "category": "Image Generation",
+      "buzz_score": 37,
+      "status": "active"
     },
     {
-      "name": "Upscayl (Image Upscaling)",
-      "category": [
-        "Image Upscaling - Open Source"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "name": "Hairstyler AI",
+      "category": "Image Generation",
+      "buzz_score": 34,
+      "status": "active"
     },
     {
-      "name": "Riffusion (Music Gen)",
-      "category": [
-        "Audio Generation"
-      ],
-      "buzz_score": null,
-      "status": "Beta"
+      "name": "Sora 2",
+      "category": "Video Generation",
+      "buzz_score": 74,
+      "status": "active"
     },
     {
-      "name": "Amazon CodeWhisperer (Legacy)",
-      "category": [
-        "Vibe Coding"
-      ],
-      "buzz_score": null,
-      "status": "Sunset"
+      "name": "Veo 3",
+      "category": "Video Generation",
+      "buzz_score": 65,
+      "status": "active"
     },
     {
-      "name": "Natural Language AI (Research)",
-      "category": [
-        "LLM Research"
-      ],
-      "buzz_score": null,
-      "status": "Research"
+      "name": "Runway Gen-3",
+      "category": "Video Generation",
+      "buzz_score": 63,
+      "status": "active"
     },
     {
-      "name": "ElevenLabs Voice (Specialized)",
-      "category": [
-        "Audio Generation"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "name": "Luma AI",
+      "category": "Video Generation",
+      "buzz_score": 59,
+      "status": "active"
     },
     {
-      "name": "Caption AI Tools (Auto-Captions)",
-      "category": [
-        "Video Tools - Specialized"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "name": "Synthesia",
+      "category": "Video Generation",
+      "buzz_score": 56,
+      "status": "active"
     },
     {
-      "name": "Motion (Productivity AI)",
-      "category": [
-        "Productivity"
-      ],
-      "buzz_score": null,
-      "status": "Live"
+      "name": "Lovable",
+      "category": "AI Coding",
+      "buzz_score": 79,
+      "status": "active"
+    },
+    {
+      "name": "GitHub Copilot",
+      "category": "AI Coding",
+      "buzz_score": 76,
+      "status": "active"
+    },
+    {
+      "name": "Bolt.new",
+      "category": "AI Coding",
+      "buzz_score": 75,
+      "status": "active"
+    },
+    {
+      "name": "Windsurf",
+      "category": "AI Coding",
+      "buzz_score": 62,
+      "status": "active"
+    },
+    {
+      "name": "Claude Web",
+      "category": "AI Coding",
+      "buzz_score": 63,
+      "status": "active"
+    },
+    {
+      "name": "Perplexity AI",
+      "category": "Search & Research",
+      "buzz_score": 57,
+      "status": "active"
+    },
+    {
+      "name": "NotebookLM",
+      "category": "Search & Research",
+      "buzz_score": 59,
+      "status": "active"
+    },
+    {
+      "name": "AWS Q Developer",
+      "category": "AI Coding",
+      "buzz_score": 64,
+      "status": "active"
+    },
+    {
+      "name": "Gamma",
+      "category": "Presentation",
+      "buzz_score": 58,
+      "status": "active"
+    },
+    {
+      "name": "Gemini Canvas",
+      "category": "Presentation",
+      "buzz_score": 53,
+      "status": "active"
+    },
+    {
+      "name": "Groq LPU",
+      "category": "Infrastructure",
+      "buzz_score": 58,
+      "status": "active"
+    },
+    {
+      "name": "ElevenLabs Voice",
+      "category": "Audio",
+      "buzz_score": 40,
+      "status": "active"
+    },
+    {
+      "name": "Riffusion",
+      "category": "Audio",
+      "buzz_score": 38,
+      "status": "active"
+    },
+    {
+      "name": "SUNO",
+      "category": "Audio/Music",
+      "buzz_score": 74,
+      "status": "active"
+    },
+    {
+      "name": "Claude 3.5 Opus Legacy",
+      "category": "LLM",
+      "buzz_score": 55,
+      "status": "active"
+    },
+    {
+      "name": "CodeWhisperer Legacy",
+      "category": "AI Coding",
+      "buzz_score": 38,
+      "status": "active"
+    },
+    {
+      "name": "Natural Language AI",
+      "category": "Other",
+      "buzz_score": 34,
+      "status": "active"
+    },
+    {
+      "name": "Caption AI Tools",
+      "category": "Other",
+      "buzz_score": 39,
+      "status": "active"
+    },
+    {
+      "name": "Motion",
+      "category": "Animation",
+      "buzz_score": 39,
+      "status": "active"
+    },
+    {
+      "name": "Banana",
+      "category": "Infrastructure",
+      "buzz_score": 40,
+      "status": "active"
     }
   ]
 }
