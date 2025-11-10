@@ -2391,7 +2391,7 @@ async function loadToolsData() {
     // Cache busting: force fresh data
     const timestamp = Date.now();
     const cacheBreaker = Math.random().toString(36).substring(7);
-    const url = `https://raw.githubusercontent.com/misteralexdeparis/ai-tracker/main/public/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
+    const url = `https://cdn.jsdelivr.net/gh/misteralexdeparis/ai-tracker@main/public/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
     
     const response = await fetch(url, {
       cache: 'no-store',
