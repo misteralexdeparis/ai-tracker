@@ -49,23 +49,38 @@ def save_tools_json(tools_data):
 
 
 def score_candidates(existing_tools, candidates, config):
-    """Score tools and candidates"""
-    all_tools = existing_tools.copy() if existing_tools else []
+    """Score tools and candidates - KEEP ALL CONFIG TOOLS"""
+    
+    # START with all tools from config (these are the baseline)
+    config_tools = config.get("tools_to_track", [])
+    all_tools = []
+    
+    # Add all config tools first
+    for tool in config_tools:
+        tool_copy = tool.copy()
+        if "added_date" not in tool_copy:
+            tool_copy["added_date"] = datetime.now().isoformat()
+        if "status" not in tool_copy:
+            tool_copy["status"] = "tracked"
+        all_tools.append(tool_copy)
+    
+    # Then add NEW candidates that meet thresholds
+    thresholds = config.get("thresholds", {})
+    min_vision = thresholds.get("min_vision", 50)
+    min_ability = thresholds.get("min_ability", 40)
+    min_buzz = thresholds.get("min_buzz_score", 50)
     
     for candidate in candidates:
         buzz_score = candidate.get("buzz_score", 50)
         vision = candidate.get("vision", 50)
         ability = candidate.get("ability", 40)
         
-        thresholds = config.get("thresholds", {})
-        min_vision = thresholds.get("min_vision", 50)
-        min_ability = thresholds.get("min_ability", 40)
-        min_buzz = thresholds.get("min_buzz_score", 50)
-        
-        if vision >= min_vision and ability >= min_ability and buzz_score >= min_buzz:
-            candidate["status"] = "tracked"
-            candidate["added_date"] = datetime.now().isoformat()
-            all_tools.append(candidate)
+        # Only add if meets thresholds AND not already in config
+        if (vision >= min_vision and ability >= min_ability and buzz_score >= min_buzz):
+            if not any(t.get("name") == candidate.get("name") for t in all_tools):
+                candidate["status"] = "tracked"
+                candidate["added_date"] = datetime.now().isoformat()
+                all_tools.append(candidate)
     
     return all_tools
 
@@ -111,10 +126,13 @@ def filter_by_max_tools(tools, config):
     if len(tools) <= max_tools:
         return tools
     
-    sorted_tools = sorted(
-        tools,
-        key=lambda x: x.get("buzz_score", 0) + (x.get("vision", 0) + x.get("ability", 0)) / 2,
-        reverse=True
-    )
+    # Score = buzz_score + average of vision/ability
+    def calc_score(tool):
+        buzz = tool.get("buzz_score", 50)
+        vision = tool.get("vision", 50)
+        ability = tool.get("ability", 40)
+        return buzz + (vision + ability) / 2
+    
+    sorted_tools = sorted(tools, key=calc_score, reverse=True)
     
     return sorted_tools[:max_tools]
