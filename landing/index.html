@@ -533,12 +533,35 @@
             });
         }
 
-        function handleNewsletter(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input[type="email"]').value;
-            alert(`Thanks for subscribing! You'll receive updates at ${email}.`);
+   async function handleNewsletter(event) {
+    event.preventDefault();
+    const email = event.target.querySelector('input[type="email"]').value;
+    
+    try {
+        // Change cette URL selon où tu es:
+        // Local: http://localhost:3000
+        // Production (Heroku): https://ton-app-heroku.herokuapp.com
+        const API_URL = 'http://localhost:3000';
+        
+        const response = await fetch(`${API_URL}/api/subscribe`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert(`✅ ${data.message}`);
             event.target.reset();
+        } else {
+            alert(`❌ ${data.error}`);
         }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to subscribe. Try again later.');
+    }
+}
 
         document.getElementById('toolModal').addEventListener('click', function(e) {
             if (e.target === this) this.classList.remove('active');

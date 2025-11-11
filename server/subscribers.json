@@ -1,0 +1,14 @@
+[
+  {
+    "email": "alexandre_papa@hotmail.com",
+    "subscribedAt": "2025-11-11T21:00:53.022Z",
+    "active": true,
+    "confirmed": false
+  },
+  {
+    "email": "hansen_rocco@hotmail.com",
+    "subscribedAt": "2025-11-11T21:33:59.299Z",
+    "active": true,
+    "confirmed": false
+  }
+]
