@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "node server/newsletter-server.js",
     "lint": "next lint"
   },
