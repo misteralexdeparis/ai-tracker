@@ -177,52 +177,23 @@
     </section>
 
     <div class="stats">
-        <div class="stat-card">
-            <div class="stat-number" id="tool-count">40</div>
-            <div class="stat-label">Tools Tracked</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">Weekly</div>
-            <div class="stat-label">Updated</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">4</div>
-            <div class="stat-label">Quadrants</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Impartial Scoring</div>
-        </div>
+        <div class="stat-card"><div class="stat-number" id="tool-count">40</div><div class="stat-label">Tools Tracked</div></div>
+        <div class="stat-card"><div class="stat-number">Weekly</div><div class="stat-label">Updated</div></div>
+        <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Quadrants</div></div>
+        <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">Impartial Scoring</div></div>
     </div>
 
     <section class="section" id="gartner-matrix-section">
         <h2 class="section-title">Interactive Gartner Magic Quadrant</h2>
         <p class="section-subtitle">Explore innovation vs execution across the AI landscape</p>
-        
-        <div class="categories" id="matrixCategories" style="margin-bottom: var(--space-32);">
-        </div>
-        
+        <div class="categories" id="matrixCategories" style="margin-bottom: var(--space-32);"></div>
         <p id="matrixFilterStatus" style="text-align: center; color: var(--color-text-secondary); margin-bottom: var(--space-16); font-size: var(--font-size-base);">Showing all tools</p>
-        
         <div style="display: flex; justify-content: center; gap: var(--space-24); margin-bottom: var(--space-24); flex-wrap: wrap;">
-            <div style="display: flex; align-items: center; gap: var(--space-8);">
-                <div style="width: 16px; height: 16px; border-radius: 50%; background: #2563eb;"></div>
-                <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Leaders</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: var(--space-8);">
-                <div style="width: 16px; height: 16px; border-radius: 50%; background: #10b981;"></div>
-                <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Visionaries</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: var(--space-8);">
-                <div style="width: 16px; height: 16px; border-radius: 50%; background: #8b5cf6;"></div>
-                <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Challengers</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: var(--space-8);">
-                <div style="width: 16px; height: 16px; border-radius: 50%; background: #f59e0b;"></div>
-                <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Niche Players</span>
-            </div>
+            <div style="display: flex; align-items: center; gap: var(--space-8);"><div style="width: 16px; height: 16px; border-radius: 50%; background: #2563eb;"></div><span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Leaders</span></div>
+            <div style="display: flex; align-items: center; gap: var(--space-8);"><div style="width: 16px; height: 16px; border-radius: 50%; background: #10b981;"></div><span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Visionaries</span></div>
+            <div style="display: flex; align-items: center; gap: var(--space-8);"><div style="width: 16px; height: 16px; border-radius: 50%; background: #8b5cf6;"></div><span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Challengers</span></div>
+            <div style="display: flex; align-items: center; gap: var(--space-8);"><div style="width: 16px; height: 16px; border-radius: 50%; background: #f59e0b;"></div><span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Niche Players</span></div>
         </div>
-        
         <div class="gartner-matrix-container">
             <div class="matrix-canvas" id="matrixCanvas">
                 <div class="matrix-quadrant top-left">Challengers</div>
@@ -237,20 +208,15 @@
 
     <section class="section">
         <h2 class="section-title">Gartner Distribution</h2>
-        <p class="section-subtitle" id="last-updated">Last Updated: Today</p>
-        <div class="distribution-grid" id="distributionGrid">
-        </div>
+        <p class="section-subtitle">Last Updated: Today</p>
+        <div class="distribution-grid" id="distributionGrid"></div>
     </section>
 
     <section class="section" id="tools">
         <h2 class="section-title">All AI Tools</h2>
         <p class="section-subtitle">Browse and filter by category</p>
-        
-        <div class="categories" id="categories" style="margin-bottom: var(--space-32);">
-        </div>
-        
-        <div class="tools-grid" id="toolsGrid">
-        </div>
+        <div class="categories" id="categories" style="margin-bottom: var(--space-32);"></div>
+        <div class="tools-grid" id="toolsGrid"></div>
     </section>
 
     <section class="community-grid section" style="background: transparent;">
@@ -282,7 +248,7 @@
             <button type="submit" class="cta-button">Subscribe</button>
         </form>
         <p style="margin-top: var(--space-24); font-size: var(--font-size-base); color: var(--color-text-secondary);">
-            Join our <a href="https://discord.gg/rMWTpNQVBD" target="_blank" style="color: var(--color-primary); text-decoration: underline;">Discord community</a> for live discussions and feedback
+            Join our <a href="https://discord.gg/rMWTpNQVBD" target="_blank" style="color: var(--color-primary); text-decoration: underline;">Discord community</a> for live discussions
         </p>
     </section>
 
@@ -293,7 +259,6 @@
                 <p style="margin-top: var(--space-8); color: var(--color-text-secondary); font-size: var(--font-size-sm);">The definitive guide to AI tools</p>
                 <p style="margin-top: var(--space-16); color: var(--color-text-secondary); font-size: var(--font-size-sm);">&copy; 2025 AI Tools Tracker. All rights reserved.</p>
             </div>
-            
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <div class="footer-links-column">
@@ -301,7 +266,6 @@
                     <a href="#tools">All Tools</a>
                 </div>
             </div>
-            
             <div class="footer-section">
                 <h4>Community</h4>
                 <div class="footer-links-column">
@@ -309,7 +273,6 @@
                     <a href="https://github.com/misteralexdeparis/ai-tracker" target="_blank">GitHub</a>
                 </div>
             </div>
-            
             <div class="footer-section">
                 <h4>Follow Us</h4>
                 <div class="social-links">
@@ -332,11 +295,13 @@
     <script>
         let allTools = [];
         let currentFilter = 'all';
+        let toolIndexMap = {}; // Map to find tool by any unique identifier
 
-        window.openModal = function(toolId) {
-            const tool = allTools.find(t => t.id === toolId);
+        // UTILISER L'INDEX pour tous les appels
+        window.openModalByIndex = function(index) {
+            const tool = allTools[index];
             if (!tool) {
-                console.error('Tool not found:', toolId);
+                console.error('Tool not found at index:', index);
                 return;
             }
             
@@ -346,21 +311,19 @@
             let body = `
                 <div class="modal-section">
                     <div class="tool-category">${tool.category}</div>
-                    <div class="quadrant-badge ${tool.quadrant?.toLowerCase() || 'niche'}" style="margin-top: 8px;">${tool.quadrant || 'Niche'}</div>
+                    <div class="quadrant-badge ${tool.quadrant?.toLowerCase() || 'niche'}">${tool.quadrant || 'Niche'}</div>
                 </div>
                 <div class="modal-section">
                     <h4>Gartner Scores</h4>
                     <div style="margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                            <span>Completeness of Vision</span>
-                            <span>${tool.vision || 0}/100</span>
+                            <span>Completeness of Vision</span><span>${tool.vision || 0}/100</span>
                         </div>
                         <div class="score-bar"><div class="score-bar-fill" style="width: ${tool.vision || 0}%"></div></div>
                     </div>
                     <div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                            <span>Ability to Execute</span>
-                            <span>${tool.ability || 0}/100</span>
+                            <span>Ability to Execute</span><span>${tool.ability || 0}/100</span>
                         </div>
                         <div class="score-bar"><div class="score-bar-fill" style="width: ${tool.ability || 0}%"></div></div>
                     </div>
@@ -394,11 +357,9 @@
             try {
                 const timestamp = Date.now();
                 const url = `https://raw.githubusercontent.com/misteralexdeparis/ai-tracker/main/public/ai_tracker_enhanced.json?t=${timestamp}`;
-                
                 const response = await fetch(url);
                 const data = await response.json();
                 allTools = data.tools || data || [];
-                
                 console.log(`✅ Loaded ${allTools.length} tools`);
                 renderAll();
             } catch (error) {
@@ -416,39 +377,25 @@
 
         function renderTools(toolsToRender = allTools) {
             const grid = document.getElementById('toolsGrid');
-            grid.innerHTML = toolsToRender.map((tool, idx) => `
-                <div class="tool-card">
-                    <div style="margin-bottom: var(--space-16);">
-                        <div class="tool-name">${tool.name}</div>
-                        <div class="tool-developer">${tool.developer}</div>
-                    </div>
-                    <div class="tool-category">${tool.category}</div>
-                    <div class="quadrant-badge ${tool.quadrant?.toLowerCase() || 'niche'}">
-                        ${tool.quadrant || 'Niche'}
-                    </div>
-                    <div class="tool-about">${tool.description || tool.about || 'AI Tool'}</div>
-                    <div class="tool-scores">
-                        <div class="score">
-                            <div class="score-label">Vision</div>
-                            <div class="score-value">${tool.vision || 0}</div>
+            grid.innerHTML = toolsToRender.map((tool, displayIndex) => {
+                const actualIndex = allTools.indexOf(tool);
+                return `
+                    <div class="tool-card">
+                        <div style="margin-bottom: var(--space-16);">
+                            <div class="tool-name">${tool.name}</div>
+                            <div class="tool-developer">${tool.developer}</div>
                         </div>
-                        <div class="score">
-                            <div class="score-label">Ability</div>
-                            <div class="score-value">${tool.ability || 0}</div>
+                        <div class="tool-category">${tool.category}</div>
+                        <div class="quadrant-badge ${tool.quadrant?.toLowerCase() || 'niche'}">${tool.quadrant || 'Niche'}</div>
+                        <div class="tool-about">${tool.description || tool.about || 'AI Tool'}</div>
+                        <div class="tool-scores">
+                            <div class="score"><div class="score-label">Vision</div><div class="score-value">${tool.vision || 0}</div></div>
+                            <div class="score"><div class="score-label">Ability</div><div class="score-value">${tool.ability || 0}</div></div>
                         </div>
+                        <button class="btn-secondary" onclick="window.openModalByIndex(${actualIndex})">View Details</button>
                     </div>
-                    <button class="btn-secondary" data-tool-id="${tool.id}">View Details</button>
-                </div>
-            `).join('');
-            
-            // Attach click handlers to buttons
-            grid.querySelectorAll('.btn-secondary').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const toolId = btn.getAttribute('data-tool-id');
-                    window.openModal(toolId);
-                });
-            });
+                `;
+            }).join('');
         }
 
         function renderCategories() {
@@ -462,7 +409,6 @@
             const toolsContainer = document.getElementById('categories');
             
             let html = `<button class="category-pill active" onclick="filterByCategory('all')">All <span style="margin-left: var(--space-8); opacity: 0.7;">(${allTools.length})</span></button>`;
-            
             Object.entries(categories).sort().forEach(([cat, count]) => {
                 html += `<button class="category-pill" onclick="filterByCategory('${cat}')">${cat} <span style="margin-left: var(--space-8); opacity: 0.7;">(${count})</span></button>`;
             });
@@ -498,19 +444,12 @@
             const icons = { leader: '🔵', visionary: '🟢', challenger: '🟣', niche: '🟠' };
             
             document.getElementById('distributionGrid').innerHTML = Object.entries(counts).map(([quad, count]) => `
-                <div class="distribution-card ${quad}">
+                <div class="distribution-card ${quad}" style="cursor: pointer;" onclick="window.filterByQuadrant('${quad}')">
                     <div style="font-size: var(--font-size-4xl); margin-bottom: var(--space-16);">${icons[quad]}</div>
                     <div class="distribution-count">${count}</div>
                     <div class="distribution-label">${labels[quad]}</div>
                 </div>
             `).join('');
-            
-            document.querySelectorAll('.distribution-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const quadrant = Array.from(card.classList).find(c => ['leader', 'visionary', 'challenger', 'niche'].includes(c));
-                    window.filterByQuadrant(quadrant);
-                });
-            });
         }
 
         function renderMatrix(toolsToRender = allTools) {
@@ -522,6 +461,7 @@
             const scaleRange = scaleMax - scaleMin;
             
             toolsToRender.forEach(tool => {
+                const actualIndex = allTools.indexOf(tool);
                 const dot = document.createElement('div');
                 const quadrant = tool.vision >= 70 && tool.ability >= 70 ? 'leader' :
                                 tool.vision < 70 && tool.ability >= 70 ? 'challenger' :
@@ -538,7 +478,7 @@
                 dot.style.left = `${xPercent}%`;
                 dot.style.top = `${yPercent}%`;
                 dot.title = `${tool.name} (V: ${tool.vision}, A: ${tool.ability})`;
-                dot.onclick = (e) => { e.stopPropagation(); window.openModal(tool.id); };
+                dot.onclick = (e) => { e.stopPropagation(); window.openModalByIndex(actualIndex); };
                 
                 canvas.appendChild(dot);
             });
