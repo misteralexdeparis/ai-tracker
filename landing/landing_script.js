@@ -1,78 +1,65 @@
-// Load tools from /public (simple and works everywhere)
+// Ultimate working version - Load from GitHub directly (no CORS issues with proper headers)
 async function loadTools() {
     try {
         const timestamp = Date.now();
-        const cacheBreaker = Math.random().toString(36).substring(7);
-        // Load from public folder
-        const url = `/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
+        // Use GitHub Pages or raw content with proper CORS
+        const url = `https://raw.githubusercontent.com/misteralexdeparis/ai-tracker/main/public/ai_tracker_enhanced.json?t=${timestamp}`;
         
-        const response = await fetch(url);
+        const response = await fetch(url, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache'
+        });
 
         if (!response.ok) {
+            console.warn('⚠️ GitHub fetch failed, trying fallback...');
             throw new Error(`Failed to fetch: ${response.status}`);
         }
 
         const data = await response.json();
         const tools = data.tools || data || [];
         
-        console.log(`✅ Loaded ${tools.length} tools from /public`);
+        console.log(`✅ Loaded ${tools.length} tools from GitHub`);
         renderTools(tools);
         updateStats(tools);
     } catch (error) {
-        console.error('Error loading tools:', error);
-        // Fallback to sample data if fetch fails
+        console.error('Error loading tools from GitHub:', error);
+        // Fallback: load embedded sample data
+        console.log('📦 Loading embedded sample data...');
         loadSampleTools();
     }
 }
 
-// Sample fallback data
+// Embedded sample data (will be replaced with real data once fetch works)
 function loadSampleTools() {
-    console.log('⚠️ Using fallback data');
     const tools = [
-        {
-            id: "gpt-5-pro",
-            name: "GPT-5 Pro",
-            developer: "OpenAI",
-            category: ["LLM"],
-            quadrant: "Leader",
-            vision: 92,
-            ability: 91,
-            official_url: "https://openai.com"
-        },
-        {
-            id: "gpt-5",
-            name: "GPT-5",
-            developer: "OpenAI",
-            category: ["LLM"],
-            quadrant: "Leader",
-            vision: 88,
-            ability: 86,
-            official_url: "https://openai.com"
-        },
-        {
-            id: "claude-4-5",
-            name: "Claude 4.5",
-            developer: "Anthropic",
-            category: ["LLM"],
-            quadrant: "Leader",
-            vision: 85,
-            ability: 87,
-            official_url: "https://claude.ai"
-        }
+        {"name":"GPT-5 Pro","official_url":"https://openai.com/gpt-5","category":"LLM","vision":92,"ability":91,"quadrant":"Leader"},
+        {"name":"GPT-5","official_url":"https://openai.com/gpt-5","category":"LLM","vision":88,"ability":86,"quadrant":"Leader"},
+        {"name":"Claude 4.5","official_url":"https://claude.ai","category":"LLM","vision":85,"ability":87,"quadrant":"Leader"},
+        {"name":"Sora 2","official_url":"https://openai.com/sora","category":"Video Generation","vision":85,"ability":62,"quadrant":"Leader"},
+        {"name":"SUNO","official_url":"https://suno.ai","category":"Audio/Music","vision":75,"ability":72,"quadrant":"Leader"},
+        {"name":"Midjourney v7","official_url":"https://www.midjourney.com","category":"Image Generation","vision":78,"ability":84,"quadrant":"Leader"},
+        {"name":"Lovable","official_url":"https://lovable.dev","category":"AI Coding","vision":79,"ability":79,"quadrant":"Leader"}
     ];
+    
+    console.log(`✅ Loaded ${tools.length} sample tools`);
     renderTools(tools);
     updateStats(tools);
 }
 
 // Initialize on DOM ready
 document.addEventListener("DOMContentLoaded", function() {
+    console.log('🚀 AI Tracker initializing...');
     loadTools();
 });
 
 // Render tools grid
 function renderTools(toolsToRender) {
     const grid = document.getElementById("tools-grid");
-    if (!grid) return;
+    if (!grid) {
+        console.error('❌ tools-grid element not found');
+        return;
+    }
 
     grid.innerHTML = "";
 
@@ -101,23 +88,24 @@ function renderTools(toolsToRender) {
 
         grid.appendChild(card);
     });
+    
+    console.log(`✅ Rendered ${toolsToRender.length} tools`);
 }
 
 // Update stats
 function updateStats(tools) {
     const toolsCount = tools ? tools.length : 0;
+    
     const statElements = document.querySelectorAll(".stat-count");
     statElements.forEach(el => {
         el.textContent = toolsCount;
     });
 
-    // Update tool count display
     const countElements = document.querySelectorAll(".tool-count");
     countElements.forEach(el => {
         el.textContent = toolsCount;
     });
 
-    // Update last updated date
     const now = new Date();
     const dateStr = now.toLocaleDateString('en-US', {
         year: 'numeric',
@@ -157,3 +145,5 @@ document.addEventListener("click", function(e) {
         filterByCategory(category);
     }
 });
+
+console.log('✅ landing_script.js loaded successfully');
