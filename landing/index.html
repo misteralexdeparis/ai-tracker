@@ -303,10 +303,6 @@
                 return;
             }
             
-            console.log('🔍 Opening tool:', tool.name);
-            console.log('   URL value:', tool.url);
-            console.log('   All tool data:', tool);
-            
             document.getElementById('modalTitle').textContent = tool.name;
             document.getElementById('modalSubtitle').textContent = tool.developer || '';
             
@@ -341,25 +337,52 @@
             if (tool.changelog?.length) body += `<div class="modal-section"><h4>📝 Recent Updates</h4><ul>${tool.changelog.map(c => `<li>• ${c}</li>`).join('')}</ul></div>`;
             if (tool.status) body += `<div class="modal-section"><h4>Status</h4><p style="color: ${tool.status === 'Live' ? '#10b981' : tool.status === 'Beta' ? '#f59e0b' : '#999'}; font-weight: 600;">🟢 ${tool.status}</p></div>`;
             
-            // ===== AFFICHAGE OBLIGATOIRE DE L'URL =====
-            if (tool.url && tool.url.trim()) {
-                console.log('✅ URL FOUND - Will display:', tool.url);
-                body += `<div class="modal-section" style="background: rgba(50, 184, 198, 0.1); padding: 16px; border-radius: 8px; border-left: 4px solid #32b8c6;">
-                    <h4 style="margin: 0 0 12px 0;">🌐 Official Website</h4>
-                    <p style="word-break: break-all; color: #32b8c6; font-size: 12px; margin: 0 0 12px 0; font-family: monospace;">
-                        <a href="${tool.url}" target="_blank" rel="noopener noreferrer" style="color: #32b8c6; text-decoration: underline;">
-                            ${tool.url}
+            // ===== AFFICHAGE DES LIENS (official_url, twitter, discord, reddit) =====
+            const officialUrl = tool.official_url || tool.url || null;
+            const twitter = tool.twitter_handle || null;
+            const discord = tool.discord_server || null;
+            const reddit = tool.reddit || null;
+            
+            if (officialUrl || twitter || discord || reddit) {
+                console.log('✅ LINKS FOUND:', { officialUrl, twitter, discord, reddit });
+                
+                let linksHtml = `<div class="modal-section" style="background: rgba(50, 184, 198, 0.1); padding: 16px; border-radius: 8px; border-left: 4px solid #32b8c6;">
+                    <h4 style="margin: 0 0 12px 0;">🔗 Community & Links</h4>`;
+                
+                if (officialUrl) {
+                    linksHtml += `<div style="margin-bottom: 12px;">
+                        <p style="margin: 0 0 4px 0; color: #999; font-size: 11px; text-transform: uppercase;">Official Website</p>
+                        <a href="${officialUrl}" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: inline-block; padding: 8px 16px; font-size: 14px;">
+                            🌐 Visit Website →
                         </a>
-                    </p>
-                    <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="cta-button">
-                        🔗 Visit Official Website →
-                    </a>
-                </div>`;
-            } else {
-                console.warn('⚠️ NO URL - tool.url is:', tool.url);
-                body += `<div class="modal-section">
-                    <p style="color: #999; font-size: 12px;">No website URL available</p>
-                </div>`;
+                    </div>`;
+                }
+                
+                let socialHtml = '<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">';
+                
+                if (twitter) {
+                    const twitterUrl = twitter.startsWith('http') ? twitter : `https://twitter.com/${twitter.replace('@', '')}`;
+                    socialHtml += `<a href="${twitterUrl}" target="_blank" rel="noopener noreferrer" title="Twitter" style="padding: 8px 12px; background: rgba(29, 155, 240, 0.2); border: 1px solid #1d9bf0; border-radius: 6px; color: #1d9bf0; text-decoration: none; font-size: 12px;">
+                        𝕏 ${twitter}
+                    </a>`;
+                }
+                
+                if (discord) {
+                    socialHtml += `<a href="${discord}" target="_blank" rel="noopener noreferrer" title="Discord" style="padding: 8px 12px; background: rgba(88, 101, 242, 0.2); border: 1px solid #5865F2; border-radius: 6px; color: #5865F2; text-decoration: none; font-size: 12px;">
+                        💬 Discord
+                    </a>`;
+                }
+                
+                if (reddit) {
+                    const redditUrl = reddit.startsWith('http') ? reddit : `https://reddit.com/${reddit}`;
+                    socialHtml += `<a href="${redditUrl}" target="_blank" rel="noopener noreferrer" title="Reddit" style="padding: 8px 12px; background: rgba(255, 69, 0, 0.2); border: 1px solid #FF4500; border-radius: 6px; color: #FF4500; text-decoration: none; font-size: 12px;">
+                        🔥 ${reddit}
+                    </a>`;
+                }
+                
+                socialHtml += '</div>';
+                linksHtml += socialHtml + '</div>';
+                body += linksHtml;
             }
             
             document.getElementById('modalBody').innerHTML = body;
@@ -385,7 +408,6 @@
                 const data = await response.json();
                 allTools = data.tools || data || [];
                 console.log(`✅ Loaded ${allTools.length} tools`);
-                console.log('First tool URL:', allTools[0]?.url);
                 renderAll();
             } catch (error) {
                 console.error('❌ Error loading tools:', error);
