@@ -1,18 +1,13 @@
-// Load tools from Next.js API route
+// Load tools from jsDelivr CDN (simple, no API needed)
 async function loadTools() {
     try {
         const timestamp = Date.now();
         const cacheBreaker = Math.random().toString(36).substring(7);
-        // Load from Next.js API route (no CORS issues!)
-        const url = `/api/tools?t=${timestamp}&cb=${cacheBreaker}`;
+        // Load from jsDelivr CDN
+        const url = `https://cdn.jsdelivr.net/gh/misteralexdeparis/ai-tracker@main/public/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
         
         const response = await fetch(url, {
-            cache: 'no-store',
-            headers: {
-                'Cache-Control': 'no-cache, no-store, must-revalidate',
-                'Pragma': 'no-cache',
-                'Expires': '0'
-            }
+            cache: 'no-store'
         });
 
         if (!response.ok) {
@@ -22,7 +17,7 @@ async function loadTools() {
         const data = await response.json();
         const tools = data.tools || data || [];
         
-        console.log(`✅ Loaded ${tools.length} tools from Next.js API`);
+        console.log(`✅ Loaded ${tools.length} tools from jsDelivr CDN`);
         renderTools(tools);
         updateStats(tools);
     } catch (error) {
