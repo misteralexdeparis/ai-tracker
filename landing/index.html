@@ -2389,40 +2389,40 @@
 
 
 // Initialize tools on page load
-document.addEventListener('DOMContentLoaded', async function() {
-  const toolsData = await loadTools();
+//document.addEventListener('DOMContentLoaded', async function() {
+ // const toolsData = await loadTools();
   
-  if (toolsData && toolsData.length > 0) {
+ // if (toolsData && toolsData.length > 0) {
     // Replace the hardcoded tools with the fetched data
-    window.tools = toolsData;
+ //   window.tools = toolsData;
     
     // Update tool count display
-    const countElements = document.querySelectorAll('[data-tool-count]');
-    countElements.forEach(el => {
-      el.textContent = toolsData.length;
-    });
+  //  const countElements = document.querySelectorAll('[data-tool-count]');
+ //   countElements.forEach(el => {
+ //     el.textContent = toolsData.length;
+ //   });
     
     // Re-render the tools display (if you have a render function)
-    if (typeof renderTools === 'function') {
-      renderTools(toolsData);
-    }
+ //   if (typeof renderTools === 'function') {
+ //     renderTools(toolsData);
+  //  }
     
     // Update last updated date
-    const lastUpdatedElements = document.querySelectorAll('[data-last-updated]');
-    const now = new Date().toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    });
-    lastUpdatedElements.forEach(el => {
-      el.textContent = `Last Updated: ${now}`;
-    });
+  //  const lastUpdatedElements = document.querySelectorAll('[data-last-updated]');
+  //  const now = new Date().toLocaleDateString('en-US', { 
+  //    year: 'numeric', 
+  //    month: 'long', 
+  //    day: 'numeric' 
+ //   });
+  //  lastUpdatedElements.forEach(el => {
+  //    el.textContent = `Last Updated: ${now}`;
+  //  });
     
-    console.log(`✅ Loaded ${toolsData.length} tools from GitHub`);
-  } else {
-    console.warn('⚠️ Could not load tools data, using fallback');
-  }
-});
+  //  console.log(`✅ Loaded ${toolsData.length} tools from GitHub`);
+ // } else {
+ //   console.warn('⚠️ Could not load tools data, using fallback');
+ // }
+//});
 </script>
 <script src="landing_script.js"></script>
 </body>
