@@ -166,15 +166,15 @@
         
         console.log(`🎯 Rendering ${toolsToRender.length} tools on matrix`);
         
-        // Remove existing tool dots
-        const existingDots = canvas.querySelectorAll('.tool-dot');
-        console.log(`Removing ${existingDots.length} existing dots`);
-        existingDots.forEach(dot => dot.remove());
+        // // Remove existing tool dots
+        // const existingDots = canvas.querySelectorAll('.tool-dot');
+        // console.log(`Removing ${existingDots.length} existing dots`);
+        // existingDots.forEach(dot => dot.remove());
         
-        if (!toolsToRender || toolsToRender.length === 0) {
-            console.warn('⚠️ No tools to render');
-            return;
-        }
+        // if (!toolsToRender || toolsToRender.length === 0) {
+        //     console.warn('⚠️ No tools to render');
+        //     return;
+        // }
         
         // Render each tool as a dot
         toolsToRender.forEach(tool => {
