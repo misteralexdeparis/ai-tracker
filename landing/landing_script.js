@@ -1,3 +1,4 @@
+t_with_filter.js
 // AI Tracker Landing Script - Dynamic Gartner Matrix
 (function() {
     'use strict';
@@ -168,7 +169,7 @@
         console.log(`✅ Rendered ${toolsToRender.length} tools on matrix`);
     }
 
-    // Filter matrix
+    // Filter matrix by category
     function filterMatrix(category) {
         state.currentFilter = category;
         
@@ -192,6 +193,16 @@
         }
         
         // Re-render
+        renderGartnerMatrix(state.filteredTools);
+    }
+
+    // Filter by quadrant (legacy support)
+    function filterByQuadrant(quadrant) {
+        if (quadrant === 'all') {
+            state.filteredTools = state.allTools;
+        } else {
+            state.filteredTools = state.allTools.filter(tool => (tool.quadrant || 'niche').toLowerCase() === quadrant.toLowerCase());
+        }
         renderGartnerMatrix(state.filteredTools);
     }
 
@@ -332,6 +343,7 @@
     window.aiTracker = {
         openModal,
         filterMatrix,
+        filterByQuadrant,
         loadTools
     };
 
