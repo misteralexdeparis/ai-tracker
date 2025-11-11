@@ -37,11 +37,18 @@
             window.tools = state.allTools;
             
             console.log(`✅ Loaded ${state.allTools.length} tools from GitHub`);
+            console.log('Tools:', state.allTools.map(t => `${t.name} (Vision: ${t.vision}, Ability: ${t.ability})`));
             
             // Render everything
             renderTools(state.allTools);
             updateCategoryCounts();
-            renderGartnerMatrix(state.allTools);
+            
+            // Force render matrix with delay to ensure DOM is ready
+            setTimeout(() => {
+                console.log('🎯 Rendering Gartner Matrix...');
+                renderGartnerMatrix(state.allTools);
+            }, 100);
+            
             updateStats(state.allTools);
             
         } catch (error) {
@@ -66,6 +73,8 @@
     // Update category counts dynamically
     function updateCategoryCounts() {
         const { counts, total } = getCategoryCounts();
+        
+        console.log('📊 Category counts:', counts);
         
         // Update matrix categories
         const matrixCategories = document.querySelectorAll('#matrixCategories .category-pill');
@@ -103,7 +112,12 @@
     // Render tools grid
     function renderTools(toolsToRender = state.allTools) {
         const grid = document.getElementById('toolsGrid');
-        if (!grid) return;
+        if (!grid) {
+            console.warn('⚠️ toolsGrid not found!');
+            return;
+        }
+        
+        console.log(`📦 Rendering ${toolsToRender.length} tools in grid`);
         
         grid.innerHTML = toolsToRender.map(tool => {
             const toolId = tool.id || tool.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
@@ -140,13 +154,27 @@
     // Render Gartner Matrix
     function renderGartnerMatrix(toolsToRender = state.allTools) {
         const canvas = document.getElementById('matrixCanvas');
-        if (!canvas) return;
+        if (!canvas) {
+            console.error('❌ matrixCanvas not found!');
+            console.log('Available elements:', {
+                toolsGrid: !!document.getElementById('toolsGrid'),
+                matrixCanvas: !!document.getElementById('matrixCanvas'),
+                matrixCategories: !!document.getElementById('matrixCategories')
+            });
+            return;
+        }
+        
+        console.log(`🎯 Rendering ${toolsToRender.length} tools on matrix`);
         
         // Remove existing tool dots
         const existingDots = canvas.querySelectorAll('.tool-dot');
+        console.log(`Removing ${existingDots.length} existing dots`);
         existingDots.forEach(dot => dot.remove());
         
-        if (!toolsToRender || toolsToRender.length === 0) return;
+        if (!toolsToRender || toolsToRender.length === 0) {
+            console.warn('⚠️ No tools to render');
+            return;
+        }
         
         // Render each tool as a dot
         toolsToRender.forEach(tool => {
@@ -343,13 +371,22 @@
         openModal,
         filterMatrix,
         filterByQuadrant,
-        loadTools
+        loadTools,
+        renderGartnerMatrix
     };
 
     // Initialize on DOM ready
     document.addEventListener("DOMContentLoaded", function() {
         console.log('🚀 AI Tracker Landing initializing...');
         loadTools();
+        
+        // Also try immediate render after a tiny delay
+        setTimeout(() => {
+            if (state.allTools.length > 0 && document.getElementById('matrixCanvas')) {
+                console.log('🔄 Force rendering matrix...');
+                renderGartnerMatrix(state.allTools);
+            }
+        }, 200);
     });
 
 })();
