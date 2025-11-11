@@ -5,38 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Tools Tracker - The Definitive Guide</title>
     <style>
-        /* Design System Variables */
         :root {
             --color-white: rgba(255, 255, 255, 1);
             --color-black: rgba(0, 0, 0, 1);
-            --color-cream-50: rgba(252, 252, 249, 1);
-            --color-cream-100: rgba(255, 255, 253, 1);
             --color-gray-200: rgba(245, 245, 245, 1);
             --color-gray-300: rgba(167, 169, 169, 1);
             --color-gray-400: rgba(119, 124, 124, 1);
             --color-slate-500: rgba(98, 108, 113, 1);
-            --color-brown-600: rgba(94, 82, 64, 1);
             --color-charcoal-700: rgba(31, 33, 33, 1);
             --color-charcoal-800: rgba(38, 40, 40, 1);
             --color-slate-900: rgba(19, 52, 59, 1);
             --color-teal-300: rgba(50, 184, 198, 1);
             --color-teal-400: rgba(45, 166, 178, 1);
-            --color-teal-500: rgba(33, 128, 141, 1);
-            --color-teal-600: rgba(29, 116, 128, 1);
-            --color-teal-700: rgba(26, 104, 115, 1);
-            --color-red-400: rgba(255, 84, 89, 1);
-            --color-red-500: rgba(192, 21, 47, 1);
-            --color-orange-400: rgba(230, 129, 97, 1);
-            --color-orange-500: rgba(168, 75, 47, 1);
-
-            --color-background: var(--color-charcoal-700);
-            --color-surface: var(--color-charcoal-800);
             --color-text: var(--color-gray-200);
             --color-text-secondary: rgba(167, 169, 169, 0.7);
             --color-primary: var(--color-teal-300);
             --color-primary-hover: var(--color-teal-400);
             --color-border: rgba(119, 124, 124, 0.3);
-            
             --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --font-size-sm: 12px;
             --font-size-base: 14px;
@@ -45,17 +30,14 @@
             --font-size-2xl: 20px;
             --font-size-3xl: 24px;
             --font-size-4xl: 30px;
-            --font-size-5xl: 36px;
             --font-size-6xl: 48px;
             --font-weight-normal: 400;
             --font-weight-medium: 500;
-            --font-weight-semibold: 550;
             --font-weight-bold: 600;
             --space-4: 4px;
             --space-8: 8px;
             --space-12: 12px;
             --space-16: 16px;
-            --space-20: 20px;
             --space-24: 24px;
             --space-32: 32px;
             --space-40: 40px;
@@ -63,733 +45,117 @@
             --space-64: 64px;
             --radius-sm: 6px;
             --radius-base: 8px;
-            --radius-md: 10px;
             --radius-lg: 12px;
             --radius-xl: 16px;
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
             --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.16);
             --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
-            
-            --color-leader: #2563eb;
-            --color-visionary: #10b981;
-            --color-challenger: #8b5cf6;
-            --color-niche: #f59e0b;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-family-base);
-            background: linear-gradient(135deg, #1a1d2e 0%, #0f1117 100%);
-            color: var(--color-text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            background: rgba(31, 33, 33, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--color-border);
-            z-index: 1000;
-            padding: var(--space-16) 0;
-        }
-
-        .header-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 var(--space-24);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: var(--font-size-xl);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-primary);
-        }
-
-        nav {
-            display: flex;
-            gap: var(--space-32);
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--color-text);
-            text-decoration: none;
-            font-size: var(--font-size-base);
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--color-primary);
-        }
-
-        .cta-button {
-            background: var(--color-primary);
-            color: var(--color-slate-900);
-            padding: var(--space-8) var(--space-24);
-            border-radius: var(--radius-base);
-            text-decoration: none;
-            font-weight: var(--font-weight-medium);
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: var(--font-size-base);
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            background: var(--color-primary-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .hero {
-            padding: var(--space-64) var(--space-24);
-            text-align: center;
-            background: linear-gradient(135deg, rgba(50, 184, 198, 0.1) 0%, rgba(19, 52, 59, 0.1) 100%);
-        }
-
-        .hero h1 {
-            font-size: var(--font-size-6xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-16);
-            background: linear-gradient(135deg, var(--color-primary) 0%, #ffffff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: var(--font-size-xl);
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-32);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .stats {
-            max-width: 1280px;
-            margin: -40px auto 0;
-            padding: 0 var(--space-24);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-24);
-            position: relative;
-            z-index: 10;
-        }
-
-        .stat-card {
-            background: var(--color-surface);
-            padding: var(--space-32);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--color-border);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .stat-number {
-            font-size: var(--font-size-4xl);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-primary);
-            margin-bottom: var(--space-8);
-        }
-
-        .stat-label {
-            font-size: var(--font-size-base);
-            color: var(--color-text-secondary);
-        }
-
-        .section {
-            max-width: 1280px;
-            margin: var(--space-64) auto;
-            padding: 0 var(--space-24);
-        }
-
-        .section-title {
-            font-size: var(--font-size-4xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-16);
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: var(--font-size-lg);
-            color: var(--color-text-secondary);
-            text-align: center;
-            margin-bottom: var(--space-48);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: var(--space-24);
-            margin-bottom: var(--space-32);
-        }
-
-        .tool-card {
-            background: var(--color-surface);
-            padding: var(--space-24);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--color-border);
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .tool-name {
-            font-size: var(--font-size-xl);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-text);
-        }
-
-        .tool-developer {
-            font-size: var(--font-size-sm);
-            color: var(--color-text-secondary);
-            margin-top: var(--space-4);
-        }
-
-        .tool-category {
-            font-size: var(--font-size-sm);
-            padding: var(--space-4) var(--space-12);
-            background: rgba(50, 184, 198, 0.1);
-            border-radius: var(--radius-sm);
-            color: var(--color-primary);
-            display: inline-block;
-            margin: var(--space-16) 0;
-            width: fit-content;
-        }
-
-        .tool-about {
-            font-size: var(--font-size-sm);
-            color: var(--color-text-secondary);
-            line-height: 1.6;
-            margin-bottom: var(--space-16);
-            flex-grow: 1;
-        }
-
-        .tool-scores {
-            display: flex;
-            gap: var(--space-16);
-            margin-bottom: var(--space-16);
-            font-size: var(--font-size-sm);
-        }
-
-        .score {
-            flex: 1;
-        }
-
-        .score-label {
-            font-size: var(--font-size-sm);
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-4);
-        }
-
-        .score-value {
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-primary);
-        }
-
-        .quadrant-badge {
-            padding: var(--space-8) var(--space-16);
-            border-radius: var(--radius-base);
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
-            text-align: center;
-            margin-bottom: var(--space-16);
-            display: inline-block;
-            width: 100%;
-        }
-
-        .quadrant-badge.leader { background: rgba(37, 99, 235, 0.2); color: #2563eb; border: 1px solid rgba(37, 99, 235, 0.3); }
-        .quadrant-badge.visionary { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
-        .quadrant-badge.challenger { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); }
-        .quadrant-badge.niche { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
-
-        .btn-secondary {
-            background: rgba(50, 184, 198, 0.1);
-            color: var(--color-primary);
-            padding: var(--space-8) var(--space-16);
-            border-radius: var(--radius-base);
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            border: 1px solid var(--color-primary);
-            cursor: pointer;
-            font-size: var(--font-size-sm);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(50, 184, 198, 0.2);
-        }
-
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-12);
-            justify-content: center;
-            margin-bottom: var(--space-48);
-        }
-
-        .category-pill {
-            padding: var(--space-12) var(--space-24);
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            color: var(--color-text);
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: var(--font-size-base);
-        }
-
-        .category-pill:hover,
-        .category-pill.active {
-            background: var(--color-primary);
-            color: var(--color-slate-900);
-            border-color: var(--color-primary);
-        }
-
-        .gartner-matrix-container {
-            width: 100%;
-            height: 600px;
-            background: var(--color-surface);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--color-border);
-            padding: var(--space-32);
-            padding-left: 100px;
-            padding-bottom: 60px;
-            position: relative;
-            margin-bottom: var(--space-32);
-        }
-
-        .matrix-canvas {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            border-left: 2px solid var(--color-border);
-            border-bottom: 2px solid var(--color-border);
-        }
-
-        .matrix-quadrant {
-            position: absolute;
-            width: 50%;
-            height: 50%;
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            padding: var(--space-16);
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-semibold);
-            opacity: 0.6;
-        }
-
-        .matrix-quadrant.top-left {
-            top: 0;
-            left: 0;
-            background: rgba(139, 92, 246, 0.05);
-            color: #8b5cf6;
-        }
-
-        .matrix-quadrant.top-right {
-            top: 0;
-            right: 0;
-            background: rgba(37, 99, 235, 0.05);
-            color: #2563eb;
-        }
-
-        .matrix-quadrant.bottom-left {
-            bottom: 0;
-            left: 0;
-            background: rgba(245, 158, 11, 0.05);
-            color: #f59e0b;
-        }
-
-        .matrix-quadrant.bottom-right {
-            bottom: 0;
-            right: 0;
-            background: rgba(16, 185, 129, 0.05);
-            color: #10b981;
-        }
-
-        .matrix-tool-dot {
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid;
-            z-index: 10;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transform: translate(-50%, -50%);
-        }
-
-        .matrix-tool-dot:hover {
-            transform: translate(-50%, -50%) scale(2.5);
-            z-index: 20;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        .matrix-tool-dot.leader {
-            background: #2563eb;
-            border-color: #2563eb;
-        }
-
-        .matrix-tool-dot.visionary {
-            background: #10b981;
-            border-color: #10b981;
-        }
-
-        .matrix-tool-dot.challenger {
-            background: #8b5cf6;
-            border-color: #8b5cf6;
-        }
-
-        .matrix-tool-dot.niche {
-            background: #f59e0b;
-            border-color: #f59e0b;
-        }
-
-        .matrix-axis-label {
-            position: absolute;
-            font-size: var(--font-size-sm);
-            color: var(--color-text-secondary);
-            font-weight: var(--font-weight-medium);
-        }
-
-        .matrix-axis-label.x-axis {
-            bottom: var(--space-8);
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .matrix-axis-label.y-axis {
-            left: -80px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-90deg);
-            transform-origin: center;
-            white-space: nowrap;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: var(--space-24);
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--color-surface);
-            border-radius: var(--radius-xl);
-            padding: var(--space-48);
-            max-width: 800px;
-            width: 100%;
-            position: relative;
-            border: 1px solid var(--color-border);
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: var(--space-24);
-            right: var(--space-24);
-            background: none;
-            border: none;
-            color: var(--color-text);
-            font-size: var(--font-size-3xl);
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .modal-title {
-            font-size: var(--font-size-4xl);
-            margin-bottom: var(--space-8);
-        }
-
-        .modal-subtitle {
-            color: var(--color-text-secondary);
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--space-32);
-        }
-
-        .modal-section {
-            margin-bottom: var(--space-24);
-        }
-
-        .modal-section h4 {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--space-12);
-        }
-
-        .modal-section p {
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-        }
-
-        .modal-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .modal-section li {
-            padding: var(--space-8) 0;
-            color: var(--color-text-secondary);
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-8);
-            line-height: 1.6;
-        }
-
-        .score-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(50, 184, 198, 0.1);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            margin-top: var(--space-4);
-        }
-
-        .score-bar-fill {
-            height: 100%;
-            background: var(--color-primary);
-            transition: width 0.5s ease;
-        }
-
-        .distribution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-24);
-            margin-top: var(--space-32);
-        }
-
-        .distribution-card {
-            background: var(--color-surface);
-            padding: var(--space-32);
-            border-radius: var(--radius-lg);
-            border: 2px solid;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .distribution-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-family-base); background: linear-gradient(135deg, #1a1d2e 0%, #0f1117 100%); color: var(--color-text); line-height: 1.6; }
+        header { position: sticky; top: 0; background: rgba(31, 33, 33, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-border); z-index: 1000; padding: var(--space-16) 0; }
+        .header-container { max-width: 1280px; margin: 0 auto; padding: 0 var(--space-24); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); color: var(--color-primary); }
+        nav { display: flex; gap: var(--space-32); align-items: center; }
+        nav a { color: var(--color-text); text-decoration: none; font-size: var(--font-size-base); transition: color 0.3s; }
+        nav a:hover { color: var(--color-primary); }
+        .cta-button { background: var(--color-primary); color: var(--color-slate-900); padding: var(--space-8) var(--space-24); border-radius: var(--radius-base); text-decoration: none; font-weight: var(--font-weight-medium); transition: all 0.3s; border: none; cursor: pointer; font-size: var(--font-size-base); display: inline-block; }
+        .cta-button:hover { background: var(--color-primary-hover); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .hero { padding: var(--space-64) var(--space-24); text-align: center; background: linear-gradient(135deg, rgba(50, 184, 198, 0.1) 0%, rgba(19, 52, 59, 0.1) 100%); }
+        .hero h1 { font-size: var(--font-size-6xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-16); background: linear-gradient(135deg, var(--color-primary) 0%, #ffffff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: var(--font-size-xl); color: var(--color-text-secondary); margin-bottom: var(--space-32); max-width: 600px; margin-left: auto; margin-right: auto; }
+        .stats { max-width: 1280px; margin: -40px auto 0; padding: 0 var(--space-24); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-24); position: relative; z-index: 10; }
+        .stat-card { background: var(--color-charcoal-800); padding: var(--space-32); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center; transition: transform 0.3s; }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .stat-number { font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-8); }
+        .section { max-width: 1280px; margin: var(--space-64) auto; padding: 0 var(--space-24); }
+        .section-title { font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-16); text-align: center; }
+        .section-subtitle { font-size: var(--font-size-lg); color: var(--color-text-secondary); text-align: center; margin-bottom: var(--space-48); max-width: 700px; margin-left: auto; margin-right: auto; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: var(--space-24); margin-bottom: var(--space-32); }
+        .tool-card { background: var(--color-charcoal-800); padding: var(--space-24); border-radius: var(--radius-lg); border: 1px solid var(--color-border); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; }
+        .tool-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .tool-name { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); color: var(--color-text); }
+        .tool-developer { font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-4); }
+        .tool-category { font-size: var(--font-size-sm); padding: var(--space-4) var(--space-12); background: rgba(50, 184, 198, 0.1); border-radius: var(--radius-sm); color: var(--color-primary); display: inline-block; margin: var(--space-16) 0; width: fit-content; }
+        .tool-about { font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-16); flex-grow: 1; }
+        .tool-scores { display: flex; gap: var(--space-16); margin-bottom: var(--space-16); }
+        .score { flex: 1; }
+        .score-label { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+        .score-value { font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-primary); }
+        .quadrant-badge { padding: var(--space-8) var(--space-16); border-radius: var(--radius-base); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); text-align: center; margin-bottom: var(--space-16); display: inline-block; width: 100%; }
+        .quadrant-badge.leader { background: rgba(37, 99, 235, 0.2); color: #2563eb; }
+        .quadrant-badge.visionary { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+        .quadrant-badge.challenger { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
+        .quadrant-badge.niche { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .btn-secondary { background: rgba(50, 184, 198, 0.1); color: var(--color-primary); padding: var(--space-8) var(--space-16); border-radius: var(--radius-base); border: 1px solid var(--color-primary); cursor: pointer; font-size: var(--font-size-sm); transition: all 0.3s; }
+        .btn-secondary:hover { background: rgba(50, 184, 198, 0.2); }
+        .categories { display: flex; flex-wrap: wrap; gap: var(--space-12); justify-content: center; margin-bottom: var(--space-48); }
+        .category-pill { padding: var(--space-12) var(--space-24); background: var(--color-charcoal-800); border: 1px solid var(--color-border); border-radius: var(--radius-lg); color: var(--color-text); cursor: pointer; transition: all 0.3s; font-size: var(--font-size-base); }
+        .category-pill:hover, .category-pill.active { background: var(--color-primary); color: var(--color-slate-900); border-color: var(--color-primary); }
+        .gartner-matrix-container { width: 100%; height: 600px; background: var(--color-charcoal-800); border-radius: var(--radius-lg); border: 1px solid var(--color-border); padding: var(--space-32); padding-left: 100px; padding-bottom: 60px; position: relative; margin-bottom: var(--space-32); }
+        .matrix-canvas { width: 100%; height: 100%; position: relative; border-left: 2px solid var(--color-border); border-bottom: 2px solid var(--color-border); }
+        .matrix-quadrant { position: absolute; width: 50%; height: 50%; display: flex; align-items: flex-start; justify-content: flex-start; padding: var(--space-16); font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); opacity: 0.6; }
+        .matrix-quadrant.top-left { top: 0; left: 0; background: rgba(139, 92, 246, 0.05); color: #8b5cf6; }
+        .matrix-quadrant.top-right { top: 0; right: 0; background: rgba(37, 99, 235, 0.05); color: #2563eb; }
+        .matrix-quadrant.bottom-left { bottom: 0; left: 0; background: rgba(245, 158, 11, 0.05); color: #f59e0b; }
+        .matrix-quadrant.bottom-right { bottom: 0; right: 0; background: rgba(16, 185, 129, 0.05); color: #10b981; }
+        .matrix-tool-dot { position: absolute; width: 14px; height: 14px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; border: 2px solid; z-index: 10; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transform: translate(-50%, -50%); }
+        .matrix-tool-dot:hover { transform: translate(-50%, -50%) scale(2.5); z-index: 20; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
+        .matrix-tool-dot.leader { background: #2563eb; border-color: #2563eb; }
+        .matrix-tool-dot.visionary { background: #10b981; border-color: #10b981; }
+        .matrix-tool-dot.challenger { background: #8b5cf6; border-color: #8b5cf6; }
+        .matrix-tool-dot.niche { background: #f59e0b; border-color: #f59e0b; }
+        .matrix-axis-label { position: absolute; font-size: var(--font-size-sm); color: var(--color-text-secondary); font-weight: var(--font-weight-medium); }
+        .matrix-axis-label.x-axis { bottom: var(--space-8); left: 50%; transform: translateX(-50%); }
+        .matrix-axis-label.y-axis { left: -80px; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: center; white-space: nowrap; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 2000; align-items: center; justify-content: center; padding: var(--space-24); }
+        .modal.active { display: flex; }
+        .modal-content { background: var(--color-charcoal-800); border-radius: var(--radius-xl); padding: var(--space-48); max-width: 800px; width: 100%; position: relative; border: 1px solid var(--color-border); max-height: 90vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: var(--space-24); right: var(--space-24); background: none; border: none; color: var(--color-text); font-size: var(--font-size-3xl); cursor: pointer; line-height: 1; }
+        .modal-title { font-size: var(--font-size-4xl); margin-bottom: var(--space-8); }
+        .modal-subtitle { color: var(--color-text-secondary); font-size: var(--font-size-lg); margin-bottom: var(--space-32); }
+        .modal-section { margin-bottom: var(--space-24); }
+        .modal-section h4 { font-size: var(--font-size-xl); margin-bottom: var(--space-12); }
+        .modal-section p { color: var(--color-text-secondary); line-height: 1.8; }
+        .modal-section ul { list-style: none; }
+        .modal-section li { padding: var(--space-8) 0; color: var(--color-text-secondary); line-height: 1.6; }
+        .score-bar { width: 100%; height: 8px; background: rgba(50, 184, 198, 0.1); border-radius: var(--radius-sm); overflow: hidden; margin-top: var(--space-4); }
+        .score-bar-fill { height: 100%; background: var(--color-primary); transition: width 0.5s ease; }
+        .distribution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-24); margin-top: var(--space-32); }
+        .distribution-card { background: var(--color-charcoal-800); padding: var(--space-32); border-radius: var(--radius-lg); border: 2px solid; text-align: center; transition: all 0.3s; cursor: pointer; }
+        .distribution-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
         .distribution-card.leader { border-color: #2563eb; }
         .distribution-card.visionary { border-color: #10b981; }
         .distribution-card.challenger { border-color: #8b5cf6; }
         .distribution-card.niche { border-color: #f59e0b; }
-
-        .distribution-count {
-            font-size: var(--font-size-4xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-8);
-        }
-
+        .distribution-count { font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); margin-bottom: var(--space-8); }
         .distribution-card.leader .distribution-count { color: #2563eb; }
         .distribution-card.visionary .distribution-count { color: #10b981; }
         .distribution-card.challenger .distribution-count { color: #8b5cf6; }
         .distribution-card.niche .distribution-count { color: #f59e0b; }
-
-        .distribution-label {
-            font-size: var(--font-size-lg);
-            color: var(--color-text-secondary);
-        }
-
-        .newsletter {
-            background: var(--color-surface);
-            padding: var(--space-64) var(--space-24);
-            text-align: center;
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-            margin: var(--space-64) 0;
-        }
-
-        .newsletter h2 {
-            font-size: var(--font-size-4xl);
-            margin-bottom: var(--space-16);
-        }
-
-        .newsletter p {
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-32);
-            font-size: var(--font-size-lg);
-        }
-
-        .newsletter-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            gap: var(--space-12);
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: var(--space-16);
-            background: var(--color-background);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-base);
-            color: var(--color-text);
-            font-size: var(--font-size-base);
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(50, 184, 198, 0.1);
-        }
-
-        .community-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-32);
-            margin-top: var(--space-32);
-        }
-
-        .community-card {
-            background: var(--color-surface);
-            padding: var(--space-40);
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--color-border);
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .community-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--color-primary);
-        }
-
-        .community-icon {
-            font-size: var(--font-size-5xl);
-            margin-bottom: var(--space-24);
-        }
-
-        .community-card h3 {
-            font-size: var(--font-size-2xl);
-            margin-bottom: var(--space-12);
-            color: var(--color-text);
-        }
-
-        .community-card p {
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-24);
-            line-height: 1.6;
-        }
-
-        footer {
-            background: var(--color-surface);
-            padding: var(--space-64) var(--space-24) var(--space-32);
-            border-top: 1px solid var(--color-border);
-        }
-
-        .footer-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: var(--space-48);
-        }
-
-        .footer-section h4 {
-            font-size: var(--font-size-base);
-            font-weight: var(--font-weight-semibold);
-            color: var(--color-text);
-            margin-bottom: var(--space-16);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .footer-links-column {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-12);
-        }
-
-        .footer-links-column a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            font-size: var(--font-size-base);
-            transition: color 0.3s;
-        }
-
-        .footer-links-column a:hover {
-            color: var(--color-primary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: var(--space-16);
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-base);
-            background: rgba(50, 184, 198, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-primary);
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .social-icon:hover {
-            background: var(--color-primary);
-            color: var(--color-slate-900);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            nav { display: none; }
-            .hero h1 { font-size: var(--font-size-4xl); }
-            .stats { grid-template-columns: 1fr; margin-top: var(--space-32); }
-            .tools-grid { grid-template-columns: 1fr; }
-            .newsletter-form { flex-direction: column; }
-            .footer-container { grid-template-columns: 1fr; gap: var(--space-32); }
-        }
+        .distribution-label { font-size: var(--font-size-lg); color: var(--color-text-secondary); }
+        .newsletter { background: var(--color-charcoal-800); padding: var(--space-64) var(--space-24); text-align: center; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); margin: var(--space-64) 0; }
+        .newsletter h2 { font-size: var(--font-size-4xl); margin-bottom: var(--space-16); }
+        .newsletter p { color: var(--color-text-secondary); margin-bottom: var(--space-32); font-size: var(--font-size-lg); }
+        .newsletter-form { max-width: 500px; margin: 0 auto; display: flex; gap: var(--space-12); }
+        .newsletter-form input { flex: 1; padding: var(--space-16); background: var(--color-charcoal-700); border: 1px solid var(--color-border); border-radius: var(--radius-base); color: var(--color-text); font-size: var(--font-size-base); }
+        .newsletter-form input:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(50, 184, 198, 0.1); }
+        .community-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-32); margin-top: var(--space-32); }
+        .community-card { background: var(--color-charcoal-800); padding: var(--space-40); border-radius: var(--radius-xl); border: 1px solid var(--color-border); text-align: center; transition: all 0.3s; }
+        .community-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--color-primary); }
+        .community-icon { font-size: var(--font-size-5xl); margin-bottom: var(--space-24); }
+        .community-card h3 { font-size: var(--font-size-2xl); margin-bottom: var(--space-12); }
+        .community-card p { color: var(--color-text-secondary); margin-bottom: var(--space-24); line-height: 1.6; }
+        footer { background: var(--color-charcoal-800); padding: var(--space-64) var(--space-24) var(--space-32); border-top: 1px solid var(--color-border); }
+        .footer-container { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-48); }
+        .footer-section h4 { font-size: var(--font-size-base); font-weight: var(--font-weight-bold); color: var(--color-text); margin-bottom: var(--space-16); text-transform: uppercase; }
+        .footer-links-column { display: flex; flex-direction: column; gap: var(--space-12); }
+        .footer-links-column a { color: var(--color-text-secondary); text-decoration: none; font-size: var(--font-size-base); transition: color 0.3s; }
+        .footer-links-column a:hover { color: var(--color-primary); }
+        .social-links { display: flex; gap: var(--space-16); }
+        .social-icon { width: 40px; height: 40px; border-radius: var(--radius-base); background: rgba(50, 184, 198, 0.1); display: flex; align-items: center; justify-content: center; color: var(--color-primary); transition: all 0.3s; text-decoration: none; }
+        .social-icon:hover { background: var(--color-primary); color: var(--color-slate-900); transform: translateY(-2px); }
+        @media (max-width: 768px) { nav { display: none; } .hero h1 { font-size: var(--font-size-4xl); } .stats { grid-template-columns: 1fr; } .tools-grid { grid-template-columns: 1fr; } .newsletter-form { flex-direction: column; } .footer-container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -833,7 +199,7 @@
         <h2 class="section-title">Interactive Gartner Magic Quadrant</h2>
         <p class="section-subtitle">Explore innovation vs execution across the AI landscape</p>
         
-        <div class="categories" id="matrixCategories" style="margin-bottom: var(--space-32); overflow-x: auto; padding-bottom: var(--space-8);">
+        <div class="categories" id="matrixCategories" style="margin-bottom: var(--space-32);">
         </div>
         
         <p id="matrixFilterStatus" style="text-align: center; color: var(--color-text-secondary); margin-bottom: var(--space-16); font-size: var(--font-size-base);">Showing all tools</p>
@@ -967,151 +333,12 @@
         let allTools = [];
         let currentFilter = 'all';
 
-        async function loadTools() {
-            try {
-                const timestamp = Date.now();
-                const url = `https://raw.githubusercontent.com/misteralexdeparis/ai-tracker/main/public/ai_tracker_enhanced.json?t=${timestamp}`;
-                
-                const response = await fetch(url);
-                const data = await response.json();
-                allTools = data.tools || data || [];
-                
-                console.log(`✅ Loaded ${allTools.length} tools`);
-                renderAll();
-            } catch (error) {
-                console.error('❌ Error loading tools:', error);
-            }
-        }
-
-        function renderAll() {
-            renderTools(allTools);
-            renderCategories();
-            renderMatrix();
-            renderDistribution();
-            document.getElementById('tool-count').textContent = allTools.length;
-            const now = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            document.getElementById('last-updated').textContent = `Last Updated: ${now}`;
-        }
-
-        function renderTools(toolsToRender = allTools) {
-            const grid = document.getElementById('toolsGrid');
-            grid.innerHTML = toolsToRender.map(tool => `
-                <div class="tool-card">
-                    <div style="margin-bottom: var(--space-16);">
-                        <div class="tool-name">${tool.name}</div>
-                        <div class="tool-developer">${tool.developer}</div>
-                    </div>
-                    <div class="tool-category">${tool.category}</div>
-                    <div class="quadrant-badge ${tool.quadrant?.toLowerCase() || 'niche'}">
-                        ${tool.quadrant || 'Niche'}
-                    </div>
-                    <div class="tool-about">${tool.description || tool.about || 'AI Tool'}</div>
-                    <div class="tool-scores">
-                        <div class="score">
-                            <div class="score-label">Vision</div>
-                            <div class="score-value">${tool.vision || 0}</div>
-                        </div>
-                        <div class="score">
-                            <div class="score-label">Ability</div>
-                            <div class="score-value">${tool.ability || 0}</div>
-                        </div>
-                    </div>
-                    <button class="btn-secondary" onclick="openModal('${tool.id}')">View Details</button>
-                </div>
-            `).join('');
-        }
-
-        function renderCategories() {
-            const categories = {};
-            allTools.forEach(tool => {
-                const cat = tool.category || 'Other';
-                categories[cat] = (categories[cat] || 0) + 1;
-            });
-
-            const matrixContainer = document.getElementById('matrixCategories');
-            const toolsContainer = document.getElementById('categories');
-            
-            let html = `<button class="category-pill active" onclick="filterByCategory('all')">All <span style="margin-left: var(--space-8); opacity: 0.7;">(${allTools.length})</span></button>`;
-            
-            Object.entries(categories).sort().forEach(([cat, count]) => {
-                html += `<button class="category-pill" onclick="filterByCategory('${cat}')">${cat} <span style="margin-left: var(--space-8); opacity: 0.7;">(${count})</span></button>`;
-            });
-            
-            matrixContainer.innerHTML = html;
-            toolsContainer.innerHTML = html;
-        }
-
-        function filterByCategory(category) {
-            currentFilter = category;
-            
-            const filtered = category === 'all' ? allTools : allTools.filter(t => t.category === category);
-            renderTools(filtered);
-            
-            document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
-            event.target.closest('.category-pill')?.classList.add('active');
-            
-            document.getElementById('matrixFilterStatus').textContent = 
-                category === 'all' ? `Showing all ${allTools.length} tools` : `Showing ${filtered.length} ${category} tools`;
-            
-            renderMatrix(filtered);
-        }
-
-        function renderDistribution() {
-            const counts = { leader: 0, visionary: 0, challenger: 0, niche: 0 };
-            allTools.forEach(tool => {
-                const quadrant = tool.vision >= 70 && tool.ability >= 70 ? 'leader' :
-                                tool.vision < 70 && tool.ability >= 70 ? 'challenger' :
-                                tool.vision >= 70 && tool.ability < 70 ? 'visionary' : 'niche';
-                counts[quadrant]++;
-            });
-            
-            const labels = { leader: 'Leaders', visionary: 'Visionaries', challenger: 'Challengers', niche: 'Niche Players' };
-            const icons = { leader: '🔵', visionary: '🟢', challenger: '🟣', niche: '🟠' };
-            
-            document.getElementById('distributionGrid').innerHTML = Object.entries(counts).map(([quad, count]) => `
-                <div class="distribution-card ${quad}" onclick="alert('${labels[quad]}: ${count} tools')">
-                    <div style="font-size: var(--font-size-4xl); margin-bottom: var(--space-16);">${icons[quad]}</div>
-                    <div class="distribution-count">${count}</div>
-                    <div class="distribution-label">${labels[quad]}</div>
-                </div>
-            `).join('');
-        }
-
-        function renderMatrix(toolsToRender = allTools) {
-            const canvas = document.getElementById('matrixCanvas');
-            
-            document.querySelectorAll('.matrix-tool-dot').forEach(dot => dot.remove());
-            
-            const scaleMin = 40;
-            const scaleMax = 100;
-            const scaleRange = scaleMax - scaleMin;
-            
-            toolsToRender.forEach(tool => {
-                const dot = document.createElement('div');
-                const quadrant = tool.vision >= 70 && tool.ability >= 70 ? 'leader' :
-                                tool.vision < 70 && tool.ability >= 70 ? 'challenger' :
-                                tool.vision >= 70 && tool.ability < 70 ? 'visionary' : 'niche';
-                
-                dot.className = `matrix-tool-dot ${quadrant}`;
-                
-                const relVision = (tool.vision - scaleMin) / scaleRange;
-                const relAbility = (tool.ability - scaleMin) / scaleRange;
-                
-                const xPercent = Math.max(0, Math.min(100, relVision * 100));
-                const yPercent = Math.max(0, Math.min(100, (1 - relAbility) * 100));
-                
-                dot.style.left = `${xPercent}%`;
-                dot.style.top = `${yPercent}%`;
-                dot.title = `${tool.name} (V: ${tool.vision}, A: ${tool.ability})`;
-                dot.onclick = (e) => { e.stopPropagation(); openModal(tool.id); };
-                
-                canvas.appendChild(dot);
-            });
-        }
-
-        function openModal(toolId) {
+        window.openModal = function(toolId) {
             const tool = allTools.find(t => t.id === toolId);
-            if (!tool) return;
+            if (!tool) {
+                console.error('Tool not found:', toolId);
+                return;
+            }
             
             document.getElementById('modalTitle').textContent = tool.name;
             document.getElementById('modalSubtitle').textContent = tool.developer || '';
@@ -1141,7 +368,7 @@
             `;
             
             if (tool.description) body += `<div class="modal-section"><h4>Description</h4><p>${tool.description}</p></div>`;
-            if (tool.features?.length) body += `<div class="modal-section"><h4>✨ Features</h4><ul>${tool.features.map(f => `<li style="padding-left: 20px;">• ${f}</li>`).join('')}</ul></div>`;
+            if (tool.features?.length) body += `<div class="modal-section"><h4>✨ Features</h4><ul>${tool.features.map(f => `<li>• ${f}</li>`).join('')}</ul></div>`;
             if (tool.strengths?.length) body += `<div class="modal-section"><h4>💪 Strengths</h4><ul>${tool.strengths.map(s => `<li>• ${s}</li>`).join('')}</ul></div>`;
             if (tool.limitations?.length) body += `<div class="modal-section"><h4>⚠️ Limitations</h4><ul>${tool.limitations.map(l => `<li>• ${l}</li>`).join('')}</ul></div>`;
             if (tool.pricing) body += `<div class="modal-section"><h4>💰 Pricing</h4><p>${tool.pricing}</p></div>`;
@@ -1150,6 +377,171 @@
             
             document.getElementById('modalBody').innerHTML = body;
             document.getElementById('toolModal').classList.add('active');
+        };
+
+        window.filterByQuadrant = function(quadrant) {
+            const filtered = quadrant === 'all' ? allTools : allTools.filter(t => {
+                const q = t.vision >= 70 && t.ability >= 70 ? 'leader' :
+                         t.vision < 70 && t.ability >= 70 ? 'challenger' :
+                         t.vision >= 70 && t.ability < 70 ? 'visionary' : 'niche';
+                return q === quadrant.toLowerCase();
+            });
+            renderTools(filtered);
+            document.getElementById('tools').scrollIntoView({behavior:'smooth'});
+        };
+
+        async function loadTools() {
+            try {
+                const timestamp = Date.now();
+                const url = `https://raw.githubusercontent.com/misteralexdeparis/ai-tracker/main/public/ai_tracker_enhanced.json?t=${timestamp}`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                allTools = data.tools || data || [];
+                
+                console.log(`✅ Loaded ${allTools.length} tools`);
+                renderAll();
+            } catch (error) {
+                console.error('❌ Error loading tools:', error);
+            }
+        }
+
+        function renderAll() {
+            renderTools(allTools);
+            renderCategories();
+            renderMatrix();
+            renderDistribution();
+            document.getElementById('tool-count').textContent = allTools.length;
+        }
+
+        function renderTools(toolsToRender = allTools) {
+            const grid = document.getElementById('toolsGrid');
+            grid.innerHTML = toolsToRender.map((tool, idx) => `
+                <div class="tool-card">
+                    <div style="margin-bottom: var(--space-16);">
+                        <div class="tool-name">${tool.name}</div>
+                        <div class="tool-developer">${tool.developer}</div>
+                    </div>
+                    <div class="tool-category">${tool.category}</div>
+                    <div class="quadrant-badge ${tool.quadrant?.toLowerCase() || 'niche'}">
+                        ${tool.quadrant || 'Niche'}
+                    </div>
+                    <div class="tool-about">${tool.description || tool.about || 'AI Tool'}</div>
+                    <div class="tool-scores">
+                        <div class="score">
+                            <div class="score-label">Vision</div>
+                            <div class="score-value">${tool.vision || 0}</div>
+                        </div>
+                        <div class="score">
+                            <div class="score-label">Ability</div>
+                            <div class="score-value">${tool.ability || 0}</div>
+                        </div>
+                    </div>
+                    <button class="btn-secondary" data-tool-id="${tool.id}">View Details</button>
+                </div>
+            `).join('');
+            
+            // Attach click handlers to buttons
+            grid.querySelectorAll('.btn-secondary').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const toolId = btn.getAttribute('data-tool-id');
+                    window.openModal(toolId);
+                });
+            });
+        }
+
+        function renderCategories() {
+            const categories = {};
+            allTools.forEach(tool => {
+                const cat = tool.category || 'Other';
+                categories[cat] = (categories[cat] || 0) + 1;
+            });
+
+            const matrixContainer = document.getElementById('matrixCategories');
+            const toolsContainer = document.getElementById('categories');
+            
+            let html = `<button class="category-pill active" onclick="filterByCategory('all')">All <span style="margin-left: var(--space-8); opacity: 0.7;">(${allTools.length})</span></button>`;
+            
+            Object.entries(categories).sort().forEach(([cat, count]) => {
+                html += `<button class="category-pill" onclick="filterByCategory('${cat}')">${cat} <span style="margin-left: var(--space-8); opacity: 0.7;">(${count})</span></button>`;
+            });
+            
+            matrixContainer.innerHTML = html;
+            toolsContainer.innerHTML = html;
+        }
+
+        window.filterByCategory = function(category) {
+            currentFilter = category;
+            const filtered = category === 'all' ? allTools : allTools.filter(t => t.category === category);
+            renderTools(filtered);
+            
+            document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+            event.target.closest('.category-pill')?.classList.add('active');
+            
+            document.getElementById('matrixFilterStatus').textContent = 
+                category === 'all' ? `Showing all ${allTools.length} tools` : `Showing ${filtered.length} ${category} tools`;
+            
+            renderMatrix(filtered);
+        };
+
+        function renderDistribution() {
+            const counts = { leader: 0, visionary: 0, challenger: 0, niche: 0 };
+            allTools.forEach(tool => {
+                const quadrant = tool.vision >= 70 && tool.ability >= 70 ? 'leader' :
+                                tool.vision < 70 && tool.ability >= 70 ? 'challenger' :
+                                tool.vision >= 70 && tool.ability < 70 ? 'visionary' : 'niche';
+                counts[quadrant]++;
+            });
+            
+            const labels = { leader: 'Leaders', visionary: 'Visionaries', challenger: 'Challengers', niche: 'Niche Players' };
+            const icons = { leader: '🔵', visionary: '🟢', challenger: '🟣', niche: '🟠' };
+            
+            document.getElementById('distributionGrid').innerHTML = Object.entries(counts).map(([quad, count]) => `
+                <div class="distribution-card ${quad}">
+                    <div style="font-size: var(--font-size-4xl); margin-bottom: var(--space-16);">${icons[quad]}</div>
+                    <div class="distribution-count">${count}</div>
+                    <div class="distribution-label">${labels[quad]}</div>
+                </div>
+            `).join('');
+            
+            document.querySelectorAll('.distribution-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const quadrant = Array.from(card.classList).find(c => ['leader', 'visionary', 'challenger', 'niche'].includes(c));
+                    window.filterByQuadrant(quadrant);
+                });
+            });
+        }
+
+        function renderMatrix(toolsToRender = allTools) {
+            const canvas = document.getElementById('matrixCanvas');
+            document.querySelectorAll('.matrix-tool-dot').forEach(dot => dot.remove());
+            
+            const scaleMin = 40;
+            const scaleMax = 100;
+            const scaleRange = scaleMax - scaleMin;
+            
+            toolsToRender.forEach(tool => {
+                const dot = document.createElement('div');
+                const quadrant = tool.vision >= 70 && tool.ability >= 70 ? 'leader' :
+                                tool.vision < 70 && tool.ability >= 70 ? 'challenger' :
+                                tool.vision >= 70 && tool.ability < 70 ? 'visionary' : 'niche';
+                
+                dot.className = `matrix-tool-dot ${quadrant}`;
+                
+                const relVision = (tool.vision - scaleMin) / scaleRange;
+                const relAbility = (tool.ability - scaleMin) / scaleRange;
+                
+                const xPercent = Math.max(0, Math.min(100, relVision * 100));
+                const yPercent = Math.max(0, Math.min(100, (1 - relAbility) * 100));
+                
+                dot.style.left = `${xPercent}%`;
+                dot.style.top = `${yPercent}%`;
+                dot.title = `${tool.name} (V: ${tool.vision}, A: ${tool.ability})`;
+                dot.onclick = (e) => { e.stopPropagation(); window.openModal(tool.id); };
+                
+                canvas.appendChild(dot);
+            });
         }
 
         function handleNewsletter(event) {
