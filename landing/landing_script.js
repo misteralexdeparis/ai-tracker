@@ -1,4 +1,8 @@
-// Load tools from JSON and render with proper design matching existing tools
+// Load tools from JSON and update Gartner Matrix dynamically
+let allTools = [];
+let filteredTools = [];
+let currentFilter = 'all';
+
 async function loadTools() {
     try {
         const timestamp = Date.now();
@@ -15,34 +19,150 @@ async function loadTools() {
         }
 
         const data = await response.json();
-        const loadedTools = data.tools || data || [];
+        allTools = data.tools || data || [];
         
-        console.log(`✅ Loaded ${loadedTools.length} tools from GitHub`);
+        console.log(`✅ Loaded ${allTools.length} tools from GitHub`);
+        window.tools = allTools;
         
-        // Replace the global tools array with loaded data
-        window.tools = loadedTools;
+        // Render tools grid
+        renderTools(allTools);
         
-        // Re-render with new tools
-        renderTools(window.tools);
-        updateStats(window.tools);
+        // Update category counts
+        updateCategoryCounts();
+        
+        // Render Gartner Matrix
+        renderGartnerMatrix(allTools);
+        
+        // Update stats
+        updateStats(allTools);
         
     } catch (error) {
-        console.error('Error loading tools from GitHub:', error);
-        console.log('📦 Using tools already in HTML (39 default tools)');
-        // Tools are already in HTML, no need to change
+        console.error('Error loading tools:', error);
+        console.log('📦 Using fallback');
     }
 }
 
-// Enhanced renderTools function that matches the existing design
-function renderTools(toolsToRender = window.tools) {
-    const grid = document.getElementById('toolsGrid');
-    if (!grid) {
-        console.error('❌ toolsGrid not found!');
+// Calculate category counts from all tools
+function getCategoryCounts() {
+    const counts = {};
+    let total = 0;
+    
+    allTools.forEach(tool => {
+        const category = tool.category || 'Other';
+        counts[category] = (counts[category] || 0) + 1;
+        total++;
+    });
+    
+    return { counts, total };
+}
+
+// Update category pill counts dynamically
+function updateCategoryCounts() {
+    const { counts, total } = getCategoryCounts();
+    
+    // Update matrix categories
+    const matrixCategories = document.querySelectorAll('#matrixCategories .category-pill');
+    matrixCategories.forEach(pill => {
+        const category = pill.getAttribute('data-category');
+        const countSpan = pill.querySelector('.category-count');
+        
+        if (countSpan) {
+            if (category === 'all') {
+                countSpan.textContent = `(${total})`;
+            } else {
+                const count = counts[category] || 0;
+                countSpan.textContent = `(${count})`;
+            }
+        }
+    });
+    
+    // Update tools categories (if exists)
+    const toolsCategories = document.querySelectorAll('#categories .category-pill');
+    toolsCategories.forEach(pill => {
+        const category = pill.getAttribute('data-category');
+        const countSpan = pill.querySelector('.category-count');
+        
+        if (countSpan) {
+            if (category === 'all') {
+                countSpan.textContent = `(${total})`;
+            } else {
+                const count = counts[category] || 0;
+                countSpan.textContent = `(${count})`;
+            }
+        }
+    });
+}
+
+// Render Gartner Matrix with dynamic tool placement
+function renderGartnerMatrix(toolsToRender = allTools) {
+    const canvas = document.getElementById('matrixCanvas');
+    if (!canvas) return;
+    
+    // Remove existing tool dots
+    const existingDots = canvas.querySelectorAll('.tool-dot');
+    existingDots.forEach(dot => dot.remove());
+    
+    if (!toolsToRender || toolsToRender.length === 0) {
+        console.log('No tools to render');
         return;
     }
     
+    // Render each tool as a dot
+    toolsToRender.forEach(tool => {
+        const dot = document.createElement('div');
+        dot.className = `tool-dot ${(tool.quadrant || 'niche').toLowerCase()}`;
+        
+        // Calculate position based on vision (x) and ability (y)
+        // Scale from 0-100 to percentage
+        const xPercent = (tool.vision || 50);
+        const yPercent = (tool.ability || 50);
+        
+        dot.style.left = `${xPercent}%`;
+        dot.style.bottom = `${yPercent}%`;
+        dot.title = `${tool.name}\nVision: ${tool.vision} | Ability: ${tool.ability}`;
+        
+        // Add click handler to open modal
+        dot.onclick = () => openModal(tool.id || tool.name.toLowerCase().replace(/\s+/g, '-'));
+        
+        canvas.appendChild(dot);
+    });
+    
+    console.log(`✅ Rendered ${toolsToRender.length} tools on matrix`);
+}
+
+// Filter matrix by category
+function filterMatrix(category) {
+    currentFilter = category;
+    
+    // Update active pill
+    document.querySelectorAll('#matrixCategories .category-pill').forEach(pill => {
+        pill.classList.remove('active');
+    });
+    event.target.closest('.category-pill').classList.add('active');
+    
+    // Filter tools
+    if (category === 'all') {
+        filteredTools = allTools;
+    } else {
+        filteredTools = allTools.filter(tool => tool.category === category);
+    }
+    
+    // Update status text
+    const statusEl = document.getElementById('matrixFilterStatus');
+    if (statusEl) {
+        statusEl.textContent = `Showing ${filteredTools.length} tools${category !== 'all' ? ` in ${category}` : ''}`;
+    }
+    
+    // Re-render matrix
+    renderGartnerMatrix(filteredTools);
+}
+
+// Render tools grid
+function renderTools(toolsToRender = allTools) {
+    const grid = document.getElementById('toolsGrid');
+    if (!grid) return;
+    
     grid.innerHTML = toolsToRender.map(tool => {
-        // Ensure tool has an ID
         const toolId = tool.id || tool.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
         
         return `
@@ -72,14 +192,11 @@ function renderTools(toolsToRender = window.tools) {
             </div>
         `;
     }).join('');
-    
-    console.log(`✅ Rendered ${toolsToRender.length} tools`);
 }
 
-// Enhanced openModal to handle both embedded and loaded tools
+// Enhanced openModal
 function openModal(toolId) {
-    // Find the tool in window.tools array
-    let tool = window.tools.find(t => (t.id === toolId) || (t.name.toLowerCase().replace(/\s+/g, '-') === toolId));
+    let tool = allTools.find(t => (t.id === toolId) || (t.name.toLowerCase().replace(/\s+/g, '-') === toolId));
     
     if (!tool) {
         console.error('Tool not found:', toolId);
@@ -96,7 +213,7 @@ function openModal(toolId) {
         </div>
     `;
 
-    // Vision & Ability Scores with bars
+    // Gartner Scores
     modalBody += `
         <div class="modal-section">
             <h4>Gartner Scores</h4>
@@ -121,13 +238,13 @@ function openModal(toolId) {
         </div>
     `;
 
-    // Buzz Score if available
+    // Buzz Score
     if (tool.buzz_score) {
         modalBody += `
             <div class="modal-section">
-                <h4>Buzz Score</h4>
+                <h4>Market Buzz Score</h4>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                    <span class="score-label">Market Buzz</span>
+                    <span class="score-label">Buzz Score</span>
                     <span class="score-value" style="font-size: 16px;">${tool.buzz_score}/100</span>
                 </div>
                 <div class="score-bar">
@@ -137,25 +254,17 @@ function openModal(toolId) {
         `;
     }
 
-    // Pricing
-    if (tool.pricing) {
+    // Description
+    if (tool.description) {
         modalBody += `
             <div class="modal-section">
-                <h4>💰 Pricing</h4>
-                <p>${tool.pricing}</p>
+                <h4>Description</h4>
+                <p>${tool.description}</p>
             </div>
         `;
     }
 
-    // About/Description
-    modalBody += `
-        <div class="modal-section">
-            <h4>About</h4>
-            <p>${tool.description || tool.about || 'AI Tool'}</p>
-        </div>
-    `;
-
-    // Key Features
+    // Features
     if (tool.features && tool.features.length > 0) {
         modalBody += `
             <div class="modal-section">
@@ -173,7 +282,7 @@ function openModal(toolId) {
             <div class="modal-section">
                 <h4>💪 Strengths</h4>
                 <ul>
-                    ${tool.strengths.map(s => `<li class="strength">${s}</li>`).join('')}
+                    ${tool.strengths.map(s => `<li class="strength">• ${s}</li>`).join('')}
                 </ul>
             </div>
         `;
@@ -185,8 +294,18 @@ function openModal(toolId) {
             <div class="modal-section">
                 <h4>⚠️ Limitations</h4>
                 <ul>
-                    ${tool.limitations.map(l => `<li class="limitation">${l}</li>`).join('')}
+                    ${tool.limitations.map(l => `<li class="limitation">• ${l}</li>`).join('')}
                 </ul>
+            </div>
+        `;
+    }
+
+    // Pricing
+    if (tool.pricing) {
+        modalBody += `
+            <div class="modal-section">
+                <h4>💰 Pricing</h4>
+                <p>${tool.pricing}</p>
             </div>
         `;
     }
@@ -225,16 +344,21 @@ function openModal(toolId) {
         modalBody += `
             <div class="modal-section">
                 <h4>Status</h4>
-                <p style="color: ${statusColors[tool.status.toLowerCase()] || 'var(--color-text)'}; font-weight: 600;">${tool.status}</p>
+                <p style="color: ${statusColors[tool.status.toLowerCase()] || 'var(--color-text)'}; font-weight: 600;">🟢 ${tool.status}</p>
             </div>
         `;
     }
 
-    // Footer with link
-    const toolUrl = tool.official_url || tool.url || tool.website || '#';
+    // Social Links
     modalBody += `
         <div class="modal-section">
-            <a href="${toolUrl}" target="_blank" class="cta-button" style="display: inline-block;">Visit Official Website →</a>
+            <h4>Connect</h4>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                ${tool.official_url ? `<a href="${tool.official_url}" target="_blank" class="cta-button" style="display: inline-block;">Visit Website →</a>` : ''}
+                ${tool.twitter_handle ? `<a href="https://twitter.com/${tool.twitter_handle.replace('@', '')}" target="_blank" style="display: inline-block; padding: 8px 16px; background: #1DA1F2; color: white; border-radius: 4px; text-decoration: none;">Twitter</a>` : ''}
+                ${tool.discord_server ? `<a href="${tool.discord_server}" target="_blank" style="display: inline-block; padding: 8px 16px; background: #5865F2; color: white; border-radius: 4px; text-decoration: none;">Discord</a>` : ''}
+                ${tool.reddit ? `<a href="https://reddit.com/${tool.reddit}" target="_blank" style="display: inline-block; padding: 8px 16px; background: #FF4500; color: white; border-radius: 4px; text-decoration: none;">Reddit</a>` : ''}
+            </div>
         </div>
     `;
 
@@ -242,19 +366,20 @@ function openModal(toolId) {
     document.getElementById('toolModal').classList.add('active');
 }
 
-// Update stats (if exists)
+// Update stats
 function updateStats(tools) {
     const toolsCount = tools ? tools.length : 0;
+    
     const statElements = document.querySelectorAll(".stat-count, .tool-count");
     statElements.forEach(el => {
         el.textContent = toolsCount;
     });
 }
 
-// Initialize on DOM ready
+// Initialize
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('🚀 Landing page initializing...');
+    console.log('🚀 AI Tracker Landing initializing...');
     loadTools();
 });
 
-console.log('✅ landing_script.js loaded - ready to load tools from JSON!');
+console.log('✅ landing_script.js loaded - ready for dynamic Gartner Matrix!');

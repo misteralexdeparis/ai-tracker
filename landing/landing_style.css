@@ -469,6 +469,41 @@ pre code {
   cursor: not-allowed;
 }
 
+.tool-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tool-dot:hover {
+    width: 16px;
+    height: 16px;
+    margin-left: -2px;
+    margin-bottom: -2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.tool-dot.leader {
+    background: #2563eb;
+}
+
+.tool-dot.visionary {
+    background: #10b981;
+}
+
+.tool-dot.challenger {
+    background: #8b5cf6;
+}
+
+.tool-dot.niche {
+    background: #f59e0b;
+}
+
 /* Form elements */
 .form-control {
   display: block;
