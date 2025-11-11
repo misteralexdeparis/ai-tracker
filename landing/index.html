@@ -2390,7 +2390,7 @@
 
 // Initialize tools on page load
 document.addEventListener('DOMContentLoaded', async function() {
-  const toolsData = await loadToolsData();
+  const toolsData = await loadTools();
   
   if (toolsData && toolsData.length > 0) {
     // Replace the hardcoded tools with the fetched data
