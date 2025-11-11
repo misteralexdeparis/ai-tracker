@@ -1,4 +1,4 @@
-// Working version - Load from GitHub + render in correct container
+// Load tools from JSON and render with proper design matching existing tools
 async function loadTools() {
     try {
         const timestamp = Date.now();
@@ -15,175 +15,246 @@ async function loadTools() {
         }
 
         const data = await response.json();
-        const tools = data.tools || data || [];
+        const loadedTools = data.tools || data || [];
         
-        console.log(`✅ Loaded ${tools.length} tools from GitHub`);
-        renderToolsGrid(tools);
-        updateStats(tools);
+        console.log(`✅ Loaded ${loadedTools.length} tools from GitHub`);
+        
+        // Replace the global tools array with loaded data
+        window.tools = loadedTools;
+        
+        // Re-render with new tools
+        renderTools(window.tools);
+        updateStats(window.tools);
+        
     } catch (error) {
         console.error('Error loading tools from GitHub:', error);
-        console.log('📦 Loading embedded sample data...');
-        loadSampleTools();
+        console.log('📦 Using tools already in HTML (39 default tools)');
+        // Tools are already in HTML, no need to change
     }
 }
 
-// Embedded sample data with SUNO
-function loadSampleTools() {
-    const tools = [
-        {"name":"GPT-5 Pro","official_url":"https://openai.com/gpt-5","category":"LLM","vision":92,"ability":91,"buzz_score":92,"quadrant":"Leader"},
-        {"name":"GPT-5","official_url":"https://openai.com/gpt-5","category":"LLM","vision":88,"ability":86,"buzz_score":87,"quadrant":"Leader"},
-        {"name":"Claude 4.5","official_url":"https://claude.ai","category":"LLM","vision":85,"ability":87,"buzz_score":86,"quadrant":"Leader"},
-        {"name":"Sora 2","official_url":"https://openai.com/sora","category":"Video Generation","vision":85,"ability":62,"buzz_score":74,"quadrant":"Leader"},
-        {"name":"SUNO","official_url":"https://suno.ai","category":"Audio/Music","vision":75,"ability":72,"buzz_score":74,"quadrant":"Leader"},
-        {"name":"Midjourney v7","official_url":"https://www.midjourney.com","category":"Image Generation","vision":78,"ability":84,"buzz_score":81,"quadrant":"Leader"},
-        {"name":"Lovable","official_url":"https://lovable.dev","category":"AI Coding","vision":79,"ability":79,"buzz_score":79,"quadrant":"Leader"}
-    ];
+// Enhanced renderTools function that matches the existing design
+function renderTools(toolsToRender = window.tools) {
+    const grid = document.getElementById('toolsGrid');
+    if (!grid) {
+        console.error('❌ toolsGrid not found!');
+        return;
+    }
     
-    console.log(`✅ Loaded ${tools.length} sample tools (including SUNO!)`);
-    renderToolsGrid(tools);
-    updateStats(tools);
+    grid.innerHTML = toolsToRender.map(tool => {
+        // Ensure tool has an ID
+        const toolId = tool.id || tool.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        
+        return `
+            <div class="tool-card" onclick="openModal('${toolId}')">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">${tool.name || 'Unknown'}</div>
+                        <div class="tool-developer">${tool.developer || tool.twitter_handle || ''}</div>
+                    </div>
+                </div>
+                <div class="tool-category">${tool.category || 'Other'}</div>
+                <div class="quadrant-badge ${(tool.quadrant || 'niche').toLowerCase()}">
+                    ${tool.quadrant || 'Niche'}
+                </div>
+                <div class="tool-about">${tool.description || tool.about || 'AI Tool'}</div>
+                <div class="tool-scores">
+                    <div class="score">
+                        <div class="score-label">Vision</div>
+                        <div class="score-value">${tool.vision || 0}</div>
+                    </div>
+                    <div class="score">
+                        <div class="score-label">Ability</div>
+                        <div class="score-value">${tool.ability || 0}</div>
+                    </div>
+                </div>
+                <button class="btn-secondary">View Details</button>
+            </div>
+        `;
+    }).join('');
+    
+    console.log(`✅ Rendered ${toolsToRender.length} tools`);
+}
+
+// Enhanced openModal to handle both embedded and loaded tools
+function openModal(toolId) {
+    // Find the tool in window.tools array
+    let tool = window.tools.find(t => (t.id === toolId) || (t.name.toLowerCase().replace(/\s+/g, '-') === toolId));
+    
+    if (!tool) {
+        console.error('Tool not found:', toolId);
+        return;
+    }
+
+    document.getElementById('modalTitle').textContent = tool.name;
+    document.getElementById('modalSubtitle').textContent = tool.developer || tool.twitter_handle || 'AI Tool';
+    
+    let modalBody = `
+        <div class="modal-section">
+            <div class="tool-category">${tool.category || 'Other'}</div>
+            <div class="quadrant-badge ${(tool.quadrant || 'niche').toLowerCase()}" style="margin-top: 8px;">${tool.quadrant || 'Niche'}</div>
+        </div>
+    `;
+
+    // Vision & Ability Scores with bars
+    modalBody += `
+        <div class="modal-section">
+            <h4>Gartner Scores</h4>
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                    <span class="score-label">Completeness of Vision</span>
+                    <span class="score-value" style="font-size: 16px;">${tool.vision || 0}/100</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: ${tool.vision || 0}%"></div>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                    <span class="score-label">Ability to Execute</span>
+                    <span class="score-value" style="font-size: 16px;">${tool.ability || 0}/100</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: ${tool.ability || 0}%"></div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Buzz Score if available
+    if (tool.buzz_score) {
+        modalBody += `
+            <div class="modal-section">
+                <h4>Buzz Score</h4>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                    <span class="score-label">Market Buzz</span>
+                    <span class="score-value" style="font-size: 16px;">${tool.buzz_score}/100</span>
+                </div>
+                <div class="score-bar">
+                    <div class="score-bar-fill" style="width: ${tool.buzz_score}%"></div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Pricing
+    if (tool.pricing) {
+        modalBody += `
+            <div class="modal-section">
+                <h4>💰 Pricing</h4>
+                <p>${tool.pricing}</p>
+            </div>
+        `;
+    }
+
+    // About/Description
+    modalBody += `
+        <div class="modal-section">
+            <h4>About</h4>
+            <p>${tool.description || tool.about || 'AI Tool'}</p>
+        </div>
+    `;
+
+    // Key Features
+    if (tool.features && tool.features.length > 0) {
+        modalBody += `
+            <div class="modal-section">
+                <h4>✨ Key Features</h4>
+                <ul>
+                    ${tool.features.map(f => `<li style="padding-left: 20px;">• ${f}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }
+
+    // Strengths
+    if (tool.strengths && tool.strengths.length > 0) {
+        modalBody += `
+            <div class="modal-section">
+                <h4>💪 Strengths</h4>
+                <ul>
+                    ${tool.strengths.map(s => `<li class="strength">${s}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }
+
+    // Limitations
+    if (tool.limitations && tool.limitations.length > 0) {
+        modalBody += `
+            <div class="modal-section">
+                <h4>⚠️ Limitations</h4>
+                <ul>
+                    ${tool.limitations.map(l => `<li class="limitation">${l}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }
+
+    // Integrations
+    if (tool.integrations) {
+        modalBody += `
+            <div class="modal-section">
+                <h4>🔗 Integrations</h4>
+                <p>${tool.integrations}</p>
+            </div>
+        `;
+    }
+
+    // Changelog
+    if (tool.changelog && tool.changelog.length > 0) {
+        modalBody += `
+            <div class="modal-section">
+                <h4>📝 Recent Updates</h4>
+                <ul>
+                    ${tool.changelog.map(c => `<li style="padding-left: 20px;">• ${c}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }
+
+    // Status
+    if (tool.status) {
+        const statusColors = {
+            'live': 'var(--color-teal-300)',
+            'active': 'var(--color-teal-300)',
+            'beta': 'var(--color-orange-400)',
+            'legacy': 'var(--color-gray-400)',
+            'research': 'var(--color-slate-500)'
+        };
+        modalBody += `
+            <div class="modal-section">
+                <h4>Status</h4>
+                <p style="color: ${statusColors[tool.status.toLowerCase()] || 'var(--color-text)'}; font-weight: 600;">${tool.status}</p>
+            </div>
+        `;
+    }
+
+    // Footer with link
+    const toolUrl = tool.official_url || tool.url || tool.website || '#';
+    modalBody += `
+        <div class="modal-section">
+            <a href="${toolUrl}" target="_blank" class="cta-button" style="display: inline-block;">Visit Official Website →</a>
+        </div>
+    `;
+
+    document.getElementById('modalBody').innerHTML = modalBody;
+    document.getElementById('toolModal').classList.add('active');
+}
+
+// Update stats (if exists)
+function updateStats(tools) {
+    const toolsCount = tools ? tools.length : 0;
+    const statElements = document.querySelectorAll(".stat-count, .tool-count");
+    statElements.forEach(el => {
+        el.textContent = toolsCount;
+    });
 }
 
 // Initialize on DOM ready
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('🚀 AI Tracker Landing initializing...');
+    console.log('🚀 Landing page initializing...');
     loadTools();
 });
 
-// Render tools in the grid - look for both possible containers
-function renderToolsGrid(toolsToRender) {
-    // Try to find the tools container (could be #tools section)
-    let gridContainer = document.querySelector('#tools .tool-grid') || 
-                       document.querySelector('#tools .tools-grid') ||
-                       document.querySelector('#tools [class*="grid"]') ||
-                       document.querySelector('[class*="tools-container"]');
-    
-    // If not found, look for any section that might hold tools
-    if (!gridContainer) {
-        gridContainer = document.querySelector('#tools');
-    }
-    
-    if (!gridContainer) {
-        console.error('❌ Tools grid container not found. Looking for alternatives...');
-        console.log('Available IDs:', Array.from(document.querySelectorAll('[id]')).map(el => el.id));
-        return;
-    }
-
-    console.log('✅ Found grid container:', gridContainer.id || gridContainer.className);
-
-    // Clear previous tools but keep category buttons
-    const existingCards = gridContainer.querySelectorAll('[data-tool-card]');
-    existingCards.forEach(card => card.remove());
-
-    if (!toolsToRender || toolsToRender.length === 0) {
-        const msg = document.createElement('p');
-        msg.textContent = 'No tools found';
-        msg.style.padding = '20px';
-        gridContainer.appendChild(msg);
-        return;
-    }
-
-    // Create a container for cards if needed
-    let cardsContainer = gridContainer.querySelector('.tools-cards-container');
-    if (!cardsContainer) {
-        cardsContainer = document.createElement('div');
-        cardsContainer.className = 'tools-cards-container';
-        cardsContainer.style.display = 'grid';
-        cardsContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(300px, 1fr))';
-        cardsContainer.style.gap = '20px';
-        cardsContainer.style.marginTop = '30px';
-        gridContainer.appendChild(cardsContainer);
-    }
-
-    // Render each tool
-    toolsToRender.forEach(tool => {
-        const card = document.createElement("div");
-        card.setAttribute('data-tool-card', 'true');
-        card.setAttribute('data-category', tool.category);
-        
-        const quadrantClass = tool.quadrant ? tool.quadrant.toLowerCase().replace(/\s+/g, '-') : "niche";
-        card.className = `tool-card ${quadrantClass}`;
-        card.style.cssText = `
-            padding: 20px;
-            border-radius: 8px;
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        `;
-
-        const categories = Array.isArray(tool.category) 
-            ? tool.category.join(", ") 
-            : (tool.category || "Other");
-
-        card.innerHTML = `
-            <h3 style="margin-top: 0;">${tool.name || "Unknown"}</h3>
-            <p style="color: #666; font-size: 0.9em;">${tool.developer || ""}</p>
-            <span style="display: inline-block; padding: 4px 8px; background: #e0e0e0; border-radius: 4px; font-size: 0.8em;">${tool.quadrant || "Niche"}</span>
-            <p style="margin: 10px 0; font-size: 0.9em;"><strong>Vision:</strong> ${tool.vision || 0} | <strong>Ability:</strong> ${tool.ability || 0}</p>
-            <p style="color: #888; font-size: 0.85em;">${categories}</p>
-            ${tool.official_url ? `<a href="${tool.official_url}" target="_blank" style="display: inline-block; padding: 8px 16px; background: #007bff; color: white; border-radius: 4px; text-decoration: none; margin-top: 10px;">Visit</a>` : ''}
-        `;
-
-        cardsContainer.appendChild(card);
-    });
-    
-    console.log(`✅ Rendered ${toolsToRender.length} tools in grid`);
-}
-
-// Update stats
-function updateStats(tools) {
-    const toolsCount = tools ? tools.length : 0;
-    
-    const statElements = document.querySelectorAll(".stat-count");
-    statElements.forEach(el => {
-        el.textContent = toolsCount;
-    });
-
-    const countElements = document.querySelectorAll(".tool-count");
-    countElements.forEach(el => {
-        el.textContent = toolsCount;
-    });
-
-    const now = new Date();
-    const dateStr = now.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
-    
-    const dateElements = document.querySelectorAll(".last-updated-date");
-    dateElements.forEach(el => {
-        el.textContent = dateStr;
-    });
-}
-
-// Filter by category - fixed version
-function filterByCategory(category) {
-    const cards = document.querySelectorAll('[data-tool-card]');
-    
-    cards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        if (category === "all" || (cardCategory && cardCategory.toLowerCase().includes(category.toLowerCase()))) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
-    
-    console.log(`📊 Filtered by category: ${category}`);
-}
-
-// Category pill click handler
-document.addEventListener("click", function(e) {
-    if (e.target.classList.contains("category-pill")) {
-        document.querySelectorAll(".category-pill").forEach(pill => {
-            pill.classList.remove("active");
-        });
-        e.target.classList.add("active");
-        const category = e.target.getAttribute("data-category");
-        filterByCategory(category);
-    }
-});
-
-console.log('✅ landing_script.js loaded successfully - ready to load tools!');
+console.log('✅ landing_script.js loaded - ready to load tools from JSON!');
