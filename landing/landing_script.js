@@ -1,13 +1,12 @@
 let tools = [];
 
-// Load tools from GitHub using CORS proxy
+// Load tools from Next.js API route
 async function loadTools() {
     try {
         const timestamp = Date.now();
         const cacheBreaker = Math.random().toString(36).substring(7);
-        
-        // Use jsDelivr CDN as CORS proxy for GitHub raw content
-        const url = `https://cdn.jsdelivr.net/gh/misteralexdeparis/ai-tracker@main/public/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
+        // Load from Next.js API route (no CORS issues!)
+        const url = `/api/tools?t=${timestamp}&cb=${cacheBreaker}`;
         
         const response = await fetch(url, {
             cache: 'no-store',
@@ -25,7 +24,7 @@ async function loadTools() {
         const data = await response.json();
         tools = data.tools || data || [];
         
-        console.log(`✅ Loaded ${tools.length} tools from jsDelivr CDN`);
+        console.log(`✅ Loaded ${tools.length} tools from Next.js API`);
         renderTools(tools);
     } catch (error) {
         console.error('Error loading tools:', error);
@@ -178,13 +177,10 @@ function filterByUseCase(usecase) {
 // Category pill click handler
 document.addEventListener("click", function(e) {
     if (e.target.classList.contains("pill")) {
-        // Remove active class from all pills
         document.querySelectorAll(".pill").forEach(pill => {
             pill.classList.remove("active");
         });
-        // Add active class to clicked pill
         e.target.classList.add("active");
-        // Filter by category
         const category = e.target.getAttribute("data-category");
         filterByCategory(category);
     }
