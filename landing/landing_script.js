@@ -1,4 +1,3 @@
-t_with_filter.js
 // AI Tracker Landing Script - Dynamic Gartner Matrix
 (function() {
     'use strict';
