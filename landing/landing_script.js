@@ -1,14 +1,12 @@
-// Load tools from jsDelivr CDN (simple, no API needed)
+// Load tools from /public (simple and works everywhere)
 async function loadTools() {
     try {
         const timestamp = Date.now();
         const cacheBreaker = Math.random().toString(36).substring(7);
-        // Load from jsDelivr CDN
-        const url = `https://cdn.jsdelivr.net/gh/misteralexdeparis/ai-tracker@main/public/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
+        // Load from public folder
+        const url = `/ai_tracker_enhanced.json?t=${timestamp}&cb=${cacheBreaker}`;
         
-        const response = await fetch(url, {
-            cache: 'no-store'
-        });
+        const response = await fetch(url);
 
         if (!response.ok) {
             throw new Error(`Failed to fetch: ${response.status}`);
@@ -17,7 +15,7 @@ async function loadTools() {
         const data = await response.json();
         const tools = data.tools || data || [];
         
-        console.log(`✅ Loaded ${tools.length} tools from jsDelivr CDN`);
+        console.log(`✅ Loaded ${tools.length} tools from /public`);
         renderTools(tools);
         updateStats(tools);
     } catch (error) {
@@ -29,6 +27,7 @@ async function loadTools() {
 
 // Sample fallback data
 function loadSampleTools() {
+    console.log('⚠️ Using fallback data');
     const tools = [
         {
             id: "gpt-5-pro",
@@ -134,7 +133,6 @@ function updateStats(tools) {
 
 // Filter by category
 function filterByCategory(category) {
-    // Will be called by HTML
     const grid = document.getElementById("tools-grid");
     if (!grid) return;
     
