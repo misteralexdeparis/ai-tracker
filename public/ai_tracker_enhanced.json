@@ -1,4 +1,16 @@
 {
+  "metadata": {
+    "last_updated": "2025-11-12T21:56:12.879919",
+    "total_tools": 34,
+    "new_tools_count": 0,
+    "updated_tools_count": 0,
+    "version": "3.2 FINAL",
+    "quality_thresholds": {
+      "buzz_score": 40,
+      "vision": 40,
+      "ability": 40
+    }
+  },
   "tools": [
     {
       "name": "GPT-5 Pro",
@@ -1084,17 +1096,5 @@
       ],
       "founding_year": 2022
     }
-  ],
-  "metadata": {
-    "last_updated": "2025-11-12T20:52:02.868254",
-    "total_tools": 34,
-    "scrape_run": "2025-11-12T20:52:02.868258",
-    "new_tools_count": 0,
-    "updated_tools_count": 0,
-    "quality_thresholds": {
-      "min_buzz_score": 40,
-      "min_vision": 40,
-      "min_ability": 40
-    }
-  }
+  ]
 }
