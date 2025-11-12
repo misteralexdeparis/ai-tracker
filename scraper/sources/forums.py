@@ -1,54 +1,79 @@
+#!/usr/bin/env python3
 """
-Scraper for forums (HackerNews, Reddit, ProductHunt)
+Forums Scraper - RSS VERSION (Reddit + HackerNews)
+ZERO COST - No API keys needed!
 """
 
-import requests
 import feedparser
-from datetime import datetime
 import logging
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
 def scrape_forums(config):
-    """Scrape forums for AI tool discussions"""
-    updates = []
+    """Scrape forums for AI tool mentions - RSS feeds"""
+    candidates = []
     
-    # Scrape Reddit RSS feeds
-    reddit_updates = scrape_reddit(config)
-    updates.extend(reddit_updates)
+    logger.info("💬 Scraping forums (Reddit + HackerNews RSS)...\n")
     
-    return updates
-
-
-def scrape_reddit(config):
-    """Scrape Reddit for AI tool mentions via RSS"""
-    updates = []
+    # ===== REDDIT RSS =====
+    reddit_subreddits = [
+        "r/MachineLearning",
+        "r/LanguageModels",
+        "r/ChatGPT",
+        "r/StableDiffusion",
+        "r/OpenAI",
+    ]
     
-    subreddits = config["sources"].get("forums", [])
-    reddit_subreddits = [s for s in subreddits if "reddit.com" in s]
-    
-    for subreddit_url in reddit_subreddits[:3]:  # Limit to 3
+    for subreddit in reddit_subreddits:
         try:
-            subreddit_name = subreddit_url.split("/")[-1]
-            logger.info(f"Scraping Reddit: {subreddit_name}...")
+            rss_url = f"https://www.reddit.com/{subreddit}/.rss"
+            logger.info(f"  📖 {subreddit}...")
             
-            rss_url = f"https://reddit.com/r/{subreddit_name}/.rss"
             feed = feedparser.parse(rss_url)
             
-            for entry in feed.entries[:5]:
-                updates.append({
-                    "source": f"reddit_{subreddit_name}",
-                    "title": entry.get("title", ""),
-                    "description": entry.get("summary", "")[:200],
-                    "url": entry.get("link", ""),
-                    "date": datetime.now().isoformat(),
-                    "type": "discussion",
-                    "buzz_score": 55
-                })
-        
+            for entry in feed.entries[:8]:  # Top 8 posts
+                title = entry.get("title", "")
+                link = entry.get("link", "")
+                
+                # Filter for AI/tool mentions
+                if any(kw in title.lower() for kw in ["tool", "ai", "gpt", "claude", "model", "new", "release"]):
+                    candidates.append({
+                        "name": title[:80],
+                        "source": f"reddit_{subreddit.replace('r/', '')}",
+                        "url": link,
+                        "buzz_score": 65,
+                        "vision": 60,
+                        "ability": 55,
+                        "category": "Community Discussion"
+                    })
+                    logger.info(f"     ✅ {title[:60]}")
         except Exception as e:
-            logger.warning(f"Error scraping Reddit {subreddit_name}: {e}")
+            logger.warning(f"  Error scraping {subreddit}: {e}")
     
-    return updates
+    # ===== HACKER NEWS RSS =====
+    try:
+        logger.info(f"\n  📰 Hacker News...")
+        rss_url = "https://news.ycombinator.com/rss"
+        feed = feedparser.parse(rss_url)
+        
+        for entry in feed.entries[:10]:  # Top 10 stories
+            title = entry.get("title", "")
+            link = entry.get("link", "")
+            
+            if any(kw in title.lower() for kw in ["ai", "llm", "tool", "framework", "model", "open source", "gpt"]):
+                candidates.append({
+                    "name": title[:80],
+                    "source": "hacker_news",
+                    "url": link,
+                    "buzz_score": 70,
+                    "vision": 65,
+                    "ability": 60,
+                    "category": "Community"
+                })
+                logger.info(f"     ✅ {title[:60]}")
+    except Exception as e:
+        logger.warning(f"  Error scraping Hacker News: {e}")
+    
+    logger.info(f"\n✅ Forums scraping complete: {len(candidates)} candidates found\n")
+    return candidates
