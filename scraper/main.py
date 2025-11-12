@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+
 """
 AI Tools Tracker - Main Scraper with Web Discovery
 Scrapes from official sites, forums, social media, and enriches with Perplexity
+NOW with QUALITY FILTER to eliminate WIP/hobby projects
 """
 
 import json
@@ -28,6 +30,7 @@ from enrichment.perplexity_analyzer import enrich_with_perplexity
 from enrichment.version_handler import smart_merge_with_versions
 from utils.cleanup_features import cleanup_tools_final
 from utils.helpers import load_json, save_json, load_config
+from sources.quality_filter import filter_candidates  # ← NEW!
 
 # Import scraper sources (from the sources/ directory)
 from sources.official_sites import scrape_official_sites
@@ -42,126 +45,136 @@ print("📋 Loading configuration...")
 try:
     config = load_config()
     existing_tools = load_json('../public/ai_tracker_enhanced.json').get('tools', [])
-    logger.info(f"   ✅ Loaded {len(existing_tools)} existing tools")
-    
+    logger.info(f" ✅ Loaded {len(existing_tools)} existing tools")
     thresholds = config.get('scraping_config', {}).get('thresholds', {})
     buzz_threshold = thresholds.get('min_buzz_score', 40)
     vision_threshold = thresholds.get('min_vision', 40)
     ability_threshold = thresholds.get('min_ability', 40)
     max_tools = thresholds.get('max_tools', 150)
-    
-    logger.info(f"   📊 Quality thresholds loaded:")
-    logger.info(f"      - Buzz score: ≥ {buzz_threshold}")
-    logger.info(f"      - Vision: ≥ {vision_threshold}")
-    logger.info(f"      - Ability: ≥ {ability_threshold}")
-    logger.info(f"      - Max tools: {max_tools}\n")
+    logger.info(f" 📊 Quality thresholds loaded:")
+    logger.info(f" - Buzz score: ≥ {buzz_threshold}")
+    logger.info(f" - Vision: ≥ {vision_threshold}")
+    logger.info(f" - Ability: ≥ {ability_threshold}")
+    logger.info(f" - Max tools: {max_tools}\n")
 except Exception as e:
     logger.error(f"Error loading config: {e}")
     sys.exit(1)
 
 # ===== 2. WEB SCRAPING - DISCOVER NEW TOOLS =====
 print("🌐 Scraping from sources...\n")
+
 all_candidates = []
 
 try:
-    print("   🔍 Discovering new tools from web sources...")
+    print(" 🔍 Discovering new tools from web sources...")
     
     # Scrape official sites
-    logger.info("   📌 Scraping official websites...")
+    logger.info(" 📌 Scraping official websites...")
     try:
         official_updates = scrape_official_sites(config)
-        logger.info(f"      Found {len(official_updates)} updates from official sites")
+        logger.info(f" Found {len(official_updates)} updates from official sites")
         all_candidates.extend(official_updates)
     except Exception as e:
         logger.warning(f"Error scraping official sites: {e}")
     
     # Scrape forums
-    logger.info("   💬 Scraping forums (Reddit, HackerNews, ProductHunt)...")
+    logger.info(" 💬 Scraping forums (Reddit, HackerNews, ProductHunt)...")
     try:
         forum_updates = scrape_forums(config)
-        logger.info(f"      Found {len(forum_updates)} updates from forums")
+        logger.info(f" Found {len(forum_updates)} updates from forums")
         all_candidates.extend(forum_updates)
     except Exception as e:
         logger.warning(f"Error scraping forums: {e}")
     
     # Scrape social media (optional - requires API keys)
-    logger.info("   🐦 Scraping social media...")
+    logger.info(" 🐦 Scraping social media...")
     try:
         social_updates = scrape_social_media(config)
-        logger.info(f"      Found {len(social_updates)} updates from social media")
+        logger.info(f" Found {len(social_updates)} updates from social media")
         all_candidates.extend(social_updates)
     except Exception as e:
         logger.warning(f"Error scraping social media: {e}")
     
-    logger.info(f"\n   📊 Total candidates discovered: {len(all_candidates)}")
+    logger.info(f"\n 📊 Total candidates discovered: {len(all_candidates)}")
     
-    # Filter by quality thresholds
-    qualified_candidates = [
-        c for c in all_candidates
+    # ===== 3. APPLY QUALITY FILTER ===== ← NEW STEP!
+    logger.info("\n🔍 APPLYING QUALITY FILTER (eliminate WIP/hobby projects)...")
+    qualified_candidates = filter_candidates(all_candidates)
+    logger.info(f"   ✅ After quality filter: {len(qualified_candidates)} commercial products\n")
+    
+    # Additional threshold filtering
+    final_qualified = [
+        c for c in qualified_candidates
         if c.get('buzz_score', 0) >= buzz_threshold
         and c.get('vision', 0) >= vision_threshold
         and c.get('ability', 0) >= ability_threshold
     ]
-    logger.info(f"   ✅ Qualified candidates (after filters): {len(qualified_candidates)}\n")
+    
+    logger.info(f" ✅ Qualified candidates (after thresholds): {len(final_qualified)}\n")
+    qualified_candidates = final_qualified
     
 except Exception as e:
     logger.error(f"Error during web scraping: {e}")
     qualified_candidates = []
 
-# ===== 3. ENRICH EXISTING TOOLS WITH PERPLEXITY =====
+# ===== 4. ENRICH EXISTING TOOLS WITH PERPLEXITY =====
 print("🧠 Enriching existing tools with Perplexity...\n")
-print("   Strategy:")
-print("   - ♻️ Update: status, pricing, features, limitations, changelog")
-print("   - ✨ Fill: description, founding_year (if empty)")
-print("   - 🔒 Preserve: Gartner scores, identity fields\n")
+
+print(" Strategy:")
+print(" - ♻️ Update: status, pricing, features, limitations, changelog")
+print(" - ✨ Fill: description, founding_year (if empty)")
+print(" - 🔒 Preserve: Gartner scores, identity fields\n")
 
 try:
-    print(f"   📚 Enriching {len(existing_tools)} existing tools...")
+    print(f" 📚 Enriching {len(existing_tools)} existing tools...")
     enriched_existing = enrich_with_perplexity(existing_tools)
-    logger.info(f"   ✅ Enrichment complete\n")
+    logger.info(f" ✅ Enrichment complete\n")
 except Exception as e:
     logger.error(f"Error enriching tools: {e}")
     enriched_existing = existing_tools
 
-# ===== 4. ANALYZE NEW CANDIDATES WITH PERPLEXITY =====
+# ===== 5. ANALYZE NEW CANDIDATES WITH PERPLEXITY =====
 print("🔬 Analyzing new candidates...\n")
-analyzed_candidates = []
 
+analyzed_candidates = []
 if qualified_candidates:
     try:
-        print(f"   🤖 Analyzing {len(qualified_candidates)} new candidates with Perplexity...")
+        print(f" 🤖 Analyzing {len(qualified_candidates)} new candidates with Perplexity...")
         analyzed_candidates = enrich_with_perplexity(qualified_candidates)
-        logger.info(f"   ✅ Analysis complete\n")
+        logger.info(f" ✅ Analysis complete\n")
     except Exception as e:
         logger.warning(f"Error analyzing candidates: {e}")
         analyzed_candidates = qualified_candidates
 else:
-    logger.info("   ⏭️  No candidate tools to analyze\n")
+    logger.info(" ⏭️  No candidate tools to analyze\n")
 
-# ===== 5. SMART MERGE WITH VERSION DETECTION =====
+# ===== 6. SMART MERGE WITH VERSION DETECTION =====
 print("🔄 Smart merge with version detection...\n")
-print("   Strategy:")
-print("   🔴 Major update (+15 pts or quadrant change) → v2, full update")
-print("   🟡 Minor update → selective updates (changelog, features)")
-print("   ✨ Changelog → keep last 4 entries\n")
+
+print(" Strategy:")
+print(" 🔴 Major update (+15 pts or quadrant change) → v2, full update")
+print(" 🟡 Minor update → selective updates (changelog, features)")
+print(" ✨ Changelog → keep last 4 entries\n")
 
 try:
     merged_tools, version_log = smart_merge_with_versions(
         enriched_existing,
         analyzed_candidates
     )
-    logger.info(f"\n   📊 Version Summary:")
-    logger.info(f"      - Total tools: {len(enriched_existing)} → {len(merged_tools)}")
-    logger.info(f"      - Major updates: {len(version_log.get('major_updates', []))}")
-    logger.info(f"      - Minor updates: {len(version_log.get('minor_updates', []))}")
-    logger.info(f"      - New tools: {len(version_log.get('new_tools', []))}\n")
+    
+    logger.info(f"\n 📊 Version Summary:")
+    logger.info(f" - Total tools: {len(enriched_existing)} → {len(merged_tools)}")
+    logger.info(f" - Major updates: {len(version_log.get('major_updates', []))}")
+    logger.info(f" - Minor updates: {len(version_log.get('minor_updates', []))}")
+    logger.info(f" - New tools: {len(version_log.get('new_tools', []))}\n")
 except Exception as e:
     logger.error(f"Error merging: {e}")
     merged_tools = enriched_existing
     version_log = {}
 
-# ===== 6. APPLY MANUAL OVERRIDES =====
+# ===== 7. APPLY MANUAL OVERRIDES =====
 print("🔧 Applying manual overrides...\n")
+
 try:
     overrides_file = 'manual_overrides.json'
     if os.path.exists(overrides_file):
@@ -173,14 +186,15 @@ try:
             )
             if tool_idx is not None:
                 merged_tools[tool_idx].update(override)
-                logger.info(f"   ✅ Applied override for {override['name']}")
+                logger.info(f" ✅ Applied override for {override['name']}")
     else:
-        logger.info("   ⏭️  Skipping for now\n")
+        logger.info(" ⏭️  Skipping for now\n")
 except Exception as e:
     logger.warning(f"Error applying overrides: {e}")
 
-# ===== 7. REMOVE LEGACY VERSIONS =====
+# ===== 8. REMOVE LEGACY VERSIONS =====
 print("🗑️  Removing legacy versions...\n")
+
 try:
     # Keep only latest version of each tool
     tool_names_seen = {}
@@ -192,25 +206,28 @@ try:
             final_tools.append(tool)
     final_tools.reverse()
     merged_tools = final_tools
-    logger.info(f"   ✅ Deduplicated to {len(merged_tools)} tools\n")
+    logger.info(f" ✅ Deduplicated to {len(merged_tools)} tools\n")
 except Exception as e:
     logger.warning(f"Error removing legacy versions: {e}")
 
-# ===== 8. FILTER TO MAX TOOLS =====
+# ===== 9. FILTER TO MAX TOOLS =====
 print("📉 Filtering to max tools...\n")
-merged_tools = merged_tools[:max_tools]
-logger.info(f"   ✅ Capped at {len(merged_tools)} tools\n")
 
-# ===== 9. CONSOLIDATE FEATURES =====
+merged_tools = merged_tools[:max_tools]
+logger.info(f" ✅ Capped at {len(merged_tools)} tools\n")
+
+# ===== 10. CONSOLIDATE FEATURES =====
 print("🧹 Consolidating features...\n")
+
 try:
     merged_tools = cleanup_tools_final(merged_tools, max_features=6)
-    logger.info(f"   ✅ Features consolidated\n")
+    logger.info(f" ✅ Features consolidated\n")
 except Exception as e:
     logger.warning(f"Error consolidating features: {e}")
 
-# ===== 10. SAVE RESULTS =====
+# ===== 11. SAVE RESULTS =====
 print("💾 Saving results...\n")
+
 try:
     # Prepare metadata
     metadata = {
@@ -218,7 +235,7 @@ try:
         'total_tools': len(merged_tools),
         'new_tools_count': len(version_log.get('new_tools', [])),
         'updated_tools_count': len(version_log.get('major_updates', [])) + len(version_log.get('minor_updates', [])),
-        'version': '3.2 FINAL',
+        'version': '3.2 FINAL WITH QUALITY FILTER',
         'quality_thresholds': {
             'buzz_score': buzz_threshold,
             'vision': vision_threshold,
@@ -235,18 +252,20 @@ try:
     # Create output directory if needed
     os.makedirs('../public', exist_ok=True)
     save_json(output_data, '../public/ai_tracker_enhanced.json')
-    logger.info(f"   ✅ Saved {len(merged_tools)} tools to ai_tracker_enhanced.json")
+    logger.info(f" ✅ Saved {len(merged_tools)} tools to ai_tracker_enhanced.json")
     
     # Save version log
     os.makedirs('../logs', exist_ok=True)
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
     save_json(version_log, f'../logs/versions_{timestamp}.json')
+    logger.info(f" ✅ Saved version log")
     
 except Exception as e:
     logger.error(f"Error saving results: {e}")
 
-# ===== 11. PREPARE NEWSLETTER INFO =====
+# ===== 12. PREPARE NEWSLETTER INFO =====
 print("📧 Preparing newsletter info...\n")
+
 try:
     newsletter_info = {
         'timestamp': datetime.now().isoformat(),
@@ -258,31 +277,33 @@ try:
     
     os.makedirs('../public', exist_ok=True)
     save_json(newsletter_info, '../public/newsletter_updates.json')
-    logger.info(f"   ✅ Newsletter info saved\n")
+    logger.info(f" ✅ Newsletter info saved\n")
 except Exception as e:
     logger.warning(f"Error preparing newsletter: {e}")
 
 # ===== FINAL SUMMARY =====
 print("=" * 70)
-print("✅ SCRAPING WITH SMART VERSIONING COMPLETE!")
+print("✅ SCRAPING WITH SMART VERSIONING & QUALITY FILTER COMPLETE!")
 print("=" * 70)
+
 print(f"\n📊 Final Statistics:")
-print(f"   - Total tools: {len(merged_tools)}")
-print(f"   - New tools discovered: {len(version_log.get('new_tools', []))}")
-print(f"   - Major updates (v bump): {len(version_log.get('major_updates', []))}")
-print(f"   - Minor updates: {len(version_log.get('minor_updates', []))}")
+print(f" - Total tools: {len(merged_tools)}")
+print(f" - New tools discovered: {len(version_log.get('new_tools', []))}")
+print(f" - Major updates (v bump): {len(version_log.get('major_updates', []))}")
+print(f" - Minor updates: {len(version_log.get('minor_updates', []))}")
 
 # Cost estimation
 enrichment_cost = (len(existing_tools) + len(analyzed_candidates)) * 0.0008
+
 print(f"\n💰 Cost Estimate:")
-print(f"   - Enriched existing: ${len(existing_tools) * 0.0008:.4f}")
-print(f"   - Analyzed new: ${len(analyzed_candidates) * 0.0008:.4f}")
-print(f"   - Total this run: ${enrichment_cost:.4f}")
+print(f" - Enriched existing: ${len(existing_tools) * 0.0008:.4f}")
+print(f" - Analyzed new: ${len(analyzed_candidates) * 0.0008:.4f}")
+print(f" - Total this run: ${enrichment_cost:.4f}")
 
 print(f"\n📁 Outputs:")
-print(f"   - Tools: public/ai_tracker_enhanced.json")
-print(f"   - Versions: logs/versions_*.json")
-print(f"   - Newsletter: public/newsletter_updates.json")
+print(f" - Tools: public/ai_tracker_enhanced.json")
+print(f" - Versions: logs/versions_*.json")
+print(f" - Newsletter: public/newsletter_updates.json")
 
 print(f"\n⏰ Completed at: {datetime.now().isoformat()}")
 print("=" * 70)
