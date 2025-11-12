@@ -18,28 +18,28 @@ IMMUTABLE_FIELDS = {
     "name",
     "category",
     "official_url",
-    "vision",           # Gartner score
-    "ability",          # Gartner score
-    "buzz_score",       # Gartner score
-    "quadrant",         # Gartner position
-    "added_date",       # When first tracked
-    "twitter_handle",   # Usually doesn't change
-    "discord_server",   # Usually doesn't change
-    "reddit"            # Usually doesn't change
+    "vision",  # Gartner score
+    "ability",  # Gartner score
+    "buzz_score",  # Gartner score
+    "quadrant",  # Gartner position
+    "added_date",  # When first tracked
+    "twitter_handle",  # Usually doesn't change
+    "discord_server",  # Usually doesn't change
+    "reddit"  # Usually doesn't change
 }
 
 EVOLVING_FIELDS = {
     # Always update from Perplexity if new data available
-    "status",              # active → beta → discontinued
-    "pricing",             # Can change (free → paid)
-    "key_features",        # New features added constantly
-    "strengths",           # Competitive advantages evolve
-    "limitations",         # Limitations change
-    "integrations",        # New integrations
-    "changelog",           # New updates
-    "pricing_tiers",       # Pricing details change
-    "user_base",           # Grows over time
-    "founding_year"        # Only if currently empty
+    "status",  # active → beta → discontinued
+    "pricing",  # Can change (free → paid)
+    "key_features",  # New features added constantly
+    "strengths",  # Competitive advantages evolve
+    "limitations",  # Limitations change
+    "integrations",  # New integrations
+    "changelog",  # New updates
+    "pricing_tiers",  # Pricing details change
+    "user_base",  # Grows over time
+    "founding_year"  # Only if currently empty
 }
 
 FILL_IF_EMPTY = {
@@ -47,6 +47,38 @@ FILL_IF_EMPTY = {
     "description",
     "website_description"
 }
+
+# ============ CORE JSON FUNCTIONS ============
+
+def load_json(filepath):
+    """Load any JSON file - Generic helper"""
+    try:
+        path = Path(filepath)
+        if not path.exists():
+            logger.warning(f"File not found: {filepath}")
+            return {}
+        
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        logger.info(f"✅ Loaded JSON from {filepath}")
+        return data
+    except Exception as e:
+        logger.error(f"Error loading JSON from {filepath}: {e}")
+        return {}
+
+def save_json(data, filepath):
+    """Save any data to JSON file - Generic helper"""
+    try:
+        path = Path(filepath)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        logger.info(f"✅ Saved JSON to {filepath}")
+        return True
+    except Exception as e:
+        logger.error(f"Error saving JSON to {filepath}: {e}")
+        return False
 
 # ============ HELPER FUNCTIONS ============
 
@@ -64,6 +96,7 @@ def load_config():
 def load_tools_json():
     """Load current tools JSON"""
     tools_path = Path(__file__).parent.parent.parent / "public" / "ai_tracker_enhanced.json"
+    
     if not tools_path.exists():
         return {"tools": []}
     
@@ -97,7 +130,6 @@ def merge_intelligently(existing_tools, enriched_data):
     
     Returns: (merged_tools, change_log)
     """
-    
     change_log = {
         "timestamp": datetime.now().isoformat(),
         "total_tools": len(existing_tools),
@@ -186,7 +218,6 @@ def merge_intelligently(existing_tools, enriched_data):
             })
         
         change_log["detailed_changes"][tool_name] = tool_changes
-        
         merged_tools.append(merged_tool)
     
     # ========== ADD NEW TOOLS ==========
@@ -201,11 +232,11 @@ def merge_intelligently(existing_tools, enriched_data):
     
     # ========== LOG SUMMARY ==========
     logger.info(f"\n📊 INTELLIGENT MERGE SUMMARY:")
-    logger.info(f"  - Total tools: {len(merged_tools)}")
-    logger.info(f"  - Immutable fields preserved: {len(change_log['immutable_preserved'])}")
-    logger.info(f"  - Evolving fields updated: {len(change_log['evolving_updated'])}")
-    logger.info(f"  - Empty fields filled: {len(change_log['empty_filled'])}")
-    logger.info(f"  - New tools: {len(change_log['new_tools'])}")
+    logger.info(f" - Total tools: {len(merged_tools)}")
+    logger.info(f" - Immutable fields preserved: {len(change_log['immutable_preserved'])}")
+    logger.info(f" - Evolving fields updated: {len(change_log['evolving_updated'])}")
+    logger.info(f" - Empty fields filled: {len(change_log['empty_filled'])}")
+    logger.info(f" - New tools: {len(change_log['new_tools'])}")
     
     return merged_tools, change_log
 
@@ -214,7 +245,6 @@ def score_candidates(candidates):
     scored = []
     for candidate in candidates:
         score = 0
-        
         if candidate.get("official_url"):
             score += 20
         if candidate.get("twitter_handle"):
