@@ -40,7 +40,7 @@ print(f"⏰ Started at: {datetime.now().isoformat()}\n")
 # ===== 1. LOAD CONFIGURATION =====
 print("📋 Loading configuration...")
 try:
-    config = load_config('config.json')
+    config = load_config()
     existing_tools = load_json('../public/ai_tracker_enhanced.json').get('tools', [])
     logger.info(f"   ✅ Loaded {len(existing_tools)} existing tools")
     
