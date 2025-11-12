@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
 """
-AI Tools Tracker - Main Scraper Orchestrator - v3.2 FINAL
+AI Tools Tracker - Main Scraper Orchestrator - v3.1 FINAL
 
-Smart versioning + Perplexity enrichment + Web scraping + Quality thresholds
-Features cleanup + Candidate discovery
+Smart versioning + Perplexity enrichment + Features cleanup
 Newsletter updates integration
 """
 
@@ -25,7 +24,6 @@ load_dotenv(dotenv_path)
 sys.path.insert(0, str(Path(__file__).parent))
 
 from enrichment.perplexity_analyzer import enrich_with_perplexity
-from enrichment.candidate_discovery import analyze_candidate_tool
 from utils.helpers import (
     load_config,
     load_tools_json,
@@ -38,78 +36,28 @@ from enrichment.version_handler import smart_merge_with_versions
 from utils.cleanup_features import cleanup_tools_final
 
 def main():
-    """Main orchestration function with smart versioning + web scraping + quality filters"""
-    print("🚀 AI Tools Tracker - Scraper Starting (v3.2 FINAL with Quality Filters)...")
+    """Main orchestration function with smart versioning & cleanup"""
+    print("🚀 AI Tools Tracker - Scraper Starting (v3.1 with Features Cleanup)...")
     print(f"⏰ Started at: {datetime.now().isoformat()}")
     
     try:
         # 1. Load configuration & existing data
         print("\n📋 Loading configuration...")
-        config = load_config()
         existing_tools_data = load_tools_json()
         existing_tools = existing_tools_data.get("tools", [])
         
         print(f"   ✅ Loaded {len(existing_tools)} existing tools")
         
-        # Load quality thresholds
-        thresholds = config.get("scraping_config", {}).get("thresholds", {})
-        min_buzz = thresholds.get("min_buzz_score", 40)
-        min_vision = thresholds.get("min_vision", 40)
-        min_ability = thresholds.get("min_ability", 40)
-        max_tools = thresholds.get("max_tools", 150)
-        
-        print(f"   📊 Quality thresholds loaded:")
-        print(f"      - Buzz score: ≥ {min_buzz}")
-        print(f"      - Vision: ≥ {min_vision}")
-        print(f"      - Ability: ≥ {min_ability}")
-        print(f"      - Max tools: {max_tools}")
-        
         # BACKUP for changelog
         backup_tools = [t.copy() for t in existing_tools]
         
-        # 2. WEB SCRAPING - DISCOVER NEW TOOLS
+        # 2. NO SCRAPING FOR NOW - just enrichment
         print("\n🌐 Scraping from sources...")
+        print("   ⏭️  Skipping web scraping for now - focusing on enrichment")
         candidates = []
         
-        # Check if scraping is enabled in config
-        scraping_enabled = config.get("scraping_config", {}).get("enabled", True)
-        
-        if scraping_enabled:
-            print("   🔍 Discovering new tools from web sources...")
-            
-            # For now, we're using a simple approach
-            # In production, this would scrape official sites, Product Hunt, Twitter, etc.
-            # Placeholder: empty list (web scraping module to be implemented)
-            # Future: 
-            # candidates.extend(scrape_official_sites(config))
-            # candidates.extend(scrape_product_hunt(config))
-            # candidates.extend(scrape_twitter_mentions(config))
-            
-            # For MVP, just skip to existing tools enrichment
-            print("   ⏭️  Web scraping infrastructure ready (no new candidates this run)")
-        else:
-            print("   ⏭️  Web scraping disabled - using existing tools only")
-        
-        # 3. FILTER CANDIDATES BY QUALITY THRESHOLDS
-        if candidates:
-            print(f"\n   🔍 Applying quality filters...")
-            filtered_candidates = []
-            
-            for candidate in candidates:
-                buzz = candidate.get("buzz_score", 0)
-                vision = candidate.get("vision", 0)
-                ability = candidate.get("ability", 0)
-                
-                if buzz >= min_buzz and vision >= min_vision and ability >= min_ability:
-                    filtered_candidates.append(candidate)
-                else:
-                    print(f"      - {candidate.get('name')}: FILTERED (buzz={buzz}, vision={vision}, ability={ability})")
-            
-            print(f"   ✅ Candidates filtered: {len(candidates)} → {len(filtered_candidates)}")
-            candidates = filtered_candidates
-        
-        # 4. ENRICH EXISTING TOOLS WITH PERPLEXITY
-        print("\n🧠 Enriching existing tools with Perplexity...")
+        # 3. ENRICH EXISTING TOOLS WITH PERPLEXITY
+        print("\n🧠 Enriching with Perplexity...")
         print("   Strategy:")
         print("   - ♻️ Update: status, pricing, features, limitations, changelog")
         print("   - ✨ Fill: description, founding_year (if empty)")
@@ -124,28 +72,7 @@ def main():
             print("   ⚠️  PERPLEXITY_API_KEY not set - using existing data")
             enriched_existing = existing_tools
         
-        # 5. ANALYZE & ENRICH CANDIDATE TOOLS
-        if candidates and api_key:
-            print(f"\n🔬 Analyzing {len(candidates)} candidate tools...")
-            analyzed_candidates = []
-            
-            for candidate in candidates:
-                try:
-                    analyzed = analyze_candidate_tool(candidate, api_key)
-                    if analyzed:
-                        analyzed_candidates.append(analyzed)
-                        print(f"   ✨ Analyzed: {candidate.get('name')}")
-                except Exception as e:
-                    print(f"   ❌ Failed to analyze {candidate.get('name')}: {e}")
-                    continue
-            
-            print(f"   ✅ Successfully analyzed {len(analyzed_candidates)} tools")
-            candidates = analyzed_candidates
-        else:
-            print(f"\n🔬 No candidate tools to analyze")
-            candidates = []
-        
-        # 6. INTELLIGENT MERGE WITH VERSION DETECTION
+        # 4. INTELLIGENT MERGE WITH VERSION DETECTION
         print("\n🔄 Smart merge with version detection...")
         print("   Strategy:")
         print("   🔴 Major update (+15 pts or quadrant change) → v2, full update")
@@ -173,48 +100,36 @@ def main():
                 for reason in changes:
                     print(f"        • {reason}")
         
-        if version_log['new_tools']:
-            print(f"\n   ✨ NEW TOOLS DISCOVERED:")
-            for tool_name in version_log['new_tools']:
-                print(f"      - {tool_name}")
-        
-        # 7. Skip manual overrides
+        # 5. Skip manual overrides
         print("\n🔧 Applying manual overrides...")
         print("   ⏭️  Skipping for now")
         
-        # 8. Remove legacy versions
+        # 6. Remove legacy versions
         print("\n🗑️  Removing legacy versions...")
         merged_tools = remove_legacy_versions(merged_tools)
         
-        # 9. Filter to max tools
+        # 7. Filter to max tools
         print("\n📉 Filtering to max tools...")
-        final_tools = filter_by_max_tools(merged_tools, max_tools)
+        final_tools = filter_by_max_tools(merged_tools, 150)
         
-        # 10. CLEANUP FEATURES (merge + deduplicate + limit)
+        # 8. 🆕 CLEANUP FEATURES (merge + deduplicate + limit)
         print("\n🧹 Consolidating features...")
         final_tools = cleanup_tools_final(final_tools)
         
-        # 11. Save results
+        # 9. Save results
         print("\n💾 Saving results...")
         output_data = {
             "tools": final_tools,
             "metadata": {
                 "last_updated": datetime.now().isoformat(),
                 "total_tools": len(final_tools),
-                "scrape_run": datetime.now().isoformat(),
-                "new_tools_count": len(version_log['new_tools']),
-                "updated_tools_count": len(version_log['major_updates']) + len(version_log['minor_updates']),
-                "quality_thresholds": {
-                    "min_buzz_score": min_buzz,
-                    "min_vision": min_vision,
-                    "min_ability": min_ability
-                }
+                "scrape_run": datetime.now().isoformat()
             }
         }
         
         save_tools_json(output_data)
         
-        # 12. Save version log
+        # 10. Save version log
         print("\n📋 Saving version log...")
         log_path = Path(__file__).parent.parent.parent / "logs" / f"versions_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         log_path.parent.mkdir(parents=True, exist_ok=True)
@@ -224,7 +139,7 @@ def main():
         
         print(f"   ✅ Saved to {log_path}")
         
-        # 13. Generate newsletter info
+        # 11. Generate newsletter info
         print("\n📧 Preparing newsletter info...")
         newsletter_data = {
             "timestamp": datetime.now().isoformat(),
@@ -249,18 +164,9 @@ def main():
         print("="*70)
         print(f"📊 Final Statistics:")
         print(f"   - Total tools: {len(final_tools)}")
-        print(f"   - New tools discovered: {len(version_log['new_tools'])}")
         print(f"   - Major updates (v bump): {len(version_log['major_updates'])}")
         print(f"   - Minor updates: {len(version_log['minor_updates'])}")
-        print(f"\n💰 Cost Estimate:")
-        # Existing tools: ~34 × $0.008 = $0.27
-        # New tools: len(candidates) × $0.008
-        existing_cost = len(existing_tools) * 0.008
-        new_cost = len(candidates) * 0.008
-        total_cost = existing_cost + new_cost
-        print(f"   - Enriched existing: ${existing_cost:.4f}")
-        print(f"   - Analyzed new: ${new_cost:.4f}")
-        print(f"   - Total this run: ${total_cost:.4f}")
+        print(f"   - New tools: {len(version_log['new_tools'])}")
         print(f"\n📁 Outputs:")
         print(f"   - Tools: public/ai_tracker_enhanced.json")
         print(f"   - Versions: logs/versions_*.json")

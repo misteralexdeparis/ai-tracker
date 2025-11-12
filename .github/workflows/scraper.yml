@@ -2,7 +2,8 @@ name: AI Tools Tracker - Bi-weekly Scrape
 
 on:
   schedule:
-    - cron: '0 9 * * 1,4'
+    # Tous les 15 jours (1er et 15 de chaque mois à 09:00 UTC = 11:00 CET)
+    - cron: '0 9 1,15 * *'
   workflow_dispatch:
 
 jobs:
