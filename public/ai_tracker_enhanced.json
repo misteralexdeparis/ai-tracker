@@ -677,7 +677,8 @@
         "Batch processing to upscale multiple images simultaneously",
         "Artifact removal that reduces blur, JPEG artifacts, and noise while preserving details",
         "Cross-platform support for Windows, macOS, and Linux with customizable settings"
-      ]
+      ],
+      "founding_year": 2022
     },
     {
       "name": "Veo 3",
@@ -784,7 +785,8 @@
         "Personal and Expressive AI Avatars with voice cloning",
         "AI Screen Recorder for converting screen recordings to videos",
         "Team collaboration tools with real-time editing"
-      ]
+      ],
+      "founding_year": 2017
     },
     {
       "name": "GitHub Copilot",
@@ -1084,8 +1086,15 @@
     }
   ],
   "metadata": {
-    "last_updated": "2025-11-12T11:39:05.148101",
+    "last_updated": "2025-11-12T20:52:02.868254",
     "total_tools": 34,
-    "scrape_run": "2025-11-12T11:39:05.148104"
+    "scrape_run": "2025-11-12T20:52:02.868258",
+    "new_tools_count": 0,
+    "updated_tools_count": 0,
+    "quality_thresholds": {
+      "min_buzz_score": 40,
+      "min_vision": 40,
+      "min_ability": 40
+    }
   }
 }
