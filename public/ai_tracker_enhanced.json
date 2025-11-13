@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "last_updated": "2025-11-13T16:52:58.451155",
-    "total_tools": 46,
-    "new_tools_count": 10,
+    "last_updated": "2025-11-13T19:16:40.923794",
+    "total_tools": 36,
+    "new_tools_count": 0,
     "updated_tools_count": 0,
     "version": "4.0 PHASE 1 - Enhanced Discovery & Filtering",
     "quality_thresholds": {
@@ -12,10 +12,10 @@
       "confidence_level": 70
     },
     "improvements": [
-      "✅ AI News scraper (TechCrunch, VentureBeat, company blogs)",
       "✅ Enhanced filtering (hard requirements + auto-reject + confidence)",
       "✅ Smart scoring v3 (5-dimensional)",
-      "✅ Curated tools (44 AI leaders)"
+      "✅ Curated tools (39 AI leaders, always included)",
+      "✅ Version tracking (GitHub releases + changelogs)"
     ]
   },
   "tools": [
@@ -1151,5 +1151,5 @@
       "version_history": [],
       "added_date": "2025-11-12T22:36:03.517943"
     }
-    ]
+  ]
 }
