@@ -4,6 +4,7 @@
 AI Tools Tracker - Main Scraper with Web Discovery
 Scrapes from official sites, forums, social media, and enriches with Perplexity
 NOW with QUALITY FILTER to eliminate WIP/hobby projects
+AND with CURATED TOOLS (essential AI leaders, always included)
 """
 
 import json
@@ -30,14 +31,15 @@ from enrichment.perplexity_analyzer import enrich_with_perplexity
 from enrichment.version_handler import smart_merge_with_versions
 from utils.cleanup_features import cleanup_tools_final
 from utils.helpers import load_json, save_json, load_config
-from sources.quality_filter import filter_candidates  # ← NEW!
+from sources.quality_filter import filter_candidates
+from sources.curated_tools import get_curated_tools  # ← NEW!
 
 # Import scraper sources (from the sources/ directory)
 from sources.official_sites import scrape_official_sites
 from sources.forums import scrape_forums
 from sources.social_media import scrape_social_media
 
-print("\n🚀 AI Tools Tracker - Scraper Starting (v3.2 FINAL with Quality Filters)...")
+print("\n🚀 AI Tools Tracker - Scraper Starting (v3.3 with Curated Tools)...")
 print(f"⏰ Started at: {datetime.now().isoformat()}\n")
 
 # ===== 1. LOAD CONFIGURATION =====
@@ -97,10 +99,20 @@ try:
     
     logger.info(f"\n 📊 Total candidates discovered: {len(all_candidates)}")
     
-    # ===== 3. APPLY QUALITY FILTER ===== ← NEW STEP!
-    logger.info("\n🔍 APPLYING QUALITY FILTER (eliminate WIP/hobby projects)...")
+    # ===== 3. LOAD AND ADD CURATED TOOLS ===== ← NEW STEP!
+    logger.info("\n📌 Loading curated essential AI tools...")
+    try:
+        curated_tools = get_curated_tools()
+        logger.info(f" ✅ Loaded {len(curated_tools)} curated AI tools")
+        all_candidates.extend(curated_tools)
+        logger.info(f" Total candidates after adding curated list: {len(all_candidates)}\n")
+    except Exception as e:
+        logger.warning(f"Error loading curated tools: {e}\n")
+    
+    # ===== 4. APPLY QUALITY FILTER =====
+    logger.info("🔍 APPLYING QUALITY FILTER (eliminate WIP/hobby projects)...")
     qualified_candidates = filter_candidates(all_candidates)
-    logger.info(f"   ✅ After quality filter: {len(qualified_candidates)} commercial products\n")
+    logger.info(f" ✅ After quality filter: {len(qualified_candidates)} commercial products\n")
     
     # Additional threshold filtering
     final_qualified = [
@@ -117,7 +129,7 @@ except Exception as e:
     logger.error(f"Error during web scraping: {e}")
     qualified_candidates = []
 
-# ===== 4. ENRICH EXISTING TOOLS WITH PERPLEXITY =====
+# ===== 5. ENRICH EXISTING TOOLS WITH PERPLEXITY =====
 print("🧠 Enriching existing tools with Perplexity...\n")
 
 print(" Strategy:")
@@ -133,7 +145,7 @@ except Exception as e:
     logger.error(f"Error enriching tools: {e}")
     enriched_existing = existing_tools
 
-# ===== 5. ANALYZE NEW CANDIDATES WITH PERPLEXITY =====
+# ===== 6. ANALYZE NEW CANDIDATES WITH PERPLEXITY =====
 print("🔬 Analyzing new candidates...\n")
 
 analyzed_candidates = []
@@ -148,7 +160,7 @@ if qualified_candidates:
 else:
     logger.info(" ⏭️  No candidate tools to analyze\n")
 
-# ===== 6. SMART MERGE WITH VERSION DETECTION =====
+# ===== 7. SMART MERGE WITH VERSION DETECTION =====
 print("🔄 Smart merge with version detection...\n")
 
 print(" Strategy:")
@@ -172,7 +184,7 @@ except Exception as e:
     merged_tools = enriched_existing
     version_log = {}
 
-# ===== 7. APPLY MANUAL OVERRIDES =====
+# ===== 8. APPLY MANUAL OVERRIDES =====
 print("🔧 Applying manual overrides...\n")
 
 try:
@@ -192,7 +204,7 @@ try:
 except Exception as e:
     logger.warning(f"Error applying overrides: {e}")
 
-# ===== 8. REMOVE LEGACY VERSIONS =====
+# ===== 9. REMOVE LEGACY VERSIONS =====
 print("🗑️  Removing legacy versions...\n")
 
 try:
@@ -210,13 +222,13 @@ try:
 except Exception as e:
     logger.warning(f"Error removing legacy versions: {e}")
 
-# ===== 9. FILTER TO MAX TOOLS =====
+# ===== 10. FILTER TO MAX TOOLS =====
 print("📉 Filtering to max tools...\n")
 
 merged_tools = merged_tools[:max_tools]
 logger.info(f" ✅ Capped at {len(merged_tools)} tools\n")
 
-# ===== 10. CONSOLIDATE FEATURES =====
+# ===== 11. CONSOLIDATE FEATURES =====
 print("🧹 Consolidating features...\n")
 
 try:
@@ -225,7 +237,7 @@ try:
 except Exception as e:
     logger.warning(f"Error consolidating features: {e}")
 
-# ===== 11. SAVE RESULTS =====
+# ===== 12. SAVE RESULTS =====
 print("💾 Saving results...\n")
 
 try:
@@ -235,7 +247,7 @@ try:
         'total_tools': len(merged_tools),
         'new_tools_count': len(version_log.get('new_tools', [])),
         'updated_tools_count': len(version_log.get('major_updates', [])) + len(version_log.get('minor_updates', [])),
-        'version': '3.2 FINAL WITH QUALITY FILTER',
+        'version': '3.3 WITH CURATED TOOLS & QUALITY FILTER',
         'quality_thresholds': {
             'buzz_score': buzz_threshold,
             'vision': vision_threshold,
@@ -263,7 +275,7 @@ try:
 except Exception as e:
     logger.error(f"Error saving results: {e}")
 
-# ===== 12. PREPARE NEWSLETTER INFO =====
+# ===== 13. PREPARE NEWSLETTER INFO =====
 print("📧 Preparing newsletter info...\n")
 
 try:
@@ -283,7 +295,7 @@ except Exception as e:
 
 # ===== FINAL SUMMARY =====
 print("=" * 70)
-print("✅ SCRAPING WITH SMART VERSIONING & QUALITY FILTER COMPLETE!")
+print("✅ SCRAPING WITH CURATED TOOLS, QUALITY FILTER & SMART VERSIONING COMPLETE!")
 print("=" * 70)
 
 print(f"\n📊 Final Statistics:")
