@@ -132,29 +132,31 @@ try:
     except Exception as e:
         logger.warning(f"Error loading curated tools: {e}\n")
     
-    # ===== 3.5. CALCULATE BASE DIMENSION SCORES (NEW - BEFORE FILTERING) =====
-    print("📊 Calculating base dimension scores for filtering...\n")
-    
-    for candidate in all_candidates:
-        # Only calculate if not already present
-        if 'buzz_score' not in candidate:
-            candidate['buzz_score'] = calculate_buzz_score(candidate)
-        if 'vision' not in candidate:
-            candidate['vision'] = calculate_vision_score(candidate)
-        if 'ability' not in candidate:
-            candidate['ability'] = calculate_ability_score(candidate)
-    
-    logger.info(f" ✅ Base scores calculated for {len(all_candidates)} candidates\n")
-    logger.info(f"\n🔍 DEBUG: Checking scores after calculation...")
-    curated_in_candidates = [c for c in all_candidates if c.get("tracking_versions")]
-    logger.info(f"   Curated tools in all_candidates: {len(curated_in_candidates)}")
-    if curated_in_candidates:
+   # ===== 3.5. CALCULATE BASE DIMENSION SCORES (NEW - BEFORE FILTERING) =====
+print("📊 Calculating base dimension scores for filtering...\n")
+
+for candidate in all_candidates:
+    # Only calculate if not already present
+    if 'buzz_score' not in candidate:
+        candidate['buzz_score'] = calculate_buzz_score(candidate)
+    if 'vision' not in candidate:
+        candidate['vision'] = calculate_vision_score(candidate)
+    if 'ability' not in candidate:
+        candidate['ability'] = calculate_ability_score(candidate)
+
+logger.info(f" ✅ Base scores calculated for {len(all_candidates)} candidates\n")
+
+# DEBUG
+logger.info(f"🔍 DEBUG: Checking scores after calculation...")
+curated_in_candidates = [c for c in all_candidates if c.get("tracking_versions")]
+logger.info(f"   Curated tools in all_candidates: {len(curated_in_candidates)}")
+if curated_in_candidates:
     sample = curated_in_candidates[0]
     logger.info(f"   Sample curated tool: {sample.get('name')}")
     logger.info(f"   Has buzz_score? {sample.get('buzz_score', 'MISSING')}")
     logger.info(f"   Has vision? {sample.get('vision', 'MISSING')}")
     logger.info(f"   Has ability? {sample.get('ability', 'MISSING')}")
-    logger.info("")
+logger.info("")
     
     # ===== 4. APPLY ENHANCED FILTERING =====
     logger.info("🔍 APPLYING ENHANCED FILTERING (Claude recommendations)...")
