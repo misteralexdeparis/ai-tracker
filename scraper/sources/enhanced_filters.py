@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Enhanced Filtering Module - PHASE 1 CORRECTED
-Fix: Curated tools ALWAYS pass (they're hand-selected)
+Enhanced Filtering Module - FIXED VERSION
+Fix: Curated tools (no source field) ALWAYS pass
 Noise rejection + confidence scoring
 """
 
@@ -29,27 +29,28 @@ AUTO_REJECT_PATTERNS = [
 ]
 
 AUTO_REJECT_INDICATORS = {
-    "is_archived": True,  # GitHub archived repos
-    "url_contains_draft": True,  # /draft/ or /archive/
-    "domain_age_days": 14,  # Too new
+    "is_archived": True,
+    "url_contains_draft": True,
+    "domain_age_days": 14,
 }
 
 # ===== CONFIDENCE SCORING TIERS =====
 CONFIDENCE_TIERS = {
-    "curated_list": 100,           # Your 44 AI leaders - ALWAYS PASS
-    "official_blog": 95,           # Direct from company
-    "product_hunt_500plus": 85,    # Validated by community
-    "github_trending_1k": 80,      # Trending + popular
-    "techcrunch_article": 75,      # News source
-    "reddit_100plus_upvotes": 40,  # Noisy
-    "hn_showhn_under50": 30        # Very noisy
+    "curated_list": 100,
+    "official_blog": 95,
+    "product_hunt_500plus": 85,
+    "github_trending_1k": 80,
+    "techcrunch_article": 75,
+    "reddit_100plus_upvotes": 40,
+    "hn_showhn_under50": 30
 }
 
 def check_hard_requirements(candidate):
-    """Check if candidate meets hard requirements - FAIL FAST"""
+    """Check if candidate meets hard requirements"""
     
     # Must have URL
-    if not candidate.get("url") and not candidate.get("official_url"):
+    url = candidate.get("url") or candidate.get("official_url")
+    if not url:
         return False, "Missing URL"
     
     # Must have name
@@ -60,11 +61,11 @@ def check_hard_requirements(candidate):
     return True, None
 
 def check_auto_reject_rules(candidate):
-    """Apply auto-reject rules - filter noise"""
+    """Apply auto-reject rules"""
     
     title = candidate.get("name", "")
     description = candidate.get("description", "")
-    url = candidate.get("url", "")
+    url = candidate.get("url", "") or candidate.get("official_url", "")
     source = candidate.get("source", "")
     
     # Check title/description patterns
@@ -78,10 +79,8 @@ def check_auto_reject_rules(candidate):
         if "/archive/" in url or "/draft/" in url:
             return True, "URL contains draft/archive"
         
-        # Check domain age if possible (basic check)
         if "github.com" not in url:
-            # For non-GitHub, require more signals
-            if not candidate.get("description") or len(candidate.get("description", "")) < 20:
+            if not description or len(description) < 20:
                 return True, "Insufficient description for non-GitHub"
     
     # Check source quality
@@ -95,7 +94,12 @@ def calculate_confidence_level(candidate):
     
     source = candidate.get("source", "").lower()
     
-    # Map source to confidence tier
+    # Check if this is a curated tool (no source field or explicitly marked)
+    if not source or source == "not_set":
+        # If it has tracking_versions field, it's from curated_ai_tools.json
+        if candidate.get("tracking_versions"):
+            return CONFIDENCE_TIERS["curated_list"]
+    
     if "curated" in source:
         return CONFIDENCE_TIERS["curated_list"]
     elif "blog" in source or source in ["openai_blog", "anthropic_blog", "google_ai", "meta_ai"]:
@@ -115,12 +119,13 @@ def calculate_confidence_level(candidate):
         points = candidate.get("points", 0)
         return CONFIDENCE_TIERS["hn_showhn_under50"] if points < 50 else 50
     else:
-        return 50  # Default medium confidence
+        return 50
 
 def filter_candidates_enhanced(candidates, confidence_threshold=70):
     """
-    Enhanced filtering pipeline (Claude recommendations)
-    SPECIAL: Curated tools ALWAYS pass (they're hand-selected, no threshold)
+    Enhanced filtering pipeline
+    KEY FIX: Curated tools are identified by tracking_versions field (from curated_ai_tools.json)
+    They ALWAYS pass, no threshold applied
     """
     
     filtered = []
@@ -130,7 +135,12 @@ def filter_candidates_enhanced(candidates, confidence_threshold=70):
     
     for candidate in candidates:
         # ✨ SPECIAL: Curated tools ALWAYS pass
-        if candidate.get("source") == "curated_list":
+        # Detection: They have tracking_versions field but NO source field
+        is_curated = candidate.get("tracking_versions") and not candidate.get("source")
+        
+        if is_curated:
+            # Mark it as curated for reference
+            candidate["source"] = "curated_list"
             filtered.append(candidate)
             rejected["curated_pass"] += 1
             logger.debug(f"  ✅ CURATED (auto-pass): {candidate.get('name')}")
