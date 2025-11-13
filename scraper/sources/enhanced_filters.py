@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Enhanced Filtering Module - PHASE 1
-Implements Claude's recommendations for WIP/noise rejection
-Hard requirements + auto-reject rules + confidence scoring
+Enhanced Filtering Module - PHASE 1 CORRECTED
+Fix: Curated tools ALWAYS pass (they're hand-selected)
+Noise rejection + confidence scoring
 """
 
 import logging
@@ -36,7 +36,7 @@ AUTO_REJECT_INDICATORS = {
 
 # ===== CONFIDENCE SCORING TIERS =====
 CONFIDENCE_TIERS = {
-    "curated_list": 100,           # Your 44 AI leaders
+    "curated_list": 100,           # Your 44 AI leaders - ALWAYS PASS
     "official_blog": 95,           # Direct from company
     "product_hunt_500plus": 85,    # Validated by community
     "github_trending_1k": 80,      # Trending + popular
@@ -120,17 +120,22 @@ def calculate_confidence_level(candidate):
 def filter_candidates_enhanced(candidates, confidence_threshold=70):
     """
     Enhanced filtering pipeline (Claude recommendations)
-    1. Hard requirements
-    2. Auto-reject rules
-    3. Confidence scoring
+    SPECIAL: Curated tools ALWAYS pass (they're hand-selected, no threshold)
     """
     
     filtered = []
-    rejected = {"hard_req": 0, "auto_reject": 0, "confidence": 0}
+    rejected = {"hard_req": 0, "auto_reject": 0, "confidence": 0, "curated_pass": 0}
     
     logger.info(f"\n🔍 Enhanced filtering pipeline (confidence threshold: {confidence_threshold})...\n")
     
     for candidate in candidates:
+        # ✨ SPECIAL: Curated tools ALWAYS pass
+        if candidate.get("source") == "curated_list":
+            filtered.append(candidate)
+            rejected["curated_pass"] += 1
+            logger.debug(f"  ✅ CURATED (auto-pass): {candidate.get('name')}")
+            continue
+        
         # Step 1: Hard requirements
         passed, reason = check_hard_requirements(candidate)
         if not passed:
@@ -160,6 +165,7 @@ def filter_candidates_enhanced(candidates, confidence_threshold=70):
     
     logger.info(f"\n📊 Filtering Summary:")
     logger.info(f" - Input: {len(candidates)}")
+    logger.info(f" - Curated (auto-pass): {rejected['curated_pass']}")
     logger.info(f" - Rejected (hard req): {rejected['hard_req']}")
     logger.info(f" - Rejected (noise): {rejected['auto_reject']}")
     logger.info(f" - Rejected (low confidence): {rejected['confidence']}")

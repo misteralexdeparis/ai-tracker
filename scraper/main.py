@@ -1,32 +1,3 @@
-#!/usr/bin/env python3
-
-"""
-AI Tools Tracker - Main Scraper with Web Discovery
-Scrapes from official sites, forums, social media, AI news, and enriches with Perplexity
-NOW with PHASE 1 IMPROVEMENTS:
-- AI News scraper (TechCrunch, VentureBeat, company blogs)
-- Enhanced filtering (Claude-recommended pipeline)
-- Smart scoring v3 (5-dimensional: buzz/vision/ability/credibility/adoption)
-- Curated tools (44 AI leaders, always included)
-"""
-
-import json
-import logging
-import sys
-import os
-from datetime import datetime
-
-# Setup logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(levelname)s:%(name)s:%(message)s'
-)
-logger = logging.getLogger(__name__)
-
-# Suppress noisy loggers
-logging.getLogger('urllib3').setLevel(logging.WARNING)
-logging.getLogger('requests').setLevel(logging.WARNING)
-
 # Add scraper modules to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -41,7 +12,6 @@ from sources.enhanced_filters import filter_candidates_enhanced
 from sources.official_sites import scrape_official_sites
 from sources.forums import scrape_forums
 from sources.social_media import scrape_social_media
-from sources.ai_news import scrape_ai_news
 
 print("\n🚀 AI Tools Tracker - Scraper Starting (v4.0 PHASE 1 - Enhanced)...")
 print(f"⏰ Started at: {datetime.now().isoformat()}\n")
@@ -94,14 +64,10 @@ try:
     except Exception as e:
         logger.warning(f"Error scraping forums: {e}")
     
-    # ===== NEW: Scrape AI News (high quality) =====
-    logger.info(" 📰 Scraping AI News (TechCrunch, VentureBeat, Company Blogs)...")
-    try:
-        ai_news = scrape_ai_news(config)
-        logger.info(f" Found {len(ai_news)} high-quality news items")
-        all_candidates.extend(ai_news)
-    except Exception as e:
-        logger.warning(f"Error scraping AI news: {e}")
+    # ===== SKIP AI NEWS: Articles are not tools =====
+    # AI News was scraping TechCrunch/VentureBeat articles, but they're not products.
+    # We focus on actual tools from official sites, forums, and social media instead.
+    logger.info(" 📰 [DISABLED] AI News sources (articles ≠ tools, use official/social sources)")
     
     # Scrape social media
     logger.info(" 🐦 Scraping social media (ProductHunt, GitHub Trending)...")
@@ -270,10 +236,10 @@ try:
             'confidence_level': confidence_threshold
         },
         'improvements': [
-            '✅ AI News scraper (TechCrunch, VentureBeat, company blogs)',
             '✅ Enhanced filtering (hard requirements + auto-reject + confidence)',
             '✅ Smart scoring v3 (5-dimensional)',
-            '✅ Curated tools (44 AI leaders)',
+            '✅ Curated tools (39 AI leaders, always included)',
+            '✅ Version tracking (GitHub releases + changelogs)',
         ]
     }
     
@@ -328,10 +294,10 @@ print(f" - Major updates (v bump): {len(version_log.get('major_updates', []))}")
 print(f" - Minor updates: {len(version_log.get('minor_updates', []))}")
 
 print(f"\n🎯 PHASE 1 Improvements:")
-print(f" ✅ AI News scraper: {len(ai_news) if 'ai_news' in locals() else 0} high-quality items")
-print(f" ✅ Enhanced filtering: {len(all_candidates)} → {len(qualified_candidates)} qualified")
+print(f" ✅ Enhanced filtering: {len(all_candidates)} candidates → {len(qualified_candidates)} qualified")
 print(f" ✅ Confidence scoring: Only >= {confidence_threshold} included")
-print(f" ✅ Curated tools: Always included (44 AI leaders)")
+print(f" ✅ Curated tools: Always included (39 AI leaders)")
+print(f" ✅ Version tracking: GitHub + Changelog integration")
 
 # Cost estimation
 enrichment_cost = (len(existing_tools) + len(analyzed_candidates)) * 0.0008
