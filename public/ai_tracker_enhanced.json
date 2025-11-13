@@ -1104,30 +1104,6 @@
       "founding_year": 2022
     },
     {
-      "name": "usestrix /strix",
-      "description": "Open-source AI agents for penetration testing",
-      "source": "github_trending",
-      "url": "https://usestrix.com/",
-      "official_url": "https://usestrix.com/",
-      "language": "Python",
-      "category": "Open Source",
-      "buzz_score": 70,
-      "vision": 50,
-      "ability": 80,
-      "pricing": "Freemium with paid plans (Basic $49/month, Pro $750/month, plus Enterprise custom pricing)",
-      "key_features": [
-        "Autonomous AI agents that simulate real hackers for dynamic vulnerability detection and validation",
-        "Full HTTP proxy for request/response manipulation and analysis",
-        "Browser automation for testing XSS, CSRF, and authentication flows",
-        "Real-time exploitation and proof of concept generation for vulnerabilities",
-        "CI/CD integration and automated remediation with production-ready code fixes"
-      ],
-      "founding_year": 2023,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-12T22:36:03.517935"
-    },
-    {
       "name": "nocobase /nocobase",
       "description": "NocoBase is the most extensible AI-powered no-code/low-code platform for building business applications and enterprise solutions.",
       "source": "github_trending",
