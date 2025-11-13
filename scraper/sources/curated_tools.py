@@ -7,25 +7,32 @@ def load_curated_tools(json_path="curated_ai_tools.json"):
     with open(json_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def scrape_latest_version(tool):
-    url = tool.get("release_notes_url")
-    if not url:
-        return tool.get("last_known_version", "")
-    try:
-        r = requests.get(url, timeout=10)
-        soup = BeautifulSoup(r.text, "html.parser")
-        version = None
-        # Heuristique : cherche un pattern de version dans le titre/texte
-        for tag in soup.find_all(["h1", "h2", "strong", "b", "li", "p"]):
-            txt = tag.get_text()
-            if any(x in txt.lower() for x in ["release", "version", "update"]):
-                digits = [s for s in txt.split() if any(c.isdigit() for c in s)]
-                if digits:
-                    version = digits[0]
-                    break
-        return version or tool.get("last_known_version", "")
-    except Exception:
-        return tool.get("last_known_version", "")
+from sources.version_tracker import track_tool_version, compare_versions
+
+def get_curated_tools(config=None):
+    curated = load_curated_tools()
+    
+    for tool in curated:
+        if tool.get("tracking_versions"):
+            old_version = tool.get("last_known_version", "0.0.0")
+            
+            # Use new tracker
+            new_version, source, metadata = track_tool_version(tool)
+            
+            if new_version and new_version != old_version:
+                # Update version
+                tool["last_known_version"] = new_version
+                
+                # Check if major update
+                update_type, is_major = compare_versions(old_version, new_version)
+                
+                if is_major:
+                    logger.info(f"🔴 MAJOR UPDATE: {tool['name']} {old_version} → {new_version}")
+                    tool["needs_major_review"] = True
+                else:
+                    logger.info(f"🟡 Minor update: {tool['name']} {old_version} → {new_version}")
+    
+    return curated
 
 def get_curated_tools(config=None):
     curated = load_curated_tools()

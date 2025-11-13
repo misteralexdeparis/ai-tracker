@@ -1,7 +1,8 @@
 
-beautifulsoup4==4.12.2
-requests==2.31.0
-feedparser==6.0.10
-python-dotenv==1.0.0
-pydantic==2.5.0
-lxml==4.9.3
+beautifulsoup4>=4.12.2
+requests>=2.31.0
+feedparser>=6.0.10
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+lxml>=4.9.3
+packaging>=21.0
