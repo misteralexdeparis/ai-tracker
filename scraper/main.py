@@ -132,31 +132,28 @@ try:
     except Exception as e:
         logger.warning(f"Error loading curated tools: {e}\n")
     
-   # ===== 3.5. CALCULATE BASE DIMENSION SCORES (NEW - BEFORE FILTERING) =====
-print("📊 Calculating base dimension scores for filtering...\n")
-
-for candidate in all_candidates:
-    # Only calculate if not already present
-    if 'buzz_score' not in candidate:
+    # ===== 3.5. CALCULATE BASE DIMENSION SCORES (NEW - BEFORE FILTERING) =====
+    print("📊 Calculating base dimension scores for filtering...\n")
+    
+    for candidate in all_candidates:
+        # Always calculate (force recalculation to ensure consistency)
         candidate['buzz_score'] = calculate_buzz_score(candidate)
-    if 'vision' not in candidate:
         candidate['vision'] = calculate_vision_score(candidate)
-    if 'ability' not in candidate:
         candidate['ability'] = calculate_ability_score(candidate)
-
-logger.info(f" ✅ Base scores calculated for {len(all_candidates)} candidates\n")
-
-# DEBUG
-logger.info(f"🔍 DEBUG: Checking scores after calculation...")
-curated_in_candidates = [c for c in all_candidates if c.get("tracking_versions")]
-logger.info(f"   Curated tools in all_candidates: {len(curated_in_candidates)}")
-if curated_in_candidates:
-    sample = curated_in_candidates[0]
-    logger.info(f"   Sample curated tool: {sample.get('name')}")
-    logger.info(f"   Has buzz_score? {sample.get('buzz_score', 'MISSING')}")
-    logger.info(f"   Has vision? {sample.get('vision', 'MISSING')}")
-    logger.info(f"   Has ability? {sample.get('ability', 'MISSING')}")
-logger.info("")
+    
+    logger.info(f" ✅ Base scores calculated for {len(all_candidates)} candidates\n")
+    
+    # DEBUG
+    logger.info(f"🔍 DEBUG: Checking scores after calculation...")
+    curated_in_candidates = [c for c in all_candidates if c.get("tracking_versions")]
+    logger.info(f"   Curated tools in all_candidates: {len(curated_in_candidates)}")
+    if curated_in_candidates:
+        sample = curated_in_candidates[0]
+        logger.info(f"   Sample curated tool: {sample.get('name')}")
+        logger.info(f"   Has buzz_score? {sample.get('buzz_score', 'MISSING')}")
+        logger.info(f"   Has vision? {sample.get('vision', 'MISSING')}")
+        logger.info(f"   Has ability? {sample.get('ability', 'MISSING')}")
+    logger.info("")
     
     # ===== 4. APPLY ENHANCED FILTERING =====
     logger.info("🔍 APPLYING ENHANCED FILTERING (Claude recommendations)...")
@@ -191,7 +188,7 @@ print("=" * 70 + "\n")
 version_tracking_results = {}
 try:
     # Track versions for curated tools (avoid Perplexity cost)
-    curated_for_tracking = [t for t in existing_tools if t.get("source") == "curated"]
+    curated_for_tracking = [t for t in existing_tools if t.get("source") == "curated" or t.get("source") == "curated_list"]
     
     if curated_for_tracking:
         logger.info(f"🔍 Tracking versions for {len(curated_for_tracking)} curated tools...")
@@ -496,8 +493,10 @@ print(f" - Version tracked: {len(version_tracking_results.get('updated_tools', [
 print(f"\n🎯 OPTIMIZATION RESULTS:")
 print(f" ✅ Enhanced filtering: {len(all_candidates)} candidates → {len(qualified_candidates)} qualified")
 print(f" ✅ Confidence scoring: Only ≥ {confidence_threshold} included")
-print(f" ✅ Version tracking: {version_tracking_results.get('statistics', {}).get('found_via_github', 0)} via GitHub (free)")
-print(f" ✅ Smart enrichment: {savings_percent:.1f}% cost savings" if total_cost_saved > 0 else "")
+if version_tracking_results:
+    print(f" ✅ Version tracking: {version_tracking_results.get('statistics', {}).get('found_via_github', 0)} via GitHub (free)")
+if total_cost_saved > 0:
+    print(f" ✅ Smart enrichment: {savings_percent:.1f}% cost savings")
 
 print(f"\n💰 Cost Analysis:")
 print(f" - Potential cost (no optimization): ${(len(existing_tools) + len(qualified_candidates)) * 0.0008:.4f}")
