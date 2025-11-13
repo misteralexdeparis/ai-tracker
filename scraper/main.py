@@ -1,3 +1,31 @@
+#!/usr/bin/env python3
+
+"""
+AI Tools Tracker - Main Scraper with Web Discovery
+Scrapes from official sites, forums, social media, and enriches with Perplexity
+PHASE 1 IMPROVEMENTS:
+- Enhanced filtering (Claude-recommended pipeline)
+- Smart scoring v3 (5-dimensional: buzz/vision/ability/credibility/adoption)
+- Curated tools (39 AI leaders, always included)
+"""
+
+import json
+import logging
+import sys
+import os
+from datetime import datetime
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(levelname)s:%(name)s:%(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# Suppress noisy loggers
+logging.getLogger('urllib3').setLevel(logging.WARNING)
+logging.getLogger('requests').setLevel(logging.WARNING)
+
 # Add scraper modules to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
