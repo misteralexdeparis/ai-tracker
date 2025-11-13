@@ -2,16 +2,8 @@
 
 """
 AI Tools Tracker - Main Scraper with Web Discovery
-OPTIMIZED VERSION with 3 new modules:
-- MODULE 1: Version Tracker Pro (saves 90% on version tracking)
-- MODULE 2: Smart Enrichment Manager (saves 70% on enrichment)
-- MODULE 3: Enhanced Scoring v4 (better ranking with confidence weighting)
-
-PHASE 1 IMPROVEMENTS:
-- Enhanced filtering (Claude-recommended pipeline)
-- Smart scoring v4 (5-dimensional with confidence multipliers)
-- Curated tools (39 AI leaders, always included)
-- Intelligent cost optimization
+OPTIMIZED VERSION with 3 new modules + FIX for scoring
+FIX: Calculate dimension scores BEFORE filtering (not after)
 """
 
 import json
@@ -46,16 +38,17 @@ from sources.enhanced_filters import filter_candidates_enhanced
 # NEW MODULE IMPORTS
 from enrichment.smart_enrichment import smart_enrich_tools, should_enrich_tool
 from sources.version_tracker import track_all_tools
-from utils.scoring_v4 import score_all_tools
+from utils.scoring_v4 import score_all_tools, calculate_buzz_score, calculate_vision_score, calculate_ability_score
 
 # Import scraper sources
 from sources.official_sites import scrape_official_sites
 from sources.forums import scrape_forums
 from sources.social_media import scrape_social_media
 
-print("\n🚀 AI Tools Tracker - OPTIMIZED SCRAPER v4.1...")
+print("\n🚀 AI Tools Tracker - OPTIMIZED SCRAPER v4.1 (FIXED)...")
 print(f"⏰ Started at: {datetime.now().isoformat()}")
-print("📦 NEW: Version Tracker Pro + Smart Enrichment + Enhanced Scoring v4\n")
+print("📦 NEW: Version Tracker Pro + Smart Enrichment + Enhanced Scoring v4")
+print("🔧 FIX: Scoring before filtering\n")
 
 # ===== 0. CHECK FORCE REFRESH FLAG =====
 FORCE_REFRESH = os.getenv("FORCE_REFRESH", "false").lower() == "true"
@@ -74,9 +67,9 @@ try:
     existing_tools = load_json('../public/ai_tracker_enhanced.json').get('tools', [])
     logger.info(f" ✅ Loaded {len(existing_tools)} existing tools")
     thresholds = config.get('scraping_config', {}).get('thresholds', {})
-    buzz_threshold = thresholds.get('min_buzz_score', 40)
-    vision_threshold = thresholds.get('min_vision', 40)
-    ability_threshold = thresholds.get('min_ability', 40)
+    buzz_threshold = thresholds.get('min_buzz_score', 30)  # LOWERED from 40
+    vision_threshold = thresholds.get('min_vision', 30)     # LOWERED from 40
+    ability_threshold = thresholds.get('min_ability', 30)   # LOWERED from 40
     max_tools = thresholds.get('max_tools', 150)
     confidence_threshold = thresholds.get('confidence_threshold', 70)
     logger.info(f" 📊 Quality thresholds loaded:")
@@ -139,12 +132,26 @@ try:
     except Exception as e:
         logger.warning(f"Error loading curated tools: {e}\n")
     
+    # ===== 3.5. CALCULATE BASE DIMENSION SCORES (NEW - BEFORE FILTERING) =====
+    print("📊 Calculating base dimension scores for filtering...\n")
+    
+    for candidate in all_candidates:
+        # Only calculate if not already present
+        if 'buzz_score' not in candidate:
+            candidate['buzz_score'] = calculate_buzz_score(candidate)
+        if 'vision' not in candidate:
+            candidate['vision'] = calculate_vision_score(candidate)
+        if 'ability' not in candidate:
+            candidate['ability'] = calculate_ability_score(candidate)
+    
+    logger.info(f" ✅ Base scores calculated for {len(all_candidates)} candidates\n")
+    
     # ===== 4. APPLY ENHANCED FILTERING =====
     logger.info("🔍 APPLYING ENHANCED FILTERING (Claude recommendations)...")
     qualified_candidates = filter_candidates_enhanced(all_candidates, confidence_threshold=confidence_threshold)
     logger.info(f" ✅ After enhanced filter: {len(qualified_candidates)} qualified candidates\n")
     
-    # Additional threshold filtering
+    # Additional threshold filtering (NOW with calculated scores!)
     final_qualified = [
         c for c in qualified_candidates
         if c.get('buzz_score', 0) >= buzz_threshold
@@ -152,7 +159,12 @@ try:
         and c.get('ability', 0) >= ability_threshold
     ]
     
-    logger.info(f" ✅ Qualified candidates (after dimension thresholds): {len(final_qualified)}\n")
+    logger.info(f" ✅ Qualified candidates (after dimension thresholds): {len(final_qualified)}")
+    if final_qualified:
+        logger.info(f"    Sample scores: buzz={final_qualified[0].get('buzz_score', 0):.1f}, vision={final_qualified[0].get('vision', 0):.1f}, ability={final_qualified[0].get('ability', 0):.1f}\n")
+    else:
+        logger.warning(f"    ⚠️  No candidates passed thresholds. Consider lowering thresholds in config.\n")
+    
     qualified_candidates = final_qualified
     
 except Exception as e:
@@ -316,9 +328,9 @@ try:
 except Exception as e:
     logger.warning(f"Error removing legacy versions: {e}")
 
-# ===== 10. MODULE 3: ENHANCED SCORING V4 =====
+# ===== 10. MODULE 3: ENHANCED SCORING V4 (FINAL SCORES) =====
 print("=" * 70)
-print("🎯 MODULE 3: ENHANCED SCORING V4 (Confidence-weighted ranking)")
+print("🎯 MODULE 3: ENHANCED SCORING V4 (Final confidence-weighted scoring)")
 print("=" * 70 + "\n")
 
 print(" Dimensions:")
@@ -333,7 +345,7 @@ print(" - Source: Curated (1.2x), News (1.1x), Reddit (0.8x)")
 print(" - Maturity: Production (+10), Beta (-5), Alpha (-10)\n")
 
 try:
-    # Score all tools
+    # Score all tools (recalculate with enriched data + apply multipliers)
     merged_tools = score_all_tools(merged_tools)
     
     logger.info(f"\n✅ All tools scored and ranked")
@@ -377,7 +389,7 @@ try:
         'total_tools': len(merged_tools),
         'new_tools_count': len(version_log.get('new_tools', [])),
         'updated_tools_count': len(version_log.get('major_updates', [])) + len(version_log.get('minor_updates', [])),
-        'version': '4.1 OPTIMIZED - 3 New Modules',
+        'version': '4.1 OPTIMIZED (FIXED) - Scoring before filtering',
         'quality_thresholds': {
             'buzz_score': buzz_threshold,
             'vision': vision_threshold,
@@ -394,6 +406,7 @@ try:
             '✅ Smart scoring v4 (5-dimensional with multipliers)',
             '✅ Curated tools (39 AI leaders, always included)',
             '✅ Intelligent cost optimization',
+            '🔧 FIX: Dimension scores calculated before filtering',
         ],
         'cost_optimization': {
             'potential_cost': f"${(len(existing_tools) + len(qualified_candidates)) * 0.0008:.4f}",
@@ -439,7 +452,7 @@ try:
         'minor_updates': [u.get('tool') for u in version_log.get('minor_updates', [])],
         'version_updates': version_tracking_results.get('updated_tools', []),
         'total_tools': len(merged_tools),
-        'phase': 'OPTIMIZED v4.1 - 3 New Modules',
+        'phase': 'OPTIMIZED v4.1 (FIXED) - Scoring before filtering',
         'top_10_tools': [
             {
                 'name': t.get('name'),
@@ -458,7 +471,7 @@ except Exception as e:
 
 # ===== FINAL SUMMARY =====
 print("\n" + "=" * 70)
-print("✅ OPTIMIZED SCRAPER COMPLETE - v4.1 with 3 NEW MODULES!")
+print("✅ OPTIMIZED SCRAPER COMPLETE - v4.1 (FIXED)!")
 print("=" * 70)
 
 print(f"\n📊 Final Statistics:")
