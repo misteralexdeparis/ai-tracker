@@ -1,14 +1,14 @@
 {
   "metadata": {
-    "last_updated": "2025-11-13T20:22:45.558009",
+    "last_updated": "2025-11-13T20:31:52.001074",
     "total_tools": 36,
     "new_tools_count": 0,
     "updated_tools_count": 0,
-    "version": "4.1 OPTIMIZED - 3 New Modules",
+    "version": "4.1 OPTIMIZED (FIXED) - Scoring before filtering",
     "quality_thresholds": {
-      "buzz_score": 40,
-      "vision": 40,
-      "ability": 40,
+      "buzz_score": 30,
+      "vision": 30,
+      "ability": 30,
       "confidence_level": 70
     },
     "new_modules": [
@@ -20,7 +20,8 @@
       "✅ Enhanced filtering (hard requirements + auto-reject + confidence)",
       "✅ Smart scoring v4 (5-dimensional with multipliers)",
       "✅ Curated tools (39 AI leaders, always included)",
-      "✅ Intelligent cost optimization"
+      "✅ Intelligent cost optimization",
+      "🔧 FIX: Dimension scores calculated before filtering"
     ],
     "cost_optimization": {
       "potential_cost": "$0.0288",
