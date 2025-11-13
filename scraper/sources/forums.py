@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Forums Scraper - INTELLIGENT SCORING VERSION
-Reddit + HackerNews RSS with calculate_candidate_scores_v2
+Reddit + HackerNews RSS with calculate_candidate_scores_v3
 """
 
 import feedparser
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 # Import smart scoring
 sys.path.insert(0, str(Path(__file__).parent))
-from smart_scoring_v2 import calculate_candidate_scores_v2
+from smart_scoring_v3 import calculate_candidate_scores_v3
 
 def scrape_forums(config):
     """Scrape forums for AI tool mentions - RSS feeds with INTELLIGENT scoring"""
@@ -55,7 +55,7 @@ def scrape_forums(config):
                     }
                     
                     # INTELLIGENT SCORING
-                    scores = calculate_candidate_scores_v2(candidate, source_id)
+                    scores = calculate_candidate_scores_v3(candidate, source_id)
                     candidate.update(scores)
                     
                     candidates.append(candidate)
@@ -82,7 +82,7 @@ def scrape_forums(config):
                 }
                 
                 # INTELLIGENT SCORING
-                scores = calculate_candidate_scores_v2(candidate, "hacker_news")
+                scores = calculate_candidate_scores_v3(candidate, "hacker_news")
                 candidate.update(scores)
                 
                 candidates.append(candidate)

@@ -2,9 +2,12 @@
 
 """
 AI Tools Tracker - Main Scraper with Web Discovery
-Scrapes from official sites, forums, social media, and enriches with Perplexity
-NOW with QUALITY FILTER to eliminate WIP/hobby projects
-AND with CURATED TOOLS (essential AI leaders, always included)
+Scrapes from official sites, forums, social media, AI news, and enriches with Perplexity
+NOW with PHASE 1 IMPROVEMENTS:
+- AI News scraper (TechCrunch, VentureBeat, company blogs)
+- Enhanced filtering (Claude-recommended pipeline)
+- Smart scoring v3 (5-dimensional: buzz/vision/ability/credibility/adoption)
+- Curated tools (44 AI leaders, always included)
 """
 
 import json
@@ -31,15 +34,16 @@ from enrichment.perplexity_analyzer import enrich_with_perplexity
 from enrichment.version_handler import smart_merge_with_versions
 from utils.cleanup_features import cleanup_tools_final
 from utils.helpers import load_json, save_json, load_config
-from sources.quality_filter import filter_candidates
-from sources.curated_tools import get_curated_tools  # ← NEW!
+from sources.curated_tools import get_curated_tools
+from sources.enhanced_filters import filter_candidates_enhanced
 
 # Import scraper sources (from the sources/ directory)
 from sources.official_sites import scrape_official_sites
 from sources.forums import scrape_forums
 from sources.social_media import scrape_social_media
+from sources.ai_news import scrape_ai_news
 
-print("\n🚀 AI Tools Tracker - Scraper Starting (v3.3 with Curated Tools)...")
+print("\n🚀 AI Tools Tracker - Scraper Starting (v4.0 PHASE 1 - Enhanced)...")
 print(f"⏰ Started at: {datetime.now().isoformat()}\n")
 
 # ===== 1. LOAD CONFIGURATION =====
@@ -53,10 +57,12 @@ try:
     vision_threshold = thresholds.get('min_vision', 40)
     ability_threshold = thresholds.get('min_ability', 40)
     max_tools = thresholds.get('max_tools', 150)
+    confidence_threshold = thresholds.get('confidence_threshold', 70)
     logger.info(f" 📊 Quality thresholds loaded:")
     logger.info(f" - Buzz score: ≥ {buzz_threshold}")
     logger.info(f" - Vision: ≥ {vision_threshold}")
     logger.info(f" - Ability: ≥ {ability_threshold}")
+    logger.info(f" - Confidence: ≥ {confidence_threshold}")
     logger.info(f" - Max tools: {max_tools}\n")
 except Exception as e:
     logger.error(f"Error loading config: {e}")
@@ -79,8 +85,8 @@ try:
     except Exception as e:
         logger.warning(f"Error scraping official sites: {e}")
     
-    # Scrape forums
-    logger.info(" 💬 Scraping forums (Reddit, HackerNews, ProductHunt)...")
+    # Scrape forums (keep but lower priority)
+    logger.info(" 💬 Scraping forums (Reddit, HackerNews)...")
     try:
         forum_updates = scrape_forums(config)
         logger.info(f" Found {len(forum_updates)} updates from forums")
@@ -88,8 +94,17 @@ try:
     except Exception as e:
         logger.warning(f"Error scraping forums: {e}")
     
-    # Scrape social media (optional - requires API keys)
-    logger.info(" 🐦 Scraping social media...")
+    # ===== NEW: Scrape AI News (high quality) =====
+    logger.info(" 📰 Scraping AI News (TechCrunch, VentureBeat, Company Blogs)...")
+    try:
+        ai_news = scrape_ai_news(config)
+        logger.info(f" Found {len(ai_news)} high-quality news items")
+        all_candidates.extend(ai_news)
+    except Exception as e:
+        logger.warning(f"Error scraping AI news: {e}")
+    
+    # Scrape social media
+    logger.info(" 🐦 Scraping social media (ProductHunt, GitHub Trending)...")
     try:
         social_updates = scrape_social_media(config)
         logger.info(f" Found {len(social_updates)} updates from social media")
@@ -99,7 +114,7 @@ try:
     
     logger.info(f"\n 📊 Total candidates discovered: {len(all_candidates)}")
     
-    # ===== 3. LOAD AND ADD CURATED TOOLS ===== ← NEW STEP!
+    # ===== 3. LOAD AND ADD CURATED TOOLS =====
     logger.info("\n📌 Loading curated essential AI tools...")
     try:
         curated_tools = get_curated_tools()
@@ -109,10 +124,10 @@ try:
     except Exception as e:
         logger.warning(f"Error loading curated tools: {e}\n")
     
-    # ===== 4. APPLY QUALITY FILTER =====
-    logger.info("🔍 APPLYING QUALITY FILTER (eliminate WIP/hobby projects)...")
-    qualified_candidates = filter_candidates(all_candidates)
-    logger.info(f" ✅ After quality filter: {len(qualified_candidates)} commercial products\n")
+    # ===== 4. APPLY ENHANCED FILTERING (CLAUDE PHASE 1) =====
+    logger.info("🔍 APPLYING ENHANCED FILTERING (Claude recommendations)...")
+    qualified_candidates = filter_candidates_enhanced(all_candidates, confidence_threshold=confidence_threshold)
+    logger.info(f" ✅ After enhanced filter: {len(qualified_candidates)} qualified candidates\n")
     
     # Additional threshold filtering
     final_qualified = [
@@ -122,7 +137,7 @@ try:
         and c.get('ability', 0) >= ability_threshold
     ]
     
-    logger.info(f" ✅ Qualified candidates (after thresholds): {len(final_qualified)}\n")
+    logger.info(f" ✅ Qualified candidates (after dimension thresholds): {len(final_qualified)}\n")
     qualified_candidates = final_qualified
     
 except Exception as e:
@@ -247,12 +262,19 @@ try:
         'total_tools': len(merged_tools),
         'new_tools_count': len(version_log.get('new_tools', [])),
         'updated_tools_count': len(version_log.get('major_updates', [])) + len(version_log.get('minor_updates', [])),
-        'version': '3.3 WITH CURATED TOOLS & QUALITY FILTER',
+        'version': '4.0 PHASE 1 - Enhanced Discovery & Filtering',
         'quality_thresholds': {
             'buzz_score': buzz_threshold,
             'vision': vision_threshold,
-            'ability': ability_threshold
-        }
+            'ability': ability_threshold,
+            'confidence_level': confidence_threshold
+        },
+        'improvements': [
+            '✅ AI News scraper (TechCrunch, VentureBeat, company blogs)',
+            '✅ Enhanced filtering (hard requirements + auto-reject + confidence)',
+            '✅ Smart scoring v3 (5-dimensional)',
+            '✅ Curated tools (44 AI leaders)',
+        ]
     }
     
     # Save main data
@@ -284,7 +306,8 @@ try:
         'new_tools': version_log.get('new_tools', []),
         'major_updates': [u.get('tool') for u in version_log.get('major_updates', [])],
         'minor_updates': [u.get('tool') for u in version_log.get('minor_updates', [])],
-        'total_tools': len(merged_tools)
+        'total_tools': len(merged_tools),
+        'phase': 'PHASE 1 Enhanced Discovery'
     }
     
     os.makedirs('../public', exist_ok=True)
@@ -295,7 +318,7 @@ except Exception as e:
 
 # ===== FINAL SUMMARY =====
 print("=" * 70)
-print("✅ SCRAPING WITH CURATED TOOLS, QUALITY FILTER & SMART VERSIONING COMPLETE!")
+print("✅ SCRAPING WITH PHASE 1 IMPROVEMENTS COMPLETE!")
 print("=" * 70)
 
 print(f"\n📊 Final Statistics:")
@@ -303,6 +326,12 @@ print(f" - Total tools: {len(merged_tools)}")
 print(f" - New tools discovered: {len(version_log.get('new_tools', []))}")
 print(f" - Major updates (v bump): {len(version_log.get('major_updates', []))}")
 print(f" - Minor updates: {len(version_log.get('minor_updates', []))}")
+
+print(f"\n🎯 PHASE 1 Improvements:")
+print(f" ✅ AI News scraper: {len(ai_news) if 'ai_news' in locals() else 0} high-quality items")
+print(f" ✅ Enhanced filtering: {len(all_candidates)} → {len(qualified_candidates)} qualified")
+print(f" ✅ Confidence scoring: Only >= {confidence_threshold} included")
+print(f" ✅ Curated tools: Always included (44 AI leaders)")
 
 # Cost estimation
 enrichment_cost = (len(existing_tools) + len(analyzed_candidates)) * 0.0008

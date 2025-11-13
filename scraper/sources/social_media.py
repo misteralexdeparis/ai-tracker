@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Social Media Scraper - INTELLIGENT SCORING VERSION
-Product Hunt + GitHub Trending with calculate_candidate_scores_v2
+Product Hunt + GitHub Trending with calculate_candidate_scores_v3
 """
 
 import feedparser
@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 # Import smart scoring
 sys.path.insert(0, str(Path(__file__).parent))
-from smart_scoring_v2 import calculate_candidate_scores_v2
+from smart_scoring_v3 import calculate_candidate_scores_v3
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -50,7 +50,7 @@ def scrape_social_media(config):
                 }
                 
                 # INTELLIGENT SCORING
-                scores = calculate_candidate_scores_v2(candidate, "product_hunt")
+                scores = calculate_candidate_scores_v3(candidate, "product_hunt")
                 candidate.update(scores)
                 
                 candidates.append(candidate)
@@ -99,7 +99,7 @@ def scrape_social_media(config):
                         }
                         
                         # INTELLIGENT SCORING (with language info!)
-                        scores = calculate_candidate_scores_v2(candidate, "github_trending")
+                        scores = calculate_candidate_scores_v3(candidate, "github_trending")
                         candidate.update(scores)
                         
                         candidates.append(candidate)
