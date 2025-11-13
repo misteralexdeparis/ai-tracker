@@ -1,23 +1,17 @@
 #!/usr/bin/env python3
 """
-Forums Scraper - INTELLIGENT SCORING VERSION
-Reddit + HackerNews RSS with calculate_candidate_scores_v3
+Forums Scraper - RAW DATA VERSION (no scoring)
+Reddit + HackerNews RSS - returns raw data, scoring done in main.py
 """
 
 import feedparser
 import logging
-import sys
-from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Import smart scoring
-sys.path.insert(0, str(Path(__file__).parent))
-from smart_scoring_v3 import calculate_candidate_scores_v3
-
 def scrape_forums(config):
-    """Scrape forums for AI tool mentions - RSS feeds with INTELLIGENT scoring"""
+    """Scrape forums for AI tool mentions - RSS feeds with RAW data only"""
     candidates = []
     
     logger.info("💬 Scraping forums (Reddit + HackerNews RSS)...\n")
@@ -46,20 +40,18 @@ def scrape_forums(config):
                 if any(kw in title.lower() for kw in ["tool", "ai", "gpt", "claude", "model", "new", "release", "framework"]):
                     source_id = subreddit.replace("r/", "reddit_")
                     
-                    # Create candidate object
+                    # ONLY RAW DATA - no scoring!
                     candidate = {
                         "name": title[:80],
                         "source": source_id,
                         "url": link,
-                        "category": "Community Discussion"
+                        "description": title,  # Use title as description
+                        "category": "Community Discussion",
+                        # NO buzz_score, vision, ability here!
                     }
                     
-                    # INTELLIGENT SCORING
-                    scores = calculate_candidate_scores_v3(candidate, source_id)
-                    candidate.update(scores)
-                    
                     candidates.append(candidate)
-                    logger.info(f"     ✅ {title[:50]} (buzz={scores['buzz_score']}, vision={scores['vision']}, ability={scores['ability']})")
+                    logger.info(f"     ✅ {title[:50]}")
         except Exception as e:
             logger.warning(f"  Error scraping {subreddit}: {e}")
     
@@ -78,15 +70,13 @@ def scrape_forums(config):
                     "name": title[:80],
                     "source": "hacker_news",
                     "url": link,
-                    "category": "Community"
+                    "description": title,
+                    "category": "Community",
+                    # NO buzz_score, vision, ability here!
                 }
                 
-                # INTELLIGENT SCORING
-                scores = calculate_candidate_scores_v3(candidate, "hacker_news")
-                candidate.update(scores)
-                
                 candidates.append(candidate)
-                logger.info(f"     ✅ {title[:50]} (buzz={scores['buzz_score']}, vision={scores['vision']}, ability={scores['ability']})")
+                logger.info(f"     ✅ {title[:50]}")
     except Exception as e:
         logger.warning(f"  Error scraping Hacker News: {e}")
     

@@ -1,29 +1,23 @@
 #!/usr/bin/env python3
 """
-Social Media Scraper - INTELLIGENT SCORING VERSION
-Product Hunt + GitHub Trending with calculate_candidate_scores_v3
+Social Media Scraper - RAW DATA VERSION (no scoring)
+Product Hunt + GitHub Trending - returns raw data, scoring done in main.py
 """
 
 import feedparser
 import requests
 import logging
-import sys
-from pathlib import Path
 from bs4 import BeautifulSoup
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Import smart scoring
-sys.path.insert(0, str(Path(__file__).parent))
-from smart_scoring_v3 import calculate_candidate_scores_v3
-
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
 }
 
 def scrape_social_media(config):
-    """Scrape Product Hunt + GitHub Trending with INTELLIGENT scoring"""
+    """Scrape Product Hunt + GitHub Trending with RAW data only"""
     candidates = []
     
     logger.info("🐦 Scraping social media & trending sources...\n")
@@ -46,22 +40,19 @@ def scrape_social_media(config):
                     "description": summary[:200] if summary else "",
                     "source": "product_hunt",
                     "url": link,
-                    "category": "SaaS/Tools"
+                    "category": "SaaS/Tools",
+                    # NO scores here!
                 }
                 
-                # INTELLIGENT SCORING
-                scores = calculate_candidate_scores_v3(candidate, "product_hunt")
-                candidate.update(scores)
-                
                 candidates.append(candidate)
-                logger.info(f"     ✅ {title[:50]} (buzz={scores['buzz_score']}, vision={scores['vision']}, ability={scores['ability']})")
+                logger.info(f"     ✅ {title[:50]}")
     except Exception as e:
         logger.warning(f"  Error scraping Product Hunt: {e}")
     
     # ===== GITHUB TRENDING =====
     try:
         logger.info(f"\n  ⭐ GitHub Trending...")
-        url = "https://github.com/trending?since=weekly&d=2"
+        url = "https://github.com/trending?since=weekly"
         
         response = requests.get(url, headers=HEADERS, timeout=10)
         if response.status_code == 200:
@@ -84,26 +75,29 @@ def scrape_social_media(config):
                     desc_elem = article.find("p", class_="col-9")
                     description = desc_elem.get_text(strip=True) if desc_elem else ""
                     
-                    lang_elem = article.find("span", attrs={"itemprop": "programmingLanguage"})
-                    language = lang_elem.get_text(strip=True) if lang_elem else "Unknown"
+                    # Try to extract stars
+                    stars_elem = article.find("span", class_="d-inline-block float-sm-right")
+                    github_stars = 0
+                    if stars_elem:
+                        stars_text = stars_elem.get_text(strip=True).replace(",", "")
+                        try:
+                            github_stars = int(stars_text)
+                        except:
+                            pass
                     
-                    if any(lang in language.lower() for lang in ["python", "javascript", "rust", "go", "typescript"]):
-                        candidate = {
-                            "name": repo_name,
-                            "description": description[:150] if description else "",
-                            "source": "github_trending",
-                            "url": repo_url,
-                            "official_url": repo_url,
-                            "language": language,
-                            "category": "Open Source"
-                        }
-                        
-                        # INTELLIGENT SCORING (with language info!)
-                        scores = calculate_candidate_scores_v3(candidate, "github_trending")
-                        candidate.update(scores)
-                        
-                        candidates.append(candidate)
-                        logger.info(f"     ✅ {repo_name} (buzz={scores['buzz_score']}, vision={scores['vision']}, ability={scores['ability']})")
+                    candidate = {
+                        "name": repo_name,
+                        "description": description[:150] if description else "",
+                        "source": "github_trending",
+                        "url": repo_url,
+                        "github_url": repo_url,
+                        "github_stars": github_stars,  # RAW data for scoring
+                        "category": "Open Source",
+                        # NO scores here!
+                    }
+                    
+                    candidates.append(candidate)
+                    logger.info(f"     ✅ {repo_name}")
                 except Exception as e:
                     logger.debug(f"Error parsing GitHub repo: {e}")
         else:
