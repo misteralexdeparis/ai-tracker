@@ -352,8 +352,9 @@ async function getAINews() {
 
 // ===== SERVER =====
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`✅ Newsletter server running on port ${PORT}`);
     console.log(`📧 Email: ${process.env.EMAIL_USER}`);
+    console.log(`🔑 Admin endpoints: /admin/subscribers, /admin/send-test`);
 });
