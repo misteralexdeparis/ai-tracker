@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-11-14T11:47:50.402552",
+  "timestamp": "2025-11-14T16:22:12.878104",
   "new_tools": [],
   "major_updates": [],
   "minor_updates": [],
@@ -8,54 +8,54 @@
   "phase": "OPTIMIZED v4.1 (FIXED) - Scoring before filtering + Safety net",
   "top_10_tools": [
     {
+      "name": "NotebookLM",
+      "final_score": 87.3,
+      "category": "Research Assistant"
+    },
+    {
+      "name": "Google AI Mode",
+      "final_score": 87.3,
+      "category": "AI Powered Search"
+    },
+    {
       "name": "Asana (AI)",
-      "final_score": 68.1,
+      "final_score": 85.5,
       "category": "Project Management"
     },
     {
+      "name": "WriteSonic",
+      "final_score": 85.5,
+      "category": "Text Generation / Marketing"
+    },
+    {
+      "name": "Jasper",
+      "final_score": 84.6,
+      "category": "Text Generation / Marketing"
+    },
+    {
       "name": "Any.do",
-      "final_score": 68.1,
+      "final_score": 83.7,
       "category": "Task Manager / Productivity"
     },
     {
       "name": "Personal AI",
-      "final_score": 68.1,
+      "final_score": 83.7,
       "category": "Knowledge Assistant"
     },
     {
       "name": "DeepCode AI",
-      "final_score": 68.1,
+      "final_score": 83.7,
       "category": "Security/Coding Assistant"
     },
     {
       "name": "Sudowrite",
-      "final_score": 68.1,
+      "final_score": 83.7,
       "category": "Text Generation / Content Creation"
     },
     {
-      "name": "WriteSonic",
-      "final_score": 68.1,
-      "category": "Text Generation / Marketing"
-    },
-    {
       "name": "Fathom",
-      "final_score": 68.1,
+      "final_score": 83.7,
       "category": "Speech-to-Text / Meetings"
-    },
-    {
-      "name": "Jasper",
-      "final_score": 66.9,
-      "category": "Text Generation / Marketing"
-    },
-    {
-      "name": "Arc Browser",
-      "final_score": 66.9,
-      "category": "AI Browser / Search"
-    },
-    {
-      "name": "NotebookLM",
-      "final_score": 65.7,
-      "category": "Research Assistant"
     }
   ]
 }

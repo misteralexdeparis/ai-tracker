@@ -27,19 +27,20 @@ logger = logging.getLogger(__name__)
 # SCORING WEIGHTS
 # ============================================================================
 
+# GARTNER-FOCUSED: Vision (Y-axis) and Ability (X-axis) are PRIMARY dimensions
+# They should dominate the final score to properly map to Gartner quadrants
 DIMENSION_WEIGHTS = {
-    "buzz": 0.25,
-    "vision": 0.20,
-    "ability": 0.20,
-    "credibility": 0.20,
-    "adoption": 0.15
+    "vision": 0.30,      # ↑ Completeness of Vision (Gartner Y-axis) - from 0.20
+    "ability": 0.30,     # ↑ Ability to Execute (Gartner X-axis) - from 0.20
+    "buzz": 0.20,        # ↓ Market momentum (indicator, not decisive) - from 0.25
+    "credibility": 0.15, # ↓ Team/company trust (important but secondary) - from 0.20
+    "adoption": 0.05     # ↓ Hard to measure, often missing data - from 0.15
 }
 
 # Source-based fallback scores (when no data available)
-# Curated tools get higher fallbacks since they're already vetted leaders
+# NOTE: Curated tools should be enriched with Perplexity, not use generic fallbacks
+# Generic fallbacks (vision=80 for all curated) makes no sense - each tool is unique
 SOURCE_FALLBACK_SCORES = {
-    "curated_list": {"buzz": 75, "vision": 80, "ability": 75},
-    "curated": {"buzz": 75, "vision": 80, "ability": 75},
     "official_blog": {"buzz": 65, "vision": 70, "ability": 65},
     "product_hunt": {"buzz": 60, "vision": 65, "ability": 55},
     "github_trending": {"buzz": 50, "vision": 55, "ability": 50},
@@ -273,15 +274,70 @@ def calculate_ability_score(tool: Dict) -> float:
     return min(100, score)
 
 def calculate_credibility_score(tool: Dict) -> float:
-    """Calculate team/company credibility (0-100)"""
-    
+    """
+    Calculate team/company credibility (0-100)
+
+    SMART FALLBACK: Recognize major tech companies by publisher name
+    This fixes the issue where OpenAI's Sora gets credibility=10 which is absurd
+    """
+
     score = 0.0
-    
-    # Curated tools automatically get high credibility
-    if is_curated_tool(tool):
-        score += 40
-    
-    # Funding stage (0-30 points)
+
+    # TIER 1: Major AI/Tech Companies (OpenAI, Google, Microsoft, Anthropic, etc.)
+    # These are industry leaders with proven track records
+    TIER_1_COMPANIES = [
+        'openai', 'google', 'microsoft', 'anthropic', 'meta', 'facebook',
+        'deepmind', 'amazon', 'aws', 'apple', 'nvidia', 'adobe',
+        'salesforce', 'ibm', 'oracle', 'sap', 'stripe'
+    ]
+
+    # TIER 1 PRODUCTS: Famous products from Tier 1 companies
+    # Map product name → company for recognition
+    TIER_1_PRODUCTS = {
+        'chatgpt': 'openai', 'gpt': 'openai', 'dall-e': 'openai', 'sora': 'openai',
+        'codex': 'openai', 'whisper': 'openai',
+        'claude': 'anthropic',
+        'gemini': 'google', 'bard': 'google', 'notebooklm': 'google',
+        'copilot': 'microsoft', 'bing': 'microsoft', 'azure': 'microsoft',
+        'llama': 'meta', 'whatsapp': 'meta',
+        'alexa': 'amazon', 'aws': 'amazon', 'bedrock': 'amazon',
+        'firefly': 'adobe', 'photoshop': 'adobe'
+    }
+
+    # TIER 2: Well-funded AI startups and established companies
+    TIER_2_COMPANIES = [
+        'runway', 'midjourney', 'stability', 'cohere', 'inflection',
+        'character.ai', 'jasper', 'copy.ai', 'writesonic', 'notion',
+        'github', 'gitlab', 'jetbrains', 'atlassian', 'asana', 'figma',
+        'canva', 'grammarly', 'hubspot', 'bolt', 'stackblitz'
+    ]
+
+    publisher = tool.get("publisher", "").lower()
+    tool_name = tool.get("name", "").lower()
+
+    # Check if publisher matches a known company
+    tier_1_match = any(company in publisher for company in TIER_1_COMPANIES)
+    tier_2_match = any(company in publisher for company in TIER_2_COMPANIES)
+
+    # Check if tool name matches a known TIER 1 product
+    if not tier_1_match:
+        for product, company in TIER_1_PRODUCTS.items():
+            if product in tool_name:
+                tier_1_match = True
+                break
+
+    # Check if tool name matches TIER 2 company
+    if not tier_1_match and not tier_2_match:
+        tier_2_match = any(company in tool_name for company in TIER_2_COMPANIES)
+
+    if tier_1_match:
+        score += 70  # Major tech company = instant high credibility
+    elif tier_2_match:
+        score += 50  # Well-known AI startup = good credibility
+    elif is_curated_tool(tool):
+        score += 40  # Curated but unknown company
+
+    # Funding stage (0-30 points) - bonus on top of base
     funding = tool.get("funding_stage", "").lower()
     if "series" in funding:
         if "c" in funding or "d" in funding:
@@ -292,39 +348,37 @@ def calculate_credibility_score(tool: Dict) -> float:
             score += 20
     elif "seed" in funding:
         score += 15
-    
-    # Company age (0-20 points)
+
+    # Company age (0-15 points) - reduced from 20
     founding_year = tool.get("founding_year", 0)
     if founding_year > 0:
         age = datetime.now().year - founding_year
         if age >= 5:
-            score += 20
-        elif age >= 3:
             score += 15
-        elif age >= 1:
+        elif age >= 3:
             score += 10
-        else:
+        elif age >= 1:
             score += 5
-    
-    # Has LinkedIn company page (0-15 points)
+
+    # Has LinkedIn company page (0-10 points) - reduced from 15
     if tool.get("linkedin_url") or tool.get("has_linkedin"):
-        score += 15
-    
-    # Customer testimonials/case studies (0-20 points)
+        score += 10
+
+    # Customer testimonials/case studies (0-15 points) - reduced from 20
     testimonials = tool.get("customer_count", 0)
     if testimonials > 100:
-        score += 20
+        score += 15
     elif testimonials > 10:
-        score += 15
+        score += 10
     elif testimonials > 0:
-        score += 10
-    
-    # Media coverage (0-15 points)
+        score += 5
+
+    # Media coverage (0-10 points) - reduced from 15
     if tool.get("media_mentions", 0) > 0:
-        score += 15
-    elif tool.get("source") in ["techcrunch", "venturebeat"]:
         score += 10
-    
+    elif tool.get("source") in ["techcrunch", "venturebeat"]:
+        score += 5
+
     return min(100, score)
 
 def calculate_adoption_score(tool: Dict) -> float:
@@ -427,9 +481,9 @@ def calculate_enhanced_score(tool: Dict) -> Dict:
         dimension_scores[dim] * DIMENSION_WEIGHTS[dim]
         for dim in DIMENSION_WEIGHTS
     )
-    
-    # Apply confidence multiplier
-    confidence_level = tool.get("confidence_level", 50)
+
+    # Apply SMART confidence multiplier (based on data richness, not arbitrary)
+    confidence_level = calculate_smart_confidence(tool)
     confidence_multiplier = get_confidence_multiplier(confidence_level)
     
     # Apply maturity penalties/bonuses
@@ -465,18 +519,48 @@ def calculate_enhanced_score(tool: Dict) -> Dict:
 # MULTIPLIERS & ADJUSTMENTS (Same as before)
 # ============================================================================
 
-CONFIDENCE_MULTIPLIERS = {"high": 1.0, "medium": 0.9, "low": 0.7}
+# SOFTER confidence penalties - we trust enriched data more
+# Old: low=0.7 (-30% penalty!) was too harsh
+# New: low=0.85 (-15% penalty) is more reasonable
+CONFIDENCE_MULTIPLIERS = {"high": 1.0, "medium": 0.95, "low": 0.85}
 MATURITY_BONUSES = {"production": 10, "beta": -5, "alpha": -10, "experimental": -15}
 SOURCE_CREDIBILITY = {
-    "curated": 1.2, "official_blog": 1.15, "techcrunch": 1.1,
-    "venturebeat": 1.1, "product_hunt": 1.05, "github": 1.0,
+    "curated": 1.2, "curated_list": 1.2, "official_blog": 1.15, "techcrunch": 1.1,
+    "venturebeat": 1.1, "product_hunt": 1.05, "github": 1.0, "github_trending": 1.0,
     "reddit": 0.8, "hn": 0.85
 }
 
+def calculate_smart_confidence(tool: Dict) -> int:
+    """
+    Calculate confidence based on data richness instead of arbitrary source
+    This gives fair scores to well-enriched tools even if not curated
+    """
+    # Curated tools always get 100
+    if is_curated_tool(tool):
+        return 100
+
+    # Start with existing confidence_level or baseline
+    confidence = tool.get("confidence_level", 50)
+
+    # Bonus for rich metadata (up to +50 points)
+    if tool.get("description") and len(tool.get("description", "")) > 100:
+        confidence += 10
+    if tool.get("key_features") and len(tool.get("key_features", [])) >= 3:
+        confidence += 10
+    if tool.get("pricing"):
+        confidence += 10
+    if tool.get("official_url") or tool.get("url"):
+        confidence += 10
+    if tool.get("founding_year") or tool.get("publisher"):
+        confidence += 10
+
+    return min(100, confidence)
+
 def get_confidence_multiplier(confidence_level: int) -> float:
-    if confidence_level >= 90:
+    """More generous confidence multipliers"""
+    if confidence_level >= 80:
         return CONFIDENCE_MULTIPLIERS["high"]
-    elif confidence_level >= 70:
+    elif confidence_level >= 60:
         return CONFIDENCE_MULTIPLIERS["medium"]
     else:
         return CONFIDENCE_MULTIPLIERS["low"]
@@ -623,6 +707,7 @@ __all__ = [
     'calculate_credibility_score',
     'calculate_adoption_score',
     'apply_curated_safety_net',
+    'calculate_smart_confidence',
     'calculate_enhanced_score',
     'get_gartner_quadrant',
     'score_all_tools',
