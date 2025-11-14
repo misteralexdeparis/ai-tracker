@@ -404,15 +404,20 @@ def calculate_enhanced_score(tool: Dict) -> Dict:
     """
     Calculate enhanced score with confidence weighting
     This is for the FINAL scoring with multipliers (MODULE 3)
+
+    IMPORTANT: Uses EXISTING dimension scores (buzz_score, vision, ability) if available
+    to avoid recalculating with different values. Only calculates credibility and adoption
+    which aren't pre-calculated during filtering.
     """
-    
+
     tool_name = tool.get("name", "Unknown")
-    
-    # Calculate base dimension scores (recalculate with enriched data)
+
+    # Use EXISTING dimension scores if available (from filtering phase)
+    # Only recalculate credibility and adoption (not used in filtering)
     dimension_scores = {
-        "buzz": calculate_buzz_score(tool),
-        "vision": calculate_vision_score(tool),
-        "ability": calculate_ability_score(tool),
+        "buzz": tool.get("buzz_score") if tool.get("buzz_score") is not None else calculate_buzz_score(tool),
+        "vision": tool.get("vision") if tool.get("vision") is not None else calculate_vision_score(tool),
+        "ability": tool.get("ability") if tool.get("ability") is not None else calculate_ability_score(tool),
         "credibility": calculate_credibility_score(tool),
         "adoption": calculate_adoption_score(tool)
     }
@@ -544,14 +549,32 @@ def get_bonuses(tool: Dict) -> List[str]:
 # BATCH PROCESSING
 # ============================================================================
 
+def get_gartner_quadrant(final_score: float) -> str:
+    """
+    Map final_score to Gartner Magic Quadrant category
+
+    Leaders: 70-100 (High execution, High vision)
+    Challengers: 50-69 (High execution, Medium vision)
+    Visionaries: 40-49 (Medium execution, High vision)
+    Niche Players: 0-39 (Low execution, Low vision)
+    """
+    if final_score >= 70:
+        return "Leader"
+    elif final_score >= 50:
+        return "Challenger"
+    elif final_score >= 40:
+        return "Visionary"
+    else:
+        return "Niche Player"
+
 def score_all_tools(tools: List[Dict]) -> List[Dict]:
     """Score all tools and add scoring metadata"""
-    
+
     logger.info(f"\n📊 Scoring {len(tools)} tools with Enhanced Scoring v4...\n")
-    
+
     for tool in tools:
         scoring_result = calculate_enhanced_score(tool)
-        
+
         tool["final_score"] = scoring_result["final_score"]
         tool["base_score"] = scoring_result["base_score"]
         tool["scoring_breakdown"] = scoring_result["dimension_scores"]
@@ -562,17 +585,31 @@ def score_all_tools(tools: List[Dict]) -> List[Dict]:
             "penalties": scoring_result["penalties"],
             "bonuses": scoring_result["bonuses"]
         }
-    
+
+        # Calculate Gartner quadrant from final_score
+        tool["gartner_quadrant"] = get_gartner_quadrant(tool["final_score"])
+
     # Sort by final score (descending)
     tools.sort(key=lambda x: x.get("final_score", 0), reverse=True)
-    
+
     # Log top 10
     logger.info(f"\n🏆 TOP 10 TOOLS:")
     for i, tool in enumerate(tools[:10], 1):
-        logger.info(f"   {i}. {tool.get('name')} - {tool.get('final_score', 0):.1f} pts")
-    
+        logger.info(f"   {i}. {tool.get('name')} - {tool.get('final_score', 0):.1f} pts ({tool.get('gartner_quadrant')})")
+
+    # Log Gartner quadrant distribution
+    quadrant_counts = {}
+    for tool in tools:
+        quadrant = tool.get("gartner_quadrant", "Unknown")
+        quadrant_counts[quadrant] = quadrant_counts.get(quadrant, 0) + 1
+
+    logger.info(f"\n📊 GARTNER QUADRANT DISTRIBUTION:")
+    for quadrant in ["Leader", "Challenger", "Visionary", "Niche Player"]:
+        count = quadrant_counts.get(quadrant, 0)
+        logger.info(f"   {quadrant}: {count} tools")
+
     logger.info(f"\n✅ Scoring complete\n")
-    
+
     return tools
 
 # ============================================================================
@@ -581,11 +618,12 @@ def score_all_tools(tools: List[Dict]) -> List[Dict]:
 
 __all__ = [
     'calculate_buzz_score',
-    'calculate_vision_score', 
+    'calculate_vision_score',
     'calculate_ability_score',
     'calculate_credibility_score',
     'calculate_adoption_score',
     'apply_curated_safety_net',
     'calculate_enhanced_score',
+    'get_gartner_quadrant',
     'score_all_tools',
 ]
