@@ -110,12 +110,12 @@ function generateNewsletterHTML(updates: any, toolsData: any) {
         <!-- Content -->
         <div style="padding: 32px 20px;">
           <p style="color: #374151; font-size: 16px; line-height: 1.6;">
-            Bonjour ! 👋
+            Hello! 👋
           </p>
           <p style="color: #374151; font-size: 16px; line-height: 1.6;">
-            Voici votre résumé hebdomadaire des outils IA suivis sur <strong>AI Tracker</strong>.
-            Cette semaine, nous avons détecté <strong>${newTools.length} nouveaux outils</strong>
-            et <strong>${majorUpdates.length} mises à jour majeures</strong>.
+            Here's your weekly summary of AI tools tracked on <strong>AI Tracker</strong>.
+            This week, we detected <strong>${newTools.length} new tools</strong>
+            and <strong>${majorUpdates.length} major updates</strong>.
           </p>
 
           ${toolUpdatesHTML}
@@ -132,24 +132,24 @@ function generateNewsletterHTML(updates: any, toolsData: any) {
                       border-radius: 8px;
                       display: inline-block;
                       font-weight: bold;">
-              Voir tous les outils →
+              View All Tools →
             </a>
           </div>
 
           <p style="color: #6b7280; font-size: 14px; line-height: 1.6; margin-top: 24px;">
-            À bientôt,<br>
-            L'équipe AI Tracker
+            Best regards,<br>
+            The AI Tracker Team
           </p>
         </div>
 
         <!-- Footer -->
         <div style="background: #f3f4f6; padding: 24px 20px; text-align: center; border-top: 1px solid #e5e7eb;">
           <p style="color: #6b7280; font-size: 12px; margin: 0 0 8px 0;">
-            Vous recevez cet email car vous êtes inscrit à la newsletter AI Tracker
+            You're receiving this email because you subscribed to AI Tracker newsletter
           </p>
           <a href="${process.env.FRONTEND_URL || 'http://localhost:3000'}/unsubscribe"
              style="color: #0d9488; font-size: 12px; text-decoration: none;">
-            Se désinscrire
+            Unsubscribe
           </a>
         </div>
       </div>
