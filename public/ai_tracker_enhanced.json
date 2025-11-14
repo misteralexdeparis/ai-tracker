@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2025-11-13T20:57:11.729595",
-    "total_tools": 36,
-    "new_tools_count": 0,
-    "updated_tools_count": 0,
-    "version": "4.1 OPTIMIZED (FIXED) - Scoring before filtering",
+    "last_updated": "2025-11-14T10:10:13.529064",
+    "total_tools": 56,
+    "new_tools_count": 20,
+    "updated_tools_count": 3,
+    "version": "4.1 OPTIMIZED (FIXED) - Scoring before filtering + Safety net",
     "quality_thresholds": {
       "buzz_score": 30,
       "vision": 30,
@@ -21,16 +21,1116 @@
       "✅ Smart scoring v4 (5-dimensional with multipliers)",
       "✅ Curated tools (39 AI leaders, always included)",
       "✅ Intelligent cost optimization",
-      "🔧 FIX: Dimension scores calculated before filtering"
+      "🔧 FIX: Dimension scores calculated before filtering",
+      "🛡️  Safety net: Curated tools minimum 50 score guarantee"
     ],
     "cost_optimization": {
-      "potential_cost": "$0.0288",
-      "actual_cost": "$0.0000",
-      "savings": "$0.0288",
-      "savings_percent": "100.0%"
+      "potential_cost": "$0.0472",
+      "actual_cost": "$0.0176",
+      "savings": "$0.0440",
+      "savings_percent": "93.2%"
     }
   },
   "tools": [
+    {
+      "name": "n8n",
+      "publisher": "n8n",
+      "category": "Automation / No-code",
+      "official_url": "https://n8n.io/",
+      "release_notes_url": "https://docs.n8n.io/changelog/",
+      "docs_url": "https://docs.n8n.io/",
+      "tags": [
+        "Automation",
+        "No-code"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "1.0",
+      "update_check_method": "release_notes",
+      "version_source": "homepage_meta",
+      "version_metadata": {},
+      "needs_major_review": false,
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "n8n is a workflow automation platform that uniquely combines AI capabilities with business process automation, giving technical teams the flexibility of code with the speed of no-code.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Unlimited workflows and steps",
+        "Execution-based pricing",
+        "Advanced debugging tools",
+        "Enterprise security features",
+        "Community templates"
+      ],
+      "founding_year": 2019,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526846",
+      "final_score": 42.25,
+      "base_score": 50.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 60.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "Runway",
+      "publisher": "Runway",
+      "category": "Video/Image Generation",
+      "official_url": "https://runwayml.com/",
+      "release_notes_url": "https://updates.runwayml.com/",
+      "docs_url": "https://learn.runwayml.com/",
+      "tags": [
+        "Video",
+        "Image",
+        "AI"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "Gen-4 (May 2025)",
+      "update_check_method": "release_notes",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Generate images and video with AI. Text to video, image to video, plus more. Runway's AI image and video generation tools trusted by millions worldwide",
+      "pricing": "Freemium",
+      "key_features": [
+        "AI video generation (Gen-3 Alpha, Gen-4)",
+        "Image generation and editing",
+        "Text-to-speech and voice generation",
+        "Advanced editing tools",
+        "Team collaboration and asset management"
+      ],
+      "founding_year": 2018,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526849",
+      "final_score": 42.25,
+      "base_score": 50.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 60.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "Otter",
+      "publisher": "Otter.ai",
+      "category": "Speech-to-Text / Meetings",
+      "official_url": "https://otter.ai/",
+      "release_notes_url": "https://blog.otter.ai/",
+      "docs_url": "https://help.otter.ai/",
+      "tags": [
+        "Transcription",
+        "Meeting",
+        "AI"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "3.70.8 (Nov 2025)",
+      "update_check_method": "blog",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Otter AI Meeting Agent supports real-time transcription, live chat, automated summaries, insights, and action items.",
+      "pricing": "Freemium (Free Basic plan; Paid Pro, Business, and custom Enterprise plans)",
+      "key_features": [
+        "Real-time transcription and note-taking",
+        "Custom vocabulary and speaker identification",
+        "Import and export of audio/video files",
+        "Collaboration tools for teams",
+        "Advanced search and playback capabilities"
+      ],
+      "founding_year": 2016,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526851",
+      "final_score": 42.25,
+      "base_score": 50.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 60.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "ChatGPT",
+      "publisher": "OpenAI",
+      "category": "Chatbot / Productivity",
+      "official_url": "https://chat.openai.com/",
+      "release_notes_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "docs_url": "https://platform.openai.com/docs/",
+      "tags": [
+        "NLP",
+        "Chatbot",
+        "Productivity"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "5.1",
+      "update_check_method": "release_notes",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "ChatGPT is a conversational AI that generates human-like text for tasks like writing, summarizing, coding, and personalized tutoring.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Conversational AI for writing, summarizing, and coding",
+        "Multimodal input: text, voice, and image interaction",
+        "Memory function to recall user preferences and past conversations",
+        "Personalized tutoring and explanations",
+        "Access to advanced GPT-4 model via subscription"
+      ],
+      "founding_year": 2022,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526837",
+      "final_score": 41.41,
+      "base_score": 49.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "Claude",
+      "publisher": "Anthropic",
+      "category": "Chatbot / Productivity",
+      "official_url": "https://claude.ai/",
+      "release_notes_url": "https://claude.ai/release-notes",
+      "docs_url": "",
+      "tags": [
+        "NLP",
+        "Chatbot"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "Opus 4.1, Sonnet 4",
+      "update_check_method": "release_notes",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Claude is a next-generation AI assistant by Anthropic, designed to be helpful, honest, and harmless for diverse conversational and text processing tasks.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Large context window for processing long documents",
+        "Creative and professional writing",
+        "Coding assistance including debugging and code generation",
+        "Multimodal input support (text, audio, images)",
+        "Safe and reliable responses guided by ethical norms"
+      ],
+      "founding_year": 2021,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526838",
+      "final_score": 41.41,
+      "base_score": 49.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "Perplexity",
+      "publisher": "Perplexity",
+      "category": "AI Search",
+      "official_url": "https://www.perplexity.ai/",
+      "release_notes_url": "https://www.perplexity.ai/changelog",
+      "docs_url": "https://docs.perplexity.ai/",
+      "tags": [
+        "Search",
+        "Q&A",
+        "Productivity"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "v3+ (late 2025)",
+      "update_check_method": "release_notes",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Perplexity AI is an AI-powered search engine that provides concise, accurate answers with citations by synthesizing multiple sources in real time.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Direct answers with source citations",
+        "Deep Research for multi-step investigations",
+        "Model selector to choose AI models",
+        "Conversational dialogue with contextual memory",
+        "Multimodal capabilities including image analysis"
+      ],
+      "founding_year": 2022,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526843",
+      "final_score": 41.41,
+      "base_score": 49.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "Midjourney",
+      "publisher": "Midjourney Inc.",
+      "category": "Image Generation",
+      "official_url": "https://www.midjourney.com/",
+      "release_notes_url": "https://docs.midjourney.com/docs/changelog",
+      "docs_url": "https://docs.midjourney.com/",
+      "tags": [
+        "Image",
+        "Generative",
+        "Art"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "6.1",
+      "update_check_method": "release_notes",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Midjourney is an AI platform that transforms text prompts into high-quality digital artwork with style customization.",
+      "pricing": "Paid (no free plan or trial available)",
+      "key_features": [
+        "Text-to-image generation from descriptive prompts",
+        "Style customization and personalization",
+        "High-resolution image output (up to 1792x1024 pixels)",
+        "Outpainting to extend images beyond original boundaries",
+        "Rapid image generation with multiple speed modes"
+      ],
+      "founding_year": 2021,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526847",
+      "final_score": 41.41,
+      "base_score": 49.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "ElevenLabs",
+      "publisher": "ElevenLabs",
+      "category": "Voice Generation",
+      "official_url": "https://elevenlabs.io/",
+      "release_notes_url": "https://blog.elevenlabs.io/",
+      "docs_url": "",
+      "tags": [
+        "Audio",
+        "Voice",
+        "AI"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "v3+ (Nov 2025)",
+      "update_check_method": "blog",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Create lifelike speech with our AI voice generator and voice agents platform. Access 5,000+ voices in 70+ languages with secure APIs and SDKs.",
+      "pricing": "Freemium with multiple paid tiers and custom Enterprise plans",
+      "key_features": [
+        "Advanced Text-to-Speech with high-quality audio",
+        "Professional and instant voice cloning",
+        "Conversational AI Agents with usage-based billing",
+        "API access for integration",
+        "Automated dubbing and multi-user workspace support"
+      ],
+      "founding_year": 2022,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526850",
+      "final_score": 41.41,
+      "base_score": 49.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "Meta AI (Llama)",
+      "publisher": "Meta",
+      "category": "Chatbot / Productivity",
+      "official_url": "https://www.meta.ai/",
+      "release_notes_url": "",
+      "docs_url": "https://ai.meta.com/research/",
+      "tags": [
+        "NLP",
+        "Chatbot",
+        "AGI"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "Llama 3.3",
+      "update_check_method": "blog",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Use Meta AI assistant to get things done, create AI-generated images for free, and get answers to any of your questions. Meta AI is built on Meta's...",
+      "pricing": "Paid",
+      "key_features": [
+        "Open-source AI models",
+        "Multimodal capabilities",
+        "Low cost per token",
+        "High efficiency and performance",
+        "Support for local and API deployment"
+      ],
+      "founding_year": 2023,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526839",
+      "final_score": 40.57,
+      "base_score": 48.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 50.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "Google Gemini",
+      "publisher": "Google",
+      "category": "Chatbot / Productivity",
+      "official_url": "https://gemini.google.com/",
+      "release_notes_url": "https://workspaceupdates.googleblog.com/search/label/Gemini%20AI",
+      "docs_url": "https://support.google.com/gemini/answer/13594914?hl=fr",
+      "tags": [
+        "NLP",
+        "Chatbot",
+        "Generative"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "2.5 Pro / 2.5 Flash",
+      "update_check_method": "release_notes",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Meet Gemini, Google’s AI assistant. Get help with writing, planning, brainstorming, and more. Experience the power of generative AI.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Advanced reasoning and coding",
+        "Multimodal capabilities (text, image, video, audio)",
+        "Deep Research mode",
+        "NotebookLM integration",
+        "Real-time information access"
+      ],
+      "founding_year": 2023,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526840",
+      "final_score": 40.57,
+      "base_score": 48.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 50.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "Notion AI",
+      "publisher": "Notion",
+      "category": "Knowledge Management / Productivity",
+      "official_url": "https://www.notion.so/product/ai",
+      "release_notes_url": "https://www.notion.so/releases",
+      "docs_url": "https://www.notion.so/help/guides/notion-ai",
+      "tags": [
+        "Productivity",
+        "Knowledge",
+        "Q&A"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "3.0",
+      "update_check_method": "release_notes",
+      "version_source": "changelog",
+      "version_metadata": {
+        "changelog_url": "https://www.notion.so/releases",
+        "release_date": "",
+        "found_in": "header"
+      },
+      "needs_major_review": false,
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "One tool that does it all. Search, generate, analyze, and chat—right inside Notion.",
+      "pricing": "Freemium (Free plan with limited AI trial; AI fully included in Business and Enterprise paid plans starting at $20/user/month)",
+      "key_features": [
+        "Integrated AI with GPT-4.1 and Claude 3.7 Sonnet",
+        "AI-powered content generation and writing assistance",
+        "Workspace Q&A and task automation",
+        "Database creation and management with AI",
+        "AI-enhanced search and meeting notes"
+      ],
+      "founding_year": 2013,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526842",
+      "final_score": 40.57,
+      "base_score": 48.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 45.0,
+        "ability": 49.0,
+        "credibility": 60.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "JetBrains AI Assistant",
+      "publisher": "JetBrains",
+      "category": "Coding Assistant",
+      "official_url": "https://www.jetbrains.com/ai/",
+      "release_notes_url": "https://www.jetbrains.com/ai/whatsnew/",
+      "docs_url": "",
+      "tags": [
+        "Development",
+        "Coding",
+        "Assistant"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "2025.1",
+      "update_check_method": "release_notes",
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Transform your business with JetBrains AI solutions and services, including integrated AI tools and software development expertise.",
+      "pricing": "Freemium with paid subscription tiers (AI Free, AI Pro, AI Ultimate, AI Enterprise) based on AI Credits; prices start at $10/month for individuals (AI Pro) and $30/month for AI Ultimate with ability to top up credits",
+      "key_features": [
+        "Write Documentation",
+        "Convert file to another programming language",
+        "Explain code",
+        "Suggest Refactoring",
+        "Generate Unit Tests and Code"
+      ],
+      "founding_year": 2023,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526844",
+      "final_score": 40.57,
+      "base_score": 48.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 55.0,
+        "ability": 49.0,
+        "credibility": 50.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "Sourcegraph Cody",
+      "publisher": "Sourcegraph",
+      "category": "Coding Assistant",
+      "official_url": "https://about.sourcegraph.com/cody",
+      "release_notes_url": "https://sourcegraph.com/blog/tags/changelog",
+      "docs_url": "",
+      "tags": [
+        "Development",
+        "Coding",
+        "Assistant"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "2012.05.20",
+      "update_check_method": "blog",
+      "version_source": "homepage_meta",
+      "version_metadata": {},
+      "needs_major_review": true,
+      "buzz_score": 50,
+      "vision": 50,
+      "ability": 50,
+      "source": "curated_list",
+      "description": "Cody is the most powerful and accurate AI coding assistant for writing, fixing, and maintaining code",
+      "pricing": "Paid",
+      "key_features": [
+        "AI-powered code completions and suggestions",
+        "Chat-based code assistance with context from entire codebases",
+        "Support for multiple large language models (LLMs)",
+        "Integration with popular IDEs",
+        "Advanced search and code navigation"
+      ],
+      "founding_year": 2023,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526845",
+      "final_score": 38.89,
+      "base_score": 46.3,
+      "scoring_breakdown": {
+        "buzz": 70,
+        "vision": 45.0,
+        "ability": 49.0,
+        "credibility": 50.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.7,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": [
+          "Curated list (1.2x)"
+        ]
+      }
+    },
+    {
+      "name": "nocobase /nocobase",
+      "description": "NocoBase is the most extensible AI-powered no-code/low-code platform for building business applications and enterprise solutions. - nocobase/nocobase",
+      "source": "github_trending",
+      "url": "https://github.com/nocobase/nocobase",
+      "official_url": "https://www.nocobase.com/",
+      "language": "TypeScript",
+      "category": "Open Source",
+      "buzz_score": 35.0,
+      "vision": 30.0,
+      "ability": 35.0,
+      "pricing": "Freemium with free Community edition and paid commercial licenses (Standard $800 one-time, Professional $8,000 one-time, Enterprise custom)",
+      "key_features": [
+        "Open-source, self-hosted no-code development platform",
+        "AI Employee feature for AI-assisted workflows and content creation",
+        "Data model-driven approach decoupling UI and data structure",
+        "Support for plugins including commercial plugin bundles",
+        "Workflow configuration with visual flowcharts and integration with databases like PostgreSQL"
+      ],
+      "founding_year": 2020,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T10:10:13.526646",
+          "vision": 68,
+          "ability": 67,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-12T22:36:03.517938",
+      "final_score": 27.68,
+      "base_score": 30.75,
+      "scoring_breakdown": {
+        "buzz": 35.0,
+        "vision": 55.0,
+        "ability": 35.0,
+        "credibility": 20.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.9,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": []
+      },
+      "version_updated_at": "2025-11-14T10:10:13.526648",
+      "major_update_reason": [
+        "Vision changed significantly: 68→30.0 (+38.0)",
+        "Ability changed significantly: 67→35.0 (+32.0)"
+      ],
+      "github_url": "https://github.com/nocobase/nocobase",
+      "github_stars": 0,
+      "confidence_level": 70,
+      "last_updated": "2025-11-14T10:10:13.526687"
+    },
+    {
+      "name": "prometheus /alertmanager",
+      "description": "Prometheus Alertmanager. Contribute to prometheus/alertmanager development by creating an account on GitHub.",
+      "source": "github_trending",
+      "url": "https://github.com/prometheus/alertmanager",
+      "github_url": "https://github.com/prometheus/alertmanager",
+      "github_stars": 0,
+      "category": "Open Source",
+      "buzz_score": 35.0,
+      "vision": 38.5,
+      "ability": 35.0,
+      "confidence_level": 70,
+      "pricing": "Free",
+      "key_features": [
+        "Handles alerts from Prometheus and other sources",
+        "Deduplicates, groups, and routes alerts",
+        "Supports multiple notification integrations (email, PagerDuty, OpsGenie, etc.)",
+        "Manages alert silencing and inhibition",
+        "Configurable via YAML file"
+      ],
+      "founding_year": 2012,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526835",
+      "final_score": 27.68,
+      "base_score": 30.75,
+      "scoring_breakdown": {
+        "buzz": 35.0,
+        "vision": 55.0,
+        "ability": 35.0,
+        "credibility": 20.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.9,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": []
+      }
+    },
+    {
+      "name": "Skyvern-AI /skyvern",
+      "description": "Automate browser based workflows with AI. Contribute to Skyvern-AI/skyvern development by creating an account on GitHub.",
+      "source": "github_trending",
+      "url": "https://github.com/Skyvern-AI/skyvern",
+      "github_url": "https://github.com/Skyvern-AI/skyvern",
+      "github_stars": 0,
+      "category": "Open Source",
+      "buzz_score": 35.0,
+      "vision": 38.5,
+      "ability": 35.0,
+      "confidence_level": 70,
+      "pricing": "Freemium (free open-source version plus pay-as-you-go cloud plan at $0.05 per step)",
+      "key_features": [
+        "AI-powered automation that adapts to unseen websites and layout changes without code updates",
+        "Simple API integration with transparent, usage-based pricing",
+        "Cloud deployment with managed anti-bot, proxy networks, and CAPTCHA solving",
+        "Open-source foundation allowing customization and transparency",
+        "Supports complex workflows including multi-step forms and secure credential handling"
+      ],
+      "founding_year": 2022,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526829",
+      "final_score": 26.78,
+      "base_score": 29.75,
+      "scoring_breakdown": {
+        "buzz": 35.0,
+        "vision": 55.0,
+        "ability": 35.0,
+        "credibility": 15.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.9,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": []
+      }
+    },
+    {
+      "name": "mudler /LocalAI",
+      "description": ":robot: The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement for OpenAI,  running on consumer-grade hardware. No GPU required. Runs gguf, transformers, diffusers and many more. Features: Generate Text, Audio, Video, Images, Voice Cloning, Distributed, P2P and decentralized inference - mudler/LocalAI",
+      "source": "github_trending",
+      "url": "https://github.com/mudler/LocalAI",
+      "official_url": "https://localai.io/",
+      "language": "Go",
+      "category": "Open Source",
+      "buzz_score": 35.0,
+      "vision": 30.0,
+      "ability": 35.0,
+      "pricing": "Free",
+      "key_features": [
+        "OpenAI-compatible REST API for local AI inferencing",
+        "Support for multiple model families (LLMs, image generation, audio)",
+        "No GPU required - runs on consumer-grade hardware",
+        "Privacy-focused with all processing happening locally",
+        "Peer-to-peer distributed inference capabilities"
+      ],
+      "founding_year": 2023,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T10:10:13.526734",
+          "vision": 70,
+          "ability": 45,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-12T22:36:03.517943",
+      "final_score": 25.88,
+      "base_score": 28.75,
+      "scoring_breakdown": {
+        "buzz": 35.0,
+        "vision": 55.0,
+        "ability": 35.0,
+        "credibility": 10.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.9,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": []
+      },
+      "version_updated_at": "2025-11-14T10:10:13.526738",
+      "major_update_reason": [
+        "Vision changed significantly: 70→30.0 (+40.0)"
+      ],
+      "github_url": "https://github.com/mudler/LocalAI",
+      "github_stars": 0,
+      "confidence_level": 70,
+      "last_updated": "2025-11-14T10:10:13.526804"
+    },
+    {
+      "name": "usestrix /strix",
+      "description": "Open-source AI agents for penetration testing. Contribute to usestrix/strix development by creating an account on GitHub.",
+      "source": "github_trending",
+      "url": "https://github.com/usestrix/strix",
+      "github_url": "https://github.com/usestrix/strix",
+      "github_stars": 0,
+      "category": "Open Source",
+      "buzz_score": 35.0,
+      "vision": 38.5,
+      "ability": 35.0,
+      "confidence_level": 70,
+      "pricing": "Freemium with paid plans (Basic $49/month, Pro $750/month) and Enterprise custom pricing",
+      "key_features": [
+        "Autonomous AI agents for dynamic penetration testing and real exploitation validation",
+        "Full HTTP proxy for request/response manipulation and analysis",
+        "Browser automation for multi-tab testing of XSS, CSRF, and auth flows",
+        "Python runtime for custom exploit development and validation",
+        "CI/CD integration and enterprise dashboards for large-scale security management"
+      ],
+      "founding_year": 2023,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526825",
+      "final_score": 25.88,
+      "base_score": 28.75,
+      "scoring_breakdown": {
+        "buzz": 35.0,
+        "vision": 55.0,
+        "ability": 35.0,
+        "credibility": 10.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.9,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": []
+      }
+    },
+    {
+      "name": "opencloud-eu /opencloud",
+      "description": "🌤️This is the main repository of the OpenCloud server. It contains the golang codebase for the backend services. - opencloud-eu/opencloud",
+      "source": "github_trending",
+      "url": "https://github.com/opencloud-eu/opencloud",
+      "github_url": "https://github.com/opencloud-eu/opencloud",
+      "github_stars": 0,
+      "category": "Open Source",
+      "buzz_score": 35.0,
+      "vision": 30.0,
+      "ability": 35.0,
+      "confidence_level": 70,
+      "pricing": "Freemium (free Community package and paid Business package)",
+      "key_features": [
+        "Scalable file management without a database, scaling purely via storage",
+        "Secure collaboration with encryption, flexible access rights, two-factor authentication, and GDPR compliance",
+        "Microservices architecture built in Go for high performance and reliability",
+        "Cross-platform clients with real-time collaboration and file synchronization",
+        "Integration with multiple APIs including WebDAV, GraphAPI, gRPC, and extensibility via plugins"
+      ],
+      "founding_year": 2024,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526832",
+      "final_score": 25.88,
+      "base_score": 28.75,
+      "scoring_breakdown": {
+        "buzz": 35.0,
+        "vision": 55.0,
+        "ability": 35.0,
+        "credibility": 10.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.9,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": []
+      }
+    },
+    {
+      "name": "modelcontextprotocol /go-sdk",
+      "description": "The official Go SDK for Model Context Protocol servers and clients. Maintained in collaboration with Google. - modelcontextprotocol/go-sdk",
+      "source": "github_trending",
+      "url": "https://github.com/modelcontextprotocol/go-sdk",
+      "github_url": "https://github.com/modelcontextprotocol/go-sdk",
+      "github_stars": 0,
+      "category": "Open Source",
+      "buzz_score": 35.0,
+      "vision": 30.0,
+      "ability": 35.0,
+      "confidence_level": 70,
+      "pricing": "Free",
+      "key_features": [
+        "Standardized interface for interacting with large language models",
+        "Supports multiple transport methods including stdin/stdout, SSE, WebSocket, and gRPC",
+        "Provides simple APIs with complete type definitions and context control",
+        "Enables building MCP clients and servers in Go",
+        "Supports custom input/output schema inference and validation"
+      ],
+      "founding_year": 2023,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526836",
+      "final_score": 25.88,
+      "base_score": 28.75,
+      "scoring_breakdown": {
+        "buzz": 35.0,
+        "vision": 55.0,
+        "ability": 35.0,
+        "credibility": 10.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.9,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": []
+      }
+    },
+    {
+      "name": "sansan0 /TrendRadar",
+      "description": "🎯 告别信息过载，AI 助你看懂新闻资讯热点，简单的舆情监控分析 - 多平台热点聚合+基于 MCP 的AI分析工具。监控35个平台（抖音、知乎、B站、华尔街见闻、财联社等），智能筛选+自动推送+AI对话分析（用自然语言深度挖掘新闻：趋势追踪、情感分析、相似检索等13种工具）。支持企业微信/飞书/钉钉/Telegram/邮件/ntfy推送，30秒网页部署，1分钟手机通知，无需编程。支持Docker部署⭐ 让算法为你服务，用AI理解热点 - sansan0/TrendRadar",
+      "source": "github_trending",
+      "url": "https://github.com/sansan0/TrendRadar",
+      "github_url": "https://github.com/sansan0/TrendRadar",
+      "github_stars": 0,
+      "category": "Open Source",
+      "buzz_score": 35.0,
+      "vision": 30.0,
+      "ability": 35.0,
+      "confidence_level": 70,
+      "pricing": "Freemium (free to use with optional subscription)",
+      "key_features": [
+        "Multi-platform hotspot aggregation and monitoring (35 platforms including Douyin, Zhihu, Bilibili, Wall Street Journal, Caixin)",
+        "AI-powered topic trend analysis (heat tracking, lifecycle, explosion detection, trend prediction)",
+        "Data insights including platform comparison, activity statistics, keyword co-occurrence",
+        "Sentiment analysis, similar news search, intelligent summary generation",
+        "Historical news retrieval and multi-modal search"
+      ],
+      "founding_year": 2025,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526831",
+      "final_score": 24.98,
+      "base_score": 27.75,
+      "scoring_breakdown": {
+        "buzz": 35.0,
+        "vision": 55.0,
+        "ability": 35.0,
+        "credibility": 5.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.9,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": []
+      }
+    },
+    {
+      "name": "containerd /containerd",
+      "description": "An open and reliable container runtime. Contribute to containerd/containerd development by creating an account on GitHub.",
+      "source": "github_trending",
+      "url": "https://github.com/containerd/containerd",
+      "github_url": "https://github.com/containerd/containerd",
+      "github_stars": 0,
+      "category": "Open Source",
+      "buzz_score": 35.0,
+      "vision": 38.5,
+      "ability": 35.0,
+      "confidence_level": 70,
+      "pricing": "Free",
+      "key_features": [
+        "OCI Runtime Spec support",
+        "Container runtime and lifecycle support",
+        "Management of network namespaces",
+        "Security and isolation mechanisms",
+        "Simplicity, robustness, and portability"
+      ],
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T10:10:13.526833",
+      "final_score": 24.07,
+      "base_score": 26.75,
+      "scoring_breakdown": {
+        "buzz": 35.0,
+        "vision": 55.0,
+        "ability": 35.0,
+        "credibility": 0.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 0.9,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": []
+      }
+    },
     {
       "name": "Lovable",
       "official_url": "https://lovable.dev",
@@ -81,12 +1181,12 @@
         "Collaboration features including real-time team workspace and chat mode for planning and debugging"
       ],
       "founding_year": 2022,
-      "final_score": 11.9,
-      "base_score": 17.0,
+      "final_score": 20.82,
+      "base_score": 29.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 55.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 15.0,
         "adoption": 0.0
       },
@@ -95,7 +1195,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -152,12 +1252,12 @@
         "Creation and use of custom musical personas and styles"
       ],
       "founding_year": 2024,
-      "final_score": 11.2,
-      "base_score": 16.0,
+      "final_score": 20.12,
+      "base_score": 28.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 55.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -166,7 +1266,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -222,12 +1322,12 @@
         "Advanced audio generation including lip-sync and ambient sound"
       ],
       "founding_year": 2024,
-      "final_score": 11.2,
-      "base_score": 16.0,
+      "final_score": 20.12,
+      "base_score": 28.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 55.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -236,7 +1336,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -267,12 +1367,12 @@
         "Unlimited video generations in Explore Mode (Unlimited plan)"
       ],
       "founding_year": 2018,
-      "final_score": 11.2,
-      "base_score": 16.0,
+      "final_score": 20.12,
+      "base_score": 28.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 45.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 20.0,
         "adoption": 0.0
       },
@@ -281,7 +1381,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -336,12 +1436,12 @@
         "Reduced hallucinations with improved instruction following"
       ],
       "founding_year": 2025,
-      "final_score": 10.5,
-      "base_score": 15.0,
+      "final_score": 19.42,
+      "base_score": 27.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 55.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 5.0,
         "adoption": 0.0
       },
@@ -350,7 +1450,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -403,12 +1503,12 @@
         "Long-term memory and continuous personalization for user profiles and preferences"
       ],
       "founding_year": 2025,
-      "final_score": 10.5,
-      "base_score": 15.0,
+      "final_score": 19.42,
+      "base_score": 27.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 55.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 5.0,
         "adoption": 0.0
       },
@@ -417,7 +1517,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -471,12 +1571,12 @@
         "Available on web, iOS, Android, and developer platforms"
       ],
       "founding_year": 2025,
-      "final_score": 10.5,
-      "base_score": 15.0,
+      "final_score": 19.42,
+      "base_score": 27.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 55.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 5.0,
         "adoption": 0.0
       },
@@ -485,7 +1585,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -541,12 +1641,12 @@
         "Video generation and 3D modeling capabilities"
       ],
       "founding_year": 2025,
-      "final_score": 10.5,
-      "base_score": 15.0,
+      "final_score": 19.42,
+      "base_score": 27.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 55.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 5.0,
         "adoption": 0.0
       },
@@ -555,7 +1655,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -586,12 +1686,12 @@
         "Error detection and fixing capabilities"
       ],
       "founding_year": 2021,
-      "final_score": 10.5,
-      "base_score": 15.0,
+      "final_score": 19.42,
+      "base_score": 27.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 45.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 15.0,
         "adoption": 0.0
       },
@@ -600,10 +1700,13 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
-      }
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T10:10:13.526611"
     },
     {
       "name": "DeepSeek R1",
@@ -631,12 +1734,12 @@
         "Real-time web search integration with transparent reasoning and content analysis"
       ],
       "founding_year": 2023,
-      "final_score": 9.8,
-      "base_score": 14.0,
+      "final_score": 18.72,
+      "base_score": 26.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 45.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -645,7 +1748,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -676,12 +1779,12 @@
         "Team collaboration tools with real-time editing"
       ],
       "founding_year": 2017,
-      "final_score": 9.8,
-      "base_score": 14.0,
+      "final_score": 18.72,
+      "base_score": 26.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 20.0,
         "adoption": 0.0
       },
@@ -690,7 +1793,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -721,12 +1824,12 @@
         "Support for downloading source code"
       ],
       "founding_year": 2023,
-      "final_score": 9.8,
-      "base_score": 14.0,
+      "final_score": 18.72,
+      "base_score": 26.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 45.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -735,7 +1838,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -766,12 +1869,12 @@
         "Scalable tensor parallelism across multiple interconnected chips for handling large language models efficiently"
       ],
       "founding_year": 2016,
-      "final_score": 9.8,
-      "base_score": 14.0,
+      "final_score": 18.72,
+      "base_score": 26.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 20.0,
         "adoption": 0.0
       },
@@ -780,49 +1883,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
-        ],
-        "bonuses": []
-      }
-    },
-    {
-      "name": "nocobase /nocobase",
-      "description": "NocoBase is the most extensible AI-powered no-code/low-code platform for building business applications and enterprise solutions.",
-      "source": "github_trending",
-      "url": "https://www.nocobase.com/",
-      "official_url": "https://www.nocobase.com/",
-      "language": "TypeScript",
-      "category": "Open Source",
-      "buzz_score": 70,
-      "vision": 68,
-      "ability": 67,
-      "pricing": "Freemium",
-      "key_features": [
-        "AI Employee for workflow automation",
-        "Natural language modeling for data structure creation",
-        "Pluggable AI extensions for flexible integration",
-        "Data model-driven approach with decoupled UI",
-        "Seamless integration with databases and external APIs"
-      ],
-      "founding_year": 2021,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-12T22:36:03.517938",
-      "final_score": 9.8,
-      "base_score": 14.0,
-      "scoring_breakdown": {
-        "buzz": 0.0,
-        "vision": 55.0,
-        "ability": 0.0,
-        "credibility": 15.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 0.7,
-        "source_multiplier": 1.0,
-        "maturity_adjustment": 0.0,
-        "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -853,12 +1914,12 @@
         "Enhanced safety and alignment with reduced concerning behaviors"
       ],
       "founding_year": 2025,
-      "final_score": 9.1,
-      "base_score": 13.0,
+      "final_score": 18.02,
+      "base_score": 25.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 45.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 5.0,
         "adoption": 0.0
       },
@@ -867,7 +1928,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -898,12 +1959,12 @@
         "Real-time processing with low latency for interactive applications"
       ],
       "founding_year": 2025,
-      "final_score": 9.1,
-      "base_score": 13.0,
+      "final_score": 18.02,
+      "base_score": 25.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 45.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 5.0,
         "adoption": 0.0
       },
@@ -912,7 +1973,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -943,12 +2004,12 @@
         "Voice interaction with emotional range"
       ],
       "founding_year": 2025,
-      "final_score": 9.1,
-      "base_score": 13.0,
+      "final_score": 18.02,
+      "base_score": 25.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 45.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 5.0,
         "adoption": 0.0
       },
@@ -957,7 +2018,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -988,12 +2049,12 @@
         "Cross-platform support for Windows, macOS, and Linux with customizable settings"
       ],
       "founding_year": 2022,
-      "final_score": 9.1,
-      "base_score": 13.0,
+      "final_score": 18.02,
+      "base_score": 25.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 15.0,
         "adoption": 0.0
       },
@@ -1002,7 +2063,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1033,12 +2094,12 @@
         "Mobile apps and browser extensions"
       ],
       "founding_year": 2022,
-      "final_score": 9.1,
-      "base_score": 13.0,
+      "final_score": 18.02,
+      "base_score": 25.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 15.0,
         "adoption": 0.0
       },
@@ -1047,7 +2108,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1078,12 +2139,12 @@
         "Interactive elements and multimedia embedding"
       ],
       "founding_year": 2022,
-      "final_score": 9.1,
-      "base_score": 13.0,
+      "final_score": 18.02,
+      "base_score": 25.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 15.0,
         "adoption": 0.0
       },
@@ -1092,7 +2153,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1123,12 +2184,12 @@
         "Tiered plans with commercial licenses and multi-seat workspaces"
       ],
       "founding_year": 2022,
-      "final_score": 9.1,
-      "base_score": 13.0,
+      "final_score": 18.02,
+      "base_score": 25.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 15.0,
         "adoption": 0.0
       },
@@ -1137,7 +2198,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1168,12 +2229,12 @@
         "Integration with web and social platforms"
       ],
       "founding_year": 2022,
-      "final_score": 9.1,
-      "base_score": 13.0,
+      "final_score": 18.02,
+      "base_score": 25.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 15.0,
         "adoption": 0.0
       },
@@ -1182,7 +2243,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1212,12 +2273,12 @@
         "Integration with popular IDEs"
       ],
       "founding_year": 2022,
-      "final_score": 9.1,
-      "base_score": 13.0,
+      "final_score": 18.02,
+      "base_score": 25.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 15.0,
         "adoption": 0.0
       },
@@ -1226,49 +2287,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
-        ],
-        "bonuses": []
-      }
-    },
-    {
-      "name": "mudler /LocalAI",
-      "description": "🤖 The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement for OpenAI, running on consumer-gra",
-      "source": "github_trending",
-      "url": "https://localai.io/",
-      "official_url": "https://localai.io/",
-      "language": "Go",
-      "category": "Open Source",
-      "buzz_score": 70,
-      "vision": 70,
-      "ability": 45,
-      "pricing": "Free",
-      "key_features": [
-        "Open Source alternative to OpenAI API",
-        "Runs locally on consumer-grade hardware without requiring GPU",
-        "Supports multiple AI model families including LLMs, image, and audio models",
-        "Drop-in replacement REST API compatible with OpenAI and Anthropic APIs",
-        "Peer-to-peer decentralized inference and model weight sharing"
-      ],
-      "founding_year": 2023,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-12T22:36:03.517943",
-      "final_score": 9.1,
-      "base_score": 13.0,
-      "scoring_breakdown": {
-        "buzz": 0.0,
-        "vision": 55.0,
-        "ability": 0.0,
-        "credibility": 10.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 0.7,
-        "source_multiplier": 1.0,
-        "maturity_adjustment": 0.0,
-        "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1299,12 +2318,12 @@
         "Support for generating and refining code prototypes (HTML/React, Python, etc.)"
       ],
       "founding_year": 2024,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1313,7 +2332,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1344,12 +2363,12 @@
         "Advanced code generation and debugging"
       ],
       "founding_year": 2023,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1358,7 +2377,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1389,12 +2408,12 @@
         "35% faster response times with optimized processing efficiency"
       ],
       "founding_year": 2024,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1403,7 +2422,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1434,12 +2453,12 @@
         "Advanced code generation proficiency across 80+ programming languages"
       ],
       "founding_year": 2023,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1448,7 +2467,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1479,12 +2498,12 @@
         "Multiple aspect ratios and new style options (natural and vivid)"
       ],
       "founding_year": 2023,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1493,7 +2512,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1524,12 +2543,12 @@
         "Character Reference for consistency across images"
       ],
       "founding_year": 2023,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1538,7 +2557,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1569,12 +2588,12 @@
         "Creative control with image-to-video and editing features"
       ],
       "founding_year": 2023,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1583,7 +2602,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1614,12 +2633,12 @@
         "Web Search - Parse and analyze web pages and documentation in real-time"
       ],
       "founding_year": 2024,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1628,7 +2647,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1659,12 +2678,12 @@
         "Code transformation and language version upgrades with validation"
       ],
       "founding_year": 2024,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1673,7 +2692,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1704,12 +2723,12 @@
         "Interactive AI chat for querying uploaded documents with citations"
       ],
       "founding_year": 2023,
-      "final_score": 8.4,
-      "base_score": 12.0,
+      "final_score": 17.32,
+      "base_score": 24.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1718,7 +2737,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1749,12 +2768,12 @@
         "Multi-shot scene support and seamless transitions"
       ],
       "founding_year": 2025,
-      "final_score": 7.7,
-      "base_score": 11.0,
+      "final_score": 16.62,
+      "base_score": 23.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 35.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 5.0,
         "adoption": 0.0
       },
@@ -1763,7 +2782,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
@@ -1792,12 +2811,12 @@
         "Efficient resource utilization and multiple model variants for different use cases"
       ],
       "founding_year": 2024,
-      "final_score": 7.0,
-      "base_score": 10.0,
+      "final_score": 15.92,
+      "base_score": 22.75,
       "scoring_breakdown": {
-        "buzz": 0.0,
+        "buzz": 35.0,
         "vision": 25.0,
-        "ability": 15.0,
+        "ability": 35.0,
         "credibility": 10.0,
         "adoption": 0.0
       },
@@ -1806,7 +2825,7 @@
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
-          "Low confidence (50) (0.7x multiplier)"
+          "Low confidence (50) (0.7x)"
         ],
         "bonuses": []
       }
