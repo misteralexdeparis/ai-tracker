@@ -38,7 +38,7 @@ from sources.enhanced_filters import filter_candidates_enhanced
 # NEW MODULE IMPORTS
 from enrichment.smart_enrichment import smart_enrich_tools, should_enrich_tool
 from sources.version_tracker import track_all_tools
-from utils.scoring_v4 import score_all_tools, calculate_buzz_score, calculate_vision_score, calculate_ability_score
+from utils.scoring_v4 import score_all_tools, calculate_buzz_score, calculate_vision_score, calculate_ability_score, apply_curated_safety_net
 
 # Import scraper sources
 from sources.official_sites import scrape_official_sites
@@ -48,7 +48,7 @@ from sources.social_media import scrape_social_media
 print("\n🚀 AI Tools Tracker - OPTIMIZED SCRAPER v4.1 (FIXED)...")
 print(f"⏰ Started at: {datetime.now().isoformat()}")
 print("📦 NEW: Version Tracker Pro + Smart Enrichment + Enhanced Scoring v4")
-print("🔧 FIX: Scoring before filtering\n")
+print("🔧 FIX: Scoring before filtering + Safety net for curated tools\n")
 
 # ===== 0. CHECK FORCE REFRESH FLAG =====
 FORCE_REFRESH = os.getenv("FORCE_REFRESH", "false").lower() == "true"
@@ -135,71 +135,73 @@ try:
     # ===== 3.5. CALCULATE BASE DIMENSION SCORES (NEW - BEFORE FILTERING) =====
     print("📊 Calculating base dimension scores for filtering...\n")
     
-for candidate in all_candidates:
-    # Always calculate (force recalculation to ensure consistency)
-    candidate['buzz_score'] = calculate_buzz_score(candidate)
-    candidate['vision'] = calculate_vision_score(candidate)
-    candidate['ability'] = calculate_ability_score(candidate)
-
-logger.info("🛡️  Applying curated tools safety net...")
-from utils.scoring_v4 import apply_curated_safety_net
-for candidate in all_candidates:
-    apply_curated_safety_net(candidate)
-logger.info("")
-
-# DEBUG
-logger.info(f"🔍 DEBUG: Checking scores after calculation...")
-curated_in_candidates = [c for c in all_candidates if c.get(\"tracking_versions\")]
-logger.info(f"   Curated tools in all_candidates: {len(curated_in_candidates)}")
-if curated_in_candidates:
-    sample = curated_in_candidates[0]
-    logger.info(f"   Sample curated tool: {sample.get('name')}")
-    logger.info(f"   Has buzz_score? {sample.get('buzz_score', 'MISSING')}")
-    logger.info(f"   Has vision? {sample.get('vision', 'MISSING')}")
-    logger.info(f"   Has ability? {sample.get('ability', 'MISSING')}")
-logger.info("")
-
-# ===== 4. APPLY ENHANCED FILTERING =====
-logger.info("🔍 APPLYING ENHANCED FILTERING (Claude recommendations)...")
-qualified_candidates = filter_candidates_enhanced(all_candidates, confidence_threshold=confidence_threshold)
-logger.info(f" ✅ After enhanced filter: {len(qualified_candidates)} qualified candidates\n")
-
-# Additional threshold filtering (NOW with calculated scores!)
-final_qualified = []
-rejected_by_threshold = []
-
-for c in qualified_candidates:
-    buzz = c.get('buzz_score', 0)
-    vision = c.get('vision', 0)
-    ability = c.get('ability', 0)
+    for candidate in all_candidates:
+        # Always calculate (force recalculation to ensure consistency)
+        candidate['buzz_score'] = calculate_buzz_score(candidate)
+        candidate['vision'] = calculate_vision_score(candidate)
+        candidate['ability'] = calculate_ability_score(candidate)
     
-    if buzz >= buzz_threshold and vision >= vision_threshold and ability >= ability_threshold:
-        final_qualified.append(c)
-    else:
-        rejected_by_threshold.append({
-            "name": c.get('name'),
-            "buzz": buzz,
-            "vision": vision,
-            "ability": ability,
-            "source": c.get('source', 'unknown')
-        })
-
-logger.info(f" ✅ Qualified candidates (after dimension thresholds): {len(final_qualified)}")
-
-if final_qualified:
-    logger.info(f"    Sample scores: buzz={final_qualified[0].get('buzz_score', 0):.1f}, vision={final_qualified[0].get('vision', 0):.1f}, ability={final_qualified[0].get('ability', 0):.1f}\n")
-
-if rejected_by_threshold:
-    logger.warning(f"\n ⚠️  {len(rejected_by_threshold)} tools rejected by thresholds (buzz≥{buzz_threshold}, vision≥{vision_threshold}, ability≥{ability_threshold}):")
-    for r in rejected_by_threshold[:15]:  # Show first 15
-        logger.warning(f"    ❌ {r['name'][:50]:50s} | buzz={r['buzz']:4.1f} vision={r['vision']:4.1f} ability={r['ability']:4.1f} | {r['source']}")
-    if len(rejected_by_threshold) > 15:
-        logger.warning(f"    ... and {len(rejected_by_threshold) - 15} more\n")
-else:
+    logger.info(f" ✅ Base scores calculated for {len(all_candidates)} candidates\n")
+    
+    # Apply safety net for curated tools
+    logger.info("🛡️  Applying curated tools safety net...")
+    for candidate in all_candidates:
+        apply_curated_safety_net(candidate)
     logger.info("")
-
-qualified_candidates = final_qualified
     
+    # DEBUG
+    logger.info(f"🔍 DEBUG: Checking scores after calculation...")
+    curated_in_candidates = [c for c in all_candidates if c.get("tracking_versions")]
+    logger.info(f"   Curated tools in all_candidates: {len(curated_in_candidates)}")
+    if curated_in_candidates:
+        sample = curated_in_candidates[0]
+        logger.info(f"   Sample curated tool: {sample.get('name')}")
+        logger.info(f"   Has buzz_score? {sample.get('buzz_score', 'MISSING')}")
+        logger.info(f"   Has vision? {sample.get('vision', 'MISSING')}")
+        logger.info(f"   Has ability? {sample.get('ability', 'MISSING')}")
+    logger.info("")
+    
+    # ===== 4. APPLY ENHANCED FILTERING =====
+    logger.info("🔍 APPLYING ENHANCED FILTERING (Claude recommendations)...")
+    qualified_candidates = filter_candidates_enhanced(all_candidates, confidence_threshold=confidence_threshold)
+    logger.info(f" ✅ After enhanced filter: {len(qualified_candidates)} qualified candidates\n")
+    
+    # Additional threshold filtering (NOW with calculated scores!)
+    final_qualified = []
+    rejected_by_threshold = []
+    
+    for c in qualified_candidates:
+        buzz = c.get('buzz_score', 0)
+        vision = c.get('vision', 0)
+        ability = c.get('ability', 0)
+        
+        if buzz >= buzz_threshold and vision >= vision_threshold and ability >= ability_threshold:
+            final_qualified.append(c)
+        else:
+            rejected_by_threshold.append({
+                "name": c.get('name'),
+                "buzz": buzz,
+                "vision": vision,
+                "ability": ability,
+                "source": c.get('source', 'unknown')
+            })
+    
+    logger.info(f" ✅ Qualified candidates (after dimension thresholds): {len(final_qualified)}")
+    
+    if final_qualified:
+        logger.info(f"    Sample scores: buzz={final_qualified[0].get('buzz_score', 0):.1f}, vision={final_qualified[0].get('vision', 0):.1f}, ability={final_qualified[0].get('ability', 0):.1f}\n")
+    
+    if rejected_by_threshold:
+        logger.warning(f"\n ⚠️  {len(rejected_by_threshold)} tools rejected by thresholds (buzz≥{buzz_threshold}, vision≥{vision_threshold}, ability≥{ability_threshold}):")
+        for r in rejected_by_threshold[:15]:  # Show first 15
+            logger.warning(f"    ❌ {r['name'][:50]:50s} | buzz={r['buzz']:4.1f} vision={r['vision']:4.1f} ability={r['ability']:4.1f} | {r['source']}")
+        if len(rejected_by_threshold) > 15:
+            logger.warning(f"    ... and {len(rejected_by_threshold) - 15} more\n")
+    else:
+        logger.info("")
+    
+    qualified_candidates = final_qualified
+        
 except Exception as e:
     logger.error(f"Error during web scraping: {e}")
     qualified_candidates = []
@@ -422,7 +424,7 @@ try:
         'total_tools': len(merged_tools),
         'new_tools_count': len(version_log.get('new_tools', [])),
         'updated_tools_count': len(version_log.get('major_updates', [])) + len(version_log.get('minor_updates', [])),
-        'version': '4.1 OPTIMIZED (FIXED) - Scoring before filtering',
+        'version': '4.1 OPTIMIZED (FIXED) - Scoring before filtering + Safety net',
         'quality_thresholds': {
             'buzz_score': buzz_threshold,
             'vision': vision_threshold,
@@ -440,6 +442,7 @@ try:
             '✅ Curated tools (39 AI leaders, always included)',
             '✅ Intelligent cost optimization',
             '🔧 FIX: Dimension scores calculated before filtering',
+            '🛡️  Safety net: Curated tools minimum 50 score guarantee',
         ],
         'cost_optimization': {
             'potential_cost': f"${(len(existing_tools) + len(qualified_candidates)) * 0.0008:.4f}",
@@ -485,7 +488,7 @@ try:
         'minor_updates': [u.get('tool') for u in version_log.get('minor_updates', [])],
         'version_updates': version_tracking_results.get('updated_tools', []),
         'total_tools': len(merged_tools),
-        'phase': 'OPTIMIZED v4.1 (FIXED) - Scoring before filtering',
+        'phase': 'OPTIMIZED v4.1 (FIXED) - Scoring before filtering + Safety net',
         'top_10_tools': [
             {
                 'name': t.get('name'),
