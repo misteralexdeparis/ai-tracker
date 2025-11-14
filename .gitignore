@@ -40,8 +40,18 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/server/node_modules 
-/server/.env 
-/server/subscribers.json"server/node_modules/" 
-"server/.env" 
-"server/subscribers.json" 
+/server/node_modules
+/server/.env
+/server/subscribers.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Scraper cache & logs
+/scraper/cache/
+/logs/
+
+# Claude
+.claude/settings.local.json
