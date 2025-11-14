@@ -127,20 +127,26 @@ def filter_candidates_enhanced(candidates, confidence_threshold=70):
     KEY FIX: Curated tools are identified by tracking_versions field (from curated_ai_tools.json)
     They ALWAYS pass, no threshold applied
     """
-    
+
     filtered = []
     rejected = {"hard_req": 0, "auto_reject": 0, "confidence": 0, "curated_pass": 0}
-    
+
     logger.info(f"\n🔍 Enhanced filtering pipeline (confidence threshold: {confidence_threshold})...\n")
-    
+
     for candidate in candidates:
         # ✨ SPECIAL: Curated tools ALWAYS pass
-        # Detection: They have tracking_versions field but NO source field
-        is_curated = candidate.get("tracking_versions") and not candidate.get("source")
-        
+        # Detection: They have tracking_versions field OR source is curated/curated_list
+        is_curated = (
+            candidate.get("tracking_versions") or
+            candidate.get("source") in ["curated", "curated_list"]
+        )
+
         if is_curated:
             # Mark it as curated for reference
-            candidate["source"] = "curated_list"
+            if not candidate.get("source"):
+                candidate["source"] = "curated_list"
+            # Set high confidence for curated tools
+            candidate["confidence_level"] = 100
             filtered.append(candidate)
             rejected["curated_pass"] += 1
             logger.debug(f"  ✅ CURATED (auto-pass): {candidate.get('name')}")

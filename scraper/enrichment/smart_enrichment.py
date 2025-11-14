@@ -101,11 +101,17 @@ def smart_enrich_tools(
     for tool in tools:
         tool_name = tool.get("name", "Unknown")
         tool_url = tool.get("url", "")
-        
+
+        # Check if this is a curated tool
+        is_curated = (
+            tool.get("tracking_versions") or
+            tool.get("source") in ["curated", "curated_list"]
+        )
+
         # STEP 1: Check cache (existing enrichment)
         cache_key = _generate_cache_key(tool_name, tool_url)
         cached_enrichment = cache_index.get(cache_key)
-        
+
         if cached_enrichment and _is_cache_valid(cached_enrichment):
             logger.info(f"  💾 Cache HIT: {tool_name}")
             # Merge cached data
@@ -114,24 +120,29 @@ def smart_enrich_tools(
             stats["cache_hits"] += 1
             stats["cost_saved"] += 0.0008  # Saved one API call
             continue
-        
+
         # STEP 2: Try free enrichment (scrapers)
         logger.info(f"  🔍 Free scraping: {tool_name}")
         free_enrichment = _enrich_with_free_scrapers(tool)
-        
+
         if free_enrichment:
             tool.update(free_enrichment)
             stats["free_enriched"] += 1
             stats["cost_saved"] += 0.0008
-        
+
         # STEP 3: Check if Perplexity needed
         missing_critical_fields = _get_missing_critical_fields(tool)
-        
-        if missing_critical_fields:
-            logger.info(f"  🤖 Needs Perplexity: {tool_name} (missing: {', '.join(missing_critical_fields)})")
+
+        # PRIORITY: Curated tools ALWAYS get Perplexity enrichment for quality scoring
+        if missing_critical_fields or is_curated:
+            if is_curated:
+                logger.info(f"  ⭐ CURATED - Force Perplexity: {tool_name}")
+            else:
+                logger.info(f"  🤖 Needs Perplexity: {tool_name} (missing: {', '.join(missing_critical_fields)})")
             perplexity_batch.append({
                 "tool": tool,
-                "missing_fields": missing_critical_fields
+                "missing_fields": missing_critical_fields,
+                "is_curated": is_curated
             })
             stats["perplexity_needed"] += 1
         else:

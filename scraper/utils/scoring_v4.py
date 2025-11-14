@@ -36,9 +36,10 @@ DIMENSION_WEIGHTS = {
 }
 
 # Source-based fallback scores (when no data available)
+# Curated tools get higher fallbacks since they're already vetted leaders
 SOURCE_FALLBACK_SCORES = {
-    "curated_list": {"buzz": 70, "vision": 75, "ability": 70},
-    "curated": {"buzz": 70, "vision": 75, "ability": 70},
+    "curated_list": {"buzz": 75, "vision": 80, "ability": 75},
+    "curated": {"buzz": 75, "vision": 80, "ability": 75},
     "official_blog": {"buzz": 65, "vision": 70, "ability": 65},
     "product_hunt": {"buzz": 60, "vision": 65, "ability": 55},
     "github_trending": {"buzz": 50, "vision": 55, "ability": 50},
@@ -49,10 +50,11 @@ SOURCE_FALLBACK_SCORES = {
 }
 
 # Minimum scores for curated tools (safety net)
+# Increased to ensure they always pass quality filters (threshold is 30)
 CURATED_MIN_SCORES = {
-    "buzz_score": 50,
-    "vision": 50,
-    "ability": 50
+    "buzz_score": 60,
+    "vision": 60,
+    "ability": 60
 }
 
 # ============================================================================

@@ -1,7 +1,61 @@
 {
-  "timestamp": "2025-11-12T11:39:05.150620",
-  "major_updates": [],
+  "timestamp": "2025-11-14T11:47:50.402552",
   "new_tools": [],
-  "minor_updates_count": 0,
-  "changelog_updates": []
+  "major_updates": [],
+  "minor_updates": [],
+  "version_updates": [],
+  "total_tools": 61,
+  "phase": "OPTIMIZED v4.1 (FIXED) - Scoring before filtering + Safety net",
+  "top_10_tools": [
+    {
+      "name": "Asana (AI)",
+      "final_score": 68.1,
+      "category": "Project Management"
+    },
+    {
+      "name": "Any.do",
+      "final_score": 68.1,
+      "category": "Task Manager / Productivity"
+    },
+    {
+      "name": "Personal AI",
+      "final_score": 68.1,
+      "category": "Knowledge Assistant"
+    },
+    {
+      "name": "DeepCode AI",
+      "final_score": 68.1,
+      "category": "Security/Coding Assistant"
+    },
+    {
+      "name": "Sudowrite",
+      "final_score": 68.1,
+      "category": "Text Generation / Content Creation"
+    },
+    {
+      "name": "WriteSonic",
+      "final_score": 68.1,
+      "category": "Text Generation / Marketing"
+    },
+    {
+      "name": "Fathom",
+      "final_score": 68.1,
+      "category": "Speech-to-Text / Meetings"
+    },
+    {
+      "name": "Jasper",
+      "final_score": 66.9,
+      "category": "Text Generation / Marketing"
+    },
+    {
+      "name": "Arc Browser",
+      "final_score": 66.9,
+      "category": "AI Browser / Search"
+    },
+    {
+      "name": "NotebookLM",
+      "final_score": 65.7,
+      "category": "Research Assistant"
+    }
+  ]
 }

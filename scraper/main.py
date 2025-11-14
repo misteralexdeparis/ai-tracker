@@ -10,8 +10,15 @@ import json
 import logging
 import sys
 import os
+import re
 import shutil
 from datetime import datetime
+
+# Fix Windows encoding for emojis
+if sys.platform == 'win32':
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 # Setup logging
 logging.basicConfig(
@@ -345,21 +352,128 @@ try:
 except Exception as e:
     logger.warning(f"Error applying overrides: {e}")
 
-# ===== 9. REMOVE LEGACY VERSIONS =====
-print("🗑️  Removing legacy versions...\n")
+# ===== 9. REMOVE LEGACY VERSIONS & DUPLICATES =====
+print("🗑️  Removing legacy versions and duplicates...\n")
+
+# Blacklist: Non-AI tools that slip through filters
+NON_AI_TOOLS_BLACKLIST = [
+    'containerd', 'nginx-proxy-manager', 'prometheus', 'alertmanager',
+    'lima', 'discordo', 'opentui', 'bettafish', 'opencloud',
+    'ktransformers', 'go-sdk', 'trendradar', 'nocobase'
+]
+
+def is_non_ai_tool(name):
+    """Check if tool name matches non-AI infrastructure tools"""
+    name_lower = name.lower()
+    for blacklisted in NON_AI_TOOLS_BLACKLIST:
+        if blacklisted in name_lower:
+            return True
+    return False
+
+def normalize_tool_name(name):
+    """
+    Normalize tool name for duplicate detection
+    Handles versions, suffixes, and brand variations
+    """
+    normalized = name.lower().strip()
+
+    # Remove common suffixes
+    normalized = re.sub(r'\s+(ai|api|app|platform|tool|suite|studio|voice|chat|assistant|developer|legacy|pro|free|premium)$', '', normalized, flags=re.IGNORECASE)
+
+    # Remove version patterns: v1, v2, v7, V1, V2, etc.
+    normalized = re.sub(r'\s+v\d+(\.\d+)*$', '', normalized, flags=re.IGNORECASE)
+
+    # Remove version in parentheses: (v1), (V2), etc.
+    normalized = re.sub(r'\s*\([vV]?\d+(\.\d+)*\)$', '', normalized)
+
+    # Remove trailing version numbers: "Tool 2.0" -> "tool", "GPT-5" -> "gpt"
+    normalized = re.sub(r'[-\s]+\d+(\.\d+)*$', '', normalized)
+
+    # Remove "Gen-X" or "GenX" patterns (e.g., "Gen-3", "gen 3")
+    normalized = re.sub(r'\s+gen[-\s]?\d+$', '', normalized, flags=re.IGNORECASE)
+
+    # Remove model variants (e.g., "Sonnet", "Pro", "Plus")
+    normalized = re.sub(r'\s+(sonnet|opus|haiku|pro|plus|ultra|turbo|max)$', '', normalized, flags=re.IGNORECASE)
+
+    # Normalize GPT variants
+    if 'gpt' in normalized or 'chatgpt' in normalized:
+        normalized = 'chatgpt'
+
+    # Normalize Gemini variants
+    if 'gemini' in normalized:
+        normalized = 'google gemini'
+
+    # Normalize Claude variants
+    if 'claude' in normalized and 'anthropic' not in normalized:
+        normalized = 'claude'
+
+    # Normalize Llama variants
+    if 'llama' in normalized:
+        normalized = 'meta ai (llama)'
+
+    return normalized
 
 try:
-    # Keep only latest version of each tool
-    tool_names_seen = {}
-    final_tools = []
-    for tool in reversed(merged_tools):
+    # Keep only latest version of each tool (smart deduplication)
+    # Priority: curated_list > github_trending > other sources
+    tool_names_seen = {}  # normalized_name -> tool
+    duplicates_removed = []
+    non_ai_removed = []
+
+    for tool in merged_tools:
         name = tool['name']
-        if name not in tool_names_seen:
-            tool_names_seen[name] = True
-            final_tools.append(tool)
-    final_tools.reverse()
+
+        # Filter out non-AI tools (unless curated)
+        if tool.get('source') != 'curated_list' and is_non_ai_tool(name):
+            non_ai_removed.append(name)
+            logger.debug(f"  🗑️  Removed non-AI tool: {name}")
+            continue
+
+        normalized_name = normalize_tool_name(name)
+        source = tool.get('source', 'unknown')
+
+        if normalized_name not in tool_names_seen:
+            # First time seeing this tool
+            tool_names_seen[normalized_name] = tool
+        else:
+            # Duplicate detected - decide which one to keep
+            existing_tool = tool_names_seen[normalized_name]
+            existing_source = existing_tool.get('source', 'unknown')
+
+            # Priority: curated_list > github_trending > other
+            source_priority = {'curated_list': 3, 'github_trending': 2, 'unknown': 1}
+            existing_priority = source_priority.get(existing_source, 0)
+            new_priority = source_priority.get(source, 0)
+
+            if new_priority > existing_priority:
+                # Replace with higher priority tool
+                duplicates_removed.append(f"{existing_tool['name']} (replaced by {name} - higher priority)")
+                tool_names_seen[normalized_name] = tool
+                logger.debug(f"  🔄 Replaced {existing_tool['name']} with {name} (better source)")
+            else:
+                # Keep existing, reject new
+                duplicates_removed.append(f"{name} (duplicate of {existing_tool['name']})")
+                logger.debug(f"  🗑️  Removed duplicate: {name}")
+
+    final_tools = list(tool_names_seen.values())
     merged_tools = final_tools
-    logger.info(f" ✅ Deduplicated to {len(merged_tools)} tools\n")
+
+    logger.info(f" ✅ Deduplicated to {len(merged_tools)} tools")
+
+    if non_ai_removed:
+        logger.info(f" 🗑️  Removed {len(non_ai_removed)} non-AI tools (infrastructure):")
+        for name in non_ai_removed[:5]:
+            logger.info(f"    - {name}")
+        if len(non_ai_removed) > 5:
+            logger.info(f"    ... and {len(non_ai_removed) - 5} more")
+
+    if duplicates_removed:
+        logger.info(f" 🗑️  Removed {len(duplicates_removed)} duplicates:")
+        for dup in duplicates_removed[:10]:
+            logger.info(f"    - {dup}")
+        if len(duplicates_removed) > 10:
+            logger.info(f"    ... and {len(duplicates_removed) - 10} more")
+    logger.info("")
 except Exception as e:
     logger.warning(f"Error removing legacy versions: {e}")
 

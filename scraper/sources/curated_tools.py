@@ -39,18 +39,26 @@ def get_curated_tools(config=None):
     Get curated tools with version tracking
     Integrates with version_tracker for automatic updates
     """
-    
+
     curated = load_curated_tools()
-    
+
     if not curated:
         logger.warning("⚠️  No curated tools loaded")
         return []
-    
+
+    # IMPORTANT: Mark ALL curated tools with source="curated_list"
+    # This ensures they bypass all quality filters
+    for tool in curated:
+        tool["source"] = "curated_list"
+        # If no URL, use official_url as fallback
+        if not tool.get("url"):
+            tool["url"] = tool.get("official_url", "")
+
     try:
         from sources.version_tracker import track_tool_version, compare_versions
-        
+
         logger.info(f"🔍 Checking versions for {len(curated)} curated tools...")
-        
+
         for tool in curated:
             if not tool.get("tracking_versions"):
                 continue
