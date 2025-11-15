@@ -35,7 +35,7 @@
     {
       "name": "Asana (AI)",
       "publisher": "Asana",
-      "category": "Project Management",
+      "category": "Productivity & Task Management",
       "official_url": "https://asana.com/features/ai",
       "release_notes_url": "",
       "docs_url": "https://help.asana.com/hc/en-us/articles/18677617370775-Asana-s-AI-Features",
@@ -49,8 +49,8 @@
       "source": "curated_list",
       "url": "https://asana.com/features/ai",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 70,
+      "ability": 68,
       "confidence_level": 100,
       "description": "Asana AI enhances project management with task summarization, automation, and workflow optimization to improve team productivity.",
       "pricing": "Freemium",
@@ -84,12 +84,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Any.do",
       "publisher": "Any.do",
-      "category": "Task Manager / Productivity",
+      "category": "Productivity & Task Management",
       "official_url": "https://www.any.do/ai/",
       "release_notes_url": "",
       "docs_url": "https://support.any.do/hc/en-us",
@@ -103,8 +103,8 @@
       "source": "curated_list",
       "url": "https://www.any.do/ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 65,
+      "ability": 67,
       "confidence_level": 100,
       "description": "Any.do is a task management app that organizes to-do lists, calendars, reminders, and collaboration across devices with AI-powered assistance.",
       "pricing": "Freemium",
@@ -138,12 +138,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Personal AI",
       "publisher": "Personal AI",
-      "category": "Knowledge Assistant",
+      "category": "Knowledge Management",
       "official_url": "https://www.personal.ai/",
       "release_notes_url": "",
       "docs_url": "https://help.personal.ai/",
@@ -157,8 +157,8 @@
       "source": "curated_list",
       "url": "https://www.personal.ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 66,
+      "ability": 64,
       "confidence_level": 100,
       "description": "Personal AI is the Small Language Model platform engineered for scaled experiences that are private, programmable, and precise.",
       "pricing": "Freemium with flexible paid plans including enterprise options",
@@ -192,12 +192,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "DeepCode AI",
       "publisher": "Snyk",
-      "category": "Security/Coding Assistant",
+      "category": "AI Coding Assistant",
       "official_url": "https://snyk.io/deepcode/",
       "release_notes_url": "",
       "docs_url": "",
@@ -212,8 +212,8 @@
       "source": "curated_list",
       "url": "https://snyk.io/deepcode/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 70,
+      "ability": 74,
       "confidence_level": 100,
       "description": "DeepCode AI code autofix empowers developers with efficient & accurate AppSec solutions. Book a demo to try the fastest AI code review tool on the market.",
       "pricing": "Freemium",
@@ -247,12 +247,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Sudowrite",
       "publisher": "Sudowrite",
-      "category": "Text Generation / Content Creation",
+      "category": "Content Creation",
       "official_url": "https://www.sudowrite.com/",
       "release_notes_url": "",
       "docs_url": "",
@@ -267,8 +267,8 @@
       "source": "curated_list",
       "url": "https://www.sudowrite.com/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 72,
+      "ability": 70,
       "confidence_level": 100,
       "description": "Write your novel faster with the best AI tool for fiction. Start for free today and see why The New Yorker calls it \"a salvation\" for writers and why The New York Times, The Verge, and many more love Sudowrite.",
       "pricing": "Freemium (free trial) with three paid subscription tiers: Hobby & Student (~$10-$19/month), Professional (~$22-$29/month), and Max (~$44-$59/month, custom for enterprise)",
@@ -302,12 +302,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "WriteSonic",
       "publisher": "WriteSonic",
-      "category": "Text Generation / Marketing",
+      "category": "Marketing Content",
       "official_url": "https://writesonic.com/",
       "release_notes_url": "",
       "docs_url": "https://docs.writesonic.com/",
@@ -322,8 +322,8 @@
       "source": "curated_list",
       "url": "https://writesonic.com/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 68,
+      "ability": 70,
       "confidence_level": 100,
       "description": "Track AI visibility across ChatGPT and 10+ AI platforms. Monitor mentions, fix citation gaps, create and refresh content, target Reddit & UGC forums. Complete GEO platform from tracking to action to results.",
       "pricing": "Freemium",
@@ -357,12 +357,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Fathom",
       "publisher": "Fathom",
-      "category": "Speech-to-Text / Meetings",
+      "category": "Meeting Assistant",
       "official_url": "https://fathom.video/",
       "release_notes_url": "",
       "docs_url": "https://fathom.video/help",
@@ -377,8 +377,8 @@
       "source": "curated_list",
       "url": "https://fathom.video/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 70,
+      "ability": 72,
       "confidence_level": 100,
       "description": "Fathom is an AI meeting assistant that records, transcribes, and summarizes online meetings with multi-speaker support and natural language search.",
       "pricing": "Freemium",
@@ -412,12 +412,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "AIVA",
       "publisher": "AIVA Technologies",
-      "category": "Music Generation",
+      "category": "Audio Generation",
       "official_url": "https://www.aiva.ai/",
       "release_notes_url": "",
       "docs_url": "",
@@ -431,8 +431,8 @@
       "source": "curated_list",
       "url": "https://www.aiva.ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 70,
+      "ability": 68,
       "confidence_level": 100,
       "description": "AIVA, your AI music generation assistant",
       "pricing": "Freemium (Free plan with 3 downloads/month for non-commercial use; Standard plan €11/month annually billed for limited monetization; Pro plan €33/month annually billed for full copyright ownership and unrestricted monetization)",
@@ -466,12 +466,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Motion",
       "publisher": "Motion",
-      "category": "Productivity / Task Management",
+      "category": "Productivity & Task Management",
       "official_url": "https://www.usemotion.com/",
       "release_notes_url": "",
       "docs_url": "",
@@ -486,8 +486,8 @@
       "source": "curated_list",
       "url": "https://www.usemotion.com/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 66,
+      "ability": 68,
       "confidence_level": 100,
       "description": "Meet the worldâs 1st platform for managing human + AI Employees. Hire AI teammates in minutes to do work across sales, support, ops, and more.",
       "pricing": "Freemium with multiple paid tiers including Individual ($19/month billed annually), Team ($12/user/month billed annually), and Enterprise (custom pricing)",
@@ -522,7 +522,7 @@
         ]
       },
       "version_updated_at": "2025-11-14T11:45:21.951229",
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Mem",
@@ -542,8 +542,8 @@
       "source": "curated_list",
       "url": "https://mem.ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 68,
+      "ability": 65,
       "confidence_level": 100,
       "description": "Let AI organize your team’s work—from meeting notes, projects, to knowledge bases. All instantly searchable and readily discoverable.",
       "pricing": "Freemium with a free plan and paid plans starting at $8 to $15 per month, including Mem Pro at $12/month and Mem X at $8-$14.99/month, plus custom pricing for teams",
@@ -578,12 +578,12 @@
         ]
       },
       "version_updated_at": "2025-11-14T11:45:21.951247",
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Tabnine",
       "publisher": "Tabnine",
-      "category": "Coding Assistant",
+      "category": "AI Coding Assistant",
       "official_url": "https://www.tabnine.com/",
       "release_notes_url": "",
       "docs_url": "https://docs.tabnine.com/",
@@ -598,8 +598,8 @@
       "source": "curated_list",
       "url": "https://www.tabnine.com/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 68,
+      "ability": 72,
       "confidence_level": 100,
       "description": "Tabnine is the AI code assistant that accelerates and simplifies software development while keeping your code private, secure, and compliant.",
       "pricing": "Freemium (free version with limited completions; full AI features from $12/user/month; Enterprise pricing custom and undisclosed)",
@@ -634,14 +634,14 @@
         ]
       },
       "version_updated_at": "2025-11-14T11:45:21.951263",
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Synthesia",
       "official_url": "https://www.synthesia.io/",
       "twitter_handle": "@synthesia_io",
       "category": "Video Generation",
-      "vision": 80,
+      "vision": 78,
       "ability": 75,
       "buzz_score": 75,
       "quadrant": "Visionary",
@@ -716,7 +716,7 @@
     {
       "name": "Jasper",
       "publisher": "Jasper",
-      "category": "Text Generation / Marketing",
+      "category": "Marketing Content",
       "official_url": "https://www.jasper.ai/",
       "release_notes_url": "",
       "docs_url": "https://help.jasper.ai/",
@@ -731,8 +731,8 @@
       "source": "curated_list",
       "url": "https://www.jasper.ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 70,
+      "ability": 72,
       "confidence_level": 100,
       "description": "Jasper is the AI marketing platform that unifies your brand experience, accelerates content velocity, and automates marketing processesâat scale.",
       "pricing": "Paid with tiered subscription plans: Creator ($39-$49/month), Pro ($59-$69/month), and Business (custom pricing)",
@@ -766,12 +766,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Arc Browser",
       "publisher": "The Browser Company",
-      "category": "AI Browser / Search",
+      "category": "AI Search",
       "official_url": "https://arc.net/ai",
       "release_notes_url": "",
       "docs_url": "",
@@ -786,8 +786,8 @@
       "source": "curated_list",
       "url": "https://arc.net/ai",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 74,
+      "ability": 72,
       "confidence_level": 100,
       "description": "Arc Browser is a Chromium-based browser focused on productivity, privacy, and AI-powered tools for smarter web browsing and multitasking.",
       "pricing": "Freemium",
@@ -821,12 +821,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Cursor",
       "publisher": "Cursor",
-      "category": "AI Coding Editor",
+      "category": "AI Code Editor",
       "official_url": "https://www.cursor.so/",
       "release_notes_url": "",
       "docs_url": "",
@@ -842,7 +842,7 @@
       "url": "https://www.cursor.so/",
       "buzz_score": 75,
       "vision": 80,
-      "ability": 75,
+      "ability": 85,
       "confidence_level": 100,
       "description": "Built to make you extraordinarily productive, Cursor is the best way to code with AI.",
       "pricing": "Freemium with multiple paid tiers including Pro ($20/month), Pro+ ($60/month), Ultra ($200/month), Teams ($40/user/month), and custom Enterprise pricing",
@@ -883,8 +883,8 @@
       "official_url": "https://notebooklm.google.com/",
       "twitter_handle": "@GoogleNotebook",
       "category": "Research Assistant",
-      "vision": 80,
-      "ability": 75,
+      "vision": 75,
+      "ability": 78,
       "buzz_score": 75,
       "quadrant": "Challenger",
       "status": "active",
@@ -973,8 +973,8 @@
       "source": "curated_list",
       "url": "https://deepresearch.ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 76,
+      "ability": 72,
       "confidence_level": 100,
       "description": "An AI-powered research agent that autonomously searches hundreds of websites, analyzes information, and generates comprehensive multi-page reports in minutes by breaking down complex research tasks.",
       "pricing": "Freemium",
@@ -1008,12 +1008,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "Canva Magic Studio",
       "publisher": "Canva",
-      "category": "Design / Image / Video",
+      "category": "Image & Video Generation",
       "official_url": "https://www.canva.com/magic-studio/",
       "release_notes_url": "",
       "docs_url": "https://www.canva.com/help/",
@@ -1028,8 +1028,8 @@
       "source": "curated_list",
       "url": "https://www.canva.com/magic-studio/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 76,
+      "ability": 78,
       "confidence_level": 100,
       "description": "Canva Magic Studio is an AI-powered suite that accelerates design tasks like text generation, image editing, and template creation within Canva.",
       "pricing": "Freemium",
@@ -1068,7 +1068,7 @@
     {
       "name": "Suno",
       "publisher": "Suno",
-      "category": "Music Generation",
+      "category": "Audio Generation",
       "official_url": "https://suno.ai/",
       "release_notes_url": "",
       "docs_url": "",
@@ -1083,8 +1083,8 @@
       "source": "curated_list",
       "url": "https://suno.ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 82,
+      "ability": 78,
       "confidence_level": 100,
       "description": "Create stunning original music for free in seconds using AI. Make your own masterpieces, share with friends, and discover music from artists worldwide.",
       "pricing": "Freemium (Free Basic Plan with limited credits and non-commercial use; Paid Pro and Premier Plans with monthly subscriptions and commercial rights)",
@@ -1123,7 +1123,7 @@
     {
       "name": "Hubspot Email Writer",
       "publisher": "Hubspot",
-      "category": "Email/CRM Assistant",
+      "category": "CRM & Email Assistant",
       "official_url": "https://www.hubspot.com/products/ai/email-writer",
       "release_notes_url": "",
       "docs_url": "",
@@ -1138,8 +1138,8 @@
       "source": "curated_list",
       "url": "https://www.hubspot.com/products/ai/email-writer",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 68,
+      "ability": 70,
       "confidence_level": 100,
       "description": "HubSpot Email Writer is an AI-powered tool integrated in HubSpot's Marketing Hub that automates personalized email copywriting to speed up campaign creation.",
       "pricing": "Paid (part of Marketing Hub Professional and above, starting around $800/month plus onboarding fees)",
@@ -1173,12 +1173,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Google AI Mode",
       "publisher": "Google",
-      "category": "AI Powered Search",
+      "category": "AI Search",
       "official_url": "https://www.google.com/search",
       "release_notes_url": "",
       "docs_url": "",
@@ -1192,7 +1192,7 @@
       "source": "curated_list",
       "url": "https://www.google.com/search",
       "buzz_score": 75,
-      "vision": 80,
+      "vision": 72,
       "ability": 75,
       "confidence_level": 100,
       "description": "Google's most powerful AI search experience integrated into Google Search that uses Gemini 2.5 to synthesize comprehensive answers from across the web through conversational interaction.",
@@ -1227,7 +1227,7 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Challenger"
     },
     {
       "name": "Lovable",
@@ -1235,9 +1235,9 @@
       "twitter_handle": "@lovable_dev",
       "discord_server": "https://discord.gg/lovable",
       "reddit": "r/webdev",
-      "category": "No-code / Automation",
-      "vision": 80,
-      "ability": 75,
+      "category": "Automation & No-code",
+      "vision": 72,
+      "ability": 68,
       "buzz_score": 75,
       "quadrant": "Leader",
       "status": "active",
@@ -1328,12 +1328,12 @@
       "url": "https://lovable.ai/",
       "confidence_level": 100,
       "last_updated": "2025-11-14T11:35:05.829364",
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "n8n",
       "publisher": "n8n",
-      "category": "Automation / No-code",
+      "category": "Automation & No-code",
       "official_url": "https://n8n.io/",
       "release_notes_url": "https://docs.n8n.io/changelog/",
       "docs_url": "https://docs.n8n.io/",
@@ -1348,8 +1348,8 @@
       "version_metadata": {},
       "needs_major_review": false,
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 76,
+      "ability": 74,
       "source": "curated_list",
       "description": "n8n is a workflow automation platform that uniquely combines AI capabilities with business process automation, giving technical teams the flexibility of code with the speed of no-code.",
       "pricing": "Freemium",
@@ -1400,12 +1400,12 @@
       ],
       "url": "https://n8n.io/",
       "confidence_level": 100,
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "Runway",
       "publisher": "Runway",
-      "category": "Video/Image Generation",
+      "category": "Image & Video Generation",
       "official_url": "https://runwayml.com/",
       "release_notes_url": "https://updates.runwayml.com/",
       "docs_url": "https://learn.runwayml.com/",
@@ -1418,8 +1418,8 @@
       "last_known_version": "Gen-4 (May 2025)",
       "update_check_method": "release_notes",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 82,
+      "ability": 80,
       "source": "curated_list",
       "description": "Generate images and video with AI. Text to video, image to video, plus more. Runway's AI image and video generation tools trusted by millions worldwide",
       "pricing": "Freemium with tiered paid plans (Free, Standard, Pro, Unlimited, Enterprise) based on monthly credits and features",
@@ -1475,7 +1475,7 @@
     {
       "name": "Otter",
       "publisher": "Otter.ai",
-      "category": "Speech-to-Text / Meetings",
+      "category": "Meeting Assistant",
       "official_url": "https://otter.ai/",
       "release_notes_url": "https://blog.otter.ai/",
       "docs_url": "https://help.otter.ai/",
@@ -1488,8 +1488,8 @@
       "last_known_version": "3.70.8 (Nov 2025)",
       "update_check_method": "blog",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 74,
+      "ability": 76,
       "source": "curated_list",
       "description": "Otter AI Meeting Agent supports real-time transcription, live chat, automated summaries, insights, and action items.",
       "pricing": "Freemium",
@@ -1540,12 +1540,12 @@
       ],
       "url": "https://otter.ai/",
       "confidence_level": 100,
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Challenger"
     },
     {
       "name": "Notion AI",
       "publisher": "Notion",
-      "category": "Knowledge Management / Productivity",
+      "category": "Knowledge Management",
       "official_url": "https://www.notion.so/product/ai",
       "release_notes_url": "https://www.notion.so/releases",
       "docs_url": "https://www.notion.so/help/guides/notion-ai",
@@ -1565,8 +1565,8 @@
       },
       "needs_major_review": false,
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 72,
+      "ability": 70,
       "source": "curated_list",
       "description": "One tool that does it all. Search, generate, analyze, and chat—right inside Notion.",
       "pricing": "Freemium with AI included in Business ($20/user/month annually) and Enterprise (custom pricing) plans; Free and Plus plans have limited AI trial access",
@@ -1617,12 +1617,12 @@
       ],
       "url": "https://www.notion.so/product/ai",
       "confidence_level": 100,
-      "gartner_quadrant": "Leader"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Manus",
       "publisher": "Manus Labs",
-      "category": "App Builder",
+      "category": "Automation & No-code",
       "official_url": "https://www.manus.ai/",
       "release_notes_url": "",
       "docs_url": "",
@@ -1636,8 +1636,8 @@
       "source": "curated_list",
       "url": "https://www.manus.ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 66,
+      "ability": 64,
       "confidence_level": 100,
       "description": "Manus is the action engine that goes beyond answers to execute tasks, automate workflows, and extend your human reach.",
       "pricing": "Freemium with paid tiers (Basic $19/month, Plus $39/month, Pro $199/month, Custom Enterprise)",
@@ -1670,12 +1670,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "Fyxer",
       "publisher": "Fyxer",
-      "category": "CRM / Email Automation",
+      "category": "CRM & Email Assistant",
       "official_url": "https://www.fyxer.com/",
       "release_notes_url": "",
       "docs_url": "",
@@ -1690,8 +1690,8 @@
       "source": "curated_list",
       "url": "https://www.fyxer.com/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 65,
+      "ability": 66,
       "confidence_level": 100,
       "description": "Fyxer connects to your inbox to draft replies, organise messages, and handle follow-ups in your voice.",
       "pricing": "Paid",
@@ -1724,12 +1724,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "ChatGPT",
       "publisher": "OpenAI",
-      "category": "Chatbot / Productivity",
+      "category": "Productivity & Task Management",
       "official_url": "https://chat.openai.com/",
       "release_notes_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "docs_url": "https://platform.openai.com/docs/",
@@ -1742,8 +1742,8 @@
       "last_known_version": "5.1",
       "update_check_method": "release_notes",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 90,
+      "ability": 95,
       "source": "curated_list",
       "description": "ChatGPT is a conversational AI assistant developed by OpenAI that generates human-like text responses for writing, coding, summarization, and learning tasks with multimodal input capabilities.",
       "pricing": "Freemium",
@@ -1794,7 +1794,7 @@
       ],
       "url": "https://chat.openai.com/",
       "confidence_level": 100,
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "Perplexity",
@@ -1812,8 +1812,8 @@
       "last_known_version": "v3+ (late 2025)",
       "update_check_method": "release_notes",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 78,
+      "ability": 82,
       "source": "curated_list",
       "description": "An AI-powered search engine that uses large language models to generate concise, accurate answers to questions with sources and citations by searching the web in real time.",
       "pricing": "Freemium",
@@ -1864,7 +1864,7 @@
       ],
       "url": "https://www.perplexity.ai/",
       "confidence_level": 100,
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "Midjourney",
@@ -1884,8 +1884,8 @@
       "source": "curated_list",
       "url": "https://www.midjourney.com/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 85,
+      "ability": 88,
       "confidence_level": 100,
       "description": "Midjourney is an AI tool that generates high-quality, artistic images from text prompts, known for its creative style and community-driven platform.",
       "pricing": "Paid",
@@ -1919,12 +1919,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "Fireflies.ai",
       "publisher": "Fireflies.ai",
-      "category": "Speech-to-Text / Meetings",
+      "category": "Meeting Assistant",
       "official_url": "https://fireflies.ai/",
       "release_notes_url": "",
       "docs_url": "https://help.fireflies.ai/en/",
@@ -1939,8 +1939,8 @@
       "source": "curated_list",
       "url": "https://fireflies.ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 75,
+      "vision": 72,
+      "ability": 74,
       "confidence_level": 100,
       "description": "Fireflies uses generative AI to bring ChatGPT to meetings. Generate transcripts and smart summaries for Zoom, Google Meet, Microsoft Teams, Webex and several other platforms.",
       "pricing": "Freemium",
@@ -1974,15 +1974,15 @@
         ]
       },
       "version_updated_at": "2025-11-14T11:45:21.951279",
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Niche Player"
     },
     {
       "name": "GitHub Copilot",
       "official_url": "https://github.com/features/copilot",
       "twitter_handle": "@github",
-      "category": "Coding Assistant",
-      "vision": 80,
-      "ability": 60,
+      "category": "AI Coding Assistant",
+      "vision": 85,
+      "ability": 90,
       "buzz_score": 75,
       "quadrant": "Leader",
       "status": "active",
@@ -2054,12 +2054,12 @@
       "source": "curated_list",
       "url": "https://github.com/features/copilot",
       "confidence_level": 100,
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "ElevenLabs",
       "publisher": "ElevenLabs",
-      "category": "Voice Generation",
+      "category": "Audio Generation",
       "official_url": "https://elevenlabs.io/",
       "release_notes_url": "https://blog.elevenlabs.io/",
       "docs_url": "",
@@ -2073,7 +2073,7 @@
       "update_check_method": "blog",
       "buzz_score": 75,
       "vision": 80,
-      "ability": 60,
+      "ability": 82,
       "source": "curated_list",
       "description": "Create lifelike speech with our AI voice generator and voice agents platform. Access 5,000+ voices in 70+ languages with secure APIs and SDKs.",
       "pricing": "Freemium",
@@ -2124,12 +2124,12 @@
       ],
       "url": "https://elevenlabs.io/",
       "confidence_level": 100,
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "Meta AI (Llama)",
       "publisher": "Meta",
-      "category": "Chatbot / Productivity",
+      "category": "Productivity & Task Management",
       "official_url": "https://www.meta.ai/",
       "release_notes_url": "",
       "docs_url": "https://ai.meta.com/research/",
@@ -2142,8 +2142,8 @@
       "last_known_version": "Llama 3.3",
       "update_check_method": "blog",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 82,
+      "ability": 85,
       "source": "curated_list",
       "description": "Use Meta AI assistant to get things done, create AI-generated images for free, and get answers to any of your questions. Meta AI is built on Meta's...",
       "pricing": "Paid",
@@ -2194,12 +2194,12 @@
       ],
       "url": "https://www.meta.ai/",
       "confidence_level": 100,
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "Google Gemini",
       "publisher": "Google",
-      "category": "Chatbot / Productivity",
+      "category": "Productivity & Task Management",
       "official_url": "https://gemini.google.com/",
       "release_notes_url": "https://workspaceupdates.googleblog.com/search/label/Gemini%20AI",
       "docs_url": "https://support.google.com/gemini/answer/13594914?hl=fr",
@@ -2212,8 +2212,8 @@
       "last_known_version": "2.5 Pro / 2.5 Flash",
       "update_check_method": "release_notes",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 87,
+      "ability": 88,
       "source": "curated_list",
       "description": "Google's family of multimodal AI models that understand and generate text, images, audio, video, and code with sophisticated reasoning capabilities.",
       "pricing": "Freemium",
@@ -2264,12 +2264,12 @@
       ],
       "url": "https://gemini.google.com/",
       "confidence_level": 100,
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "JetBrains AI Assistant",
       "publisher": "JetBrains",
-      "category": "Coding Assistant",
+      "category": "AI Coding Assistant",
       "official_url": "https://www.jetbrains.com/ai/",
       "release_notes_url": "https://www.jetbrains.com/ai/whatsnew/",
       "docs_url": "",
@@ -2282,8 +2282,8 @@
       "last_known_version": "2025.1",
       "update_check_method": "release_notes",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 74,
+      "ability": 80,
       "source": "curated_list",
       "description": "Transform your business with JetBrains AI solutions and services, including integrated AI tools and software development expertise.",
       "pricing": "Freemium (AI Free tier available; paid tiers: AI Pro at $10/month or $100/year, AI Ultimate at $30/month or $300/year, AI Enterprise with custom pricing)",
@@ -2342,7 +2342,7 @@
     {
       "name": "Claude",
       "publisher": "Anthropic",
-      "category": "Chatbot / Productivity",
+      "category": "Productivity & Task Management",
       "official_url": "https://claude.ai/",
       "release_notes_url": "https://claude.ai/release-notes",
       "docs_url": "",
@@ -2356,8 +2356,8 @@
       "source": "curated_list",
       "url": "https://claude.ai/",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 88,
+      "ability": 92,
       "confidence_level": 100,
       "description": "Claude is a next-generation AI assistant created by Anthropic, designed to be helpful, honest, and harmless. It uses large language models to process text, audio, and visual inputs for various tasks.",
       "pricing": "Freemium",
@@ -2391,12 +2391,12 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "Sourcegraph Cody",
       "publisher": "Sourcegraph",
-      "category": "Coding Assistant",
+      "category": "AI Coding Assistant",
       "official_url": "https://about.sourcegraph.com/cody",
       "release_notes_url": "https://sourcegraph.com/blog/tags/changelog",
       "docs_url": "",
@@ -2412,8 +2412,8 @@
       "version_metadata": {},
       "needs_major_review": true,
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 60,
+      "vision": 70,
+      "ability": 75,
       "source": "curated_list",
       "description": "Cody is the most powerful and accurate AI coding assistant for writing, fixing, and maintaining code",
       "pricing": "Freemium with usage-based and enterprise licensing options; includes free plan for light usage and enterprise plans with custom pricing",
@@ -2470,7 +2470,7 @@
       "name": "Bolt.new",
       "official_url": "https://bolt.new",
       "twitter_handle": "@bolt_new",
-      "category": "AI Coding",
+      "category": "AI Coding Assistant",
       "vision": 73,
       "ability": 77,
       "buzz_score": 75,
@@ -2510,7 +2510,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Challenger"
     },
     {
       "name": "DALL-E 3",
@@ -2556,7 +2556,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Challenger"
     },
     {
       "name": "Sora 2",
@@ -2627,7 +2627,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "Runway Gen-3",
@@ -2673,13 +2673,13 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "AWS Q Developer",
       "official_url": "https://aws.amazon.com/q/developer",
       "twitter_handle": "@AWScloud",
-      "category": "AI Coding",
+      "category": "AI Coding Assistant",
       "vision": 48,
       "ability": 79,
       "buzz_score": 64,
@@ -2719,7 +2719,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Challenger"
     },
     {
       "name": "Veo 3",
@@ -2765,13 +2765,13 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "Windsurf",
       "official_url": "https://codeium.com/windsurf",
       "twitter_handle": "@codeium",
-      "category": "AI Coding",
+      "category": "AI Coding Assistant",
       "vision": 76,
       "ability": 48,
       "buzz_score": 62,
@@ -2811,7 +2811,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "Groq LPU",
@@ -2999,7 +2999,7 @@
       "name": "Kimi Chat",
       "official_url": "https://kimi.moonshot.cn",
       "twitter_handle": "@kimichat_cn",
-      "category": "LLM",
+      "category": "LLM Platform",
       "vision": 45,
       "ability": 68,
       "buzz_score": 57,
@@ -3045,7 +3045,7 @@
       "name": "Mistral Large",
       "official_url": "https://mistral.ai",
       "twitter_handle": "@MistralAI",
-      "category": "LLM",
+      "category": "LLM Platform",
       "vision": 44,
       "ability": 69,
       "buzz_score": 57,
@@ -3091,7 +3091,7 @@
       "name": "Grok 4",
       "official_url": "https://grok.com",
       "twitter_handle": "@xAI",
-      "category": "LLM",
+      "category": "LLM Platform",
       "vision": 72,
       "ability": 42,
       "buzz_score": 57,
@@ -3137,7 +3137,7 @@
       "name": "DeepSeek R1",
       "official_url": "https://deepseek.com",
       "twitter_handle": "@deepseek_ai",
-      "category": "LLM",
+      "category": "LLM Platform",
       "vision": 64,
       "ability": 42,
       "buzz_score": 53,
@@ -3378,7 +3378,7 @@
       "name": "Riffusion",
       "official_url": "https://www.riffusion.com",
       "twitter_handle": "@riffusionai",
-      "category": "Audio",
+      "category": "Audio Generation",
       "vision": 40,
       "ability": 35,
       "buzz_score": 38,
@@ -3424,7 +3424,7 @@
       "name": "CodeWhisperer Legacy",
       "official_url": "https://aws.amazon.com/codewhisperer",
       "twitter_handle": "@AWScloud",
-      "category": "AI Coding",
+      "category": "AI Coding Assistant",
       "vision": 30,
       "ability": 45,
       "buzz_score": 38,

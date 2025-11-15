@@ -237,7 +237,7 @@ export function calculateCompatibilityScore(
     }
 
     if (totalWeight > 0) {
-      score += (useCaseScore / totalWeight) * 0.6;
+      score += (useCaseScore / totalWeight) * 60; // 60% of total score
     }
   }
 
@@ -431,4 +431,124 @@ export async function matchToolsToQuery(query: string): Promise<Array<{
     matchScore: match.compatibilityScore,
     matchReasons: match.reasoning ? [match.reasoning] : []
   }));
+}
+
+/**
+ * Smart AI-powered search with automatic fallback to local search
+ * Cost: ~$0.005-0.01 per search
+ * Falls back to matchToolsToQuery if AI fails
+ */
+export async function matchToolsToQuerySmart(query: string): Promise<{
+  results: Array<{
+    tool: Tool;
+    matchScore: number;
+    matchReasons: string[];
+  }>;
+  mode: 'ai-powered' | 'fallback';
+  aiReasoning?: string;
+}> {
+  try {
+    // Try AI-powered search first
+    const response = await fetch('/api/smart-search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      throw new Error('AI search failed, using fallback');
+    }
+
+    // Load tools and enrichments
+    const toolsResponse = await fetch('/ai_tracker_enhanced.json');
+    const toolsData = await toolsResponse.json();
+    const tools: Tool[] = toolsData.tools || [];
+
+    const enrichmentsResponse = await fetch('/use_cases_enrichment.json');
+    const enrichments: Record<string, ToolEnrichment> = await enrichmentsResponse.json();
+
+    const { criteria } = data;
+
+    // Apply AI-extracted constraints
+    let filteredTools = tools.filter(tool => {
+      // Exclude explicitly excluded tools
+      if (criteria.excludeTools.includes(tool.name)) {
+        return false;
+      }
+
+      // Filter by coding level
+      const enrichment = enrichments[tool.name];
+      if (criteria.constraints.codingLevel && enrichment) {
+        const toolCodingLevel = enrichment.technical_profile?.coding_level;
+
+        // If user wants no-code, exclude developer/expert tools
+        if (criteria.constraints.codingLevel === 'no-code' &&
+            (toolCodingLevel === 'developer' || toolCodingLevel === 'expert')) {
+          return false;
+        }
+
+        // If user is expert developer, deprioritize no-code tools
+        if (criteria.constraints.codingLevel === 'expert' &&
+            toolCodingLevel === 'no-code') {
+          return false;
+        }
+      }
+
+      return true;
+    });
+
+    // Build smart user requirements
+    const userRequirements: UserRequirements = {
+      text_input: query,
+      use_cases: criteria.useCases.reduce((acc, uc) => {
+        acc[uc] = 'high';
+        return acc;
+      }, {} as Record<string, 'high' | 'medium' | 'low'>),
+      coding_level: criteria.constraints.codingLevel as any,
+      budget: criteria.constraints.budget as any,
+      experience_level: criteria.constraints.experienceLevel as any,
+    };
+
+    // IMPORTANT: Filter out tools that have NO matching use cases
+    // This prevents irrelevant tools from appearing just because they match coding level
+    const useCaseFilteredTools = filteredTools.filter(tool => {
+      const enrichment = enrichments[tool.name];
+      if (!enrichment || !enrichment.use_case_compatibility) {
+        return false; // No enrichment data = exclude
+      }
+
+      // Check if tool supports at least ONE of the requested use cases
+      const hasMatchingUseCase = criteria.useCases.some(useCase => {
+        const compatibility = enrichment.use_case_compatibility[useCase];
+        return compatibility && compatibility.strength >= 0.3; // At least 30% compatibility
+      });
+
+      return hasMatchingUseCase;
+    });
+
+    // Match tools with smart filtering
+    const matches = matchToolsToUserNeeds(userRequirements, useCaseFilteredTools, enrichments);
+
+    return {
+      results: matches.map(match => ({
+        tool: match.tool,
+        matchScore: match.compatibilityScore,
+        matchReasons: match.reasoning ? [match.reasoning, criteria.reasoning] : [criteria.reasoning]
+      })),
+      mode: 'ai-powered',
+      aiReasoning: criteria.reasoning,
+    };
+
+  } catch (error) {
+    console.warn('AI search failed, falling back to local search:', error);
+
+    // Fallback to local search
+    const results = await matchToolsToQuery(query);
+    return {
+      results,
+      mode: 'fallback',
+    };
+  }
 }

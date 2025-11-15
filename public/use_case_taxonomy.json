@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "last_updated": "2025-11-14",
+  "version": "2.0",
+  "last_updated": "2025-11-15",
   "categories": {
     "content-creation": {
       "name": "Content Creation & Writing",
@@ -84,71 +84,59 @@
       "name": "Code & Development",
       "icon": "💻",
       "use_cases": {
-        "full-stack-web-development": {
-          "name": "Full-stack Web Development",
-          "description": "Build complete web applications with frontend and backend",
-          "keywords": ["web app", "full stack", "frontend", "backend", "database"],
-          "examples": ["SaaS applications", "E-commerce sites", "Web platforms"]
+        "website-creation": {
+          "name": "Website Creation",
+          "description": "Create websites and web applications of any kind",
+          "keywords": ["website", "web app", "web application", "site", "online", "internet"],
+          "examples": ["Personal websites", "Business sites", "E-commerce platforms", "SaaS applications", "Landing pages"]
         },
-        "frontend-development": {
-          "name": "Frontend Development",
-          "description": "Build user interfaces with React, Vue, Angular, etc.",
-          "keywords": ["frontend", "react", "vue", "angular", "ui", "interface"],
-          "examples": ["React dashboards", "Vue apps", "Single-page applications"]
+        "mobile-app-creation": {
+          "name": "Mobile App Creation",
+          "description": "Create mobile applications for smartphones and tablets",
+          "keywords": ["mobile app", "ios app", "android app", "smartphone", "tablet"],
+          "examples": ["iOS apps", "Android apps", "Cross-platform apps", "Mobile games"]
         },
-        "backend-development": {
-          "name": "Backend Development",
-          "description": "Build APIs, servers, and backend systems",
-          "keywords": ["backend", "api", "server", "database", "node", "python"],
-          "examples": ["REST APIs", "GraphQL servers", "Microservices"]
+        "code-assistance": {
+          "name": "Code Assistance",
+          "description": "Get help writing, understanding, and improving code",
+          "keywords": ["code help", "coding assistance", "programming help", "write code", "understand code"],
+          "examples": ["Code completion", "Code generation", "Code explanation", "Code suggestions"]
         },
-        "mobile-app-development": {
-          "name": "Mobile App Development",
-          "description": "Build iOS and Android mobile applications",
-          "keywords": ["mobile", "ios", "android", "app", "react native"],
-          "examples": ["iOS apps", "Android apps", "Cross-platform apps"]
+        "code-quality": {
+          "name": "Code Quality",
+          "description": "Review, refactor, and improve code quality",
+          "keywords": ["code review", "refactor", "optimize", "improve code", "clean code", "quality"],
+          "examples": ["Code reviews", "Refactoring", "Performance optimization", "Code cleanup"]
         },
-        "code-generation": {
-          "name": "Code Generation",
-          "description": "Generate code from scratch for various use cases",
-          "keywords": ["generate", "create", "code", "from scratch"],
-          "examples": ["Boilerplate code", "Components", "Functions"]
+        "bug-fixing": {
+          "name": "Bug Fixing",
+          "description": "Find and fix bugs and errors in code",
+          "keywords": ["debug", "bug", "error", "fix", "troubleshoot", "issues"],
+          "examples": ["Debugging", "Error resolution", "Troubleshooting", "Bug hunting"]
         },
-        "code-review": {
-          "name": "Code Review",
-          "description": "Review code for quality, bugs, and best practices",
-          "keywords": ["review", "quality", "bugs", "best practices"],
-          "examples": ["Pull request reviews", "Code audits", "Quality checks"]
+        "testing": {
+          "name": "Testing",
+          "description": "Create and run tests for code and applications",
+          "keywords": ["test", "testing", "unit test", "integration test", "e2e", "qa"],
+          "examples": ["Unit tests", "Integration tests", "E2E tests", "Test automation"]
         },
-        "code-refactoring": {
-          "name": "Code Refactoring",
-          "description": "Improve and optimize existing code",
-          "keywords": ["refactor", "optimize", "improve", "clean up"],
-          "examples": ["Code cleanup", "Performance optimization", "Modernization"]
+        "task-automation": {
+          "name": "Task Automation",
+          "description": "Automate repetitive tasks and processes",
+          "keywords": ["automate", "automation", "script", "workflow", "process"],
+          "examples": ["Data processing scripts", "CI/CD pipelines", "Batch processing", "Scheduled tasks"]
         },
-        "debugging": {
-          "name": "Debugging",
-          "description": "Find and fix bugs in code",
-          "keywords": ["debug", "bug", "error", "fix", "troubleshoot"],
-          "examples": ["Bug fixing", "Error resolution", "Troubleshooting"]
+        "api-creation": {
+          "name": "API Creation",
+          "description": "Create and manage APIs and backend services",
+          "keywords": ["api", "backend", "server", "endpoint", "rest", "graphql"],
+          "examples": ["REST APIs", "GraphQL APIs", "Backend services", "Microservices"]
         },
-        "test-writing": {
-          "name": "Test Writing",
-          "description": "Write unit tests, integration tests, and e2e tests",
-          "keywords": ["test", "unit test", "integration", "e2e", "testing"],
-          "examples": ["Unit tests", "Integration tests", "E2E tests"]
-        },
-        "automation-scripts": {
-          "name": "Automation Scripts",
-          "description": "Create scripts for automation and workflow optimization",
-          "keywords": ["script", "automation", "python", "bash", "workflow"],
-          "examples": ["Data processing scripts", "CI/CD pipelines", "Automation tools"]
-        },
-        "database-design": {
-          "name": "Database Design",
-          "description": "Design database schemas and write SQL queries",
-          "keywords": ["database", "sql", "schema", "query", "data model"],
-          "examples": ["Database schemas", "SQL queries", "Data modeling"]
+        "database-work": {
+          "name": "Database Work",
+          "description": "Design, query, and manage databases",
+          "keywords": ["database", "sql", "data", "query", "schema", "tables"],
+          "examples": ["Database design", "SQL queries", "Data modeling", "Database optimization"]
         }
       }
     },

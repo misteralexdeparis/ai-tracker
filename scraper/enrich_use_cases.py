@@ -31,10 +31,52 @@ TOOLS_FILE = Path(__file__).parent.parent / "public" / "ai_tracker_enhanced.json
 TAXONOMY_FILE = Path(__file__).parent.parent / "public" / "use_case_taxonomy.json"
 OUTPUT_FILE = Path(__file__).parent.parent / "public" / "use_cases_enrichment.json"
 OVERRIDES_FILE = Path(__file__).parent.parent / "public" / "use_cases_overrides.json"
+CURATED_SCORES_FILE = Path(__file__).parent / "sources" / "curated_manual_scores.json"
 
 # Claude API configuration
 CLAUDE_MODEL = "claude-sonnet-4-20250514"  # Sonnet 4.5 model (May 2025)
 MAX_TOKENS = 4096
+
+def normalize_tool_name(name: str) -> str:
+    """
+    Normalize tool name for duplicate detection
+    Uses same logic as main scraper to prevent duplicates
+    """
+    import re
+
+    normalized = name.lower().strip()
+
+    # Remove common suffixes
+    normalized = re.sub(r'\s+(ai|api|app|platform|tool|suite|studio|voice|chat|assistant|developer|legacy|pro|free|premium)$', '', normalized, flags=re.IGNORECASE)
+
+    # Remove version patterns: v1, v2, v7, V1, V2, etc.
+    normalized = re.sub(r'\s+v\d+(\.\d+)*$', '', normalized, flags=re.IGNORECASE)
+
+    # Remove version in parentheses: (v1), (V2), etc.
+    normalized = re.sub(r'\s*\([vV]?\d+(\.\d+)*\)$', '', normalized)
+
+    # Remove trailing version numbers: "Tool 2.0" -> "tool", "GPT-5" -> "gpt"
+    normalized = re.sub(r'[-\s]+\d+(\.\d+)*$', '', normalized)
+
+    # Remove "Gen-X" or "GenX" patterns (e.g., "Gen-3", "gen 3")
+    normalized = re.sub(r'\s+gen[-\s]?\d+$', '', normalized, flags=re.IGNORECASE)
+
+    # Remove model variants (e.g., "Sonnet", "Pro", "Plus")
+    normalized = re.sub(r'\s+(sonnet|opus|haiku|pro|plus|ultra|turbo|max)$', '', normalized, flags=re.IGNORECASE)
+
+    # Normalize GPT variants
+    if 'gpt' in normalized or 'chatgpt' in normalized:
+        normalized = 'chatgpt'
+
+    # Normalize Gemini variants
+    if 'gemini' in normalized:
+        normalized = 'gemini'
+
+    # Normalize Claude variants
+    if 'claude' in normalized:
+        normalized = 'claude'
+
+    return normalized.strip()
 
 def load_json(file_path: Path) -> Dict:
     """Load JSON file"""
@@ -228,6 +270,27 @@ def enrich_tools(tool_names: List[str] = None, limit: int = None):
         print(f"📂 Loading manual overrides from {OVERRIDES_FILE}")
         overrides = load_json(OVERRIDES_FILE)
 
+    # Load curated scores (CRITICAL: preserve these!)
+    curated_scores = {}
+    if CURATED_SCORES_FILE.exists():
+        print(f"📂 Loading curated scores from {CURATED_SCORES_FILE}")
+        curated_scores = load_json(CURATED_SCORES_FILE)
+        print(f"   ✅ Loaded {len(curated_scores)} curated tool scores (will be preserved)")
+
+    # Build a mapping from normalized names to canonical names (prevent duplicates)
+    tool_name_map = {}
+    for tool in tools:
+        tool_name = tool.get('name')
+        normalized = normalize_tool_name(tool_name)
+
+        if normalized not in tool_name_map:
+            tool_name_map[normalized] = tool_name
+        else:
+            # Tool is a duplicate - use the existing canonical name
+            print(f"   🔗 Duplicate detected: '{tool_name}' -> '{tool_name_map[normalized]}'")
+
+    print(f"   ✅ Identified {len(tool_name_map)} unique tools (after normalization)")
+
     # Enrich each tool
     print(f"\n🔄 Enriching {len(tools)} tools...")
     print("=" * 60)
@@ -238,17 +301,27 @@ def enrich_tools(tool_names: List[str] = None, limit: int = None):
 
     for i, tool in enumerate(tools, 1):
         tool_name = tool.get('name')
+        normalized_name = normalize_tool_name(tool_name)
+
+        # Use the canonical name from tool_name_map (prevents duplicates)
+        canonical_name = tool_name_map.get(normalized_name, tool_name)
+
+        # Skip if this is a duplicate (not the canonical name)
+        if tool_name != canonical_name:
+            print(f"\n[{i}/{len(tools)}] ⏭️  Skipping {tool_name} (duplicate of {canonical_name})")
+            skip_count += 1
+            continue
 
         # Skip if override exists
-        if tool_name in overrides:
-            print(f"\n[{i}/{len(tools)}] ⏭️  Skipping {tool_name} (manual override exists)")
-            enrichments[tool_name] = overrides[tool_name]
+        if canonical_name in overrides:
+            print(f"\n[{i}/{len(tools)}] ⏭️  Skipping {canonical_name} (manual override exists)")
+            enrichments[canonical_name] = overrides[canonical_name]
             skip_count += 1
             continue
 
         # Skip if already enriched (unless re-enriching)
-        if tool_name in enrichments and enrichments[tool_name].get('enrichment_meta'):
-            print(f"\n[{i}/{len(tools)}] ⏭️  Skipping {tool_name} (already enriched)")
+        if canonical_name in enrichments and enrichments[canonical_name].get('enrichment_meta'):
+            print(f"\n[{i}/{len(tools)}] ⏭️  Skipping {canonical_name} (already enriched)")
             skip_count += 1
             continue
 
@@ -257,7 +330,23 @@ def enrich_tools(tool_names: List[str] = None, limit: int = None):
         enrichment = enrich_tool(tool, taxonomy, client)
 
         if enrichment:
-            enrichments[tool_name] = enrichment
+            # CRITICAL: Preserve curated scores if they exist
+            if canonical_name in curated_scores:
+                curated = curated_scores[canonical_name]
+                print(f"   🔒 Preserving curated scores (vision: {curated.get('vision')}, ability: {curated.get('ability')})")
+
+                # Add curated scores to enrichment metadata
+                if 'curated_scores' not in enrichment:
+                    enrichment['curated_scores'] = {}
+
+                enrichment['curated_scores'] = {
+                    'vision': curated.get('vision'),
+                    'ability': curated.get('ability'),
+                    'gartner_quadrant': curated.get('gartner_quadrant'),
+                    'note': curated.get('note')
+                }
+
+            enrichments[canonical_name] = enrichment
             success_count += 1
 
             # Save incrementally (in case of interruption)

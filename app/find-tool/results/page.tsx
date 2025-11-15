@@ -3,7 +3,7 @@
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
-import { matchToolsToQuery } from '@/app/lib/usecase-matcher';
+import { matchToolsToQuerySmart } from '@/app/lib/usecase-matcher';
 
 interface Tool {
   name: string;
@@ -31,6 +31,7 @@ function ResultsContent() {
   const [matches, setMatches] = useState<ToolMatch[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchMode, setSearchMode] = useState<'ai-powered' | 'fallback'>('ai-powered');
 
   useEffect(() => {
     async function loadResults() {
@@ -42,8 +43,9 @@ function ResultsContent() {
       try {
         setLoading(true);
         setError(null);
-        const results = await matchToolsToQuery(query);
+        const { results, mode } = await matchToolsToQuerySmart(query);
         setMatches(results);
+        setSearchMode(mode);
       } catch (err) {
         console.error('Error matching tools:', err);
         setError('Failed to load tool recommendations. Please try again.');
@@ -96,7 +98,12 @@ function ResultsContent() {
         <div className="results-header">
           <h1>🎯 Recommended Tools</h1>
           <p className="query-display">For: "{query}"</p>
-          <p className="results-count">{matches.length} tools found</p>
+          <p className="results-count">
+            {matches.length} tools found
+            {searchMode === 'ai-powered' && (
+              <span className="ai-badge">✨ AI-Enhanced</span>
+            )}
+          </p>
         </div>
 
         {matches.length === 0 ? (
@@ -219,6 +226,20 @@ function ResultsContent() {
           font-size: 16px;
           font-weight: 600;
           margin: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+        }
+        .ai-badge {
+          display: inline-block;
+          padding: 4px 12px;
+          background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+          border: 1px solid rgba(139, 92, 246, 0.4);
+          border-radius: 999px;
+          font-size: 12px;
+          color: #a78bfa;
+          font-weight: 600;
         }
         .loading, .error, .no-results {
           text-align: center;
