@@ -7,3 +7,4 @@ pydantic>=2.5.0
 lxml>=4.9.3
 packaging>=21.0
 python-dateutil>=2.8.0
+anthropic>=0.39.0

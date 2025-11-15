@@ -264,7 +264,13 @@ def smart_merge_with_versions(existing_tools: List, enriched_data: List) -> Tupl
     for old_tool in existing_tools:
         tool_name = old_tool.get("name")
         merged_tool = old_tool.copy()
-        
+
+        # IMPORTANT: Remove old scores so they get recalculated fresh
+        # This prevents stale scores from old versions of the scoring algorithm
+        for score_field in ["buzz_score", "vision", "ability", "credibility", "adoption",
+                           "final_score", "base_score", "scoring_breakdown", "scoring_metadata"]:
+            merged_tool.pop(score_field, None)
+
         new_tool = enriched_dict.get(tool_name, {})
         
         if new_tool:

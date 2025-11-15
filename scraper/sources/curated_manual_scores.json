@@ -1,0 +1,197 @@
+{
+  "ChatGPT": {
+    "vision": 90,
+    "ability": 95,
+    "note": "Leader - Most widely used conversational AI, extensive features, multimodal capabilities"
+  },
+  "GitHub Copilot": {
+    "vision": 85,
+    "ability": 90,
+    "note": "Leader - Industry-leading code completion, deep IDE integration"
+  },
+  "Claude": {
+    "vision": 88,
+    "ability": 92,
+    "note": "Leader - Strong reasoning capabilities, excellent for complex tasks"
+  },
+  "Google Gemini": {
+    "vision": 87,
+    "ability": 88,
+    "note": "Leader - Multimodal AI with strong Google ecosystem integration"
+  },
+  "Meta AI (Llama)": {
+    "vision": 82,
+    "ability": 85,
+    "note": "Leader - Open-source leader, strong community adoption"
+  },
+  "Midjourney": {
+    "vision": 85,
+    "ability": 88,
+    "note": "Leader - Premier AI image generation, artistic quality"
+  },
+  "Perplexity": {
+    "vision": 78,
+    "ability": 82,
+    "note": "Leader - AI-powered search with citations"
+  },
+  "Cursor": {
+    "vision": 80,
+    "ability": 85,
+    "note": "Leader - AI-first code editor, strong developer adoption"
+  },
+  "NotebookLM": {
+    "vision": 75,
+    "ability": 78,
+    "note": "Challenger - Research assistant, good features but niche use case"
+  },
+  "Google AI Mode": {
+    "vision": 72,
+    "ability": 75,
+    "note": "Challenger - Search enhancement, still maturing"
+  },
+  "Runway": {
+    "vision": 82,
+    "ability": 80,
+    "note": "Visionary - Cutting-edge video generation, but technical complexity"
+  },
+  "Deep Research": {
+    "vision": 76,
+    "ability": 72,
+    "note": "Visionary - Advanced research capabilities, still evolving"
+  },
+  "JetBrains AI Assistant": {
+    "vision": 74,
+    "ability": 80,
+    "note": "Challenger - Strong IDE integration but limited to JetBrains ecosystem"
+  },
+  "Sourcegraph Cody": {
+    "vision": 70,
+    "ability": 75,
+    "note": "Challenger - Code search and completion, niche market"
+  },
+  "Tabnine": {
+    "vision": 68,
+    "ability": 72,
+    "note": "Niche Player - Code completion, overshadowed by Copilot"
+  },
+  "Notion AI": {
+    "vision": 72,
+    "ability": 70,
+    "note": "Challenger - Good Notion integration but limited standalone value"
+  },
+  "Jasper": {
+    "vision": 70,
+    "ability": 72,
+    "note": "Challenger - Content creation, strong in marketing niche"
+  },
+  "WriteSonic": {
+    "vision": 68,
+    "ability": 70,
+    "note": "Niche Player - Content writing, competitive market"
+  },
+  "Asana (AI)": {
+    "vision": 70,
+    "ability": 68,
+    "note": "Niche Player - Project management AI features, supplementary to main product"
+  },
+  "Motion": {
+    "vision": 66,
+    "ability": 68,
+    "note": "Niche Player - AI calendar/task management, small market"
+  },
+  "Any.do": {
+    "vision": 65,
+    "ability": 67,
+    "note": "Niche Player - Task management with AI, crowded space"
+  },
+  "Mem": {
+    "vision": 68,
+    "ability": 65,
+    "note": "Niche Player - Note-taking with AI, niche adoption"
+  },
+  "Personal AI": {
+    "vision": 66,
+    "ability": 64,
+    "note": "Niche Player - Personal memory assistant, early stage"
+  },
+  "Otter": {
+    "vision": 74,
+    "ability": 76,
+    "note": "Challenger - Meeting transcription, strong in specific niche"
+  },
+  "Fireflies.ai": {
+    "vision": 72,
+    "ability": 74,
+    "note": "Challenger - Meeting assistant, good market fit"
+  },
+  "Fathom": {
+    "vision": 70,
+    "ability": 72,
+    "note": "Challenger - Meeting recorder, competitive space"
+  },
+  "Synthesia": {
+    "vision": 78,
+    "ability": 75,
+    "note": "Visionary - AI video avatars, innovative but specialized"
+  },
+  "ElevenLabs": {
+    "vision": 80,
+    "ability": 82,
+    "note": "Leader - Text-to-speech leader, excellent quality"
+  },
+  "Suno": {
+    "vision": 82,
+    "ability": 78,
+    "note": "Visionary - AI music generation, cutting-edge but niche"
+  },
+  "AIVA": {
+    "vision": 70,
+    "ability": 68,
+    "note": "Niche Player - AI music composition, narrow market"
+  },
+  "Canva Magic Studio": {
+    "vision": 76,
+    "ability": 78,
+    "note": "Challenger - Design AI tools, strong Canva integration"
+  },
+  "Hubspot Email Writer": {
+    "vision": 68,
+    "ability": 70,
+    "note": "Niche Player - Email writing within Hubspot ecosystem"
+  },
+  "Arc Browser": {
+    "vision": 74,
+    "ability": 72,
+    "note": "Visionary - AI-enhanced browsing, innovative but early"
+  },
+  "Lovable": {
+    "vision": 72,
+    "ability": 68,
+    "note": "Visionary - AI app builder, promising but unproven"
+  },
+  "Manus": {
+    "vision": 66,
+    "ability": 64,
+    "note": "Niche Player - AI development tool, early stage"
+  },
+  "Fyxer": {
+    "vision": 65,
+    "ability": 66,
+    "note": "Niche Player - Bug fixing assistant, specialized niche"
+  },
+  "DeepCode AI": {
+    "vision": 70,
+    "ability": 74,
+    "note": "Challenger - Code analysis, now part of Snyk"
+  },
+  "Sudowrite": {
+    "vision": 72,
+    "ability": 70,
+    "note": "Challenger - Creative writing assistant, strong in fiction niche"
+  },
+  "n8n": {
+    "vision": 76,
+    "ability": 74,
+    "note": "Visionary - Workflow automation with AI, technical users"
+  }
+}

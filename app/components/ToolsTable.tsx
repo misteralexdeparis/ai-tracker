@@ -79,6 +79,25 @@ export default function ToolsTable() {
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
           {loading ? "Loading..." : `${filtered.length} tools`}
         </Typography>
+        <a href="/find-tool" style={{ textDecoration: 'none' }}>
+          <button style={{
+            background: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)',
+            color: 'white',
+            border: 'none',
+            padding: '10px 20px',
+            borderRadius: '6px',
+            fontSize: '14px',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            transition: 'all 0.2s'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+          onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            🎯 Find Your Perfect Tool
+          </button>
+        </a>
         <button onClick={() => setView("table")}>Table</button>
         <button onClick={() => setView("card")}>Cards</button>
         <button onClick={() => setView("chart")}>Matrice Gartner</button>

@@ -17,11 +17,24 @@ SCORING DIMENSIONS:
 
 import logging
 import re
+import json
+from pathlib import Path
 from typing import Dict, List, Optional
 from datetime import datetime, timedelta
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Load manual scores for curated tools
+MANUAL_SCORES_FILE = Path(__file__).parent.parent / "sources" / "curated_manual_scores.json"
+MANUAL_SCORES = {}
+try:
+    if MANUAL_SCORES_FILE.exists():
+        with open(MANUAL_SCORES_FILE, 'r', encoding='utf-8') as f:
+            MANUAL_SCORES = json.load(f)
+        logger.info(f"✅ Loaded manual scores for {len(MANUAL_SCORES)} curated tools")
+except Exception as e:
+    logger.warning(f"⚠️  Failed to load manual scores: {e}")
 
 # ============================================================================
 # SCORING WEIGHTS
@@ -161,7 +174,14 @@ def calculate_vision_score(tool: Dict) -> float:
     Calculate product clarity/vision (0-100)
     Smart fallback if no data available
     """
-    
+
+    # Check for manual score first (highest priority)
+    tool_name = tool.get("name")
+    if tool_name in MANUAL_SCORES and "vision" in MANUAL_SCORES[tool_name]:
+        manual_vision = MANUAL_SCORES[tool_name]["vision"]
+        logger.debug(f"  '{tool_name}': using manual vision={manual_vision}")
+        return manual_vision
+
     # If curated, check if we have real data or use fallback
     if is_curated_tool(tool):
         has_data = (
@@ -169,7 +189,7 @@ def calculate_vision_score(tool: Dict) -> float:
             tool.get("key_features") or
             tool.get("has_api_docs")
         )
-        
+
         if not has_data:
             fallback = get_fallback_score(tool, "vision")
             logger.debug(f"  Curated tool '{tool.get('name')}': using fallback vision={fallback}")
@@ -219,7 +239,14 @@ def calculate_ability_score(tool: Dict) -> float:
     Calculate technical maturity/ability (0-100)
     Smart fallback if no data available
     """
-    
+
+    # Check for manual score first (highest priority)
+    tool_name = tool.get("name")
+    if tool_name in MANUAL_SCORES and "ability" in MANUAL_SCORES[tool_name]:
+        manual_ability = MANUAL_SCORES[tool_name]["ability"]
+        logger.debug(f"  '{tool_name}': using manual ability={manual_ability}")
+        return manual_ability
+
     # If curated, check if we have real data or use fallback
     if is_curated_tool(tool):
         has_data = (
@@ -227,7 +254,7 @@ def calculate_ability_score(tool: Dict) -> float:
             tool.get("has_api_docs") or
             tool.get("last_known_version")
         )
-        
+
         if not has_data:
             fallback = get_fallback_score(tool, "ability")
             logger.debug(f"  Curated tool '{tool.get('name')}': using fallback ability={fallback}")
@@ -633,23 +660,59 @@ def get_bonuses(tool: Dict) -> List[str]:
 # BATCH PROCESSING
 # ============================================================================
 
-def get_gartner_quadrant(final_score: float) -> str:
+def get_gartner_quadrant(vision: float, ability: float) -> str:
     """
-    Map final_score to Gartner Magic Quadrant category
+    Determine Gartner Magic Quadrant based on vision (X-axis) and ability (Y-axis)
 
-    Leaders: 70-100 (High execution, High vision)
-    Challengers: 50-69 (High execution, Medium vision)
-    Visionaries: 40-49 (Medium execution, High vision)
-    Niche Players: 0-39 (Low execution, Low vision)
+    The quadrant is determined by the position on both axes:
+    - Leaders: High ability (Y) + High vision (X) - top right
+    - Challengers: High ability (Y) + Low vision (X) - top left
+    - Visionaries: Low ability (Y) + High vision (X) - bottom right
+    - Niche Players: Low ability (Y) + Low vision (X) - bottom left
+
+    Using 65 as the threshold (above = high, below = low)
     """
-    if final_score >= 70:
+    threshold = 65
+
+    high_ability = ability >= threshold
+    high_vision = vision >= threshold
+
+    if high_ability and high_vision:
         return "Leader"
-    elif final_score >= 50:
+    elif high_ability and not high_vision:
         return "Challenger"
-    elif final_score >= 40:
+    elif not high_ability and high_vision:
         return "Visionary"
     else:
         return "Niche Player"
+
+def ensure_unique_scores(tools: List[Dict]) -> None:
+    """
+    Ensure no two tools have exactly the same vision/ability combination.
+    Adds small decimal adjustments to prevent superimposed points in Gartner Matrix.
+    """
+    seen_combinations = {}
+
+    for tool in tools:
+        vision = tool.get("vision", 0)
+        ability = tool.get("ability", 0)
+        key = (round(vision, 1), round(ability, 1))
+
+        if key in seen_combinations:
+            # Add small incremental jitter (0.1 to 0.9) to make it unique
+            jitter_count = seen_combinations[key]
+            jitter = jitter_count * 0.1
+
+            # Apply jitter - alternate between vision and ability to spread points
+            if jitter_count % 2 == 0:
+                tool["vision"] = min(100, vision + jitter)
+            else:
+                tool["ability"] = min(100, ability + jitter)
+
+            seen_combinations[key] = jitter_count + 1
+            logger.debug(f"  🔀 Adjusted '{tool.get('name')}' to avoid duplicate ({vision}, {ability})")
+        else:
+            seen_combinations[key] = 1
 
 def score_all_tools(tools: List[Dict]) -> List[Dict]:
     """Score all tools and add scoring metadata"""
@@ -670,8 +733,11 @@ def score_all_tools(tools: List[Dict]) -> List[Dict]:
             "bonuses": scoring_result["bonuses"]
         }
 
-        # Calculate Gartner quadrant from final_score
-        tool["gartner_quadrant"] = get_gartner_quadrant(tool["final_score"])
+        # Calculate Gartner quadrant from vision (X-axis) and ability (Y-axis)
+        tool["gartner_quadrant"] = get_gartner_quadrant(tool["vision"], tool["ability"])
+
+    # Ensure all vision/ability combinations are unique
+    ensure_unique_scores(tools)
 
     # Sort by final score (descending)
     tools.sort(key=lambda x: x.get("final_score", 0), reverse=True)

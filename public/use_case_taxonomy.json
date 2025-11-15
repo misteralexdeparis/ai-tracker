@@ -1,0 +1,420 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-11-14",
+  "categories": {
+    "content-creation": {
+      "name": "Content Creation & Writing",
+      "icon": "✍️",
+      "use_cases": {
+        "business-presentation-creation": {
+          "name": "Business Presentation Creation",
+          "description": "Create professional PowerPoint, Keynote, or Google Slides presentations for corporate use",
+          "keywords": ["powerpoint", "presentation", "slides", "business", "corporate"],
+          "examples": ["Board meeting presentations", "Quarterly reviews", "Training materials"]
+        },
+        "pitch-deck-creation": {
+          "name": "Pitch Deck Creation",
+          "description": "Create investor pitch decks for startups and fundraising",
+          "keywords": ["pitch deck", "investor", "startup", "fundraising", "vc"],
+          "examples": ["Seed round pitch", "Series A presentation", "Demo day deck"]
+        },
+        "data-presentation": {
+          "name": "Data Presentation",
+          "description": "Create presentations with charts, graphs, and data visualizations",
+          "keywords": ["data", "charts", "graphs", "analytics", "metrics"],
+          "examples": ["Sales reports", "Financial dashboards", "KPI presentations"]
+        },
+        "marketing-presentation": {
+          "name": "Marketing Presentation",
+          "description": "Create marketing and sales presentations",
+          "keywords": ["marketing", "sales", "campaign", "product launch"],
+          "examples": ["Product launches", "Campaign reviews", "Brand guidelines"]
+        },
+        "long-form-writing": {
+          "name": "Long-form Writing",
+          "description": "Write articles, reports, whitepapers, and long documentation",
+          "keywords": ["article", "report", "whitepaper", "documentation", "long form"],
+          "examples": ["Research reports", "Whitepapers", "Technical documentation"]
+        },
+        "blog-post-writing": {
+          "name": "Blog Post Writing",
+          "description": "Write blog posts and articles",
+          "keywords": ["blog", "article", "post", "content"],
+          "examples": ["Company blog posts", "Thought leadership", "SEO articles"]
+        },
+        "marketing-copy": {
+          "name": "Marketing Copy",
+          "description": "Write marketing emails, ads, landing pages, and promotional content",
+          "keywords": ["copy", "email", "ad", "landing page", "marketing"],
+          "examples": ["Email campaigns", "Ad copy", "Landing page text"]
+        },
+        "social-media-content": {
+          "name": "Social Media Content",
+          "description": "Create posts for LinkedIn, Twitter, Instagram, etc.",
+          "keywords": ["social media", "linkedin", "twitter", "instagram", "facebook"],
+          "examples": ["LinkedIn posts", "Twitter threads", "Instagram captions"]
+        },
+        "technical-documentation": {
+          "name": "Technical Documentation",
+          "description": "Write API docs, user guides, and technical specifications",
+          "keywords": ["documentation", "api docs", "user guide", "manual"],
+          "examples": ["API documentation", "User manuals", "Technical specs"]
+        },
+        "email-drafting": {
+          "name": "Email Drafting",
+          "description": "Draft professional emails and correspondence",
+          "keywords": ["email", "correspondence", "communication"],
+          "examples": ["Business emails", "Follow-ups", "Proposals"]
+        },
+        "seo-content-writing": {
+          "name": "SEO Content Writing",
+          "description": "Write SEO-optimized content for search rankings",
+          "keywords": ["seo", "search", "optimization", "keywords"],
+          "examples": ["SEO blog posts", "Product descriptions", "Category pages"]
+        },
+        "copywriting": {
+          "name": "Copywriting",
+          "description": "Write persuasive sales copy and product descriptions",
+          "keywords": ["sales", "copy", "persuasive", "conversion"],
+          "examples": ["Product descriptions", "Sales pages", "Call-to-action copy"]
+        }
+      }
+    },
+    "code-development": {
+      "name": "Code & Development",
+      "icon": "💻",
+      "use_cases": {
+        "full-stack-web-development": {
+          "name": "Full-stack Web Development",
+          "description": "Build complete web applications with frontend and backend",
+          "keywords": ["web app", "full stack", "frontend", "backend", "database"],
+          "examples": ["SaaS applications", "E-commerce sites", "Web platforms"]
+        },
+        "frontend-development": {
+          "name": "Frontend Development",
+          "description": "Build user interfaces with React, Vue, Angular, etc.",
+          "keywords": ["frontend", "react", "vue", "angular", "ui", "interface"],
+          "examples": ["React dashboards", "Vue apps", "Single-page applications"]
+        },
+        "backend-development": {
+          "name": "Backend Development",
+          "description": "Build APIs, servers, and backend systems",
+          "keywords": ["backend", "api", "server", "database", "node", "python"],
+          "examples": ["REST APIs", "GraphQL servers", "Microservices"]
+        },
+        "mobile-app-development": {
+          "name": "Mobile App Development",
+          "description": "Build iOS and Android mobile applications",
+          "keywords": ["mobile", "ios", "android", "app", "react native"],
+          "examples": ["iOS apps", "Android apps", "Cross-platform apps"]
+        },
+        "code-generation": {
+          "name": "Code Generation",
+          "description": "Generate code from scratch for various use cases",
+          "keywords": ["generate", "create", "code", "from scratch"],
+          "examples": ["Boilerplate code", "Components", "Functions"]
+        },
+        "code-review": {
+          "name": "Code Review",
+          "description": "Review code for quality, bugs, and best practices",
+          "keywords": ["review", "quality", "bugs", "best practices"],
+          "examples": ["Pull request reviews", "Code audits", "Quality checks"]
+        },
+        "code-refactoring": {
+          "name": "Code Refactoring",
+          "description": "Improve and optimize existing code",
+          "keywords": ["refactor", "optimize", "improve", "clean up"],
+          "examples": ["Code cleanup", "Performance optimization", "Modernization"]
+        },
+        "debugging": {
+          "name": "Debugging",
+          "description": "Find and fix bugs in code",
+          "keywords": ["debug", "bug", "error", "fix", "troubleshoot"],
+          "examples": ["Bug fixing", "Error resolution", "Troubleshooting"]
+        },
+        "test-writing": {
+          "name": "Test Writing",
+          "description": "Write unit tests, integration tests, and e2e tests",
+          "keywords": ["test", "unit test", "integration", "e2e", "testing"],
+          "examples": ["Unit tests", "Integration tests", "E2E tests"]
+        },
+        "automation-scripts": {
+          "name": "Automation Scripts",
+          "description": "Create scripts for automation and workflow optimization",
+          "keywords": ["script", "automation", "python", "bash", "workflow"],
+          "examples": ["Data processing scripts", "CI/CD pipelines", "Automation tools"]
+        },
+        "database-design": {
+          "name": "Database Design",
+          "description": "Design database schemas and write SQL queries",
+          "keywords": ["database", "sql", "schema", "query", "data model"],
+          "examples": ["Database schemas", "SQL queries", "Data modeling"]
+        }
+      }
+    },
+    "research-analysis": {
+      "name": "Research & Analysis",
+      "icon": "🔍",
+      "use_cases": {
+        "multi-document-analysis": {
+          "name": "Multi-document Analysis",
+          "description": "Analyze multiple documents simultaneously to extract insights",
+          "keywords": ["documents", "analysis", "multiple", "compare", "synthesize"],
+          "examples": ["Literature reviews", "Contract comparison", "Research synthesis"]
+        },
+        "academic-research": {
+          "name": "Academic Research",
+          "description": "Conduct academic research and literature reviews",
+          "keywords": ["academic", "research", "papers", "literature", "scholarly"],
+          "examples": ["Literature reviews", "Research papers", "Academic writing"]
+        },
+        "market-research": {
+          "name": "Market Research",
+          "description": "Research markets, competitors, and industry trends",
+          "keywords": ["market", "competitor", "industry", "trends", "analysis"],
+          "examples": ["Market analysis", "Competitor research", "Industry reports"]
+        },
+        "competitive-analysis": {
+          "name": "Competitive Analysis",
+          "description": "Analyze competitors and competitive landscape",
+          "keywords": ["competitor", "competitive", "landscape", "swot"],
+          "examples": ["Competitor comparison", "SWOT analysis", "Market positioning"]
+        },
+        "data-synthesis": {
+          "name": "Data Synthesis",
+          "description": "Synthesize information from multiple sources",
+          "keywords": ["synthesize", "combine", "aggregate", "summarize"],
+          "examples": ["Executive summaries", "Research synthesis", "Information aggregation"]
+        },
+        "web-research": {
+          "name": "Web Research",
+          "description": "Research information on the internet",
+          "keywords": ["web", "internet", "search", "online", "research"],
+          "examples": ["Online research", "Fact finding", "Information gathering"]
+        },
+        "pdf-analysis": {
+          "name": "PDF Analysis",
+          "description": "Analyze and extract information from PDF documents",
+          "keywords": ["pdf", "document", "extract", "analyze"],
+          "examples": ["Contract analysis", "Report review", "Document extraction"]
+        },
+        "summarization": {
+          "name": "Summarization",
+          "description": "Summarize long documents and content",
+          "keywords": ["summarize", "summary", "tldr", "condensed"],
+          "examples": ["Meeting notes", "Article summaries", "Report condensation"]
+        }
+      }
+    },
+    "visual-multimedia": {
+      "name": "Visual & Multimedia Content",
+      "icon": "🎨",
+      "use_cases": {
+        "image-generation": {
+          "name": "Image Generation",
+          "description": "Create images from text descriptions",
+          "keywords": ["image", "generate", "create", "art", "picture"],
+          "examples": ["Marketing visuals", "Concept art", "Illustrations"]
+        },
+        "image-editing": {
+          "name": "Image Editing",
+          "description": "Edit and enhance existing images",
+          "keywords": ["edit", "enhance", "modify", "retouch", "photo"],
+          "examples": ["Photo editing", "Image enhancement", "Background changes"]
+        },
+        "logo-design": {
+          "name": "Logo Design",
+          "description": "Create brand logos and visual identities",
+          "keywords": ["logo", "brand", "identity", "design"],
+          "examples": ["Company logos", "Brand marks", "Visual identity"]
+        },
+        "video-generation": {
+          "name": "Video Generation",
+          "description": "Create videos from text or images",
+          "keywords": ["video", "generate", "create", "animation"],
+          "examples": ["Marketing videos", "Explainer videos", "Social media videos"]
+        },
+        "video-editing": {
+          "name": "Video Editing",
+          "description": "Edit existing videos",
+          "keywords": ["video", "edit", "cut", "trim", "editing"],
+          "examples": ["Video editing", "Content creation", "Post-production"]
+        },
+        "ui-design": {
+          "name": "UI Design",
+          "description": "Design user interfaces and app screens",
+          "keywords": ["ui", "interface", "design", "app", "screen"],
+          "examples": ["App mockups", "Web design", "Interface design"]
+        },
+        "mockup-creation": {
+          "name": "Mockup Creation",
+          "description": "Create design mockups and prototypes",
+          "keywords": ["mockup", "prototype", "wireframe", "design"],
+          "examples": ["App mockups", "Website wireframes", "Product prototypes"]
+        },
+        "diagram-creation": {
+          "name": "Diagram Creation",
+          "description": "Create flowcharts, diagrams, and visual workflows",
+          "keywords": ["diagram", "flowchart", "workflow", "visual", "chart"],
+          "examples": ["Flowcharts", "Process diagrams", "System architecture"]
+        },
+        "audio-generation": {
+          "name": "Audio Generation",
+          "description": "Generate audio, music, or sound effects",
+          "keywords": ["audio", "music", "sound", "generate"],
+          "examples": ["Background music", "Sound effects", "Audio content"]
+        },
+        "voice-cloning": {
+          "name": "Voice Cloning",
+          "description": "Clone and synthesize human voices",
+          "keywords": ["voice", "clone", "speech", "tts", "text to speech"],
+          "examples": ["Voiceovers", "Audio books", "Voice synthesis"]
+        },
+        "podcast-generation": {
+          "name": "Podcast Generation",
+          "description": "Generate podcast episodes from content",
+          "keywords": ["podcast", "audio", "episode", "generate"],
+          "examples": ["Podcast episodes", "Audio summaries", "Audio content"]
+        }
+      }
+    },
+    "productivity-automation": {
+      "name": "Productivity & Automation",
+      "icon": "⚡",
+      "use_cases": {
+        "meeting-transcription": {
+          "name": "Meeting Transcription",
+          "description": "Transcribe meetings and conversations",
+          "keywords": ["transcribe", "meeting", "audio", "speech to text"],
+          "examples": ["Meeting notes", "Interview transcripts", "Call transcription"]
+        },
+        "meeting-summarization": {
+          "name": "Meeting Summarization",
+          "description": "Summarize meetings and key takeaways",
+          "keywords": ["meeting", "summarize", "notes", "takeaways"],
+          "examples": ["Meeting summaries", "Action items", "Key decisions"]
+        },
+        "note-taking": {
+          "name": "Note Taking",
+          "description": "Organize and take structured notes",
+          "keywords": ["notes", "organize", "knowledge", "second brain"],
+          "examples": ["Research notes", "Knowledge management", "Personal wiki"]
+        },
+        "email-management": {
+          "name": "Email Management",
+          "description": "Organize and respond to emails efficiently",
+          "keywords": ["email", "inbox", "organize", "manage"],
+          "examples": ["Inbox zero", "Email sorting", "Auto-responses"]
+        },
+        "workflow-automation": {
+          "name": "Workflow Automation",
+          "description": "Automate repetitive workflows and tasks",
+          "keywords": ["automation", "workflow", "automate", "efficiency"],
+          "examples": ["Process automation", "Task automation", "Workflow optimization"]
+        },
+        "document-generation": {
+          "name": "Document Generation",
+          "description": "Generate documents automatically from templates or data",
+          "keywords": ["document", "generate", "template", "auto"],
+          "examples": ["Contract generation", "Report automation", "Document templates"]
+        }
+      }
+    },
+    "data-analytics": {
+      "name": "Data & Analytics",
+      "icon": "📊",
+      "use_cases": {
+        "data-analysis": {
+          "name": "Data Analysis",
+          "description": "Analyze datasets and extract insights",
+          "keywords": ["data", "analysis", "dataset", "insights", "analytics"],
+          "examples": ["Dataset analysis", "Statistical analysis", "Data insights"]
+        },
+        "data-visualization": {
+          "name": "Data Visualization",
+          "description": "Create charts, graphs, and visual representations of data",
+          "keywords": ["visualization", "chart", "graph", "dashboard"],
+          "examples": ["Dashboards", "Charts", "Visual reports"]
+        },
+        "spreadsheet-automation": {
+          "name": "Spreadsheet Automation",
+          "description": "Automate Excel and Google Sheets tasks",
+          "keywords": ["excel", "sheets", "spreadsheet", "automate"],
+          "examples": ["Excel automation", "Formula generation", "Data processing"]
+        },
+        "sql-query-generation": {
+          "name": "SQL Query Generation",
+          "description": "Generate SQL queries from natural language",
+          "keywords": ["sql", "query", "database", "data"],
+          "examples": ["SQL queries", "Database queries", "Data extraction"]
+        },
+        "reporting": {
+          "name": "Reporting",
+          "description": "Create automated reports and dashboards",
+          "keywords": ["report", "dashboard", "analytics", "metrics"],
+          "examples": ["Automated reports", "Business intelligence", "KPI dashboards"]
+        }
+      }
+    },
+    "communication": {
+      "name": "Communication & Collaboration",
+      "icon": "💬",
+      "use_cases": {
+        "chatbot-creation": {
+          "name": "Chatbot Creation",
+          "description": "Create AI chatbots for customer support or engagement",
+          "keywords": ["chatbot", "bot", "chat", "conversation"],
+          "examples": ["Customer support bots", "FAQ bots", "Conversational AI"]
+        },
+        "customer-support": {
+          "name": "Customer Support",
+          "description": "Provide automated customer support and assistance",
+          "keywords": ["support", "customer", "help", "service"],
+          "examples": ["Support tickets", "Customer queries", "Help desk"]
+        },
+        "translation": {
+          "name": "Translation",
+          "description": "Translate text between languages",
+          "keywords": ["translate", "translation", "language", "localization"],
+          "examples": ["Document translation", "Content localization", "Multi-language"]
+        },
+        "proofreading": {
+          "name": "Proofreading",
+          "description": "Proofread and correct text for errors",
+          "keywords": ["proofread", "correct", "grammar", "spelling"],
+          "examples": ["Text correction", "Grammar check", "Copy editing"]
+        },
+        "grammar-checking": {
+          "name": "Grammar Checking",
+          "description": "Check and fix grammar mistakes",
+          "keywords": ["grammar", "check", "correct", "language"],
+          "examples": ["Grammar correction", "Writing improvement", "Language check"]
+        }
+      }
+    },
+    "business-strategy": {
+      "name": "Business & Strategy",
+      "icon": "📈",
+      "use_cases": {
+        "business-plan-writing": {
+          "name": "Business Plan Writing",
+          "description": "Write comprehensive business plans",
+          "keywords": ["business plan", "strategy", "planning"],
+          "examples": ["Startup business plans", "Strategic plans", "Growth plans"]
+        },
+        "swot-analysis": {
+          "name": "SWOT Analysis",
+          "description": "Conduct SWOT analyses for businesses or products",
+          "keywords": ["swot", "analysis", "strategic", "planning"],
+          "examples": ["Business SWOT", "Product analysis", "Strategic planning"]
+        },
+        "proposal-writing": {
+          "name": "Proposal Writing",
+          "description": "Write business proposals and RFP responses",
+          "keywords": ["proposal", "rfp", "bid", "tender"],
+          "examples": ["RFP responses", "Project proposals", "Sales proposals"]
+        }
+      }
+    }
+  }
+}
