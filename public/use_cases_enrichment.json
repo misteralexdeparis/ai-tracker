@@ -759,15 +759,6 @@
           "Limited vocal generation capabilities"
         ]
       },
-      "video-generation": {
-        "strength": 60,
-        "type": "secondary",
-        "notes": "Can provide soundtrack and background music for video content, enhancing video production workflows",
-        "limitations": [
-          "Only provides audio component, not visual elements",
-          "Requires separate video editing software"
-        ]
-      },
       "podcast-generation": {
         "strength": 55,
         "type": "secondary",
@@ -2294,15 +2285,6 @@
         "limitations": [
           "Requires additional tools to combine music with visual content",
           "May need licensing considerations for commercial use"
-        ]
-      },
-      "video-generation": {
-        "strength": 65,
-        "type": "secondary",
-        "notes": "Provides musical soundtracks and background music for video content creation workflows",
-        "limitations": [
-          "Only provides audio component, not full video generation",
-          "Requires integration with video editing tools"
         ]
       },
       "marketing-presentation": {
@@ -4365,14 +4347,6 @@
         "notes": "Excellent for creating compelling voiceovers for marketing presentations and promotional content",
         "limitations": [
           "Only provides audio component, requires separate presentation creation tools"
-        ]
-      },
-      "video-generation": {
-        "strength": 70,
-        "type": "primary",
-        "notes": "Provides high-quality voiceovers that are essential for video content creation",
-        "limitations": [
-          "Only provides audio track, requires separate video creation and editing tools"
         ]
       },
       "marketing-copy": {
@@ -8326,15 +8300,6 @@
         "limitations": [
           "Only provides audio component",
           "Cannot create visual or textual presentation content"
-        ]
-      },
-      "video-generation": {
-        "strength": 50,
-        "type": "secondary",
-        "notes": "Can provide original musical soundtracks for video content creation",
-        "limitations": [
-          "Only generates audio track",
-          "Cannot create visual video content"
         ]
       }
     },

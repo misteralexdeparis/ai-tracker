@@ -237,7 +237,8 @@ export function calculateCompatibilityScore(
     }
 
     if (totalWeight > 0) {
-      score += (useCaseScore / totalWeight) * 60; // 60% of total score
+      // strength is 0-100, so divide by 100 to get 0-1 range, then multiply by 60
+      score += ((useCaseScore / totalWeight) / 100) * 60; // 60% of total score
     }
   }
 
