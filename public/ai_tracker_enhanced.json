@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2025-11-15T09:33:29.647357",
+    "last_updated": "2025-12-01T09:52:35.736880",
     "total_tools": 61,
     "new_tools_count": 0,
     "updated_tools_count": 0,
@@ -33,782 +33,390 @@
   },
   "tools": [
     {
-      "name": "Asana (AI)",
-      "publisher": "Asana",
+      "name": "ChatGPT",
+      "publisher": "OpenAI",
       "category": "Productivity & Task Management",
-      "official_url": "https://asana.com/features/ai",
-      "release_notes_url": "",
-      "docs_url": "https://help.asana.com/hc/en-us/articles/18677617370775-Asana-s-AI-Features",
+      "official_url": "https://chat.openai.com/",
+      "release_notes_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "docs_url": "https://platform.openai.com/docs/",
       "tags": [
-        "Project Management",
+        "NLP",
+        "Chatbot",
         "Productivity"
       ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://asana.com/features/ai",
+      "tracking_versions": true,
+      "last_known_version": "5.1",
+      "update_check_method": "release_notes",
       "buzz_score": 75,
-      "vision": 70,
-      "ability": 68,
-      "confidence_level": 100,
-      "description": "Asana AI enhances project management with task summarization, automation, and workflow optimization to improve team productivity.",
+      "vision": 90,
+      "ability": 95,
+      "source": "curated_list",
+      "description": "ChatGPT is a conversational AI assistant developed by OpenAI that generates human-like text responses for writing, coding, summarization, and learning tasks with multimodal input capabilities.",
       "pricing": "Freemium",
       "key_features": [
-        "Task summarization and smart summaries",
-        "Workflow builder with automation",
-        "Timeline and Gantt views",
-        "Custom fields and forms",
-        "AI Studio with tiered credit-based automation"
+        "Conversational text generation for writing and coding",
+        "Voice interaction and image analysis",
+        "Memory function to recall user preferences across conversations",
+        "Real-time web search for current information",
+        "Custom instructions for personalized responses"
       ],
-      "founding_year": 2008,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829731",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Any.do",
-      "publisher": "Any.do",
-      "category": "Productivity & Task Management",
-      "official_url": "https://www.any.do/ai/",
-      "release_notes_url": "",
-      "docs_url": "https://support.any.do/hc/en-us",
-      "tags": [
-        "Productivity",
-        "Scheduler"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.any.do/ai/",
-      "buzz_score": 75,
-      "vision": 65,
-      "ability": 67,
-      "confidence_level": 100,
-      "description": "Any.do is a task management app that organizes to-do lists, calendars, reminders, and collaboration across devices with AI-powered assistance.",
-      "pricing": "Freemium",
-      "key_features": [
-        "Cross-platform syncing",
-        "Smart reminders and scheduling",
-        "AI-driven task prioritization and suggestions",
-        "Collaborative task management",
-        "Integration with calendars and other apps"
-      ],
-      "founding_year": 2011,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829733",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Personal AI",
-      "publisher": "Personal AI",
-      "category": "Knowledge Management",
-      "official_url": "https://www.personal.ai/",
-      "release_notes_url": "",
-      "docs_url": "https://help.personal.ai/",
-      "tags": [
-        "Knowledge",
-        "AI"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.personal.ai/",
-      "buzz_score": 75,
-      "vision": 66,
-      "ability": 64,
-      "confidence_level": 100,
-      "description": "Personal AI is the Small Language Model platform engineered for scaled experiences that are private, programmable, and precise.",
-      "pricing": "Freemium with flexible paid plans including enterprise options",
-      "key_features": [
-        "Personal AI memory management and model training tools",
-        "Integration with existing tools and workflows",
-        "Scalable model capacity and AI memory",
-        "Simple, transparent pricing for personal and business use",
-        "Partnering with specialists for model training"
-      ],
-      "founding_year": 2018,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829738",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "DeepCode AI",
-      "publisher": "Snyk",
-      "category": "AI Coding Assistant",
-      "official_url": "https://snyk.io/deepcode/",
-      "release_notes_url": "",
-      "docs_url": "",
-      "tags": [
-        "Security",
-        "Code Review",
-        "Assistant"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://snyk.io/deepcode/",
-      "buzz_score": 75,
-      "vision": 70,
-      "ability": 74,
-      "confidence_level": 100,
-      "description": "DeepCode AI code autofix empowers developers with efficient & accurate AppSec solutions. Book a demo to try the fastest AI code review tool on the market.",
-      "pricing": "Freemium",
-      "key_features": [
-        "AI-powered code analysis and review",
-        "Semantic static code analysis combining machine learning and symbolic reasoning",
-        "Real-time detection of bugs and security vulnerabilities",
-        "Integration with GitHub, BitBucket, GitLab, and IDEs",
-        "Learning from billions of lines of code and developer commits"
-      ],
-      "founding_year": 2016,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829742",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Sudowrite",
-      "publisher": "Sudowrite",
-      "category": "Content Creation",
-      "official_url": "https://www.sudowrite.com/",
-      "release_notes_url": "",
-      "docs_url": "",
-      "tags": [
-        "Text",
-        "Writing",
-        "AI"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.sudowrite.com/",
-      "buzz_score": 75,
-      "vision": 72,
-      "ability": 70,
-      "confidence_level": 100,
-      "description": "Write your novel faster with the best AI tool for fiction. Start for free today and see why The New Yorker calls it \"a salvation\" for writers and why The New York Times, The Verge, and many more love Sudowrite.",
-      "pricing": "Freemium (free trial) with three paid subscription tiers: Hobby & Student (~$10-$19/month), Professional (~$22-$29/month), and Max (~$44-$59/month, custom for enterprise)",
-      "key_features": [
-        "Story Engine for creative writing assistance",
-        "Describe tool for vivid descriptions",
-        "Rewrite and brainstorming tools",
-        "Credit-based usage system",
-        "Collaboration options in Max plan"
-      ],
-      "founding_year": 2020,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829753",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "WriteSonic",
-      "publisher": "WriteSonic",
-      "category": "Marketing Content",
-      "official_url": "https://writesonic.com/",
-      "release_notes_url": "",
-      "docs_url": "https://docs.writesonic.com/",
-      "tags": [
-        "Text",
-        "Marketing",
-        "AI"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://writesonic.com/",
-      "buzz_score": 75,
-      "vision": 68,
-      "ability": 70,
-      "confidence_level": 100,
-      "description": "Track AI visibility across ChatGPT and 10+ AI platforms. Monitor mentions, fix citation gaps, create and refresh content, target Reddit & UGC forums. Complete GEO platform from tracking to action to results.",
-      "pricing": "Freemium",
-      "key_features": [
-        "AI Article Writer",
-        "SEO Checker & Optimizer",
-        "Chatsonic (AI Chat)",
-        "AI Traffic Analytics",
-        "Brand Voice Profiles"
-      ],
-      "founding_year": 2020,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829755",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Fathom",
-      "publisher": "Fathom",
-      "category": "Meeting Assistant",
-      "official_url": "https://fathom.video/",
-      "release_notes_url": "",
-      "docs_url": "https://fathom.video/help",
-      "tags": [
-        "Transcription",
-        "Meeting",
-        "AI"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://fathom.video/",
-      "buzz_score": 75,
-      "vision": 70,
-      "ability": 72,
-      "confidence_level": 100,
-      "description": "Fathom is an AI meeting assistant that records, transcribes, and summarizes online meetings with multi-speaker support and natural language search.",
-      "pricing": "Freemium",
-      "key_features": [
-        "Automatic transcription and highlights",
-        "AI-generated summaries and action items",
-        "Natural language Q&A with 'Ask Fathom'",
-        "Integrations with Slack, Notion, HubSpot, Salesforce, Asana",
-        "Real-time collaboration and tagging during calls"
-      ],
-      "founding_year": 2020,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829767",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "AIVA",
-      "publisher": "AIVA Technologies",
-      "category": "Audio Generation",
-      "official_url": "https://www.aiva.ai/",
-      "release_notes_url": "",
-      "docs_url": "",
-      "tags": [
-        "Music",
-        "AI"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.aiva.ai/",
-      "buzz_score": 75,
-      "vision": 70,
-      "ability": 68,
-      "confidence_level": 100,
-      "description": "AIVA, your AI music generation assistant",
-      "pricing": "Freemium (Free plan with 3 downloads/month for non-commercial use; Standard plan €11/month annually billed for limited monetization; Pro plan €33/month annually billed for full copyright ownership and unrestricted monetization)",
-      "key_features": [
-        "AI-generated songs in over 250 styles",
-        "Create and customize style models",
-        "Upload audio or MIDI influences",
-        "Edit generated tracks",
-        "Download in multiple formats including MP3, MIDI, WAV"
-      ],
-      "founding_year": 2016,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829763",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Motion",
-      "publisher": "Motion",
-      "category": "Productivity & Task Management",
-      "official_url": "https://www.usemotion.com/",
-      "release_notes_url": "",
-      "docs_url": "",
-      "tags": [
-        "Task",
-        "AI Scheduler",
-        "Automation"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "5.14.1",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.usemotion.com/",
-      "buzz_score": 75,
-      "vision": 66,
-      "ability": 68,
-      "confidence_level": 100,
-      "description": "Meet the worldâs 1st platform for managing human + AI Employees. Hire AI teammates in minutes to do work across sales, support, ops, and more.",
-      "pricing": "Freemium with multiple paid tiers including Individual ($19/month billed annually), Team ($12/user/month billed annually), and Enterprise (custom pricing)",
-      "key_features": [
-        "AI-powered task and project management",
-        "Automated smart scheduling and calendar management",
-        "AI Employees that autonomously execute workflows",
-        "Centralized knowledge base with AI Docs, Notes, and Search",
-        "AI Reports and dashboards for project insights"
-      ],
-      "founding_year": 2020,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829728",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "version_updated_at": "2025-11-14T11:45:21.951229",
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Mem",
-      "publisher": "Mem Labs",
-      "category": "Knowledge Management",
-      "official_url": "https://mem.ai/",
-      "release_notes_url": "",
-      "docs_url": "https://help.mem.ai/",
-      "tags": [
-        "Knowledge",
-        "AI",
-        "Productivity"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "1.0",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://mem.ai/",
-      "buzz_score": 75,
-      "vision": 68,
-      "ability": 65,
-      "confidence_level": 100,
-      "description": "Let AI organize your team’s work—from meeting notes, projects, to knowledge bases. All instantly searchable and readily discoverable.",
-      "pricing": "Freemium with a free plan and paid plans starting at $8 to $15 per month, including Mem Pro at $12/month and Mem X at $8-$14.99/month, plus custom pricing for teams",
-      "key_features": [
-        "AI-powered note organization and smart search",
-        "Unlimited notes, collections, and templates",
-        "Real-time collaboration tools",
-        "Automated linking of related notes and context",
-        "Integration with email and CRM systems"
-      ],
-      "founding_year": 2018,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829736",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "version_updated_at": "2025-11-14T11:45:21.951247",
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Tabnine",
-      "publisher": "Tabnine",
-      "category": "AI Coding Assistant",
-      "official_url": "https://www.tabnine.com/",
-      "release_notes_url": "",
-      "docs_url": "https://docs.tabnine.com/",
-      "tags": [
-        "Development",
-        "Coding",
-        "AI"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "1.0",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.tabnine.com/",
-      "buzz_score": 75,
-      "vision": 68,
-      "ability": 72,
-      "confidence_level": 100,
-      "description": "Tabnine is the AI code assistant that accelerates and simplifies software development while keeping your code private, secure, and compliant.",
-      "pricing": "Freemium (free version with limited completions; full AI features from $12/user/month; Enterprise pricing custom and undisclosed)",
-      "key_features": [
-        "AI code completion with multi-IDE support",
-        "On-premises, cloud, and single-tenant VPC deployment options",
-        "Privacy by design with no retention of proprietary code",
-        "Granular context scoping (file, folder, repo level)",
-        "Enterprise-grade governance and centralized configuration"
-      ],
-      "founding_year": 2017,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829744",
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "version_updated_at": "2025-11-14T11:45:21.951263",
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Synthesia",
-      "official_url": "https://www.synthesia.io/",
-      "twitter_handle": "@synthesia_io",
-      "category": "Video Generation",
-      "vision": 78,
-      "ability": 75,
-      "buzz_score": 75,
-      "quadrant": "Visionary",
-      "status": "active",
-      "description": "Create AI generated videos from text with the most advanced AI avatars and voiceovers in 140+ languages. Try our free AI video generator now!",
-      "features": [
-        "Avatar videos",
-        "Multi-language",
-        "Corporate videos"
-      ],
-      "pricing": "Freemium with Free, Starter ($29/month), Creator ($89/month), and Custom Enterprise plans",
-      "added_date": "2025-11-10T21:21:35.741857",
-      "key_features": [
-        "Create AI videos by typing text",
-        "Use 230+ AI avatars including custom personal avatars",
-        "1-click translations into 80+ languages",
-        "Collaborate with team members in real time",
-        "Enterprise features like brand kits, SCORM export, API access, and priority support"
-      ],
-      "founding_year": 2017,
-      "final_score": 74.1,
-      "base_score": 61.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
+      "founding_year": 2022,
       "version": "2.0",
       "version_history": [
         {
           "version": "1.0",
-          "snapshot_date": "2025-11-14T11:35:05.829515",
-          "vision": 68,
-          "ability": 44,
-          "quadrant": "Visionary"
+          "snapshot_date": "2025-11-14T11:29:24.729396",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
         }
       ],
-      "version_updated_at": "2025-11-14T11:45:21.951190",
+      "added_date": "2025-11-14T10:10:13.526837",
+      "final_score": 99.0,
+      "base_score": 82.5,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 90,
+        "ability": 95,
+        "credibility": 80.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.828181",
+      "version_updated_at": "2025-11-14T11:35:05.828120",
       "major_update_reason": [
-        "Ability changed significantly: 44→75 (+31)",
-        "Quadrant changed: Visionary→None"
+        "Vision changed significantly: 50→80 (+30)"
       ],
-      "publisher": "Synthesia",
-      "release_notes_url": "",
-      "docs_url": "https://help.synthesia.io/",
-      "tags": [
-        "Video",
-        "Avatar",
-        "AI"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "4.7",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.synthesia.io/",
+      "url": "https://chat.openai.com/",
       "confidence_level": 100,
-      "last_updated": "2025-11-14T11:35:05.829580",
       "gartner_quadrant": "Leader"
     },
     {
-      "name": "Jasper",
-      "publisher": "Jasper",
-      "category": "Marketing Content",
-      "official_url": "https://www.jasper.ai/",
-      "release_notes_url": "",
-      "docs_url": "https://help.jasper.ai/",
-      "tags": [
-        "Text",
-        "Marketing",
-        "AI"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.jasper.ai/",
-      "buzz_score": 75,
-      "vision": 70,
-      "ability": 72,
-      "confidence_level": 100,
-      "description": "Jasper is the AI marketing platform that unifies your brand experience, accelerates content velocity, and automates marketing processesâat scale.",
-      "pricing": "Paid with tiered subscription plans: Creator ($39-$49/month), Pro ($59-$69/month), and Business (custom pricing)",
-      "key_features": [
-        "Unlimited word generation",
-        "Multiple brand voices",
-        "Team collaboration and user seat options",
-        "Integration with SEO tools (e.g., Surfer SEO)",
-        "Custom workflows and API access in Business plan"
-      ],
-      "founding_year": 2021,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829751",
-      "final_score": 72.9,
-      "base_score": 60.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 55.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Arc Browser",
-      "publisher": "The Browser Company",
-      "category": "AI Search",
-      "official_url": "https://arc.net/ai",
-      "release_notes_url": "",
+      "name": "Claude",
+      "publisher": "Anthropic",
+      "category": "Productivity & Task Management",
+      "official_url": "https://claude.ai/",
+      "release_notes_url": "https://claude.ai/release-notes",
       "docs_url": "",
       "tags": [
-        "Browser",
-        "AI",
-        "Search"
+        "NLP",
+        "Chatbot"
       ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
+      "tracking_versions": true,
+      "last_known_version": "Opus 4.1, Sonnet 4",
+      "update_check_method": "release_notes",
       "source": "curated_list",
-      "url": "https://arc.net/ai",
+      "url": "https://claude.ai/",
       "buzz_score": 75,
-      "vision": 74,
-      "ability": 72,
+      "vision": 88,
+      "ability": 92,
       "confidence_level": 100,
-      "description": "Arc Browser is a Chromium-based browser focused on productivity, privacy, and AI-powered tools for smarter web browsing and multitasking.",
+      "description": "Claude is a next-generation AI assistant created by Anthropic, designed to be helpful, honest, and harmless. It uses large language models to process text, audio, and visual inputs for various tasks.",
       "pricing": "Freemium",
       "key_features": [
-        "AI-powered Ask on Page for instant Q&A on webpages",
-        "5-second Previews for quick link summaries (macOS only)",
-        "ChatGPT integration in Command Bar (macOS only)",
-        "Air Traffic Control to automate tab behavior and workspace management",
-        "Little Arc lightweight browser window for quick link peeks"
+        "Natural language conversation and text generation",
+        "Document summarization and analysis",
+        "Code generation and debugging",
+        "Large context window (200,000 tokens)",
+        "Image and audio processing"
+      ],
+      "founding_year": 2023,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829724",
+      "final_score": 96.3,
+      "base_score": 80.25,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 88,
+        "ability": 92,
+        "credibility": 75.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "GitHub Copilot",
+      "official_url": "https://github.com/features/copilot",
+      "twitter_handle": "@github",
+      "category": "AI Coding Assistant",
+      "vision": 85,
+      "ability": 90,
+      "buzz_score": 75,
+      "quadrant": "Leader",
+      "status": "active",
+      "description": "GitHub Copilot works alongside you directly in your editor, suggesting whole lines or entire functions for you.",
+      "features": [
+        "Code completion",
+        "Multi-language",
+        "Chat mode"
+      ],
+      "pricing": "Freemium",
+      "added_date": "2025-11-10T21:21:35.741861",
+      "key_features": [
+        "Real-time code suggestions",
+        "Copilot Chat with AI models",
+        "Unlimited completions (paid plans)",
+        "Access to premium AI models",
+        "Programmatic mode"
+      ],
+      "founding_year": 2021,
+      "final_score": 95.4,
+      "base_score": 79.5,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 85,
+        "ability": 90,
+        "credibility": 80.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.829476",
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.730227",
+          "vision": 68,
+          "ability": 83,
+          "quadrant": "Leader"
+        }
+      ],
+      "version_updated_at": "2025-11-14T11:35:05.829414",
+      "major_update_reason": [
+        "Ability changed significantly: 83→60 (+23)",
+        "Quadrant changed: Leader→None",
+        "Category changed: AI Coding→Coding Assistant"
+      ],
+      "publisher": "GitHub",
+      "release_notes_url": "https://docs.github.com/en/copilot/release-notes",
+      "docs_url": "https://docs.github.com/en/copilot",
+      "tags": [
+        "Development",
+        "Coding",
+        "Assistant"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "1.79",
+      "update_check_method": "release_notes",
+      "source": "curated_list",
+      "url": "https://github.com/features/copilot",
+      "confidence_level": 100,
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Google Gemini",
+      "publisher": "Google",
+      "category": "Productivity & Task Management",
+      "official_url": "https://gemini.google.com/",
+      "release_notes_url": "https://workspaceupdates.googleblog.com/search/label/Gemini%20AI",
+      "docs_url": "https://support.google.com/gemini/answer/13594914?hl=fr",
+      "tags": [
+        "NLP",
+        "Chatbot",
+        "Generative"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "2.5 Pro / 2.5 Flash",
+      "update_check_method": "release_notes",
+      "buzz_score": 75,
+      "vision": 87,
+      "ability": 88,
+      "source": "curated_list",
+      "description": "Google's family of multimodal AI models that understand and generate text, images, audio, video, and code with sophisticated reasoning capabilities.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Multimodal understanding (text, code, audio, image, video)",
+        "Advanced reasoning and complex problem-solving",
+        "1-million-token context window for analyzing large documents",
+        "Integration with Google Workspace apps (Gmail, Docs, Sheets)",
+        "Custom AI agent creation and deployment"
+      ],
+      "founding_year": 2023,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729660",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526840",
+      "final_score": 94.5,
+      "base_score": 78.75,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 87,
+        "ability": 88,
+        "credibility": 75.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.828580",
+      "version_updated_at": "2025-11-14T11:35:05.828522",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://gemini.google.com/",
+      "confidence_level": 100,
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Meta AI (Llama)",
+      "publisher": "Meta",
+      "category": "Productivity & Task Management",
+      "official_url": "https://www.meta.ai/",
+      "release_notes_url": "",
+      "docs_url": "https://ai.meta.com/research/",
+      "tags": [
+        "NLP",
+        "Chatbot",
+        "AGI"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "Llama 3.3",
+      "update_check_method": "blog",
+      "buzz_score": 75,
+      "vision": 82,
+      "ability": 85,
+      "source": "curated_list",
+      "description": "Use Meta AI assistant to get things done, create AI-generated images for free, and get answers to any of your questions. Meta AI is built on Meta's...",
+      "pricing": "Paid",
+      "key_features": [
+        "Open-source large language models",
+        "Support for multimodal tasks",
+        "Token-based API pricing",
+        "High efficiency and scalability",
+        "Commercial viability"
+      ],
+      "founding_year": 2023,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729616",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526839",
+      "final_score": 91.62,
+      "base_score": 76.35,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 82,
+        "ability": 85,
+        "credibility": 75.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.828483",
+      "version_updated_at": "2025-11-14T11:35:05.828423",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://www.meta.ai/",
+      "confidence_level": 100,
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Midjourney",
+      "publisher": "Midjourney Inc.",
+      "category": "Image Generation",
+      "official_url": "https://www.midjourney.com/",
+      "release_notes_url": "https://docs.midjourney.com/docs/changelog",
+      "docs_url": "https://docs.midjourney.com/",
+      "tags": [
+        "Image",
+        "Generative",
+        "Art"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "6.1",
+      "update_check_method": "release_notes",
+      "source": "curated_list",
+      "url": "https://www.midjourney.com/",
+      "buzz_score": 75,
+      "vision": 85,
+      "ability": 88,
+      "confidence_level": 100,
+      "description": "Midjourney is an AI tool that generates high-quality, artistic images from text prompts, known for its creative style and community-driven platform.",
+      "pricing": "Paid",
+      "key_features": [
+        "Text-to-image generation",
+        "Customization options and style presets",
+        "Rapid image generation with upscale and variation tools",
+        "Community collaboration and sharing",
+        "Prompt-based image enhancement and personalization"
       ],
       "founding_year": 2021,
       "version": "1.0",
       "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829772",
-      "final_score": 72.9,
-      "base_score": 60.75,
+      "added_date": "2025-11-14T11:35:05.829757",
+      "final_score": 91.08,
+      "base_score": 75.9,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 55.0,
+        "vision": 85,
+        "ability": 88,
+        "credibility": 60.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
@@ -821,49 +429,55 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Leader"
     },
     {
-      "name": "Cursor",
-      "publisher": "Cursor",
-      "category": "AI Code Editor",
-      "official_url": "https://www.cursor.so/",
-      "release_notes_url": "",
-      "docs_url": "",
+      "name": "Runway",
+      "publisher": "Runway",
+      "category": "Image & Video Generation",
+      "official_url": "https://runwayml.com/",
+      "release_notes_url": "https://updates.runwayml.com/",
+      "docs_url": "https://learn.runwayml.com/",
       "tags": [
-        "Coding",
-        "Editor",
+        "Video",
+        "Image",
         "AI"
       ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.cursor.so/",
+      "tracking_versions": true,
+      "last_known_version": "Gen-4 (May 2025)",
+      "update_check_method": "release_notes",
       "buzz_score": 75,
-      "vision": 80,
-      "ability": 85,
-      "confidence_level": 100,
-      "description": "Built to make you extraordinarily productive, Cursor is the best way to code with AI.",
-      "pricing": "Freemium with multiple paid tiers including Pro ($20/month), Pro+ ($60/month), Ultra ($200/month), Teams ($40/user/month), and custom Enterprise pricing",
+      "vision": 82,
+      "ability": 80,
+      "source": "curated_list",
+      "description": "Generate images and video with AI. Text to video, image to video, plus more. Runway's AI image and video generation tools trusted by millions worldwide",
+      "pricing": "Freemium with tiered paid plans (Free, Standard, Pro, Unlimited, Enterprise) based on monthly credits and features",
       "key_features": [
-        "AI-assisted code generation and completion",
-        "Usage-credit based pricing aligned with API costs",
-        "Unlimited access to 'Auto' model with lifted limits",
-        "Team management features including centralized billing, SSO, and admin controls",
-        "Priority access and higher usage limits for power users on Ultra plan"
+        "AI video generation (text-to-video, image-to-video, video-to-video)",
+        "Custom AI model training",
+        "Custom voice creation and lip sync",
+        "4K video upscaling and generation",
+        "Team collaboration and asset management with advanced security (Enterprise)"
       ],
-      "founding_year": 2022,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829746",
-      "final_score": 72.9,
-      "base_score": 60.75,
+      "founding_year": 2018,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729291",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526849",
+      "final_score": 88.02,
+      "base_score": 73.35,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 55.0,
+        "vision": 82,
+        "ability": 80,
+        "credibility": 65.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
@@ -876,6 +490,15 @@
           "Curated list (1.2x)"
         ]
       },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.827971",
+      "version_updated_at": "2025-11-14T11:35:05.827905",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://runwayml.com/",
+      "confidence_level": 100,
       "gartner_quadrant": "Leader"
     },
     {
@@ -904,13 +527,13 @@
         "Enterprise-ready version with compliance and sharing controls"
       ],
       "founding_year": 2023,
-      "final_score": 71.7,
-      "base_score": 59.75,
+      "final_score": 86.58,
+      "base_score": 72.15,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 50.0,
+        "vision": 75,
+        "ability": 78,
+        "credibility": 75.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
@@ -957,45 +580,170 @@
       "gartner_quadrant": "Leader"
     },
     {
-      "name": "Deep Research",
-      "publisher": "Deep Research",
-      "category": "Research Assistant",
-      "official_url": "https://deepresearch.ai/",
+      "name": "Cursor",
+      "publisher": "Cursor",
+      "category": "AI Code Editor",
+      "official_url": "https://www.cursor.so/",
       "release_notes_url": "",
       "docs_url": "",
       "tags": [
-        "Research",
+        "Coding",
+        "Editor",
         "AI"
       ],
       "tracking_versions": false,
       "last_known_version": "",
       "update_check_method": "",
       "source": "curated_list",
-      "url": "https://deepresearch.ai/",
+      "url": "https://www.cursor.so/",
       "buzz_score": 75,
-      "vision": 76,
-      "ability": 72,
+      "vision": 80,
+      "ability": 85,
       "confidence_level": 100,
-      "description": "An AI-powered research agent that autonomously searches hundreds of websites, analyzes information, and generates comprehensive multi-page reports in minutes by breaking down complex research tasks.",
+      "description": "Built to make you extraordinarily productive, Cursor is the best way to code with AI.",
+      "pricing": "Freemium with multiple paid tiers including Pro ($20/month), Pro+ ($60/month), Ultra ($200/month), Teams ($40/user/month), and custom Enterprise pricing",
+      "key_features": [
+        "AI-assisted code generation and completion",
+        "Usage-credit based pricing aligned with API costs",
+        "Unlimited access to 'Auto' model with lifted limits",
+        "Team management features including centralized billing, SSO, and admin controls",
+        "Priority access and higher usage limits for power users on Ultra plan"
+      ],
+      "founding_year": 2022,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829746",
+      "final_score": 86.4,
+      "base_score": 72.0,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 80,
+        "ability": 85,
+        "credibility": 50.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Perplexity",
+      "publisher": "Perplexity",
+      "category": "AI Search",
+      "official_url": "https://www.perplexity.ai/",
+      "release_notes_url": "https://www.perplexity.ai/changelog",
+      "docs_url": "https://docs.perplexity.ai/",
+      "tags": [
+        "Search",
+        "Q&A",
+        "Productivity"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "v3+ (late 2025)",
+      "update_check_method": "release_notes",
+      "buzz_score": 75,
+      "vision": 78,
+      "ability": 82,
+      "source": "curated_list",
+      "description": "An AI-powered search engine that uses large language models to generate concise, accurate answers to questions with sources and citations by searching the web in real time.",
       "pricing": "Freemium",
       "key_features": [
-        "Autonomous web browsing and source gathering",
-        "Multi-step research planning and reasoning",
-        "Comprehensive report generation with citations",
-        "Integration with Gmail, Drive, and Chat",
-        "Audio overviews and interactive content creation"
+        "Real-time web search with AI-powered answers",
+        "Source citations and transparency",
+        "Pro Search for in-depth research",
+        "Deep Research with multi-step investigations",
+        "Model selector and conversational dialogue"
+      ],
+      "founding_year": 2022,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729491",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526843",
+      "final_score": 84.6,
+      "base_score": 70.5,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 78,
+        "ability": 82,
+        "credibility": 50.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.828283",
+      "version_updated_at": "2025-11-14T11:35:05.828223",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://www.perplexity.ai/",
+      "confidence_level": 100,
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Google AI Mode",
+      "publisher": "Google",
+      "category": "AI Search",
+      "official_url": "https://www.google.com/search",
+      "release_notes_url": "",
+      "docs_url": "",
+      "tags": [
+        "Search",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://www.google.com/search",
+      "buzz_score": 75,
+      "vision": 72,
+      "ability": 75,
+      "confidence_level": 100,
+      "description": "Google's most powerful AI search experience integrated into Google Search that uses Gemini 2.5 to synthesize comprehensive answers from across the web through conversational interaction.",
+      "pricing": "Free",
+      "key_features": [
+        "AI-powered responses to complex multi-part questions",
+        "Query fan-out technique breaking questions into subtopics",
+        "Follow-up question capability for deeper exploration",
+        "Multimodal input support (text, voice, images)",
+        "Personalized suggestions based on search history and connected Google apps"
       ],
       "founding_year": 2024,
       "version": "1.0",
       "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829740",
-      "final_score": 71.7,
-      "base_score": 59.75,
+      "added_date": "2025-11-14T11:35:05.829775",
+      "final_score": 84.42,
+      "base_score": 70.35,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
+        "vision": 72,
         "ability": 75,
-        "credibility": 50.0,
+        "credibility": 75.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
@@ -1008,49 +756,55 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Visionary"
+      "gartner_quadrant": "Leader"
     },
     {
-      "name": "Canva Magic Studio",
-      "publisher": "Canva",
-      "category": "Image & Video Generation",
-      "official_url": "https://www.canva.com/magic-studio/",
-      "release_notes_url": "",
-      "docs_url": "https://www.canva.com/help/",
+      "name": "ElevenLabs",
+      "publisher": "ElevenLabs",
+      "category": "Audio Generation",
+      "official_url": "https://elevenlabs.io/",
+      "release_notes_url": "https://blog.elevenlabs.io/",
+      "docs_url": "",
       "tags": [
-        "Design",
-        "Video",
+        "Audio",
+        "Voice",
         "AI"
       ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.canva.com/magic-studio/",
+      "tracking_versions": true,
+      "last_known_version": "0.8691619760103813",
+      "update_check_method": "blog",
       "buzz_score": 75,
-      "vision": 76,
-      "ability": 78,
-      "confidence_level": 100,
-      "description": "Canva Magic Studio is an AI-powered suite that accelerates design tasks like text generation, image editing, and template creation within Canva.",
+      "vision": 80,
+      "ability": 82,
+      "source": "curated_list",
+      "description": "Create lifelike speech with our AI voice generator and voice agents platform. Access 5,000+ voices in 70+ languages with secure APIs and SDKs.",
       "pricing": "Freemium",
       "key_features": [
-        "Magic Write (AI text generation)",
-        "Magic Edit (AI image modification)",
-        "Magic Design (AI template suggestions)",
-        "Magic Animate (motion effects)",
-        "Magic Morph (text/shape transformation)"
+        "Text-to-Speech (TTS)",
+        "Voice Cloning",
+        "Conversational AI Agents",
+        "Speech-to-Text",
+        "Automated Dubbing"
       ],
       "founding_year": 2023,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829759",
-      "final_score": 71.7,
-      "base_score": 59.75,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729576",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526850",
+      "final_score": 84.42,
+      "base_score": 70.35,
       "scoring_breakdown": {
         "buzz": 75,
         "vision": 80,
-        "ability": 75,
-        "credibility": 50.0,
+        "ability": 82,
+        "credibility": 45.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
@@ -1063,6 +817,15 @@
           "Curated list (1.2x)"
         ]
       },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.828383",
+      "version_updated_at": "2025-12-01T09:52:12.884281",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://elevenlabs.io/",
+      "confidence_level": 100,
       "gartner_quadrant": "Leader"
     },
     {
@@ -1099,13 +862,1113 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T11:35:05.829761",
-      "final_score": 71.7,
-      "base_score": 59.75,
+      "final_score": 83.7,
+      "base_score": 69.75,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
+        "vision": 82,
+        "ability": 78,
+        "credibility": 45.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Canva Magic Studio",
+      "publisher": "Canva",
+      "category": "Image & Video Generation",
+      "official_url": "https://www.canva.com/magic-studio/",
+      "release_notes_url": "",
+      "docs_url": "https://www.canva.com/help/",
+      "tags": [
+        "Design",
+        "Video",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://www.canva.com/magic-studio/",
+      "buzz_score": 75,
+      "vision": 76,
+      "ability": 78,
+      "confidence_level": 100,
+      "description": "Canva Magic Studio is an AI-powered suite that accelerates design tasks like text generation, image editing, and template creation within Canva.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Magic Write (AI text generation)",
+        "Magic Edit (AI image modification)",
+        "Magic Design (AI template suggestions)",
+        "Magic Animate (motion effects)",
+        "Magic Morph (text/shape transformation)"
+      ],
+      "founding_year": 2023,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829759",
+      "final_score": 83.34,
+      "base_score": 69.45,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 76,
+        "ability": 78,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "JetBrains AI Assistant",
+      "publisher": "JetBrains",
+      "category": "AI Coding Assistant",
+      "official_url": "https://www.jetbrains.com/ai/",
+      "release_notes_url": "https://www.jetbrains.com/ai/whatsnew/",
+      "docs_url": "",
+      "tags": [
+        "Development",
+        "Coding",
+        "Assistant"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "2025.1",
+      "update_check_method": "release_notes",
+      "buzz_score": 75,
+      "vision": 74,
+      "ability": 80,
+      "source": "curated_list",
+      "description": "Transform your business with JetBrains AI solutions and services, including integrated AI tools and software development expertise.",
+      "pricing": "Freemium (AI Free tier available; paid tiers: AI Pro at $10/month or $100/year, AI Ultimate at $30/month or $300/year, AI Enterprise with custom pricing)",
+      "key_features": [
+        "Code completion",
+        "Context-aware AI chat",
+        "Generate code",
+        "Explain code",
+        "Generate unit tests",
+        "Suggest refactoring",
+        "Write documentation",
+        "Find problems"
+      ],
+      "founding_year": 2023,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729741",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526844",
+      "final_score": 83.34,
+      "base_score": 69.45,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 74,
+        "ability": 80,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.828779",
+      "version_updated_at": "2025-11-14T11:35:05.828719",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://www.jetbrains.com/ai/",
+      "confidence_level": 100,
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Synthesia",
+      "official_url": "https://www.synthesia.io/",
+      "twitter_handle": "@synthesia_io",
+      "category": "Video Generation",
+      "vision": 78,
+      "ability": 75,
+      "buzz_score": 75,
+      "quadrant": "Visionary",
+      "status": "active",
+      "description": "Create AI generated videos from text with the most advanced AI avatars and voiceovers in 140+ languages. Try our free AI video generator now!",
+      "features": [
+        "Avatar videos",
+        "Multi-language",
+        "Corporate videos"
+      ],
+      "pricing": "Freemium with Free, Starter ($29/month), Creator ($89/month), and Custom Enterprise plans",
+      "added_date": "2025-11-10T21:21:35.741857",
+      "key_features": [
+        "Create AI videos by typing text",
+        "Use 230+ AI avatars including custom personal avatars",
+        "1-click translations into 80+ languages",
+        "Collaborate with team members in real time",
+        "Enterprise features like brand kits, SCORM export, API access, and priority support"
+      ],
+      "founding_year": 2017,
+      "final_score": 82.98,
+      "base_score": 69.15,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 78,
         "ability": 75,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:35:05.829515",
+          "vision": 68,
+          "ability": 44,
+          "quadrant": "Visionary"
+        }
+      ],
+      "version_updated_at": "2025-11-14T11:45:21.951190",
+      "major_update_reason": [
+        "Ability changed significantly: 44→75 (+31)",
+        "Quadrant changed: Visionary→None"
+      ],
+      "publisher": "Synthesia",
+      "release_notes_url": "",
+      "docs_url": "https://help.synthesia.io/",
+      "tags": [
+        "Video",
+        "Avatar",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "4.7",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://www.synthesia.io/",
+      "confidence_level": 100,
+      "last_updated": "2025-11-14T11:35:05.829580",
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "n8n",
+      "publisher": "n8n",
+      "category": "Automation & No-code",
+      "official_url": "https://n8n.io/",
+      "release_notes_url": "https://docs.n8n.io/changelog/",
+      "docs_url": "https://docs.n8n.io/",
+      "tags": [
+        "Automation",
+        "No-code"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "1.0",
+      "update_check_method": "release_notes",
+      "version_source": "homepage_meta",
+      "version_metadata": {},
+      "needs_major_review": false,
+      "buzz_score": 75,
+      "vision": 76,
+      "ability": 74,
+      "source": "curated_list",
+      "description": "n8n is a workflow automation platform that uniquely combines AI capabilities with business process automation, giving technical teams the flexibility of code with the speed of no-code.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Unlimited workflows, steps, and users",
+        "Execution-based pricing (pay per workflow run)",
+        "Advanced debugging and monitoring tools",
+        "Enterprise security features (SSO, RBAC, audit logging)",
+        "Community templates and integrations"
+      ],
+      "founding_year": 2019,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729231",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526846",
+      "final_score": 81.9,
+      "base_score": 68.25,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 76,
+        "ability": 74,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.827853",
+      "version_updated_at": "2025-11-14T11:35:05.827780",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://n8n.io/",
+      "confidence_level": 100,
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Otter",
+      "publisher": "Otter.ai",
+      "category": "Meeting Assistant",
+      "official_url": "https://otter.ai/",
+      "release_notes_url": "https://blog.otter.ai/",
+      "docs_url": "https://help.otter.ai/",
+      "tags": [
+        "Transcription",
+        "Meeting",
+        "AI"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "3.70.8 (Nov 2025)",
+      "update_check_method": "blog",
+      "buzz_score": 75,
+      "vision": 74,
+      "ability": 76,
+      "source": "curated_list",
+      "description": "Otter AI Meeting Agent supports real-time transcription, live chat, automated summaries, insights, and action items.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Meeting transcription and notes",
+        "Advanced search and playback",
+        "Custom vocabulary and speaker tagging",
+        "File imports and audio/video transcription",
+        "Team collaboration and admin controls"
+      ],
+      "founding_year": 2016,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729347",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526851",
+      "final_score": 81.9,
+      "base_score": 68.25,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 74,
+        "ability": 76,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.828078",
+      "version_updated_at": "2025-11-14T11:35:05.828015",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://otter.ai/",
+      "confidence_level": 100,
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Notion AI",
+      "publisher": "Notion",
+      "category": "Knowledge Management",
+      "official_url": "https://www.notion.so/product/ai",
+      "release_notes_url": "https://www.notion.so/releases",
+      "docs_url": "https://www.notion.so/help/guides/notion-ai",
+      "tags": [
+        "Productivity",
+        "Knowledge",
+        "Q&A"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "3.1",
+      "update_check_method": "release_notes",
+      "version_source": "changelog",
+      "version_metadata": {
+        "changelog_url": "https://www.notion.so/releases",
+        "release_date": "",
+        "found_in": "header"
+      },
+      "needs_major_review": false,
+      "buzz_score": 75,
+      "vision": 72,
+      "ability": 70.1,
+      "source": "curated_list",
+      "description": "One tool that does it all. Search, generate, analyze, and chat—right inside Notion.",
+      "pricing": "Freemium with AI included in Business ($20/user/month annually) and Enterprise (custom pricing) plans; Free and Plus plans have limited AI trial access",
+      "key_features": [
+        "Integrated AI with GPT-4.1 and Claude 3.7 Sonnet",
+        "AI-powered search, meeting notes summarization, and content generation",
+        "Automated task autofill and action item generation",
+        "Workspace Q&A for instant information retrieval",
+        "Custom database creation based on user needs"
+      ],
+      "founding_year": 2013,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729701",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526842",
+      "final_score": 80.82,
+      "base_score": 67.35,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 72,
+        "ability": 70,
+        "credibility": 65.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.828679",
+      "version_updated_at": "2025-12-01T09:52:12.884219",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://www.notion.so/product/ai",
+      "confidence_level": 100,
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Jasper",
+      "publisher": "Jasper",
+      "category": "Marketing Content",
+      "official_url": "https://www.jasper.ai/",
+      "release_notes_url": "",
+      "docs_url": "https://help.jasper.ai/",
+      "tags": [
+        "Text",
+        "Marketing",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://www.jasper.ai/",
+      "buzz_score": 75,
+      "vision": 70,
+      "ability": 72.1,
+      "confidence_level": 100,
+      "description": "Jasper is the AI marketing platform that unifies your brand experience, accelerates content velocity, and automates marketing processesâat scale.",
+      "pricing": "Paid with tiered subscription plans: Creator ($39-$49/month), Pro ($59-$69/month), and Business (custom pricing)",
+      "key_features": [
+        "Unlimited word generation",
+        "Multiple brand voices",
+        "Team collaboration and user seat options",
+        "Integration with SEO tools (e.g., Surfer SEO)",
+        "Custom workflows and API access in Business plan"
+      ],
+      "founding_year": 2021,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829751",
+      "final_score": 79.92,
+      "base_score": 66.6,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 70,
+        "ability": 72,
+        "credibility": 60.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "DeepCode AI",
+      "publisher": "Snyk",
+      "category": "AI Coding Assistant",
+      "official_url": "https://snyk.io/deepcode/",
+      "release_notes_url": "",
+      "docs_url": "",
+      "tags": [
+        "Security",
+        "Code Review",
+        "Assistant"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://snyk.io/deepcode/",
+      "buzz_score": 75,
+      "vision": 70,
+      "ability": 74,
+      "confidence_level": 100,
+      "description": "DeepCode AI code autofix empowers developers with efficient & accurate AppSec solutions. Book a demo to try the fastest AI code review tool on the market.",
+      "pricing": "Freemium",
+      "key_features": [
+        "AI-powered code analysis and review",
+        "Semantic static code analysis combining machine learning and symbolic reasoning",
+        "Real-time detection of bugs and security vulnerabilities",
+        "Integration with GitHub, BitBucket, GitLab, and IDEs",
+        "Learning from billions of lines of code and developer commits"
+      ],
+      "founding_year": 2016,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829742",
+      "final_score": 79.74,
+      "base_score": 66.45,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 70,
+        "ability": 74,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Arc Browser",
+      "publisher": "The Browser Company",
+      "category": "AI Search",
+      "official_url": "https://arc.net/ai",
+      "release_notes_url": "",
+      "docs_url": "",
+      "tags": [
+        "Browser",
+        "AI",
+        "Search"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://arc.net/ai",
+      "buzz_score": 75,
+      "vision": 74,
+      "ability": 72,
+      "confidence_level": 100,
+      "description": "Arc Browser is a Chromium-based browser focused on productivity, privacy, and AI-powered tools for smarter web browsing and multitasking.",
+      "pricing": "Freemium",
+      "key_features": [
+        "AI-powered Ask on Page for instant Q&A on webpages",
+        "5-second Previews for quick link summaries (macOS only)",
+        "ChatGPT integration in Command Bar (macOS only)",
+        "Air Traffic Control to automate tab behavior and workspace management",
+        "Little Arc lightweight browser window for quick link peeks"
+      ],
+      "founding_year": 2021,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829772",
+      "final_score": 79.56,
+      "base_score": 66.3,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 74,
+        "ability": 72,
         "credibility": 50.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Asana (AI)",
+      "publisher": "Asana",
+      "category": "Productivity & Task Management",
+      "official_url": "https://asana.com/features/ai",
+      "release_notes_url": "",
+      "docs_url": "https://help.asana.com/hc/en-us/articles/18677617370775-Asana-s-AI-Features",
+      "tags": [
+        "Project Management",
+        "Productivity"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://asana.com/features/ai",
+      "buzz_score": 75,
+      "vision": 70,
+      "ability": 68,
+      "confidence_level": 100,
+      "description": "Asana AI enhances project management with task summarization, automation, and workflow optimization to improve team productivity.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Task summarization and smart summaries",
+        "Workflow builder with automation",
+        "Timeline and Gantt views",
+        "Custom fields and forms",
+        "AI Studio with tiered credit-based automation"
+      ],
+      "founding_year": 2008,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829731",
+      "final_score": 79.38,
+      "base_score": 66.15,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 70,
+        "ability": 68,
+        "credibility": 65.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "WriteSonic",
+      "publisher": "WriteSonic",
+      "category": "Marketing Content",
+      "official_url": "https://writesonic.com/",
+      "release_notes_url": "",
+      "docs_url": "https://docs.writesonic.com/",
+      "tags": [
+        "Text",
+        "Marketing",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://writesonic.com/",
+      "buzz_score": 75,
+      "vision": 68,
+      "ability": 70,
+      "confidence_level": 100,
+      "description": "Track AI visibility across ChatGPT and 10+ AI platforms. Monitor mentions, fix citation gaps, create and refresh content, target Reddit & UGC forums. Complete GEO platform from tracking to action to results.",
+      "pricing": "Freemium",
+      "key_features": [
+        "AI Article Writer",
+        "SEO Checker & Optimizer",
+        "Chatsonic (AI Chat)",
+        "AI Traffic Analytics",
+        "Brand Voice Profiles"
+      ],
+      "founding_year": 2020,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829755",
+      "final_score": 79.38,
+      "base_score": 66.15,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 68,
+        "ability": 70,
+        "credibility": 65.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Deep Research",
+      "publisher": "Deep Research",
+      "category": "Research Assistant",
+      "official_url": "https://deepresearch.ai/",
+      "release_notes_url": "",
+      "docs_url": "",
+      "tags": [
+        "Research",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://deepresearch.ai/",
+      "buzz_score": 75,
+      "vision": 76,
+      "ability": 72,
+      "confidence_level": 100,
+      "description": "An AI-powered research agent that autonomously searches hundreds of websites, analyzes information, and generates comprehensive multi-page reports in minutes by breaking down complex research tasks.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Autonomous web browsing and source gathering",
+        "Multi-step research planning and reasoning",
+        "Comprehensive report generation with citations",
+        "Integration with Gmail, Drive, and Chat",
+        "Audio overviews and interactive content creation"
+      ],
+      "founding_year": 2024,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829740",
+      "final_score": 79.38,
+      "base_score": 66.15,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 76,
+        "ability": 72,
+        "credibility": 45.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Sudowrite",
+      "publisher": "Sudowrite",
+      "category": "Content Creation",
+      "official_url": "https://www.sudowrite.com/",
+      "release_notes_url": "",
+      "docs_url": "",
+      "tags": [
+        "Text",
+        "Writing",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://www.sudowrite.com/",
+      "buzz_score": 75,
+      "vision": 72,
+      "ability": 70,
+      "confidence_level": 100,
+      "description": "Write your novel faster with the best AI tool for fiction. Start for free today and see why The New Yorker calls it \"a salvation\" for writers and why The New York Times, The Verge, and many more love Sudowrite.",
+      "pricing": "Freemium (free trial) with three paid subscription tiers: Hobby & Student (~$10-$19/month), Professional (~$22-$29/month), and Max (~$44-$59/month, custom for enterprise)",
+      "key_features": [
+        "Story Engine for creative writing assistance",
+        "Describe tool for vivid descriptions",
+        "Rewrite and brainstorming tools",
+        "Credit-based usage system",
+        "Collaboration options in Max plan"
+      ],
+      "founding_year": 2020,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829753",
+      "final_score": 79.02,
+      "base_score": 65.85,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 72,
+        "ability": 70,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Fathom",
+      "publisher": "Fathom",
+      "category": "Meeting Assistant",
+      "official_url": "https://fathom.video/",
+      "release_notes_url": "",
+      "docs_url": "https://fathom.video/help",
+      "tags": [
+        "Transcription",
+        "Meeting",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://fathom.video/",
+      "buzz_score": 75,
+      "vision": 70,
+      "ability": 72,
+      "confidence_level": 100,
+      "description": "Fathom is an AI meeting assistant that records, transcribes, and summarizes online meetings with multi-speaker support and natural language search.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Automatic transcription and highlights",
+        "AI-generated summaries and action items",
+        "Natural language Q&A with 'Ask Fathom'",
+        "Integrations with Slack, Notion, HubSpot, Salesforce, Asana",
+        "Real-time collaboration and tagging during calls"
+      ],
+      "founding_year": 2020,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829767",
+      "final_score": 79.02,
+      "base_score": 65.85,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 70,
+        "ability": 72,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Tabnine",
+      "publisher": "Tabnine",
+      "category": "AI Coding Assistant",
+      "official_url": "https://www.tabnine.com/",
+      "release_notes_url": "",
+      "docs_url": "https://docs.tabnine.com/",
+      "tags": [
+        "Development",
+        "Coding",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "1.0",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://www.tabnine.com/",
+      "buzz_score": 75,
+      "vision": 68,
+      "ability": 72,
+      "confidence_level": 100,
+      "description": "Tabnine is the AI code assistant that accelerates and simplifies software development while keeping your code private, secure, and compliant.",
+      "pricing": "Freemium (free version with limited completions; full AI features from $12/user/month; Enterprise pricing custom and undisclosed)",
+      "key_features": [
+        "AI code completion with multi-IDE support",
+        "On-premises, cloud, and single-tenant VPC deployment options",
+        "Privacy by design with no retention of proprietary code",
+        "Granular context scoping (file, folder, repo level)",
+        "Enterprise-grade governance and centralized configuration"
+      ],
+      "founding_year": 2017,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829744",
+      "final_score": 78.3,
+      "base_score": 65.25,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 68,
+        "ability": 72,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "version_updated_at": "2025-11-14T11:45:21.951263",
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Sourcegraph Cody",
+      "publisher": "Sourcegraph",
+      "category": "AI Coding Assistant",
+      "official_url": "https://about.sourcegraph.com/cody",
+      "release_notes_url": "https://sourcegraph.com/blog/tags/changelog",
+      "docs_url": "",
+      "tags": [
+        "Development",
+        "Coding",
+        "Assistant"
+      ],
+      "tracking_versions": true,
+      "last_known_version": "2012.05.20",
+      "update_check_method": "blog",
+      "version_source": "homepage_meta",
+      "version_metadata": {},
+      "needs_major_review": true,
+      "buzz_score": 75,
+      "vision": 70,
+      "ability": 75,
+      "source": "curated_list",
+      "description": "Cody is the most powerful and accurate AI coding assistant for writing, fixing, and maintaining code",
+      "pricing": "Freemium with usage-based and enterprise licensing options; includes free plan for light usage and enterprise plans with custom pricing",
+      "key_features": [
+        "Automatic cross-repository context identification",
+        "Vector embeddings for semantic code understanding",
+        "Integration with existing Sourcegraph infrastructure",
+        "AI-first IDE integration with real-time code completion",
+        "Support for multiple LLMs and flexible AI infrastructure deployment"
+      ],
+      "founding_year": 2023,
+      "version": "2.0",
+      "version_history": [
+        {
+          "version": "1.0",
+          "snapshot_date": "2025-11-14T11:29:24.729786",
+          "vision": 50,
+          "ability": 50,
+          "quadrant": null
+        }
+      ],
+      "added_date": "2025-11-14T10:10:13.526845",
+      "final_score": 78.3,
+      "base_score": 65.25,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 70,
+        "ability": 75,
+        "credibility": 45.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "strengths": null,
+      "limitations": null,
+      "last_updated": "2025-11-14T11:35:05.828877",
+      "version_updated_at": "2025-11-14T11:35:05.828817",
+      "major_update_reason": [
+        "Vision changed significantly: 50→80 (+30)"
+      ],
+      "url": "https://about.sourcegraph.com/cody",
+      "confidence_level": 100,
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Fireflies.ai",
+      "publisher": "Fireflies.ai",
+      "category": "Meeting Assistant",
+      "official_url": "https://fireflies.ai/",
+      "release_notes_url": "",
+      "docs_url": "https://help.fireflies.ai/en/",
+      "tags": [
+        "Transcription",
+        "Meeting",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "4.8",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://fireflies.ai/",
+      "buzz_score": 75,
+      "vision": 72,
+      "ability": 74,
+      "confidence_level": 100,
+      "description": "Fireflies uses generative AI to bring ChatGPT to meetings. Generate transcripts and smart summaries for Zoom, Google Meet, Microsoft Teams, Webex and several other platforms.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Meeting transcription",
+        "AI summaries and notes",
+        "Conversation intelligence",
+        "CRM integrations",
+        "Team analytics"
+      ],
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829765",
+      "final_score": 77.76,
+      "base_score": 64.8,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 72,
+        "ability": 74,
+        "credibility": 40.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "version_updated_at": "2025-11-14T11:45:21.951279",
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "AIVA",
+      "publisher": "AIVA Technologies",
+      "category": "Audio Generation",
+      "official_url": "https://www.aiva.ai/",
+      "release_notes_url": "",
+      "docs_url": "",
+      "tags": [
+        "Music",
+        "AI"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://www.aiva.ai/",
+      "buzz_score": 75,
+      "vision": 70,
+      "ability": 68.1,
+      "confidence_level": 100,
+      "description": "AIVA, your AI music generation assistant",
+      "pricing": "Freemium (Free plan with 3 downloads/month for non-commercial use; Standard plan €11/month annually billed for limited monetization; Pro plan €33/month annually billed for full copyright ownership and unrestricted monetization)",
+      "key_features": [
+        "AI-generated songs in over 250 styles",
+        "Create and customize style models",
+        "Upload audio or MIDI influences",
+        "Edit generated tracks",
+        "Download in multiple formats including MP3, MIDI, WAV"
+      ],
+      "founding_year": 2016,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829763",
+      "final_score": 77.58,
+      "base_score": 64.65,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 70,
+        "ability": 68,
+        "credibility": 55.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
@@ -1139,7 +2002,7 @@
       "url": "https://www.hubspot.com/products/ai/email-writer",
       "buzz_score": 75,
       "vision": 68,
-      "ability": 70,
+      "ability": 70.1,
       "confidence_level": 100,
       "description": "HubSpot Email Writer is an AI-powered tool integrated in HubSpot's Marketing Hub that automates personalized email copywriting to speed up campaign creation.",
       "pricing": "Paid (part of Marketing Hub Professional and above, starting around $800/month plus onboarding fees)",
@@ -1154,13 +2017,13 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T11:35:05.829769",
-      "final_score": 71.7,
-      "base_score": 59.75,
+      "final_score": 77.58,
+      "base_score": 64.65,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 50.0,
+        "vision": 68,
+        "ability": 70,
+        "credibility": 55.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
@@ -1173,61 +2036,7 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Google AI Mode",
-      "publisher": "Google",
-      "category": "AI Search",
-      "official_url": "https://www.google.com/search",
-      "release_notes_url": "",
-      "docs_url": "",
-      "tags": [
-        "Search",
-        "AI"
-      ],
-      "tracking_versions": false,
-      "last_known_version": "",
-      "update_check_method": "",
-      "source": "curated_list",
-      "url": "https://www.google.com/search",
-      "buzz_score": 75,
-      "vision": 72,
-      "ability": 75,
-      "confidence_level": 100,
-      "description": "Google's most powerful AI search experience integrated into Google Search that uses Gemini 2.5 to synthesize comprehensive answers from across the web through conversational interaction.",
-      "pricing": "Free",
-      "key_features": [
-        "AI-powered responses to complex multi-part questions",
-        "Query fan-out technique breaking questions into subtopics",
-        "Follow-up question capability for deeper exploration",
-        "Multimodal input support (text, voice, images)",
-        "Personalized suggestions based on search history and connected Google apps"
-      ],
-      "founding_year": 2024,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829775",
-      "final_score": 71.7,
-      "base_score": 59.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 50.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "Lovable",
@@ -1279,13 +2088,13 @@
         "Custom domain support"
       ],
       "founding_year": 2023,
-      "final_score": 71.7,
-      "base_score": 59.75,
+      "final_score": 76.5,
+      "base_score": 63.75,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 50.0,
+        "vision": 72,
+        "ability": 68,
+        "credibility": 45.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
@@ -1328,336 +2137,214 @@
       "url": "https://lovable.ai/",
       "confidence_level": 100,
       "last_updated": "2025-11-14T11:35:05.829364",
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "n8n",
-      "publisher": "n8n",
-      "category": "Automation & No-code",
-      "official_url": "https://n8n.io/",
-      "release_notes_url": "https://docs.n8n.io/changelog/",
-      "docs_url": "https://docs.n8n.io/",
-      "tags": [
-        "Automation",
-        "No-code"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "1.0",
-      "update_check_method": "release_notes",
-      "version_source": "homepage_meta",
-      "version_metadata": {},
-      "needs_major_review": false,
-      "buzz_score": 75,
-      "vision": 76,
-      "ability": 74,
-      "source": "curated_list",
-      "description": "n8n is a workflow automation platform that uniquely combines AI capabilities with business process automation, giving technical teams the flexibility of code with the speed of no-code.",
-      "pricing": "Freemium",
-      "key_features": [
-        "Unlimited workflows, steps, and users",
-        "Execution-based pricing (pay per workflow run)",
-        "Advanced debugging and monitoring tools",
-        "Enterprise security features (SSO, RBAC, audit logging)",
-        "Community templates and integrations"
-      ],
-      "founding_year": 2019,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729231",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526846",
-      "final_score": 70.5,
-      "base_score": 58.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.827853",
-      "version_updated_at": "2025-11-14T11:35:05.827780",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://n8n.io/",
-      "confidence_level": 100,
-      "gartner_quadrant": "Visionary"
-    },
-    {
-      "name": "Runway",
-      "publisher": "Runway",
-      "category": "Image & Video Generation",
-      "official_url": "https://runwayml.com/",
-      "release_notes_url": "https://updates.runwayml.com/",
-      "docs_url": "https://learn.runwayml.com/",
-      "tags": [
-        "Video",
-        "Image",
-        "AI"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "Gen-4 (May 2025)",
-      "update_check_method": "release_notes",
-      "buzz_score": 75,
-      "vision": 82,
-      "ability": 80,
-      "source": "curated_list",
-      "description": "Generate images and video with AI. Text to video, image to video, plus more. Runway's AI image and video generation tools trusted by millions worldwide",
-      "pricing": "Freemium with tiered paid plans (Free, Standard, Pro, Unlimited, Enterprise) based on monthly credits and features",
-      "key_features": [
-        "AI video generation (text-to-video, image-to-video, video-to-video)",
-        "Custom AI model training",
-        "Custom voice creation and lip sync",
-        "4K video upscaling and generation",
-        "Team collaboration and asset management with advanced security (Enterprise)"
-      ],
-      "founding_year": 2018,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729291",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526849",
-      "final_score": 70.5,
-      "base_score": 58.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.827971",
-      "version_updated_at": "2025-11-14T11:35:05.827905",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://runwayml.com/",
-      "confidence_level": 100,
       "gartner_quadrant": "Leader"
     },
     {
-      "name": "Otter",
-      "publisher": "Otter.ai",
-      "category": "Meeting Assistant",
-      "official_url": "https://otter.ai/",
-      "release_notes_url": "https://blog.otter.ai/",
-      "docs_url": "https://help.otter.ai/",
-      "tags": [
-        "Transcription",
-        "Meeting",
-        "AI"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "3.70.8 (Nov 2025)",
-      "update_check_method": "blog",
-      "buzz_score": 75,
-      "vision": 74,
-      "ability": 76,
-      "source": "curated_list",
-      "description": "Otter AI Meeting Agent supports real-time transcription, live chat, automated summaries, insights, and action items.",
-      "pricing": "Freemium",
-      "key_features": [
-        "Meeting transcription and notes",
-        "Advanced search and playback",
-        "Custom vocabulary and speaker tagging",
-        "File imports and audio/video transcription",
-        "Team collaboration and admin controls"
-      ],
-      "founding_year": 2016,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729347",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526851",
-      "final_score": 70.5,
-      "base_score": 58.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.828078",
-      "version_updated_at": "2025-11-14T11:35:05.828015",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://otter.ai/",
-      "confidence_level": 100,
-      "gartner_quadrant": "Challenger"
-    },
-    {
-      "name": "Notion AI",
-      "publisher": "Notion",
-      "category": "Knowledge Management",
-      "official_url": "https://www.notion.so/product/ai",
-      "release_notes_url": "https://www.notion.so/releases",
-      "docs_url": "https://www.notion.so/help/guides/notion-ai",
-      "tags": [
-        "Productivity",
-        "Knowledge",
-        "Q&A"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "3.0",
-      "update_check_method": "release_notes",
-      "version_source": "changelog",
-      "version_metadata": {
-        "changelog_url": "https://www.notion.so/releases",
-        "release_date": "",
-        "found_in": "header"
-      },
-      "needs_major_review": false,
-      "buzz_score": 75,
-      "vision": 72,
-      "ability": 70,
-      "source": "curated_list",
-      "description": "One tool that does it all. Search, generate, analyze, and chat—right inside Notion.",
-      "pricing": "Freemium with AI included in Business ($20/user/month annually) and Enterprise (custom pricing) plans; Free and Plus plans have limited AI trial access",
-      "key_features": [
-        "Integrated AI with GPT-4.1 and Claude 3.7 Sonnet",
-        "AI-powered search, meeting notes summarization, and content generation",
-        "Automated task autofill and action item generation",
-        "Workspace Q&A for instant information retrieval",
-        "Custom database creation based on user needs"
-      ],
-      "founding_year": 2013,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729701",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526842",
-      "final_score": 70.5,
-      "base_score": 58.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 60.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.828679",
-      "version_updated_at": "2025-11-14T11:35:05.828619",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://www.notion.so/product/ai",
-      "confidence_level": 100,
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Manus",
-      "publisher": "Manus Labs",
-      "category": "Automation & No-code",
-      "official_url": "https://www.manus.ai/",
+      "name": "Motion",
+      "publisher": "Motion",
+      "category": "Productivity & Task Management",
+      "official_url": "https://www.usemotion.com/",
       "release_notes_url": "",
       "docs_url": "",
       "tags": [
-        "Apps",
+        "Task",
+        "AI Scheduler",
+        "Automation"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "5.14.1",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://www.usemotion.com/",
+      "buzz_score": 75,
+      "vision": 66,
+      "ability": 68,
+      "confidence_level": 100,
+      "description": "Meet the worldâs 1st platform for managing human + AI Employees. Hire AI teammates in minutes to do work across sales, support, ops, and more.",
+      "pricing": "Freemium with multiple paid tiers including Individual ($19/month billed annually), Team ($12/user/month billed annually), and Enterprise (custom pricing)",
+      "key_features": [
+        "AI-powered task and project management",
+        "Automated smart scheduling and calendar management",
+        "AI Employees that autonomously execute workflows",
+        "Centralized knowledge base with AI Docs, Notes, and Search",
+        "AI Reports and dashboards for project insights"
+      ],
+      "founding_year": 2020,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829728",
+      "final_score": 76.14,
+      "base_score": 63.45,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 66,
+        "ability": 68,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "version_updated_at": "2025-11-14T11:45:21.951229",
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Mem",
+      "publisher": "Mem Labs",
+      "category": "Knowledge Management",
+      "official_url": "https://mem.ai/",
+      "release_notes_url": "",
+      "docs_url": "https://help.mem.ai/",
+      "tags": [
+        "Knowledge",
+        "AI",
+        "Productivity"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "1.0",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://mem.ai/",
+      "buzz_score": 75,
+      "vision": 68,
+      "ability": 65,
+      "confidence_level": 100,
+      "description": "Let AI organize your team’s work—from meeting notes, projects, to knowledge bases. All instantly searchable and readily discoverable.",
+      "pricing": "Freemium with a free plan and paid plans starting at $8 to $15 per month, including Mem Pro at $12/month and Mem X at $8-$14.99/month, plus custom pricing for teams",
+      "key_features": [
+        "AI-powered note organization and smart search",
+        "Unlimited notes, collections, and templates",
+        "Real-time collaboration tools",
+        "Automated linking of related notes and context",
+        "Integration with email and CRM systems"
+      ],
+      "founding_year": 2018,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829736",
+      "final_score": 75.78,
+      "base_score": 63.15,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 68,
+        "ability": 65,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "version_updated_at": "2025-11-14T11:45:21.951247",
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Any.do",
+      "publisher": "Any.do",
+      "category": "Productivity & Task Management",
+      "official_url": "https://www.any.do/ai/",
+      "release_notes_url": "",
+      "docs_url": "https://support.any.do/hc/en-us",
+      "tags": [
+        "Productivity",
+        "Scheduler"
+      ],
+      "tracking_versions": false,
+      "last_known_version": "",
+      "update_check_method": "",
+      "source": "curated_list",
+      "url": "https://www.any.do/ai/",
+      "buzz_score": 75,
+      "vision": 65,
+      "ability": 67,
+      "confidence_level": 100,
+      "description": "Any.do is a task management app that organizes to-do lists, calendars, reminders, and collaboration across devices with AI-powered assistance.",
+      "pricing": "Freemium",
+      "key_features": [
+        "Cross-platform syncing",
+        "Smart reminders and scheduling",
+        "AI-driven task prioritization and suggestions",
+        "Collaborative task management",
+        "Integration with calendars and other apps"
+      ],
+      "founding_year": 2011,
+      "version": "1.0",
+      "version_history": [],
+      "added_date": "2025-11-14T11:35:05.829733",
+      "final_score": 75.42,
+      "base_score": 62.85,
+      "scoring_breakdown": {
+        "buzz": 75,
+        "vision": 65,
+        "ability": 67,
+        "credibility": 55.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.2,
+        "maturity_adjustment": 0.0,
+        "penalties": [],
+        "bonuses": [
+          "High confidence (100)",
+          "Curated list (1.2x)"
+        ]
+      },
+      "gartner_quadrant": "Leader"
+    },
+    {
+      "name": "Personal AI",
+      "publisher": "Personal AI",
+      "category": "Knowledge Management",
+      "official_url": "https://www.personal.ai/",
+      "release_notes_url": "",
+      "docs_url": "https://help.personal.ai/",
+      "tags": [
+        "Knowledge",
         "AI"
       ],
       "tracking_versions": false,
       "last_known_version": "",
       "update_check_method": "",
       "source": "curated_list",
-      "url": "https://www.manus.ai/",
+      "url": "https://www.personal.ai/",
       "buzz_score": 75,
       "vision": 66,
       "ability": 64,
       "confidence_level": 100,
-      "description": "Manus is the action engine that goes beyond answers to execute tasks, automate workflows, and extend your human reach.",
-      "pricing": "Freemium with paid tiers (Basic $19/month, Plus $39/month, Pro $199/month, Custom Enterprise)",
+      "description": "Personal AI is the Small Language Model platform engineered for scaled experiences that are private, programmable, and precise.",
+      "pricing": "Freemium with flexible paid plans including enterprise options",
       "key_features": [
-        "Task automation and workflow execution",
-        "AI agent creation with concurrent task handling",
-        "Credit-based system for complex interactions",
-        "API access and advanced integrations",
-        "Team collaboration and shared credit pools"
+        "Personal AI memory management and model training tools",
+        "Integration with existing tools and workflows",
+        "Scalable model capacity and AI memory",
+        "Simple, transparent pricing for personal and business use",
+        "Partnering with specialists for model training"
       ],
+      "founding_year": 2018,
       "version": "1.0",
       "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829748",
-      "final_score": 69.3,
-      "base_score": 57.75,
+      "added_date": "2025-11-14T11:35:05.829738",
+      "final_score": 74.7,
+      "base_score": 62.25,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
-        "ability": 75,
-        "credibility": 40.0,
+        "vision": 66,
+        "ability": 64,
+        "credibility": 55.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
@@ -1670,7 +2357,7 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "Fyxer",
@@ -1705,12 +2392,12 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T11:35:05.829770",
-      "final_score": 69.3,
-      "base_score": 57.75,
+      "final_score": 72.36,
+      "base_score": 60.3,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
-        "ability": 75,
+        "vision": 65,
+        "ability": 66,
         "credibility": 40.0,
         "adoption": 0.0
       },
@@ -1724,242 +2411,46 @@
           "Curated list (1.2x)"
         ]
       },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "ChatGPT",
-      "publisher": "OpenAI",
-      "category": "Productivity & Task Management",
-      "official_url": "https://chat.openai.com/",
-      "release_notes_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-      "docs_url": "https://platform.openai.com/docs/",
-      "tags": [
-        "NLP",
-        "Chatbot",
-        "Productivity"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "5.1",
-      "update_check_method": "release_notes",
-      "buzz_score": 75,
-      "vision": 90,
-      "ability": 95,
-      "source": "curated_list",
-      "description": "ChatGPT is a conversational AI assistant developed by OpenAI that generates human-like text responses for writing, coding, summarization, and learning tasks with multimodal input capabilities.",
-      "pricing": "Freemium",
-      "key_features": [
-        "Conversational text generation for writing and coding",
-        "Voice interaction and image analysis",
-        "Memory function to recall user preferences across conversations",
-        "Real-time web search for current information",
-        "Custom instructions for personalized responses"
-      ],
-      "founding_year": 2022,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729396",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526837",
-      "final_score": 69.3,
-      "base_score": 57.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 55.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.828181",
-      "version_updated_at": "2025-11-14T11:35:05.828120",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://chat.openai.com/",
-      "confidence_level": 100,
       "gartner_quadrant": "Leader"
     },
     {
-      "name": "Perplexity",
-      "publisher": "Perplexity",
-      "category": "AI Search",
-      "official_url": "https://www.perplexity.ai/",
-      "release_notes_url": "https://www.perplexity.ai/changelog",
-      "docs_url": "https://docs.perplexity.ai/",
-      "tags": [
-        "Search",
-        "Q&A",
-        "Productivity"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "v3+ (late 2025)",
-      "update_check_method": "release_notes",
-      "buzz_score": 75,
-      "vision": 78,
-      "ability": 82,
-      "source": "curated_list",
-      "description": "An AI-powered search engine that uses large language models to generate concise, accurate answers to questions with sources and citations by searching the web in real time.",
-      "pricing": "Freemium",
-      "key_features": [
-        "Real-time web search with AI-powered answers",
-        "Source citations and transparency",
-        "Pro Search for in-depth research",
-        "Deep Research with multi-step investigations",
-        "Model selector and conversational dialogue"
-      ],
-      "founding_year": 2022,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729491",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526843",
-      "final_score": 69.3,
-      "base_score": 57.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 55.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.828283",
-      "version_updated_at": "2025-11-14T11:35:05.828223",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://www.perplexity.ai/",
-      "confidence_level": 100,
-      "gartner_quadrant": "Leader"
-    },
-    {
-      "name": "Midjourney",
-      "publisher": "Midjourney Inc.",
-      "category": "Image Generation",
-      "official_url": "https://www.midjourney.com/",
-      "release_notes_url": "https://docs.midjourney.com/docs/changelog",
-      "docs_url": "https://docs.midjourney.com/",
-      "tags": [
-        "Image",
-        "Generative",
-        "Art"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "6.1",
-      "update_check_method": "release_notes",
-      "source": "curated_list",
-      "url": "https://www.midjourney.com/",
-      "buzz_score": 75,
-      "vision": 85,
-      "ability": 88,
-      "confidence_level": 100,
-      "description": "Midjourney is an AI tool that generates high-quality, artistic images from text prompts, known for its creative style and community-driven platform.",
-      "pricing": "Paid",
-      "key_features": [
-        "Text-to-image generation",
-        "Customization options and style presets",
-        "Rapid image generation with upscale and variation tools",
-        "Community collaboration and sharing",
-        "Prompt-based image enhancement and personalization"
-      ],
-      "founding_year": 2021,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829757",
-      "final_score": 69.3,
-      "base_score": 57.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 55.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Leader"
-    },
-    {
-      "name": "Fireflies.ai",
-      "publisher": "Fireflies.ai",
-      "category": "Meeting Assistant",
-      "official_url": "https://fireflies.ai/",
+      "name": "Manus",
+      "publisher": "Manus Labs",
+      "category": "Automation & No-code",
+      "official_url": "https://www.manus.ai/",
       "release_notes_url": "",
-      "docs_url": "https://help.fireflies.ai/en/",
+      "docs_url": "",
       "tags": [
-        "Transcription",
-        "Meeting",
+        "Apps",
         "AI"
       ],
       "tracking_versions": false,
-      "last_known_version": "4.8",
+      "last_known_version": "",
       "update_check_method": "",
       "source": "curated_list",
-      "url": "https://fireflies.ai/",
+      "url": "https://www.manus.ai/",
       "buzz_score": 75,
-      "vision": 72,
-      "ability": 74,
+      "vision": 66,
+      "ability": 64.1,
       "confidence_level": 100,
-      "description": "Fireflies uses generative AI to bring ChatGPT to meetings. Generate transcripts and smart summaries for Zoom, Google Meet, Microsoft Teams, Webex and several other platforms.",
-      "pricing": "Freemium",
+      "description": "Manus is the action engine that goes beyond answers to execute tasks, automate workflows, and extend your human reach.",
+      "pricing": "Freemium with paid tiers (Basic $19/month, Plus $39/month, Pro $199/month, Custom Enterprise)",
       "key_features": [
-        "Meeting transcription",
-        "AI summaries and notes",
-        "Conversation intelligence",
-        "CRM integrations",
-        "Team analytics"
+        "Task automation and workflow execution",
+        "AI agent creation with concurrent task handling",
+        "Credit-based system for complex interactions",
+        "API access and advanced integrations",
+        "Team collaboration and shared credit pools"
       ],
       "version": "1.0",
       "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829765",
-      "final_score": 69.3,
-      "base_score": 57.75,
+      "added_date": "2025-11-14T11:35:05.829748",
+      "final_score": 72.0,
+      "base_score": 60.0,
       "scoring_breakdown": {
         "buzz": 75,
-        "vision": 80,
-        "ability": 75,
+        "vision": 66,
+        "ability": 64,
         "credibility": 40.0,
         "adoption": 0.0
       },
@@ -1973,544 +2464,7 @@
           "Curated list (1.2x)"
         ]
       },
-      "version_updated_at": "2025-11-14T11:45:21.951279",
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "GitHub Copilot",
-      "official_url": "https://github.com/features/copilot",
-      "twitter_handle": "@github",
-      "category": "AI Coding Assistant",
-      "vision": 85,
-      "ability": 90,
-      "buzz_score": 75,
-      "quadrant": "Leader",
-      "status": "active",
-      "description": "GitHub Copilot works alongside you directly in your editor, suggesting whole lines or entire functions for you.",
-      "features": [
-        "Code completion",
-        "Multi-language",
-        "Chat mode"
-      ],
-      "pricing": "Freemium",
-      "added_date": "2025-11-10T21:21:35.741861",
-      "key_features": [
-        "Real-time code suggestions",
-        "Copilot Chat with AI models",
-        "Unlimited completions (paid plans)",
-        "Access to premium AI models",
-        "Programmatic mode"
-      ],
-      "founding_year": 2021,
-      "final_score": 69.3,
-      "base_score": 57.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 55.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.829476",
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.730227",
-          "vision": 68,
-          "ability": 83,
-          "quadrant": "Leader"
-        }
-      ],
-      "version_updated_at": "2025-11-14T11:35:05.829414",
-      "major_update_reason": [
-        "Ability changed significantly: 83→60 (+23)",
-        "Quadrant changed: Leader→None",
-        "Category changed: AI Coding→Coding Assistant"
-      ],
-      "publisher": "GitHub",
-      "release_notes_url": "https://docs.github.com/en/copilot/release-notes",
-      "docs_url": "https://docs.github.com/en/copilot",
-      "tags": [
-        "Development",
-        "Coding",
-        "Assistant"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "1.79",
-      "update_check_method": "release_notes",
-      "source": "curated_list",
-      "url": "https://github.com/features/copilot",
-      "confidence_level": 100,
-      "gartner_quadrant": "Leader"
-    },
-    {
-      "name": "ElevenLabs",
-      "publisher": "ElevenLabs",
-      "category": "Audio Generation",
-      "official_url": "https://elevenlabs.io/",
-      "release_notes_url": "https://blog.elevenlabs.io/",
-      "docs_url": "",
-      "tags": [
-        "Audio",
-        "Voice",
-        "AI"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "v3+ (Nov 2025)",
-      "update_check_method": "blog",
-      "buzz_score": 75,
-      "vision": 80,
-      "ability": 82,
-      "source": "curated_list",
-      "description": "Create lifelike speech with our AI voice generator and voice agents platform. Access 5,000+ voices in 70+ languages with secure APIs and SDKs.",
-      "pricing": "Freemium",
-      "key_features": [
-        "Text-to-Speech (TTS)",
-        "Voice Cloning",
-        "Conversational AI Agents",
-        "Speech-to-Text",
-        "Automated Dubbing"
-      ],
-      "founding_year": 2023,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729576",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526850",
-      "final_score": 68.1,
-      "base_score": 56.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 50.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.828383",
-      "version_updated_at": "2025-11-14T11:35:05.828323",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://elevenlabs.io/",
-      "confidence_level": 100,
-      "gartner_quadrant": "Leader"
-    },
-    {
-      "name": "Meta AI (Llama)",
-      "publisher": "Meta",
-      "category": "Productivity & Task Management",
-      "official_url": "https://www.meta.ai/",
-      "release_notes_url": "",
-      "docs_url": "https://ai.meta.com/research/",
-      "tags": [
-        "NLP",
-        "Chatbot",
-        "AGI"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "Llama 3.3",
-      "update_check_method": "blog",
-      "buzz_score": 75,
-      "vision": 82,
-      "ability": 85,
-      "source": "curated_list",
-      "description": "Use Meta AI assistant to get things done, create AI-generated images for free, and get answers to any of your questions. Meta AI is built on Meta's...",
-      "pricing": "Paid",
-      "key_features": [
-        "Open-source large language models",
-        "Support for multimodal tasks",
-        "Token-based API pricing",
-        "High efficiency and scalability",
-        "Commercial viability"
-      ],
-      "founding_year": 2023,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729616",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526839",
-      "final_score": 68.1,
-      "base_score": 56.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 50.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.828483",
-      "version_updated_at": "2025-11-14T11:35:05.828423",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://www.meta.ai/",
-      "confidence_level": 100,
-      "gartner_quadrant": "Leader"
-    },
-    {
-      "name": "Google Gemini",
-      "publisher": "Google",
-      "category": "Productivity & Task Management",
-      "official_url": "https://gemini.google.com/",
-      "release_notes_url": "https://workspaceupdates.googleblog.com/search/label/Gemini%20AI",
-      "docs_url": "https://support.google.com/gemini/answer/13594914?hl=fr",
-      "tags": [
-        "NLP",
-        "Chatbot",
-        "Generative"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "2.5 Pro / 2.5 Flash",
-      "update_check_method": "release_notes",
-      "buzz_score": 75,
-      "vision": 87,
-      "ability": 88,
-      "source": "curated_list",
-      "description": "Google's family of multimodal AI models that understand and generate text, images, audio, video, and code with sophisticated reasoning capabilities.",
-      "pricing": "Freemium",
-      "key_features": [
-        "Multimodal understanding (text, code, audio, image, video)",
-        "Advanced reasoning and complex problem-solving",
-        "1-million-token context window for analyzing large documents",
-        "Integration with Google Workspace apps (Gmail, Docs, Sheets)",
-        "Custom AI agent creation and deployment"
-      ],
-      "founding_year": 2023,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729660",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526840",
-      "final_score": 68.1,
-      "base_score": 56.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 50.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.828580",
-      "version_updated_at": "2025-11-14T11:35:05.828522",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://gemini.google.com/",
-      "confidence_level": 100,
-      "gartner_quadrant": "Leader"
-    },
-    {
-      "name": "JetBrains AI Assistant",
-      "publisher": "JetBrains",
-      "category": "AI Coding Assistant",
-      "official_url": "https://www.jetbrains.com/ai/",
-      "release_notes_url": "https://www.jetbrains.com/ai/whatsnew/",
-      "docs_url": "",
-      "tags": [
-        "Development",
-        "Coding",
-        "Assistant"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "2025.1",
-      "update_check_method": "release_notes",
-      "buzz_score": 75,
-      "vision": 74,
-      "ability": 80,
-      "source": "curated_list",
-      "description": "Transform your business with JetBrains AI solutions and services, including integrated AI tools and software development expertise.",
-      "pricing": "Freemium (AI Free tier available; paid tiers: AI Pro at $10/month or $100/year, AI Ultimate at $30/month or $300/year, AI Enterprise with custom pricing)",
-      "key_features": [
-        "Code completion",
-        "Context-aware AI chat",
-        "Generate code",
-        "Explain code",
-        "Generate unit tests",
-        "Suggest refactoring",
-        "Write documentation",
-        "Find problems"
-      ],
-      "founding_year": 2023,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729741",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526844",
-      "final_score": 68.1,
-      "base_score": 56.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 50.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.828779",
-      "version_updated_at": "2025-11-14T11:35:05.828719",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://www.jetbrains.com/ai/",
-      "confidence_level": 100,
-      "gartner_quadrant": "Challenger"
-    },
-    {
-      "name": "Claude",
-      "publisher": "Anthropic",
-      "category": "Productivity & Task Management",
-      "official_url": "https://claude.ai/",
-      "release_notes_url": "https://claude.ai/release-notes",
-      "docs_url": "",
-      "tags": [
-        "NLP",
-        "Chatbot"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "Opus 4.1, Sonnet 4",
-      "update_check_method": "release_notes",
-      "source": "curated_list",
-      "url": "https://claude.ai/",
-      "buzz_score": 75,
-      "vision": 88,
-      "ability": 92,
-      "confidence_level": 100,
-      "description": "Claude is a next-generation AI assistant created by Anthropic, designed to be helpful, honest, and harmless. It uses large language models to process text, audio, and visual inputs for various tasks.",
-      "pricing": "Freemium",
-      "key_features": [
-        "Natural language conversation and text generation",
-        "Document summarization and analysis",
-        "Code generation and debugging",
-        "Large context window (200,000 tokens)",
-        "Image and audio processing"
-      ],
-      "founding_year": 2023,
-      "version": "1.0",
-      "version_history": [],
-      "added_date": "2025-11-14T11:35:05.829724",
-      "final_score": 68.1,
-      "base_score": 56.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 50.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "gartner_quadrant": "Leader"
-    },
-    {
-      "name": "Sourcegraph Cody",
-      "publisher": "Sourcegraph",
-      "category": "AI Coding Assistant",
-      "official_url": "https://about.sourcegraph.com/cody",
-      "release_notes_url": "https://sourcegraph.com/blog/tags/changelog",
-      "docs_url": "",
-      "tags": [
-        "Development",
-        "Coding",
-        "Assistant"
-      ],
-      "tracking_versions": true,
-      "last_known_version": "2012.05.20",
-      "update_check_method": "blog",
-      "version_source": "homepage_meta",
-      "version_metadata": {},
-      "needs_major_review": true,
-      "buzz_score": 75,
-      "vision": 70,
-      "ability": 75,
-      "source": "curated_list",
-      "description": "Cody is the most powerful and accurate AI coding assistant for writing, fixing, and maintaining code",
-      "pricing": "Freemium with usage-based and enterprise licensing options; includes free plan for light usage and enterprise plans with custom pricing",
-      "key_features": [
-        "Automatic cross-repository context identification",
-        "Vector embeddings for semantic code understanding",
-        "Integration with existing Sourcegraph infrastructure",
-        "AI-first IDE integration with real-time code completion",
-        "Support for multiple LLMs and flexible AI infrastructure deployment"
-      ],
-      "founding_year": 2023,
-      "version": "2.0",
-      "version_history": [
-        {
-          "version": "1.0",
-          "snapshot_date": "2025-11-14T11:29:24.729786",
-          "vision": 50,
-          "ability": 50,
-          "quadrant": null
-        }
-      ],
-      "added_date": "2025-11-14T10:10:13.526845",
-      "final_score": 68.1,
-      "base_score": 56.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 80,
-        "ability": 60,
-        "credibility": 50.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 1.0,
-        "source_multiplier": 1.2,
-        "maturity_adjustment": 0.0,
-        "penalties": [],
-        "bonuses": [
-          "High confidence (100)",
-          "Curated list (1.2x)"
-        ]
-      },
-      "strengths": null,
-      "limitations": null,
-      "last_updated": "2025-11-14T11:35:05.828877",
-      "version_updated_at": "2025-11-14T11:35:05.828817",
-      "major_update_reason": [
-        "Vision changed significantly: 50→80 (+30)"
-      ],
-      "url": "https://about.sourcegraph.com/cody",
-      "confidence_level": 100,
-      "gartner_quadrant": "Challenger"
-    },
-    {
-      "name": "Bolt.new",
-      "official_url": "https://bolt.new",
-      "twitter_handle": "@bolt_new",
-      "category": "AI Coding Assistant",
-      "vision": 73,
-      "ability": 77,
-      "buzz_score": 75,
-      "quadrant": "Leader",
-      "status": "active",
-      "description": "Web development AI assistant for rapid prototyping.",
-      "features": [
-        "Full-stack generation",
-        "Real-time preview",
-        "Git integration"
-      ],
-      "pricing": "Free tier | Pro plans available",
-      "added_date": "2025-11-10T21:21:35.741862",
-      "key_features": [
-        "Natural language to full-stack app generation",
-        "Visual editor for layout and logic tweaks",
-        "Live preview and editable code",
-        "Built-in hosting and deployment options",
-        "Support for downloading source code"
-      ],
-      "founding_year": 2023,
-      "final_score": 35.52,
-      "base_score": 50.75,
-      "scoring_breakdown": {
-        "buzz": 75,
-        "vision": 73,
-        "ability": 77,
-        "credibility": 10.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 0.7,
-        "source_multiplier": 1.0,
-        "maturity_adjustment": 0.0,
-        "penalties": [
-          "Low confidence (50) (0.7x)"
-        ],
-        "bonuses": []
-      },
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "DALL-E 3",
@@ -2538,17 +2492,17 @@
         "Multiple aspect ratios and new style options (natural and vivid)"
       ],
       "founding_year": 2023,
-      "final_score": 35.38,
-      "base_score": 50.55,
+      "final_score": 70.95,
+      "base_score": 70.95,
       "scoring_breakdown": {
         "buzz": 75,
         "vision": 70,
         "ability": 79,
-        "credibility": 10.0,
+        "credibility": 75.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -2556,7 +2510,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Challenger"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "Sora 2",
@@ -2609,17 +2563,17 @@
         "Advanced audio generation including lip-sync and ambient sound"
       ],
       "founding_year": 2024,
-      "final_score": 34.93,
-      "base_score": 49.9,
+      "final_score": 70.15,
+      "base_score": 70.15,
       "scoring_breakdown": {
         "buzz": 74,
         "vision": 85,
         "ability": 62,
-        "credibility": 10.0,
+        "credibility": 75.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -2630,42 +2584,42 @@
       "gartner_quadrant": "Visionary"
     },
     {
-      "name": "Runway Gen-3",
-      "official_url": "https://runwayml.com",
-      "twitter_handle": "@runwayml",
-      "category": "Video Generation",
-      "vision": 80,
-      "ability": 46,
-      "buzz_score": 63,
-      "quadrant": "Visionary",
+      "name": "Bolt.new",
+      "official_url": "https://bolt.new",
+      "twitter_handle": "@bolt_new",
+      "category": "AI Coding Assistant",
+      "vision": 73,
+      "ability": 77,
+      "buzz_score": 75,
+      "quadrant": "Leader",
       "status": "active",
-      "description": "Professional video generation and editing platform.",
+      "description": "Web development AI assistant for rapid prototyping.",
       "features": [
-        "Video generation",
-        "Motion control",
-        "Color grading"
+        "Full-stack generation",
+        "Real-time preview",
+        "Git integration"
       ],
-      "pricing": "Free tier | $12-76/month",
-      "added_date": "2025-11-10T21:21:35.741853",
+      "pricing": "Free tier | Pro plans available",
+      "added_date": "2025-11-10T21:21:35.741862",
       "key_features": [
-        "Text-to-video and image-to-video generation",
-        "High-resolution output (up to 4K)",
-        "Watermark-free exports on paid plans",
-        "Custom AI voice creation (Pro and above)",
-        "Unlimited video generations in Explore Mode (Unlimited plan)"
+        "Natural language to full-stack app generation",
+        "Visual editor for layout and logic tweaks",
+        "Live preview and editable code",
+        "Built-in hosting and deployment options",
+        "Support for downloading source code"
       ],
-      "founding_year": 2018,
-      "final_score": 31.46,
-      "base_score": 44.95,
+      "founding_year": 2023,
+      "final_score": 68.25,
+      "base_score": 68.25,
       "scoring_breakdown": {
-        "buzz": 63,
-        "vision": 80,
-        "ability": 46,
-        "credibility": 20.0,
+        "buzz": 75,
+        "vision": 73,
+        "ability": 77,
+        "credibility": 55.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -2673,7 +2627,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Visionary"
+      "gartner_quadrant": "Leader"
     },
     {
       "name": "AWS Q Developer",
@@ -2701,17 +2655,17 @@
         "Code transformation and language version upgrades with validation"
       ],
       "founding_year": 2024,
-      "final_score": 30.38,
-      "base_score": 43.4,
+      "final_score": 62.15,
+      "base_score": 62.15,
       "scoring_breakdown": {
         "buzz": 64,
         "vision": 48,
         "ability": 79,
-        "credibility": 10.0,
+        "credibility": 75.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -2720,6 +2674,52 @@
         "bonuses": []
       },
       "gartner_quadrant": "Challenger"
+    },
+    {
+      "name": "Runway Gen-3",
+      "official_url": "https://runwayml.com",
+      "twitter_handle": "@runwayml",
+      "category": "Video Generation",
+      "vision": 80,
+      "ability": 46,
+      "buzz_score": 63,
+      "quadrant": "Visionary",
+      "status": "active",
+      "description": "Professional video generation and editing platform.",
+      "features": [
+        "Video generation",
+        "Motion control",
+        "Color grading"
+      ],
+      "pricing": "Free tier | $12-76/month",
+      "added_date": "2025-11-10T21:21:35.741853",
+      "key_features": [
+        "Text-to-video and image-to-video generation",
+        "High-resolution output (up to 4K)",
+        "Watermark-free exports on paid plans",
+        "Custom AI voice creation (Pro and above)",
+        "Unlimited video generations in Explore Mode (Unlimited plan)"
+      ],
+      "founding_year": 2018,
+      "final_score": 60.15,
+      "base_score": 60.15,
+      "scoring_breakdown": {
+        "buzz": 63,
+        "vision": 80,
+        "ability": 46,
+        "credibility": 65.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": []
+      },
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "Veo 3",
@@ -2747,17 +2747,17 @@
         "Multi-shot scene support and seamless transitions"
       ],
       "founding_year": 2025,
-      "final_score": 30.28,
-      "base_score": 43.25,
+      "final_score": 52.0,
+      "base_score": 52.0,
       "scoring_breakdown": {
         "buzz": 65,
         "vision": 82,
         "ability": 48,
-        "credibility": 5.0,
+        "credibility": 0.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -2793,17 +2793,17 @@
         "Web Search - Parse and analyze web pages and documentation in real-time"
       ],
       "founding_year": 2024,
-      "final_score": 29.61,
-      "base_score": 42.3,
+      "final_score": 50.35,
+      "base_score": 50.35,
       "scoring_breakdown": {
         "buzz": 62,
         "vision": 76,
         "ability": 48,
-        "credibility": 10.0,
+        "credibility": 5.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -2839,63 +2839,17 @@
         "Scalable tensor parallelism across multiple interconnected chips for handling large language models efficiently"
       ],
       "founding_year": 2016,
-      "final_score": 29.05,
-      "base_score": 41.5,
+      "final_score": 48.35,
+      "base_score": 48.35,
       "scoring_breakdown": {
         "buzz": 58,
         "vision": 70,
         "ability": 45,
-        "credibility": 20.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 0.7,
-        "source_multiplier": 1.0,
-        "maturity_adjustment": 0.0,
-        "penalties": [
-          "Low confidence (50) (0.7x)"
-        ],
-        "bonuses": []
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Gamma",
-      "official_url": "https://gamma.app",
-      "twitter_handle": "@gamma_app",
-      "category": "Presentation",
-      "vision": 44,
-      "ability": 71,
-      "buzz_score": 58,
-      "quadrant": "Challenger",
-      "status": "active",
-      "description": "AI presentation and document creation.",
-      "features": [
-        "Deck generation",
-        "Document creation",
-        "Smart design"
-      ],
-      "pricing": "Free tier | Pro: $10/month",
-      "added_date": "2025-11-10T21:21:35.741868",
-      "key_features": [
-        "AI-powered content and design generation",
-        "Flexible card-based system for organizing ideas",
-        "Real-time collaboration and sharing",
-        "One-click formatting and customizable templates",
-        "Interactive elements and multimedia embedding"
-      ],
-      "founding_year": 2022,
-      "final_score": 28.35,
-      "base_score": 40.5,
-      "scoring_breakdown": {
-        "buzz": 58,
-        "vision": 44,
-        "ability": 71,
         "credibility": 15.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -2903,7 +2857,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "Luma AI",
@@ -2931,17 +2885,17 @@
         "Creative control with image-to-video and editing features"
       ],
       "founding_year": 2023,
-      "final_score": 28.24,
-      "base_score": 40.35,
+      "final_score": 47.95,
+      "base_score": 47.95,
       "scoring_breakdown": {
         "buzz": 59,
         "vision": 74,
         "ability": 44,
-        "credibility": 10.0,
+        "credibility": 5.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -2949,7 +2903,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "Flux.1",
@@ -2975,17 +2929,17 @@
         "Efficient resource utilization and multiple model variants for different use cases"
       ],
       "founding_year": 2024,
-      "final_score": 28.1,
-      "base_score": 40.15,
+      "final_score": 47.65,
+      "base_score": 47.65,
       "scoring_breakdown": {
         "buzz": 59,
         "vision": 72,
         "ability": 45,
-        "credibility": 10.0,
+        "credibility": 5.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -2993,7 +2947,53 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Visionary"
+    },
+    {
+      "name": "Gamma",
+      "official_url": "https://gamma.app",
+      "twitter_handle": "@gamma_app",
+      "category": "Presentation",
+      "vision": 44,
+      "ability": 71,
+      "buzz_score": 58,
+      "quadrant": "Challenger",
+      "status": "active",
+      "description": "AI presentation and document creation.",
+      "features": [
+        "Deck generation",
+        "Document creation",
+        "Smart design"
+      ],
+      "pricing": "Free tier | Pro: $10/month",
+      "added_date": "2025-11-10T21:21:35.741868",
+      "key_features": [
+        "AI-powered content and design generation",
+        "Flexible card-based system for organizing ideas",
+        "Real-time collaboration and sharing",
+        "One-click formatting and customizable templates",
+        "Interactive elements and multimedia embedding"
+      ],
+      "founding_year": 2022,
+      "final_score": 47.6,
+      "base_score": 47.6,
+      "scoring_breakdown": {
+        "buzz": 58,
+        "vision": 44,
+        "ability": 71,
+        "credibility": 10.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": []
+      },
+      "gartner_quadrant": "Challenger"
     },
     {
       "name": "Kimi Chat",
@@ -3021,17 +3021,17 @@
         "Advanced code generation and debugging"
       ],
       "founding_year": 2023,
-      "final_score": 27.2,
-      "base_score": 38.85,
+      "final_score": 46.05,
+      "base_score": 46.05,
       "scoring_breakdown": {
         "buzz": 57,
         "vision": 45,
         "ability": 68,
-        "credibility": 10.0,
+        "credibility": 5.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -3039,7 +3039,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Challenger"
     },
     {
       "name": "Mistral Large",
@@ -3067,17 +3067,17 @@
         "Advanced code generation proficiency across 80+ programming languages"
       ],
       "founding_year": 2023,
-      "final_score": 27.2,
-      "base_score": 38.85,
+      "final_score": 46.05,
+      "base_score": 46.05,
       "scoring_breakdown": {
         "buzz": 57,
         "vision": 44,
         "ability": 69,
-        "credibility": 10.0,
+        "credibility": 5.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -3085,7 +3085,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Challenger"
     },
     {
       "name": "Grok 4",
@@ -3113,17 +3113,17 @@
         "Voice interaction with emotional range"
       ],
       "founding_year": 2025,
-      "final_score": 26.63,
-      "base_score": 38.05,
+      "final_score": 45.6,
+      "base_score": 45.6,
       "scoring_breakdown": {
         "buzz": 57,
         "vision": 72,
         "ability": 42,
-        "credibility": 5.0,
+        "credibility": 0.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -3131,7 +3131,7 @@
         ],
         "bonuses": []
       },
-      "gartner_quadrant": "Niche Player"
+      "gartner_quadrant": "Visionary"
     },
     {
       "name": "DeepSeek R1",
@@ -3159,17 +3159,200 @@
         "Real-time web search integration with transparent reasoning and content analysis"
       ],
       "founding_year": 2023,
-      "final_score": 25.52,
-      "base_score": 36.45,
+      "final_score": 43.15,
+      "base_score": 43.15,
       "scoring_breakdown": {
         "buzz": 53,
         "vision": 64,
         "ability": 42,
+        "credibility": 5.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": []
+      },
+      "gartner_quadrant": "Niche Player"
+    },
+    {
+      "name": "CodeWhisperer Legacy",
+      "official_url": "https://aws.amazon.com/codewhisperer",
+      "twitter_handle": "@AWScloud",
+      "category": "AI Coding Assistant",
+      "vision": 30,
+      "ability": 45,
+      "buzz_score": 38,
+      "quadrant": "Niche",
+      "status": "active",
+      "description": "AWS CodeWhisperer previous version.",
+      "features": [
+        "Code suggestions",
+        "IDE integration"
+      ],
+      "pricing": "Free/deprecated",
+      "added_date": "2025-11-10T21:21:35.741876",
+      "key_features": [
+        "Real-time code completion",
+        "Security vulnerability scanning",
+        "Open-source code attribution",
+        "Context-aware suggestions",
+        "Integration with popular IDEs"
+      ],
+      "founding_year": 2022,
+      "final_score": 42.1,
+      "base_score": 42.1,
+      "scoring_breakdown": {
+        "buzz": 38,
+        "vision": 30,
+        "ability": 45,
+        "credibility": 80.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": []
+      },
+      "gartner_quadrant": "Niche Player"
+    },
+    {
+      "name": "Ideogram",
+      "official_url": "https://ideogram.ai",
+      "twitter_handle": "@ideogram_ai",
+      "category": "Image Generation",
+      "vision": 45,
+      "ability": 38,
+      "buzz_score": 42,
+      "quadrant": "Niche",
+      "status": "active",
+      "description": "Specialized in text rendering in generated images.",
+      "features": [
+        "Text rendering",
+        "Design assist",
+        "Branding"
+      ],
+      "pricing": "Free tier | Pro: $9.99/month",
+      "added_date": "2025-11-10T21:21:35.741845",
+      "key_features": [
+        "Text-to-image generation with superior text rendering",
+        "Magic Prompt for automatic prompt enhancement",
+        "Infinite Canvas with Magic Fill and Extend for editing",
+        "Batch generation for creating multiple images at once",
+        "Character Reference for consistency across images"
+      ],
+      "founding_year": 2023,
+      "final_score": 34.05,
+      "base_score": 34.05,
+      "scoring_breakdown": {
+        "buzz": 42,
+        "vision": 45,
+        "ability": 38,
+        "credibility": 5.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": []
+      },
+      "gartner_quadrant": "Niche Player"
+    },
+    {
+      "name": "Riffusion",
+      "official_url": "https://www.riffusion.com",
+      "twitter_handle": "@riffusionai",
+      "category": "Audio Generation",
+      "vision": 40,
+      "ability": 35,
+      "buzz_score": 38,
+      "quadrant": "Niche",
+      "status": "active",
+      "description": "AI music generation using diffusion models.",
+      "features": [
+        "Music generation",
+        "Style control",
+        "Remix"
+      ],
+      "pricing": "Free",
+      "added_date": "2025-11-10T21:21:35.741873",
+      "key_features": [
+        "Text-to-music generation",
+        "Spectrogram-based music synthesis",
+        "Real-time audio generation and remixing",
+        "Customizable mood and style prompts",
+        "Integration with web and social platforms"
+      ],
+      "founding_year": 2022,
+      "final_score": 31.6,
+      "base_score": 31.6,
+      "scoring_breakdown": {
+        "buzz": 38,
+        "vision": 40,
+        "ability": 35,
         "credibility": 10.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.7,
+        "confidence_multiplier": 1.0,
+        "source_multiplier": 1.0,
+        "maturity_adjustment": 0.0,
+        "penalties": [
+          "Low confidence (50) (0.7x)"
+        ],
+        "bonuses": []
+      },
+      "gartner_quadrant": "Niche Player"
+    },
+    {
+      "name": "Upscayl",
+      "official_url": "https://www.upscayl.org",
+      "twitter_handle": "@upscaylai",
+      "category": "Image Generation",
+      "vision": 35,
+      "ability": 38,
+      "buzz_score": 37,
+      "quadrant": "Niche",
+      "status": "active",
+      "description": "Free upscaling tool for images.",
+      "features": [
+        "Image upscaling",
+        "Batch processing",
+        "No watermarks"
+      ],
+      "pricing": "Free",
+      "added_date": "2025-11-10T21:21:35.741846",
+      "key_features": [
+        "AI-powered image upscaling with support for 2x, 4x, 8x, and up to 16x resolution enhancement",
+        "Multiple AI models (6+ on desktop, 12+ on cloud) including Real-ESRGAN for different image types",
+        "Batch processing to upscale multiple images simultaneously",
+        "Artifact removal that reduces blur, JPEG artifacts, and noise while preserving details",
+        "Cross-platform support for Windows, macOS, and Linux with customizable settings"
+      ],
+      "founding_year": 2022,
+      "final_score": 30.8,
+      "base_score": 30.8,
+      "scoring_breakdown": {
+        "buzz": 37,
+        "vision": 35,
+        "ability": 38,
+        "credibility": 10.0,
+        "adoption": 0.0
+      },
+      "scoring_metadata": {
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [
@@ -3203,17 +3386,17 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T10:10:13.526829",
-      "final_score": 23.8,
-      "base_score": 26.45,
+      "final_score": 30.55,
+      "base_score": 30.55,
       "scoring_breakdown": {
         "buzz": 35.0,
         "vision": 38.5,
         "ability": 35.0,
-        "credibility": 15.0,
+        "credibility": 10.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.9,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [],
@@ -3234,7 +3417,7 @@
       "category": "Open Source",
       "buzz_score": 35.0,
       "vision": 38.5,
-      "ability": 35.0,
+      "ability": 35.1,
       "confidence_level": 70,
       "pricing": "Freemium with paid plans (Basic $49/month, Pro $750/month) and Enterprise custom pricing",
       "key_features": [
@@ -3248,17 +3431,17 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T10:10:13.526825",
-      "final_score": 22.91,
-      "base_score": 25.45,
+      "final_score": 29.8,
+      "base_score": 29.8,
       "scoring_breakdown": {
         "buzz": 35.0,
         "vision": 38.5,
         "ability": 35.0,
-        "credibility": 10.0,
+        "credibility": 5.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.9,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [],
@@ -3300,17 +3483,17 @@
         }
       ],
       "added_date": "2025-11-12T22:36:03.517943",
-      "final_score": 21.38,
-      "base_score": 23.75,
+      "final_score": 27.25,
+      "base_score": 27.25,
       "scoring_breakdown": {
         "buzz": 35.0,
         "vision": 30.0,
         "ability": 35.0,
-        "credibility": 10.0,
+        "credibility": 5.0,
         "adoption": 0.0
       },
       "scoring_metadata": {
-        "confidence_multiplier": 0.9,
+        "confidence_multiplier": 1.0,
         "source_multiplier": 1.0,
         "maturity_adjustment": 0.0,
         "penalties": [],
@@ -3326,189 +3509,6 @@
       "last_updated": "2025-11-14T11:35:05.829056",
       "strengths": null,
       "limitations": null,
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Ideogram",
-      "official_url": "https://ideogram.ai",
-      "twitter_handle": "@ideogram_ai",
-      "category": "Image Generation",
-      "vision": 45,
-      "ability": 38,
-      "buzz_score": 42,
-      "quadrant": "Niche",
-      "status": "active",
-      "description": "Specialized in text rendering in generated images.",
-      "features": [
-        "Text rendering",
-        "Design assist",
-        "Branding"
-      ],
-      "pricing": "Free tier | Pro: $9.99/month",
-      "added_date": "2025-11-10T21:21:35.741845",
-      "key_features": [
-        "Text-to-image generation with superior text rendering",
-        "Magic Prompt for automatic prompt enhancement",
-        "Infinite Canvas with Magic Fill and Extend for editing",
-        "Batch generation for creating multiple images at once",
-        "Character Reference for consistency across images"
-      ],
-      "founding_year": 2023,
-      "final_score": 20.37,
-      "base_score": 29.1,
-      "scoring_breakdown": {
-        "buzz": 42,
-        "vision": 45,
-        "ability": 38,
-        "credibility": 10.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 0.7,
-        "source_multiplier": 1.0,
-        "maturity_adjustment": 0.0,
-        "penalties": [
-          "Low confidence (50) (0.7x)"
-        ],
-        "bonuses": []
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Riffusion",
-      "official_url": "https://www.riffusion.com",
-      "twitter_handle": "@riffusionai",
-      "category": "Audio Generation",
-      "vision": 40,
-      "ability": 35,
-      "buzz_score": 38,
-      "quadrant": "Niche",
-      "status": "active",
-      "description": "AI music generation using diffusion models.",
-      "features": [
-        "Music generation",
-        "Style control",
-        "Remix"
-      ],
-      "pricing": "Free",
-      "added_date": "2025-11-10T21:21:35.741873",
-      "key_features": [
-        "Text-to-music generation",
-        "Spectrogram-based music synthesis",
-        "Real-time audio generation and remixing",
-        "Customizable mood and style prompts",
-        "Integration with web and social platforms"
-      ],
-      "founding_year": 2022,
-      "final_score": 19.25,
-      "base_score": 27.5,
-      "scoring_breakdown": {
-        "buzz": 38,
-        "vision": 40,
-        "ability": 35,
-        "credibility": 15.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 0.7,
-        "source_multiplier": 1.0,
-        "maturity_adjustment": 0.0,
-        "penalties": [
-          "Low confidence (50) (0.7x)"
-        ],
-        "bonuses": []
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "CodeWhisperer Legacy",
-      "official_url": "https://aws.amazon.com/codewhisperer",
-      "twitter_handle": "@AWScloud",
-      "category": "AI Coding Assistant",
-      "vision": 30,
-      "ability": 45,
-      "buzz_score": 38,
-      "quadrant": "Niche",
-      "status": "active",
-      "description": "AWS CodeWhisperer previous version.",
-      "features": [
-        "Code suggestions",
-        "IDE integration"
-      ],
-      "pricing": "Free/deprecated",
-      "added_date": "2025-11-10T21:21:35.741876",
-      "key_features": [
-        "Real-time code completion",
-        "Security vulnerability scanning",
-        "Open-source code attribution",
-        "Context-aware suggestions",
-        "Integration with popular IDEs"
-      ],
-      "founding_year": 2022,
-      "final_score": 19.25,
-      "base_score": 27.5,
-      "scoring_breakdown": {
-        "buzz": 38,
-        "vision": 30,
-        "ability": 45,
-        "credibility": 15.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 0.7,
-        "source_multiplier": 1.0,
-        "maturity_adjustment": 0.0,
-        "penalties": [
-          "Low confidence (50) (0.7x)"
-        ],
-        "bonuses": []
-      },
-      "gartner_quadrant": "Niche Player"
-    },
-    {
-      "name": "Upscayl",
-      "official_url": "https://www.upscayl.org",
-      "twitter_handle": "@upscaylai",
-      "category": "Image Generation",
-      "vision": 35,
-      "ability": 38,
-      "buzz_score": 37,
-      "quadrant": "Niche",
-      "status": "active",
-      "description": "Free upscaling tool for images.",
-      "features": [
-        "Image upscaling",
-        "Batch processing",
-        "No watermarks"
-      ],
-      "pricing": "Free",
-      "added_date": "2025-11-10T21:21:35.741846",
-      "key_features": [
-        "AI-powered image upscaling with support for 2x, 4x, 8x, and up to 16x resolution enhancement",
-        "Multiple AI models (6+ on desktop, 12+ on cloud) including Real-ESRGAN for different image types",
-        "Batch processing to upscale multiple images simultaneously",
-        "Artifact removal that reduces blur, JPEG artifacts, and noise while preserving details",
-        "Cross-platform support for Windows, macOS, and Linux with customizable settings"
-      ],
-      "founding_year": 2022,
-      "final_score": 18.79,
-      "base_score": 26.85,
-      "scoring_breakdown": {
-        "buzz": 37,
-        "vision": 35,
-        "ability": 38,
-        "credibility": 15.0,
-        "adoption": 0.0
-      },
-      "scoring_metadata": {
-        "confidence_multiplier": 0.7,
-        "source_multiplier": 1.0,
-        "maturity_adjustment": 0.0,
-        "penalties": [
-          "Low confidence (50) (0.7x)"
-        ],
-        "bonuses": []
-      },
       "gartner_quadrant": "Niche Player"
     }
   ]
