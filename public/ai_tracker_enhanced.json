@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2025-12-01T09:52:35.736880",
+    "last_updated": "2025-12-15T09:38:11.564954",
     "total_tools": 61,
     "new_tools_count": 0,
     "updated_tools_count": 0,
@@ -25,9 +25,9 @@
       "🛡️  Safety net: Curated tools minimum 50 score guarantee"
     ],
     "cost_optimization": {
-      "potential_cost": "$0.0872",
-      "actual_cost": "$0.0048",
-      "savings": "$0.0872",
+      "potential_cost": "$0.0864",
+      "actual_cost": "$0.0064",
+      "savings": "$0.0864",
       "savings_percent": "100.0%"
     }
   },
@@ -771,7 +771,7 @@
         "AI"
       ],
       "tracking_versions": true,
-      "last_known_version": "0.8691619760103813",
+      "last_known_version": "0.1819075982774847",
       "update_check_method": "blog",
       "buzz_score": 75,
       "vision": 80,
@@ -820,7 +820,7 @@
       "strengths": null,
       "limitations": null,
       "last_updated": "2025-11-14T11:35:05.828383",
-      "version_updated_at": "2025-12-01T09:52:12.884281",
+      "version_updated_at": "2025-12-15T09:37:50.895291",
       "major_update_reason": [
         "Vision changed significantly: 50→80 (+30)"
       ],
@@ -1277,12 +1277,12 @@
         }
       ],
       "added_date": "2025-11-14T10:10:13.526842",
-      "final_score": 80.82,
-      "base_score": 67.35,
+      "final_score": 80.86,
+      "base_score": 67.38,
       "scoring_breakdown": {
         "buzz": 75,
         "vision": 72,
-        "ability": 70,
+        "ability": 70.1,
         "credibility": 65.0,
         "adoption": 0.0
       },
@@ -1341,12 +1341,12 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T11:35:05.829751",
-      "final_score": 79.92,
-      "base_score": 66.6,
+      "final_score": 79.96,
+      "base_score": 66.63,
       "scoring_breakdown": {
         "buzz": 75,
         "vision": 70,
-        "ability": 72,
+        "ability": 72.1,
         "credibility": 60.0,
         "adoption": 0.0
       },
@@ -1962,12 +1962,12 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T11:35:05.829763",
-      "final_score": 77.58,
-      "base_score": 64.65,
+      "final_score": 77.62,
+      "base_score": 64.68,
       "scoring_breakdown": {
         "buzz": 75,
         "vision": 70,
-        "ability": 68,
+        "ability": 68.1,
         "credibility": 55.0,
         "adoption": 0.0
       },
@@ -2017,12 +2017,12 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T11:35:05.829769",
-      "final_score": 77.58,
-      "base_score": 64.65,
+      "final_score": 77.62,
+      "base_score": 64.68,
       "scoring_breakdown": {
         "buzz": 75,
         "vision": 68,
-        "ability": 70,
+        "ability": 70.1,
         "credibility": 55.0,
         "adoption": 0.0
       },
@@ -2445,12 +2445,12 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T11:35:05.829748",
-      "final_score": 72.0,
-      "base_score": 60.0,
+      "final_score": 72.04,
+      "base_score": 60.03,
       "scoring_breakdown": {
         "buzz": 75,
         "vision": 66,
-        "ability": 64,
+        "ability": 64.1,
         "credibility": 40.0,
         "adoption": 0.0
       },
@@ -3431,12 +3431,12 @@
       "version": "1.0",
       "version_history": [],
       "added_date": "2025-11-14T10:10:13.526825",
-      "final_score": 29.8,
-      "base_score": 29.8,
+      "final_score": 29.83,
+      "base_score": 29.83,
       "scoring_breakdown": {
         "buzz": 35.0,
         "vision": 38.5,
-        "ability": 35.0,
+        "ability": 35.1,
         "credibility": 5.0,
         "adoption": 0.0
       },
