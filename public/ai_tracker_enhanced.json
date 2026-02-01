@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-01-15T09:34:15.185344",
+    "last_updated": "2026-02-01T09:36:43.837695",
     "total_tools": 61,
     "new_tools_count": 0,
     "updated_tools_count": 0,
@@ -25,9 +25,9 @@
       "🛡️  Safety net: Curated tools minimum 50 score guarantee"
     ],
     "cost_optimization": {
-      "potential_cost": "$0.0856",
-      "actual_cost": "$0.0056",
-      "savings": "$0.0856",
+      "potential_cost": "$0.0840",
+      "actual_cost": "$0.0040",
+      "savings": "$0.0840",
       "savings_percent": "100.0%"
     }
   },
@@ -647,7 +647,7 @@
         "AI"
       ],
       "tracking_versions": true,
-      "last_known_version": "0.4034243392289012",
+      "last_known_version": "0.6882418065679929",
       "update_check_method": "blog",
       "buzz_score": 75,
       "vision": 80,
@@ -696,7 +696,7 @@
       "strengths": null,
       "limitations": null,
       "last_updated": "2025-11-14T11:35:05.828383",
-      "version_updated_at": "2026-01-15T09:33:55.104737",
+      "version_updated_at": "2026-02-01T09:36:32.816347",
       "major_update_reason": [
         "Vision changed significantly: 50→80 (+30)"
       ],
@@ -1243,7 +1243,7 @@
         "Q&A"
       ],
       "tracking_versions": true,
-      "last_known_version": "3.1",
+      "last_known_version": "3.2",
       "update_check_method": "release_notes",
       "version_source": "changelog",
       "version_metadata": {
@@ -1299,7 +1299,7 @@
       "strengths": null,
       "limitations": null,
       "last_updated": "2025-11-14T11:35:05.828679",
-      "version_updated_at": "2025-12-01T09:52:12.884219",
+      "version_updated_at": "2026-02-01T09:36:32.816417",
       "major_update_reason": [
         "Vision changed significantly: 50→80 (+30)"
       ],
